@@ -22,7 +22,7 @@ export class InvitationComponent implements OnInit {
   correct: boolean = false;
 
   ListCompany: TypeContext[] = [];
-  ListRol: Location[] = [];
+  ListRol: TypeContext[] = [];
   isSaved: boolean = false;
 
   contact: contact;
@@ -54,14 +54,20 @@ export class InvitationComponent implements OnInit {
 
     this.connexion.get_data<Location>('location').subscribe(reslo => {
       this.ListLOC = reslo;
-      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e14d334d235a7103c0ba4f1');
-      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e14d611d235a7103c0ba4f6');
+      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9');
+      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e77eb74e46d520fc0768bb4');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e252fb391a1412bf8709a69');
+      this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e77e28c4d3aa437d81b77cd');
+    }, error => {
+      console.log('Hubo un problema al cargar datos. ' + error);
+    });
+
+    this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+      this.ListRol = reslo.filter(LOC => LOC.context_id == '5e7838ce7702002328b33b02');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
@@ -218,7 +224,7 @@ export class InvitationComponent implements OnInit {
   }
 
   updateSelectEquipo(index) {
-    this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
+    //this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
   }
 
 }
