@@ -24,7 +24,13 @@ app.set('port', config.server.port);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 //cors
-app.use(cors());
+app.use(cors({
+    'allowedHeaders': ['sessionId', 'Content-Type'],
+    'exposedHeaders': ['sessionId'],
+    'origin': '*',
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': false
+  }));
 config.serverURL = __dirname;
 console.log(config.serverURL);
 config.serverURL = path.join(config.serverURL, 'frontend');
