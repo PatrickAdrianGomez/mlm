@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.use(cors({
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
-    'origin': '*',
+    'origin': 'http://35.232.169.69',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
     'preflightContinue': false
   }));
