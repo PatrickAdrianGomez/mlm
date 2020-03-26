@@ -12483,17 +12483,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this31.ListLOC = reslo;
             _this31.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e14d334d235a7103c0ba4f1';
+              return LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9';
             });
             _this31.depasCI = _this31.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e14d611d235a7103c0ba4f6';
+              return LOC.owner == '5e77eb74e46d520fc0768bb4';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this31.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e252fb391a1412bf8709a69';
+              return LOC.context_id == '5e77e28c4d3aa437d81b77cd';
+            });
+          }, function (error) {
+            console.log('Hubo un problema al cargar datos. ' + error);
+          });
+          this.connexion.get_data('typecontext').subscribe(function (reslo) {
+            _this31.ListRol = reslo.filter(function (LOC) {
+              return LOC.context_id == '5e7838ce7702002328b33b02';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
@@ -12673,10 +12680,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "updateSelectEquipo",
-        value: function updateSelectEquipo(index) {
-          this.ListRol = this.ListLOC.filter(function (LOC) {
-            return LOC.typecon_id == index;
-          });
+        value: function updateSelectEquipo(index) {//this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
         }
       }]);
 

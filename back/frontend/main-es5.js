@@ -1412,8 +1412,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var globalVars = {
-      domain: 'http://65.vps.confiared.com/ventunmlm/back:8001',
-      filesDomain: 'http://65.vps.confiared.com/ventunmlm/back:8001/',
+      //domain: 'http://35.232.169.69:8001',
+      domain: '',
+      //filesDomain: 'http://35.232.169.69:8001/',
+      //domain: 'http://127.0.0.1:8000',
+      filesDomain: '',
       language: 'es',
       moneda: 'BOL'
     };
@@ -1831,17 +1834,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this2.ListLOC = reslo;
             _this2.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e14d334d235a7103c0ba4f1';
+              return LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9';
             });
             _this2.depasCI = _this2.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e14d611d235a7103c0ba4f6';
+              return LOC.owner == '5e77eb74e46d520fc0768bb4';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this2.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e252fb391a1412bf8709a69';
+              return LOC.context_id == '5e77e28c4d3aa437d81b77cd';
+            });
+          }, function (error) {
+            console.log('Hubo un problema al cargar datos. ' + error);
+          });
+          this.connexion.get_data('typecontext').subscribe(function (reslo) {
+            _this2.ListRol = reslo.filter(function (LOC) {
+              return LOC.context_id == '5e7838ce7702002328b33b02';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
@@ -1971,10 +1981,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "updateSelectEquipo",
-        value: function updateSelectEquipo(index) {
-          this.ListRol = this.ListLOC.filter(function (LOC) {
-            return LOC.typecon_id == index;
-          });
+        value: function updateSelectEquipo(index) {//this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
         }
       }]);
 
