@@ -24,7 +24,7 @@ app.set('port', config.server.port);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 //cors
-app.use(cors({origin: 'http://35.232.169.69:8001'}));
+app.use(cors({origin: 'http://35.239.157.9:8001'}));
 /*app.use(cors({
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
