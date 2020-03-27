@@ -1,9 +1,7 @@
 export const globalVars = {
-    //domain: 'http://35.232.169.69:8001',
-    domain: '',
-    //filesDomain: 'http://35.232.169.69:8001/',
+    domain: 'http://35.239.157.9:8001',
     //domain: 'http://127.0.0.1:8000',
-    filesDomain: '',
+    filesDomain: 'http://35.239.157.9:8001',
 
     language: 'es',
     moneda: 'BOL'
