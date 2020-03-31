@@ -691,11 +691,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 const globalVars = {
-    //domain: 'http://35.232.169.69:8001',
-    domain: '',
-    //filesDomain: 'http://35.232.169.69:8001/',
+    domain: 'http://35.239.157.9:8001',
     //domain: 'http://127.0.0.1:8000',
-    filesDomain: '',
+    filesDomain: 'http://35.239.157.9:8001',
     language: 'es',
     moneda: 'BOL'
 };
@@ -946,18 +944,18 @@ let RegisterComponent = class RegisterComponent {
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9');
-            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e77eb74e46d520fc0768bb4');
+            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
+            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e77e28c4d3aa437d81b77cd');
+            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e7838ce7702002328b33b02');
+            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

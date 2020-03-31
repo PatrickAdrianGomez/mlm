@@ -8476,18 +8476,18 @@ let InvitationComponent = class InvitationComponent {
         }
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9');
-            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e77eb74e46d520fc0768bb4');
+            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
+            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e77e28c4d3aa437d81b77cd');
+            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e7838ce7702002328b33b02');
+            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

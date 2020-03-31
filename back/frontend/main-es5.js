@@ -1412,11 +1412,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var globalVars = {
-      //domain: 'http://35.232.169.69:8001',
-      domain: '',
-      //filesDomain: 'http://35.232.169.69:8001/',
+      domain: 'http://35.239.157.9:8001',
       //domain: 'http://127.0.0.1:8000',
-      filesDomain: '',
+      filesDomain: 'http://35.239.157.9:8001',
       language: 'es',
       moneda: 'BOL'
     };
@@ -1834,24 +1832,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this2.ListLOC = reslo;
             _this2.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e77e0ce4d3aa437d81b77c9';
+              return LOC.typecon_id == '5e82f99555df33706d238006';
             });
             _this2.depasCI = _this2.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e77eb74e46d520fc0768bb4';
+              return LOC.owner == '5e82fa4155df33706d23800a';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this2.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e77e28c4d3aa437d81b77cd';
+              return LOC.context_id == '5e82fff755df33706d23801d';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this2.ListRol = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e7838ce7702002328b33b02';
+              return LOC.context_id == '5e82fffe55df33706d23801e';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
