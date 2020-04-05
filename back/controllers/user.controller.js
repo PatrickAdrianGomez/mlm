@@ -30,11 +30,11 @@ exports.userRegister = async (req, res, next) => {
     });
     if (!userExists) {
         let passUser = 'ABC123';
-        await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
+        /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
             }
-        );
+        );*/
         let codigoUser = await setUser(prof, contac, passUser, job);
         let myAssociated = [];
 
@@ -108,11 +108,11 @@ exports.registerInvitation = async (req, res, next) => {
 
     if (!userExists) {
         let passUser = 'ABC123';
-        await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
+        /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
             }
-        );
+        );*/
         codigoUser = await setUser(profile, contac, passUser, job);
 
         let codePerson = '';
@@ -206,8 +206,9 @@ exports.userLogin = async (req, res, next) => {
         res.status(401).json({ message: "User does not exist" });
         return token;
     }
-    let mybcrypt = await bcrypt.compare(req.query.password, user.password);
-    if (!mybcrypt) {
+    //let mybcrypt = await bcrypt.compare(req.query.password, user.password);
+    //if (!mybcrypt) {
+    if (!(req.query.password == user.password)) {
         res.status(401).json({ message: "Password did not match" });
         return token;
     } else {
