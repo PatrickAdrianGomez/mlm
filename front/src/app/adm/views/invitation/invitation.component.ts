@@ -17,24 +17,25 @@ declare var $: any;
 })
 export class InvitationComponent implements OnInit {
 
-  invitation: invitation;
+  public invitation: invitation;
   public job: job;
+  public contact: contact;
+  public profile: profile;
+  public address: address;
+  public field: field;
   correct: boolean = false;
 
   ListCompany: TypeContext[] = [];
   ListRol: TypeContext[] = [];
-  isSaved: boolean = false;
 
-  contact: contact;
-  profile: profile;
-  address: address;
-  field: field;
   ListLOC: Location[] = [];
   ListLOCMain: Location[] = [];
   listDepa: Location[] = [];
   depasCI: Location[] = [];
   listCiudad: Location[] = [];
   listZona: Location[] = [];
+
+  isSaved: boolean = false;
 
   constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService) {
     this.invitation = new invitation();
@@ -43,6 +44,7 @@ export class InvitationComponent implements OnInit {
     this.profile = new profile();
     this.address = new address();
     this.field = new field();
+    this.invitation.job = this.job;
     this.isSaved = false;
   }
 
@@ -61,12 +63,14 @@ export class InvitationComponent implements OnInit {
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+      console.log('tyoecontext', reslo);
       this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+      console.log('typecontext', reslo);
       this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
@@ -75,35 +79,41 @@ export class InvitationComponent implements OnInit {
     this.invitation.contact = this.contact;
     this.invitation.profile = this.profile;
     this.contact.address = this.address;
+    this.address.country = '';
     this.address.city = this.field;
     this.address.state = this.field;
     this.address.zone = this.field;
+    //this.invitation.job.push(this.job);
 
     if (this.route.snapshot.params['_id']) {
       this.connexion.get_dataId<invitation>('invitationQuick', this.route.snapshot.params['_id']).subscribe(resp => {
         this.invitation = resp;
-      this.agregarDireccion();
+        this.agregarDireccion();
       });
     }
-
-
-
   }
 
   verificarUsuario() {
-    /*if (this.invitation.ci) {
-      this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.ci).subscribe(myUser => {
-        this.invitado = myUser;
-        console.log(myUser);
-        
-        this.invitation.nombre = this.invitado.profile.firstName;
-        this.invitation.apellidoP = this.invitado.profile.lastNameP;
-        this.invitation.apellidoM = this.invitado.profile.lastNameM;
+    if (this.invitation.profile.ci) {
+      this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.profile.ci).subscribe(myUser => {
+        if (myUser._id) {
+          alert('El usuario ya es parte del sistema');
+          /*this.invitation.profile = myUser.profile;
+          this.invitation.contact = myUser.contact;
+          this.invitation.job = myUser.associated;*/
+        } else {
+          if (myUser['id'] == -1 ) {
+            alert(myUser['message']);
+          } else {
+            if (myUser['id'] == 0 ) {
+              alert(myUser['message']);
+            }
+          }
+        }
       });
-
     } else {
       this.error('CI vacío', 'MLM Invitación');
-    }*/
+    }
 
   }
 
@@ -123,6 +133,7 @@ export class InvitationComponent implements OnInit {
     }*/
     this.agregarDireccion();
     this.invitation.estado = 1;
+    console.log(this.job);
     this.invitation.job = { ciMain: localStorage.getItem('code').substr(1), companyName: this.job.companyName, typeAccount: this.job.typeAccount };
     let fechaHora = new Date();
     this.invitation.date = fechaHora;

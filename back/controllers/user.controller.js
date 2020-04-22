@@ -59,6 +59,7 @@ exports.getAllInvitations = async (req, res, next) => {
 
 
 exports.registerInvitation = async (req, res, next) => {
+    console.log(req.body);
     let profile = req.body.profile;
     let contac = req.body.contact;
     let job = req.body.job;
@@ -141,8 +142,6 @@ exports.registerInvitation = async (req, res, next) => {
 exports.updatePersonInvitation = async (req, res, next) => { }
 
 exports.getPersonInvitation = async (req, res, next) => {
-    console.log(req.query);
-
     let user = await getUser(req.query.ci);
     if (user) {
         let person = await getUserPerson(user._id);
@@ -150,10 +149,10 @@ exports.getPersonInvitation = async (req, res, next) => {
             person.associated = user.job;
             res.status(200).json(person);
         } else {
-            res.status(401).json({ message: "User does not exist" });
+            res.json({ id: 0, message: "Usuario previamente registrado" });
         }
     } else {
-        res.status(401).json({ message: "User does not exist" });
+        res.json({ id: -1, message: "El usuario no existe en el sistema" });
     }
 }
 

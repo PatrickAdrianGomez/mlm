@@ -43,6 +43,12 @@ export class RegisterComponent implements OnInit {
     this.profile = new profile();
     this.address = new address();
     this.field = new field();
+    console.log(this.invitation);
+    console.log(this.job);
+    console.log(this.contact);
+    console.log(this.profile);
+    console.log(this.address);
+    console.log(this.field);
   }
 
   ngOnInit() {
@@ -77,7 +83,7 @@ export class RegisterComponent implements OnInit {
 
   onRegister() {
     this.agregarDireccion();
-    this.invitation.job = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
+    this.invitation.job[0] = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
     this.invitation.profile.photo = 'assets/img/noPicture.png';
     this.connexion.addObject<invitation>('register', this.invitation).subscribe(
       regis => {

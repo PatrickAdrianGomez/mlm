@@ -5,7 +5,7 @@ export class invitation {
     codeInvitation: String;
     profile?: profile;
     contact?: contact;
-    job: job;
+    job?: job;
     password: String;
     date: Date;
     estado: Number;

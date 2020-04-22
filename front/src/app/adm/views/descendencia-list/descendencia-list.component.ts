@@ -38,6 +38,7 @@ export class DescendenciaListComponent implements OnInit {
   obtenerDatos(state: number, id: string) {
     this.isLoading = true;
     let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
+    console.log('?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state);
     this.cnx.get_dataWithParams<person>('personAssociated', '?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state).subscribe(myAds => {
       this.rows = myAds[0].associated;
       setTimeout(() => {

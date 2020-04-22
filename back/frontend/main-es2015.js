@@ -691,9 +691,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 const globalVars = {
-    domain: 'http://35.239.157.9:8001',
-    //domain: 'http://127.0.0.1:8000',
-    filesDomain: 'http://35.239.157.9:8001',
+    //domain: 'http://35.239.157.9:8001',
+    //filesDomain: 'http://35.239.157.9:8001',
+    domain: 'http://127.0.0.1:8001',
+    filesDomain: 'http://127.0.0.1:8001',
     language: 'es',
     moneda: 'BOL'
 };
@@ -940,6 +941,12 @@ let RegisterComponent = class RegisterComponent {
         this.profile = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["profile"]();
         this.address = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["address"]();
         this.field = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+        console.log(this.invitation);
+        console.log(this.job);
+        console.log(this.contact);
+        console.log(this.profile);
+        console.log(this.address);
+        console.log(this.field);
     }
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
@@ -969,7 +976,7 @@ let RegisterComponent = class RegisterComponent {
     }
     onRegister() {
         this.agregarDireccion();
-        this.invitation.job = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
+        this.invitation.job[0] = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
         this.invitation.profile.photo = 'assets/img/noPicture.png';
         this.connexion.addObject('register', this.invitation).subscribe(regis => {
             localStorage.setItem('userPhone', regis.toString());

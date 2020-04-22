@@ -9,58 +9,68 @@ import { DescendenciaFichaComponent } from './views/descendencia-ficha/descenden
 import { DescendenciaProfileComponent } from './views/descendencia-profile/descendencia-profile.component';
 import { InvitationListComponent } from './views/invitation-list/invitation-list.component';
 import { DescendenciaListComponent } from './views/descendencia-list/descendencia-list.component';
+import { AuthenticationService } from '../services/authentication.service';
 
 const routes: Routes = [
   {
-    path: '', component: AdmComponent, children:[
-      { path: '', component: MainComponent }
-    ]
+    path: '', component: AdmComponent, 
+    canActivate: [AuthenticationService],
+    children:[{ path: '', component: MainComponent }]
   },
   //{ path: '', redirectTo: 'main', pathMatch: 'full' },
 
   {
     path: 'main',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{path: '', component: MainComponent}]
   },
   {
     path:'profile',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: ProfileComponent}]
   },
   {
     path:'job',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: StaffListComponent}]
   },
   {
     path:'invitacion',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: InvitationComponent}]
   },
   {
     path:'invitacion/:_id',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: InvitationComponent}]
   },
   {
     path:'invitacionLista',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: InvitationListComponent}]
   },
   {
     path:'descendenciaFicha',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: DescendenciaFichaComponent}]
   },
   {
     path:'descendenciaFicha/:id',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: DescendenciaProfileComponent}]
   },
   {
     path:'descendenciaLista',
     component: AdmComponent,
+    canActivate: [AuthenticationService],
     children: [{ path: '', component: DescendenciaListComponent}]
   }
 ];

@@ -52,8 +52,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.connexion.get_data<Location>('location').subscribe(reslo => {
       this.ListLOC = reslo;
-      this.ListLOCMain = reslo.filter(LOC => isNullOrUndefined(LOC.owner));
-      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e14d611d235a7103c0ba4f6');
+      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
+      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
