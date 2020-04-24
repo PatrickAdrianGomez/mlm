@@ -13,6 +13,7 @@ import { user } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
 
   public user: user;
+  public typeInput: string = 'password';
 
   constructor(private connexion: ConnexionService, private _router: Router) {
     this.user = new user();
@@ -72,4 +73,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  typeChange() {
+    if (this.typeInput == 'password') {
+      this.typeInput = 'text';
+    } else {
+      this.typeInput = 'password'
+    }
+    console.log(this.typeInput);
+  }
 }

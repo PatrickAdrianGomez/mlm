@@ -1,0 +1,36 @@
+.procesa {
+    opacity: .5;
+}
+
+.noProcesa {
+    opacity: 1;
+}
+
+.procesando {
+    background-color: var(--pink);
+    width: 30em;
+    height: 100px;
+    position: absolute;
+    border-radius: 20px;
+    align-content: center;
+    margin: 0 auto;
+    box-shadow: 5px 5px 8px -5px white;
+    -moz-box-shadow: 5px 5px 8px -5px white;
+    -webkit-box-shadow: 5px 5px 8px -5px white;
+    top: 50%;
+    left: calc(50% - 15em);
+}
+
+.procesando > h3{
+    text-align: center;
+    padding-top: 20px;
+    margin: 0;
+    padding-bottom: 0;
+}
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}

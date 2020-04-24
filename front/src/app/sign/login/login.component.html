@@ -16,8 +16,13 @@
         <div class="form-group">
           <i class="fas fa-key"></i>
           <label for="phone">&nbsp; Contraseña</label>
-          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password"
+          <input type="{{typeInput}}" class="form-control" id="password" name="password" [(ngModel)]="user.password"
             #password="ngModel" placeholder="Enter Your Password">
+          <div (click)="typeChange()" class="ubicacion">
+            <i class="far fa-eye" *ngIf="typeInput=='password'" style="float: right;"></i>
+            <i class="far fa-eye-slash" *ngIf="typeInput=='text'" style="float: right;"></i>
+          </div>
+
         </div>
         <div class="form-group form-check">
           <label class="form-check-label">

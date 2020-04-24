@@ -1,0 +1,9 @@
+.ubicacion {
+    width: 18px!important;
+    height: 14px!important;
+    overflow: hidden;
+    position: relative;
+    top: -50px;
+    left: -10px;
+    float: right;
+}

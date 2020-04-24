@@ -23,6 +23,8 @@ export class InvitationComponent implements OnInit {
   public profile: profile;
   public address: address;
   public field: field;
+  public esVisible: string = 'invisible';
+  public procesando: string = 'noProcesa';
   correct: boolean = false;
 
   ListCompany: TypeContext[] = [];
@@ -102,10 +104,10 @@ export class InvitationComponent implements OnInit {
           this.invitation.contact = myUser.contact;
           this.invitation.job = myUser.associated;*/
         } else {
-          if (myUser['id'] == -1 ) {
+          if (myUser['id'] == -1) {
             alert(myUser['message']);
           } else {
-            if (myUser['id'] == 0 ) {
+            if (myUser['id'] == 0) {
               alert(myUser['message']);
             }
           }
@@ -131,9 +133,11 @@ export class InvitationComponent implements OnInit {
         }
       }
     }*/
+    this.esVisible = 'visible';
+    this.procesando = 'procesa';
+    this.isSaved = true;
     this.agregarDireccion();
     this.invitation.estado = 1;
-    console.log(this.job);
     this.invitation.job = { ciMain: localStorage.getItem('code').substr(1), companyName: this.job.companyName, typeAccount: this.job.typeAccount };
     let fechaHora = new Date();
     this.invitation.date = fechaHora;
@@ -144,13 +148,14 @@ export class InvitationComponent implements OnInit {
 
     this.connexion.addObject<invitation>('invitation', this.invitation).subscribe(
       regis => {
-        alert('La invitación fue realizada de manera correcta');
-        console.log('regis', regis);
-
+        this.procesando = 'noProcesa';
+        this.esVisible = 'invisible';
         this.correct = true;
+        alert('La invitación fue realizada de manera correcta');
         this._router.navigate(['/']);
       },
       error => {
+        this.isSaved = false;
         var errorMessage = <any>error;
         this.correct = false;
         switch (errorMessage.status) {
@@ -164,7 +169,6 @@ export class InvitationComponent implements OnInit {
         }
       }
     );
-    this.isSaved = true;
   }
 
   generarCodigo() {

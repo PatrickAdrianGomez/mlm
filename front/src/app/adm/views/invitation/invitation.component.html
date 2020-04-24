@@ -3,12 +3,12 @@
     <!--<img src="assets/img/logos/v.png" alt="Ventun">-->
     <h2 class="center">Invitación</h2>
     <hr>
-    <form (ngSubmit)="onRegister()" name="contextForm" #contextForm="ngForm">
+    <form (ngSubmit)="onRegister()" name="contextForm" #contextForm="ngForm" class="{{procesando}}">
       <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <label for="ci">CI</label>
           <input type="text" class="form-control" name="ci" #ci="ngModel" [(ngModel)]="invitation.profile.ci" id="ci"
-            placeholder="Cédula de Identidad" required>
+            placeholder="Cédula de Identidad" minlength="6" required>
           <app-show-errors [control]="ci" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
@@ -31,19 +31,19 @@
         <div class="form-group col-6 col-md-4">
           <label for="nombre">Nombre</label>
           <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="invitation.profile.firstName"
-            id="nombre" placeholder="Nombre Invitado" required>
+            id="nombre" placeholder="Nombre Invitado" minlength="3" required>
           <app-show-errors [control]="nombre" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="apellidos">Apellido Paterno</label>
           <input type="text" class="form-control" name="apellidoP" #apellido="ngModel"
-            [(ngModel)]="invitation.profile.lastNameP" id="apellidoP" placeholder="Apellido Paterno" required>
+            [(ngModel)]="invitation.profile.lastNameP" id="apellidoP" placeholder="Apellido Paterno" minlength="3" required>
           <app-show-errors [control]="apellidoP" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="apellidos">Apellido Materno</label>
           <input type="text" class="form-control" name="apellidoM" #apellido="ngModel"
-            [(ngModel)]="invitation.profile.lastNameM" id="apellidoM" placeholder="Apellido Materno" required>
+            [(ngModel)]="invitation.profile.lastNameM" id="apellidoM" placeholder="Apellido Materno" minlength="3" required>
           <app-show-errors [control]="apellidoM" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
@@ -70,13 +70,13 @@
         <div class="form-group col-6 col-md-4">
           <label for="phone">Teléfono</label>
           <input type="phone" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="invitation.contact.phone"
-            id="phone" placeholder="Número Telefónico" required>
+            id="phone" placeholder="Número Telefónico" minlength="7" required>
           <app-show-errors [control]="phone" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="email">e-mail</label>
           <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="invitation.contact.email"
-            id="email" placeholder="Correo Electrónico">
+            id="email" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
           <app-show-errors [control]="email" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4" hidden>
@@ -193,4 +193,9 @@
       <button type="submit" class="btn btn-primary" [disabled]="contextForm.invalid">Invitar</button>
     </form>
   </div>
+</div>
+
+<div class="procesando {{esVisible}}">
+  <h3>Procesando Solicitud</h3>
+  <i class="fas fa-spinner fa-lg fa-spin" style="margin: 0 auto; display: block; color: white;"></i>
 </div>

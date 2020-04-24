@@ -12,19 +12,24 @@ export class NavbarComponent implements OnInit {
 
   lista = [];
   urlGlobal = globalVars.filesDomain;
-  perfil: string;
-  
+  public perfil: string;
+  userName: string;
+
   constructor() {
   }
 
   ngOnInit() {
-    this.lista = globalConfigurations['userCompany'];
-    this.perfil = localStorage.getItem('photo');
+    setTimeout(() => {
+      this.lista = globalConfigurations['userCompany'];
+      this.userName = localStorage.getItem('userName');
+      this.perfil = localStorage.getItem('photo');
+    }, 500);
+
   }
 
   verificar() {
     console.log(globalConfigurations['userCompany']);
-    
+
   }
 
   cerrarSesion() {
