@@ -7,20 +7,20 @@
       <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <label for="ci">CI</label>
-          <input type="text" class="form-control" name="ci" #ci="ngModel" [(ngModel)]="invitation.profile.ci" id="ci"
+          <input type="text" name="ci" #ci="ngModel" [(ngModel)]="invitation.profile.ci" id="ci" class="form-control"
             placeholder="Cédula de Identidad" minlength="6" required>
           <app-show-errors [control]="ci" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="expedido" class="control-label">Expedido en:</label>
-          <select class="form-control" name="expedido" id="expedido" #expedido="ngModel"
-            [(ngModel)]="invitation.profile.expedido" required aria-hidden="true">
+          <select name="expedido" #expedido="ngModel" [(ngModel)]="invitation.profile.expedido" id="expedido"
+            class="form-control" aria-hidden="true" required>
             <option [ngValue]="undefined" selected>Elija una Opción</option>
             <option *ngFor='let littleDepa of depasCI' [ngValue]="littleDepa._id">
               {{littleDepa.name}}
             </option>
           </select>
-          
+          <app-show-errors [control]="expedido" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <a class="btn btn-warning" style="margin-top: 28px;" (click)="verificarUsuario()">Verificar</a>
@@ -30,26 +30,26 @@
       <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="invitation.profile.firstName"
-            id="nombre" placeholder="Nombre Invitado" minlength="3" required>
+          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="invitation.profile.firstName" id="nombre"
+            class="form-control" placeholder="Nombre Invitado" minlength="3" required>
           <app-show-errors [control]="nombre" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
-          <label for="apellidos">Apellido Paterno</label>
-          <input type="text" class="form-control" name="apellidoP" #apellido="ngModel"
-            [(ngModel)]="invitation.profile.lastNameP" id="apellidoP" placeholder="Apellido Paterno" minlength="3" required>
+          <label for="apellidoP">Apellido Paterno</label>
+          <input type="text" name="apellidoP" #apellidoP="ngModel" [(ngModel)]="invitation.profile.lastNameP"
+            id="apellidoP" class="form-control" placeholder="Apellido Paterno" minlength="3" required>
           <app-show-errors [control]="apellidoP" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
-          <label for="apellidos">Apellido Materno</label>
-          <input type="text" class="form-control" name="apellidoM" #apellido="ngModel"
-            [(ngModel)]="invitation.profile.lastNameM" id="apellidoM" placeholder="Apellido Materno" minlength="3" required>
+          <label for="apellidoM">Apellido Materno</label>
+          <input type="text" name="apellidoM" #apellidoM="ngModel" [(ngModel)]="invitation.profile.lastNameM"
+            id="apellidoM" class="form-control" placeholder="Apellido Materno" minlength="3" required>
           <app-show-errors [control]="apellidoM" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="gender">Sexo</label>
-          <select class="form-control" id="gender" name="gender" #gender="ngModel" 
-            [(ngModel)]="invitation.profile.gender" required>
+          <select class="form-control" name="gender" #gender="ngModel" [(ngModel)]="invitation.profile.gender"
+            id="gender" required>
             <option [ngValue]=undefined selected>Elija una Opción</option>
             <option [ngValue]="0">
               Hombre
@@ -58,25 +58,26 @@
               Mujer
             </option>
           </select>
+          <app-show-errors [control]="gender" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="birthDate">Fecha de Nacimiento</label>
-          <input type="date" class="form-control" name="birthDate" #birthDate="ngModel"
-            [(ngModel)]="invitation.profile.birthDate" id="birthDate" placeholder="Fecha de Nacimiento">
+          <input type="date" name="birthDate" #birthDate="ngModel" [(ngModel)]="invitation.profile.birthDate"
+            id="birthDate" class="form-control" placeholder="Fecha de Nacimiento">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <label for="phone">Teléfono</label>
-          <input type="phone" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="invitation.contact.phone"
-            id="phone" placeholder="Número Telefónico" minlength="7" required>
+          <input type="phone" name="phone" #phone="ngModel" [(ngModel)]="invitation.contact.phone" id="phone"
+            class="form-control" placeholder="Número Telefónico" minlength="7" required>
           <app-show-errors [control]="phone" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
           <label for="email">e-mail</label>
           <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="invitation.contact.email"
-            id="email" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+            id="email" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
           <app-show-errors [control]="email" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4" hidden>
@@ -92,10 +93,8 @@
         <div class="form-group row">
           <div class="form-group col-md-12 col-lg-6 campoFormulario">
             <label for="local" class="control-label">País</label>
-
-            <select class="form-control" name="local" id="local" #local="ngModel"
-              [(ngModel)]="invitation.contact.address.country" required aria-hidden="true"
-              (ngModelChange)="updateSelectedValue($event)">
+            <select name="local" #local="ngModel" [(ngModel)]="invitation.contact.address.country" id="local"
+              aria-hidden="true" class="form-control" (ngModelChange)="updateSelectedValue($event)" required>
               <option [ngValue]="undefined" selected>Elija una Opción</option>
               <option *ngFor='let littleLocal of ListLOCMain' [ngValue]="littleLocal._id">
                 {{littleLocal.name}}
@@ -106,9 +105,8 @@
           </div>
           <div class="form-group col-md-12 col-lg-6 campoFormulario">
             <label for="depaMini" class="control-label">Departamento</label>
-            <select class="form-control" name="depaMini" id="depaMini" #depaMini="ngModel"
-              [(ngModel)]="invitation.contact.address.state" required aria-hidden="true"
-              (ngModelChange)="updateSelectDepartamento($event)">
+            <select name="depaMini" #depaMini="ngModel" [(ngModel)]="invitation.contact.address.state" id="depaMini"
+              class="form-control" aria-hidden="true" (ngModelChange)="updateSelectDepartamento($event)" required>
               <option [ngValue]="undefined" selected>Elija una Opción</option>
               <option *ngFor='let littleDepa of listDepa' [ngValue]="littleDepa._id">
                 {{littleDepa.name}}
@@ -141,18 +139,20 @@
               </option>
             </select>
             <app-show-errors [control]="zonaMini" class="show-err"></app-show-errors>
-          </div><!---->
+          </div>
+          <!---->
           <div class="form-group col-md-8 campoFormulario">
             <label class="control-label">
               Street
             </label>
-            <input name="streetDirecction" class="form-control" id="streetDirecction" type="text" required
-              #streetDirecction="ngModel" [(ngModel)]="invitation.contact.address.especificLocation">
+            <input type="text" name="streetDirecction" class="form-control" id="streetDirecction"
+              #streetDirecction="ngModel" [(ngModel)]="invitation.contact.address.especificLocation" required>
+            <app-show-errors [control]="streetDirecction" class="show-err"></app-show-errors>
           </div>
           <div class="form-group col-md-4 campoFormulario">
             <label for="codePostal" class="control-label">Zip Code</label>
             <input type="text" placeholder="Code Postal" class="form-control" name="codePostal" id="codePostal"
-              #codePostal="ngModel" [(ngModel)]="invitation.contact.codePostal" minlength="4" >
+              #codePostal="ngModel" [(ngModel)]="invitation.contact.codePostal" minlength="4">
           </div>
         </div>
       </div>
@@ -160,23 +160,25 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="compania">Compañía</label>
-          <select class="form-control" id="companyName" name="companyName" #companyName="ngModel" 
+          <select class="form-control" id="companyName" name="companyName" #companyName="ngModel"
             [(ngModel)]="job.companyName" required (ngModelChange)="updateSelectEquipo($event)">
             <option [ngValue]=undefined selected>Elija una Opción</option>
             <option *ngFor='let item of this.ListCompany' [ngValue]="item._id">
               {{item.name}}
             </option>
           </select>
+          <app-show-errors [control]="companyName" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-md-6">
           <label for="tipo">Rol</label>
-          <select class="form-control" id="typeAccount" name="typeAccount" #typeAccount="ngModel" 
+          <select class="form-control" id="typeAccount" name="typeAccount" #typeAccount="ngModel"
             [(ngModel)]="job.typeAccount" required>
             <option [ngValue]=undefined selected>Elija una Opción</option>
             <option *ngFor='let item of this.ListRol' [ngValue]="item._id">
               {{item.name}}
             </option>
           </select>
+          <app-show-errors [control]="typeAccount" class="show-err"></app-show-errors>
         </div>
       </div>
       <div class="form-row">
