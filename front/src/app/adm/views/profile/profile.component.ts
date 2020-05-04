@@ -60,15 +60,16 @@ export class ProfileComponent implements OnInit {
     let codigo = localStorage.getItem('code').substr(1);
     if (codigo) {
       this.connexion.get_dataId<person>('person', codigo).subscribe(myUser => {
+        console.log(myUser);
         this.perfil = myUser;
         this.urlImage = myUser.profile.photo.toString();
-      this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
-      this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
-      this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
+        this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
+        this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
+        this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
       });
     }
   }
-  
+
   recibeDeHijo(event: any) {
     this.perfil.profile.photo = event.upload.url;
     this.urlImage = event.upload.url;
@@ -89,7 +90,7 @@ export class ProfileComponent implements OnInit {
             break;
 
           default:
-          console.log('Ocurrió un error al intentar actualizar el usuario. \n Por favor verifique los datos e intente nuevamente.');
+            console.log('Ocurrió un error al intentar actualizar el usuario. \n Por favor verifique los datos e intente nuevamente.');
             break;
         }
       }

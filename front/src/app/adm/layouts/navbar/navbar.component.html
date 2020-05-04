@@ -20,6 +20,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
+                <li class="input-group">
+                    <span style="display: inline;">Equipo Actual: <h2 style="display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;">{{equipoActual}}</h2></span>
+                </li>
                 <li class="search-bar input-group">
                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
                             class="tim-icons icon-zoom-split"></i>
@@ -82,13 +85,11 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" style="background-color: var(--primary);width: 80px;" for="listaEquipos">Equipo</label>
                     </div>
-                    <select class="custom-select" id="listaEquipos" name="listaEquipos" #listaEquipos="ngModel" [(ngModel)]="name">
+                    <select class="custom-select" id="listaEquipos" name="listaEquipos" #listaEquipos="ngModel"  (ngModelChange)="updateEmp($event)" [(ngModel)]="name">
                         <option [ngValue]="undefined" selected>Elige un Equipo...</option>
-                        <option *ngFor="let equipo of lista" [(ngValue)]="equipo._id">{{equipo.companyName}}</option>
+                        <option *ngFor="let equipo of lista" [(ngValue)]="equipo.id">{{equipo.valor}}</option>
                     </select>
                 </div>
-                <!--<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
-                <a class="btn btn-primary" (click)="verificar();">Verificar datos</a>-->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>

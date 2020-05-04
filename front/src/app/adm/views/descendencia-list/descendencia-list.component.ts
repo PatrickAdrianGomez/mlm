@@ -36,10 +36,10 @@ export class DescendenciaListComponent implements OnInit {
   }
 
   obtenerDatos(state: number, id: string) {
+    console.log(state, id);
     this.isLoading = true;
-    let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-    console.log('?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state);
-    this.cnx.get_dataWithParams<person>('personAssociated', '?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state).subscribe(myAds => {
+    this.cnx.get_dataWithParams<person>('personAssociated', '?userID=' + id +  '&companyName=' + localStorage.getItem('actual') + '&estado=' + state).subscribe(myAds => {
+      console.log(myAds);
       this.rows = myAds[0].associated;
       setTimeout(() => {
         this.isLoading = false;

@@ -17,7 +17,7 @@ declare var $: any;
 })
 export class InvitationComponent implements OnInit {
 
-  public invitation: invitation;
+  invitation: invitation;
   public job: job;
   public contact: contact;
   public profile: profile;
@@ -38,6 +38,7 @@ export class InvitationComponent implements OnInit {
   listZona: Location[] = [];
 
   isSaved: boolean = false;
+  equipoActual: string = '';
 
   constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService) {
     this.invitation = new invitation();
@@ -45,7 +46,7 @@ export class InvitationComponent implements OnInit {
     this.contact = new contact();
     this.profile = new profile();
     this.address = new address();
-    this.field = new field();
+    //this.field = new field();
     this.invitation.job = this.job;
     this.isSaved = false;
   }
@@ -65,14 +66,7 @@ export class InvitationComponent implements OnInit {
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      console.log('tyoecontext', reslo);
       this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
-    }, error => {
-      console.log('Hubo un problema al cargar datos. ' + error);
-    });
-
-    this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      console.log('typecontext', reslo);
       this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
@@ -82,17 +76,33 @@ export class InvitationComponent implements OnInit {
     this.invitation.profile = this.profile;
     this.contact.address = this.address;
     this.address.country = '';
-    this.address.city = this.field;
-    this.address.state = this.field;
-    this.address.zone = this.field;
+    this.address.city = new field();
+    this.address.state = new field();
+    this.address.zone = new field();
     //this.invitation.job.push(this.job);
-
     if (this.route.snapshot.params['_id']) {
-      this.connexion.get_dataId<invitation>('invitationQuick', this.route.snapshot.params['_id']).subscribe(resp => {
-        this.invitation = resp;
-        this.agregarDireccion();
-      });
+      setTimeout(() => {
+        this.connexion.get_dataId<invitation>('invitationQuick', this.route.snapshot.params['_id']).subscribe(resp => {
+          this.invitation = resp;
+          this.editAddress(resp.contact.address);
+          this.editCompany(resp.job);
+        });
+      }, 500); 
     }
+    setTimeout(() => {
+      this.updateEmp(localStorage.getItem('actual'));
+    }, 1000);
+  }
+
+  editAddress(direccion: address) {
+    this.listDepa = this.ListLOC.filter(LOC => LOC.owner == direccion.country);
+    this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == direccion.state.id);
+    this.listZona = this.ListLOC.filter(LOC => LOC.owner == direccion.city.id);
+  }
+
+  editCompany(trabajo: job) {
+    this.ListCompany = this.ListCompany.filter(LOC => LOC._id == trabajo.companyName);
+    this.ListRol = this.ListRol.filter(LOC => LOC._id == trabajo.typeAccount);
   }
 
   verificarUsuario() {
@@ -239,7 +249,20 @@ export class InvitationComponent implements OnInit {
   }
 
   updateSelectEquipo(index) {
-    //this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
+    //this.ListCompany = this.ListCompany.filter(LOC => LOC._id == index);
+  }
+
+  updateSelectRol(index) {
+    //this.ListRol = this.ListRol.filter(LOC => LOC._id == index);
+  }
+
+  updateEmp(id: string) {
+    this.ListCompany.forEach(comp => {
+      if (id == comp._id) {
+        localStorage.setItem('actual', id);
+        this.equipoActual = comp.name;
+      }
+    });
   }
 
 }

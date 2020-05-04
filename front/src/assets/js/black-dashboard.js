@@ -27,7 +27,7 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-(function() {
+(function () {
   var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
   if (isWindows) {
@@ -44,7 +44,7 @@ var seq2 = 0,
     if ($('.sidebar .sidebar-wrapper').length != 0) {
 
       var ps1 = new PerfectScrollbar('.sidebar .sidebar-wrapper');
-      $('.table-responsive').each(function() {
+      $('.table-responsive').each(function () {
         var ps2 = new PerfectScrollbar($(this)[0]);
       });
     }
@@ -57,93 +57,95 @@ var seq2 = 0,
   }
 })();
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   var scroll_start = 0;
   var startchange = $('.row');
-  var offset = startchange.offset();
-  var scrollElement = navigator.platform.indexOf('Win') > -1 ? $(".ps") : $(window);
-  scrollElement.scroll(function() {
+  if (startchange.length) {
+    var offset = startchange.offset();
+    var scrollElement = navigator.platform.indexOf('Win') > -1 ? $(".ps") : $(window);
+    scrollElement.scroll(function () {
 
-    scroll_start = $(this).scrollTop();
+      scroll_start = $(this).scrollTop();
 
-    if (scroll_start > 50) {
-      $(".navbar-minimize-fixed").css('opacity', '1');
-    } else {
-      $(".navbar-minimize-fixed").css('opacity', '0');
+      if (scroll_start > 50) {
+        $(".navbar-minimize-fixed").css('opacity', '1');
+      } else {
+        $(".navbar-minimize-fixed").css('opacity', '0');
+      }
+    });
+
+
+    $(document).scroll(function () {
+      scroll_start = $(this).scrollTop();
+      if (scroll_start > offset.top) {
+        $(".navbar-minimize-fixed").css('opacity', '1');
+      } else {
+        $(".navbar-minimize-fixed").css('opacity', '0');
+      }
+    });
+
+    if ($('.full-screen-map').length == 0 && $('.bd-docs').length == 0) {
+      // On click navbar-collapse the menu will be white not transparent
+      $('.collapse').on('show.bs.collapse', function () {
+        $(this).closest('.navbar').removeClass('navbar-transparent').addClass('bg-white');
+      }).on('hide.bs.collapse', function () {
+        $(this).closest('.navbar').addClass('navbar-transparent').removeClass('bg-white');
+      });
     }
-  });
 
+    blackDashboard.initMinimizeSidebar();
 
-  $(document).scroll(function() {
-    scroll_start = $(this).scrollTop();
-    if (scroll_start > offset.top) {
-      $(".navbar-minimize-fixed").css('opacity', '1');
-    } else {
-      $(".navbar-minimize-fixed").css('opacity', '0');
+    $navbar = $('.navbar[color-on-scroll]');
+    scroll_distance = $navbar.attr('color-on-scroll') || 500;
+
+    // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
+    if ($('.navbar[color-on-scroll]').length != 0) {
+      blackDashboard.checkScrollForTransparentNavbar();
+      $(window).on('scroll', blackDashboard.checkScrollForTransparentNavbar)
     }
-  });
 
-  if ($('.full-screen-map').length == 0 && $('.bd-docs').length == 0) {
-    // On click navbar-collapse the menu will be white not transparent
-    $('.collapse').on('show.bs.collapse', function() {
-      $(this).closest('.navbar').removeClass('navbar-transparent').addClass('bg-white');
-    }).on('hide.bs.collapse', function() {
-      $(this).closest('.navbar').addClass('navbar-transparent').removeClass('bg-white');
+    $('.form-control').on("focus", function () {
+      $(this).parent('.input-group').addClass("input-group-focus");
+    }).on("blur", function () {
+      $(this).parent(".input-group").removeClass("input-group-focus");
+    });
+
+    // Activate bootstrapSwitch
+    $('.bootstrap-switch').each(function () {
+      $this = $(this);
+      data_on_label = $this.data('on-label') || '';
+      data_off_label = $this.data('off-label') || '';
+
+      $this.bootstrapSwitch({
+        onText: data_on_label,
+        offText: data_off_label
+      });
     });
   }
-
-  blackDashboard.initMinimizeSidebar();
-
-  $navbar = $('.navbar[color-on-scroll]');
-  scroll_distance = $navbar.attr('color-on-scroll') || 500;
-
-  // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
-  if ($('.navbar[color-on-scroll]').length != 0) {
-    blackDashboard.checkScrollForTransparentNavbar();
-    $(window).on('scroll', blackDashboard.checkScrollForTransparentNavbar)
-  }
-
-  $('.form-control').on("focus", function() {
-    $(this).parent('.input-group').addClass("input-group-focus");
-  }).on("blur", function() {
-    $(this).parent(".input-group").removeClass("input-group-focus");
-  });
-
-  // Activate bootstrapSwitch
-  $('.bootstrap-switch').each(function() {
-    $this = $(this);
-    data_on_label = $this.data('on-label') || '';
-    data_off_label = $this.data('off-label') || '';
-
-    $this.bootstrapSwitch({
-      onText: data_on_label,
-      offText: data_off_label
-    });
-  });
 });
 
-$(document).on('click', '.navbar-toggle', function() {
+$(document).on('click', '.navbar-toggle', function () {
   var $toggle = $(this);
 
   if (blackDashboard.misc.navbar_menu_visible == 1) {
     $html.removeClass('nav-open');
     blackDashboard.misc.navbar_menu_visible = 0;
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.removeClass('toggled');
       $('.bodyClick').remove();
     }, 550);
 
   } else {
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.addClass('toggled');
     }, 580);
 
     var div = '<div class="bodyClick"></div>';
-    $(div).appendTo('body').click(function() {
+    $(div).appendTo('body').click(function () {
       $html.removeClass('nav-open');
       blackDashboard.misc.navbar_menu_visible = 0;
-      setTimeout(function() {
+      setTimeout(function () {
         $toggle.removeClass('toggled');
         $('.bodyClick').remove();
       }, 550);
@@ -154,7 +156,7 @@ $(document).on('click', '.navbar-toggle', function() {
   }
 });
 
-$(window).resize(function() {
+$(window).resize(function () {
   // reset the seq for charts drawing animations
   seq = seq2 = 0;
 
@@ -173,12 +175,12 @@ blackDashboard = {
     navbar_menu_visible: 0
   },
 
-  initMinimizeSidebar: function() {
+  initMinimizeSidebar: function () {
     if ($('.sidebar-mini').length != 0) {
       sidebar_mini_active = true;
     }
 
-    $('#minimizeSidebar').click(function() {
+    $('#minimizeSidebar').click(function () {
       var $btn = $(this);
 
       if (sidebar_mini_active == true) {
@@ -192,18 +194,18 @@ blackDashboard = {
       }
 
       // we simulate the window Resize so the charts will get updated in realtime.
-      var simulateWindowResize = setInterval(function() {
+      var simulateWindowResize = setInterval(function () {
         window.dispatchEvent(new Event('resize'));
       }, 180);
 
       // we stop the simulation of Window Resize after the animations are completed
-      setTimeout(function() {
+      setTimeout(function () {
         clearInterval(simulateWindowResize);
       }, 1000);
     });
   },
 
-  showSidebarMessage: function(message) {
+  showSidebarMessage: function (message) {
     try {
       $.notify({
         icon: "tim-icons ui-1_bell-53",

@@ -31,8 +31,7 @@ export class DescendenciaFichaComponent implements OnInit {
     });
 
     this.person = new person();
-    let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-    this.connexion.get_dataWithParamsOne<person>('personAssociated', '?userID=' + localStorage.getItem('code').substr(1) + '&companyName=' + myCompanyName[0].companyName).subscribe(
+    this.connexion.get_dataWithParamsOne<person>('personAssociated', '?userID=' + localStorage.getItem('code').substr(1) +  '&companyName=' + localStorage.getItem('actual')).subscribe(
       regis => {
         this.person = regis[0];
         this.asociados = regis[0].associated;

@@ -165,14 +165,17 @@ exports.getPersonAssociated = async (req, res, next) => {
             var socio = person.associated[i];
             if (socio.companyName == req.query.companyName) {
                 let socios = await getPerson(socio.ciMain);
-                if (!req.query.estado) {
-                    asociados.push(socios);
-                } else {
-                    if (socios.estado == req.query.estado) {
+                try {
+                    if (!req.query.estado) {
                         asociados.push(socios);
+                    } else {
+                        if (socios.estado == req.query.estado) {
+                            asociados.push(socios);
+                        }
                     }
+                } catch (error) {
+                    console.log('Error en el dato: ', socios);
                 }
-
             }
         }
         personaArmada = {

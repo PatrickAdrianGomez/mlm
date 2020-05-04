@@ -35,8 +35,7 @@ export class InvitationListComponent implements OnInit {
 
   obtenerDatos(state: number) {
     this.isLoading = true;
-    let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-    this.cnx.get_dataWithParams<invitation>('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + myCompanyName[0].companyName).subscribe(myAds => {
+    this.cnx.get_dataWithParams<invitation>('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(myAds => {
       this.rows = myAds;
       setTimeout(() => {
         this.isLoading = false;

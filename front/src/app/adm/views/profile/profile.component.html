@@ -20,7 +20,7 @@
               {{littleDepa.name}}
             </option>
           </select>
-          
+
         </div>
       </div>
 
@@ -64,8 +64,8 @@
         <div class="form-group col-6 col-md-4">
           <label for="birthDate">Fecha de Nacimiento</label>
           <input type="date" class="form-control" name="birthDate" #birthDate="ngModel"
-            [ngModel]="perfil.profile.birthDate" (ngModelChange)="perfil.profile.birthDate = $event"
-            id="birthDate" placeholder="Fecha de Nacimiento">
+            [ngModel]="perfil.profile.birthDate" (ngModelChange)="perfil.profile.birthDate = $event" id="birthDate"
+            placeholder="Fecha de Nacimiento">
         </div>
       </div>
 
@@ -89,7 +89,6 @@
         <div class="form-group row">
           <div class="form-group col-md-12 col-lg-6 campoFormulario">
             <label for="local" class="control-label">País</label>
-
             <select class="form-control" name="local" id="local" #local="ngModel"
               [(ngModel)]="perfil.contact.address.country" required aria-hidden="true"
               (ngModelChange)="updateSelectedValue($event)">
@@ -175,8 +174,18 @@
           </div>
         </div>
       </div>
-
       <div class="form-row">
+        <div class="form-group col-12">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input id="estado" name="estado" type="checkbox" #estado="ngModel" class="form-control form-check-input"
+                [(ngModel)]="perfil.estado" required>
+              <span class="form-check-sign">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!--<div class="form-row">
         <div class="form-group col-md-6">
           <label for="estado">Estado</label>
           <select class="form-control" id="estado" name="estado" #estado="ngModel" tabindex="-1"
@@ -190,7 +199,7 @@
             </option>
           </select>
         </div>
-      </div>
+      </div>-->
       <button type="submit" class="btn btn-primary" [disabled]="contextForm.invalid">Modificar Usuario</button>
     </form>
   </div>

@@ -105,7 +105,7 @@
           </div>
           <div class="form-group col-md-12 col-lg-6 campoFormulario">
             <label for="depaMini" class="control-label">Departamento</label>
-            <select name="depaMini" #depaMini="ngModel" [(ngModel)]="invitation.contact.address.state" id="depaMini"
+            <select name="depaMini" #depaMini="ngModel" [(ngModel)]="invitation.contact.address.state.id" id="depaMini"
               class="form-control" aria-hidden="true" (ngModelChange)="updateSelectDepartamento($event)" required>
               <option [ngValue]="undefined" selected>Elija una Opción</option>
               <option *ngFor='let littleDepa of listDepa' [ngValue]="littleDepa._id">
@@ -119,8 +119,8 @@
           <div class="form-group col-md-12 col-lg-6 campoFormulario">
             <label for="cityMini" class="control-label">Ciudad</label>
             <select class="form-control" name="cityMini" id="cityMini" #cityMini="ngModel"
-              [(ngModel)]="invitation.contact.address.city" required aria-hidden="true"
-              (ngModelChange)="updateSelectCiudad($event)">
+              [(ngModel)]="invitation.contact.address.city.id" aria-hidden="true"
+              (ngModelChange)="updateSelectCiudad($event)" required>
               <option [ngValue]="undefined" selected>Elija una Opción</option>
               <option *ngFor='let littleCiudad of listCiudad' [ngValue]="littleCiudad._id">
                 {{littleCiudad.name}}
@@ -132,7 +132,7 @@
           <div class="form-group col-md-4 campoFormulario">
             <label for="zonaMini" class="control-label">Zona</label>
             <select class="form-control" name="zonaMini" id="zonaMini" #zonaMini="ngModel"
-              [(ngModel)]="invitation.contact.address.zone" required aria-hidden="true">
+              [(ngModel)]="invitation.contact.address.zone.id" aria-hidden="true" required>
               <option [ngValue]="undefined" selected>Elija una Opción</option>
               <option *ngFor='let littleZona of listZona' [ngValue]="littleZona._id">
                 {{littleZona.name}}
@@ -159,20 +159,22 @@
 
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="compania">Compañía</label>
-          <select class="form-control" id="companyName" name="companyName" #companyName="ngModel"
+          <label for="companyName">Compañía</label>
+          <input style="color: white;" id="companyName" name="companyName" type="text" class="form-control"
+            value="{{equipoActual}}" readonly>
+          <!--<select class="form-control" name="companyName" id="companyName" #companyName="ngModel"
             [(ngModel)]="job.companyName" required (ngModelChange)="updateSelectEquipo($event)">
             <option [ngValue]=undefined selected>Elija una Opción</option>
             <option *ngFor='let item of this.ListCompany' [ngValue]="item._id">
               {{item.name}}
             </option>
           </select>
-          <app-show-errors [control]="companyName" class="show-err"></app-show-errors>
+          <app-show-errors [control]="companyName" class="show-err"></app-show-errors>-->
         </div>
         <div class="form-group col-md-6">
-          <label for="tipo">Rol</label>
+          <label for="typeAccount">Rol</label>
           <select class="form-control" id="typeAccount" name="typeAccount" #typeAccount="ngModel"
-            [(ngModel)]="job.typeAccount" required>
+            [(ngModel)]="job.typeAccount" (ngModelChange)="updateSelectRol($event)" required>
             <option [ngValue]=undefined selected>Elija una Opción</option>
             <option *ngFor='let item of this.ListRol' [ngValue]="item._id">
               {{item.name}}

@@ -10345,7 +10345,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-wrapper\">\n            <div class=\"navbar-toggle d-inline\">\n                <button type=\"button\" class=\"navbar-toggler\">\n                    <span class=\"navbar-toggler-bar bar1\"></span>\n                    <span class=\"navbar-toggler-bar bar2\"></span>\n                    <span class=\"navbar-toggler-bar bar3\"></span>\n                </button>\n            </div>\n            <a class=\"navbar-brand\" style=\"top: 0;\">\n                <img src=\"/assets/img/ventun.png\">\n            </a>\n        </div>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\n            <ul class=\"navbar-nav ml-auto\">\n                <li class=\"search-bar input-group\">\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\n                            class=\"tim-icons icon-zoom-split\"></i>\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\n                    </button>\n                </li>\n                <!--<li class=\"dropdown nav-item\">\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\n                        <i class=\"tim-icons icon-sound-wave\"></i>\n                        <p class=\"d-lg-none\">\n                            Notifications\n                        </p>\n                    </a>\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\n                                email</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\n                                tasks</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\n                                Michael is in town</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\n                                notification</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\n                        </li>\n                    </ul>\n                </li>-->\n                <li class=\"dropdown nav-item\">\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\n                        <div class=\"photo\">\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\n                        </div>\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\n                            Cerrar Sessión\n                        </p>\n                    </a>\n                    <ul class=\"dropdown-menu dropdown-navbar\">\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\n                        <li class=\"dropdown-divider\"></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\n                                Sessión</a></li>\n                    </ul>\n                </li>\n                <li class=\"separator d-lg-none\"></li>\n            </ul>\n        </div>\n    </div>\n    <app-toast></app-toast>\n</nav>\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\n                    </div>\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\" [(ngModel)]=\"name\">\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo._id\">{{equipo.companyName}}</option>\n                    </select>\n                </div>\n                <!--<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"SEARCH\">\n                <a class=\"btn btn-primary\" (click)=\"verificar();\">Verificar datos</a>-->\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                    <i class=\"tim-icons icon-simple-remove\"></i>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-wrapper\">\n            <div class=\"navbar-toggle d-inline\">\n                <button type=\"button\" class=\"navbar-toggler\">\n                    <span class=\"navbar-toggler-bar bar1\"></span>\n                    <span class=\"navbar-toggler-bar bar2\"></span>\n                    <span class=\"navbar-toggler-bar bar3\"></span>\n                </button>\n            </div>\n            <a class=\"navbar-brand\" style=\"top: 0;\">\n                <img src=\"/assets/img/ventun.png\">\n            </a>\n        </div>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\n            <ul class=\"navbar-nav ml-auto\">\n                <li class=\"input-group\">\n                    <span style=\"display: inline;\">Equipo Actual: <h2 style=\"display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;\">{{equipoActual}}</h2></span>\n                </li>\n                <li class=\"search-bar input-group\">\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\n                            class=\"tim-icons icon-zoom-split\"></i>\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\n                    </button>\n                </li>\n                <!--<li class=\"dropdown nav-item\">\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\n                        <i class=\"tim-icons icon-sound-wave\"></i>\n                        <p class=\"d-lg-none\">\n                            Notifications\n                        </p>\n                    </a>\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\n                                email</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\n                                tasks</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\n                                Michael is in town</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\n                                notification</a></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\n                        </li>\n                    </ul>\n                </li>-->\n                <li class=\"dropdown nav-item\">\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\n                        <div class=\"photo\">\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\n                        </div>\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\n                            Cerrar Sessión\n                        </p>\n                    </a>\n                    <ul class=\"dropdown-menu dropdown-navbar\">\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\n                        <li class=\"dropdown-divider\"></li>\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\n                                Sessión</a></li>\n                    </ul>\n                </li>\n                <li class=\"separator d-lg-none\"></li>\n            </ul>\n        </div>\n    </div>\n    <app-toast></app-toast>\n</nav>\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\n                    </div>\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event)\" [(ngModel)]=\"name\">\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\n                    </select>\n                </div>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                    <i class=\"tim-icons icon-simple-remove\"></i>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -10485,7 +10485,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar</a>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone\" required aria-hidden=\"true\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"compania\">Compañía</label>\n          <select class=\"form-control\" id=\"companyName\" name=\"companyName\" #companyName=\"ngModel\"\n            [(ngModel)]=\"job.companyName\" required (ngModelChange)=\"updateSelectEquipo($event)\">\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListCompany' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"companyName\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"tipo\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n      <div class=\"form-row\">\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\" required>\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Invitar</button>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar</a>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state.id\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city.id\" aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone.id\" aria-hidden=\"true\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"companyName\">Compañía</label>\n          <input style=\"color: white;\" id=\"companyName\" name=\"companyName\" type=\"text\" class=\"form-control\"\n            value=\"{{equipoActual}}\" readonly>\n          <!--<select class=\"form-control\" name=\"companyName\" id=\"companyName\" #companyName=\"ngModel\"\n            [(ngModel)]=\"job.companyName\" required (ngModelChange)=\"updateSelectEquipo($event)\">\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListCompany' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"companyName\" class=\"show-err\"></app-show-errors>-->\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"typeAccount\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" (ngModelChange)=\"updateSelectRol($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n      <div class=\"form-row\">\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\" required>\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Invitar</button>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>";
     /***/
   },
 
@@ -10525,7 +10525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Información Personal</h2>\n    <hr>\n    <form (ngSubmit)=\"onUpdate()\" name=\"contextForm\" #contextForm=\"ngForm\" *ngIf=\"perfil\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" class=\"form-control\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"perfil.profile.ci\" id=\"ci\"\n            placeholder=\"Cédula de Identidad\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select class=\"form-control\" name=\"expedido\" id=\"expedido\" #expedido=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.expedido\" required aria-hidden=\"true\">\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          \n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"firstName\">Nombre</label>\n          <input type=\"text\" class=\"form-control\" name=\"firstName\" #firstName=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.firstName\" id=\"firstName\" placeholder=\"Nombre Usuario\" required>\n          <app-show-errors [control]=\"firstName\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameP\">Apellido Paterno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameP\" #lastNameP=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameP\" id=\"lastNameP\" placeholder=\"Apellido Paterno\" required>\n          <app-show-errors [control]=\"lastNameP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameM\">Apellido Materno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameM\" #lastNameM=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameM\" id=\"lastNameM\" placeholder=\"Apellido Materno\" required>\n          <app-show-errors [control]=\"lastNameM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" id=\"gender\" name=\"gender\" #gender=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.profile.gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n        </div>\n        <!--\n          <input type=\"date\" id=\"bday\" name=\"bday\" max=today min=\"1919-01-01\" class=\"form-control\" #bday=\"ngModel\"\n              [ngModel]=\"mySeller.xCurrent.profile.birthDate | date:'yyyy-MM-dd'\"\n              (ngModelChange)=\"mySeller.xCurrent.profile.birthDate = $event\">\n        -->\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" class=\"form-control\" name=\"birthDate\" #birthDate=\"ngModel\"\n            [ngModel]=\"perfil.profile.birthDate\" (ngModelChange)=\"perfil.profile.birthDate = $event\"\n            id=\"birthDate\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" class=\"form-control\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"perfil.contact.phone\"\n            id=\"phone\" placeholder=\"Número Telefónico\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"perfil.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n\n            <select class=\"form-control\" name=\"local\" id=\"local\" #local=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.country\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectedValue($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select class=\"form-control\" name=\"depaMini\" id=\"depaMini\" #depaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.state.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectDepartamento($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.city.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select tabindex=\"-1\" class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.zone.id\" required aria-hidden=\"true\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\" type=\"text\" required\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"perfil.contact.address.especificLocation\">\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"perfil.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-row\">\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Imagen Personal</label>\n            <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n              <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                  src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n              </div>\n              <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n              <div class=\"user-edit-image-buttons\">\n                <span class=\"btn btn-azure btn-file\">\n                  <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                    (desdeElHijo)=\"recibeDeHijo($event);\">\n                  </app-upload>\n                </span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"estado\">Estado</label>\n          <select class=\"form-control\" id=\"estado\" name=\"estado\" #estado=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.estado\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"1\">\n              Activo\n            </option>\n            <option [ngValue]=\"0\">\n              Inactivo\n            </option>\n          </select>\n        </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Modificar Usuario</button>\n    </form>\n  </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Información Personal</h2>\n    <hr>\n    <form (ngSubmit)=\"onUpdate()\" name=\"contextForm\" #contextForm=\"ngForm\" *ngIf=\"perfil\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" class=\"form-control\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"perfil.profile.ci\" id=\"ci\"\n            placeholder=\"Cédula de Identidad\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select class=\"form-control\" name=\"expedido\" id=\"expedido\" #expedido=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.expedido\" required aria-hidden=\"true\">\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"firstName\">Nombre</label>\n          <input type=\"text\" class=\"form-control\" name=\"firstName\" #firstName=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.firstName\" id=\"firstName\" placeholder=\"Nombre Usuario\" required>\n          <app-show-errors [control]=\"firstName\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameP\">Apellido Paterno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameP\" #lastNameP=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameP\" id=\"lastNameP\" placeholder=\"Apellido Paterno\" required>\n          <app-show-errors [control]=\"lastNameP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameM\">Apellido Materno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameM\" #lastNameM=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameM\" id=\"lastNameM\" placeholder=\"Apellido Materno\" required>\n          <app-show-errors [control]=\"lastNameM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" id=\"gender\" name=\"gender\" #gender=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.profile.gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n        </div>\n        <!--\n          <input type=\"date\" id=\"bday\" name=\"bday\" max=today min=\"1919-01-01\" class=\"form-control\" #bday=\"ngModel\"\n              [ngModel]=\"mySeller.xCurrent.profile.birthDate | date:'yyyy-MM-dd'\"\n              (ngModelChange)=\"mySeller.xCurrent.profile.birthDate = $event\">\n        -->\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" class=\"form-control\" name=\"birthDate\" #birthDate=\"ngModel\"\n            [ngModel]=\"perfil.profile.birthDate\" (ngModelChange)=\"perfil.profile.birthDate = $event\" id=\"birthDate\"\n            placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" class=\"form-control\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"perfil.contact.phone\"\n            id=\"phone\" placeholder=\"Número Telefónico\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"perfil.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select class=\"form-control\" name=\"local\" id=\"local\" #local=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.country\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectedValue($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select class=\"form-control\" name=\"depaMini\" id=\"depaMini\" #depaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.state.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectDepartamento($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.city.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select tabindex=\"-1\" class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.zone.id\" required aria-hidden=\"true\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\" type=\"text\" required\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"perfil.contact.address.especificLocation\">\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"perfil.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-row\">\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Imagen Personal</label>\n            <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n              <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                  src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n              </div>\n              <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n              <div class=\"user-edit-image-buttons\">\n                <span class=\"btn btn-azure btn-file\">\n                  <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                    (desdeElHijo)=\"recibeDeHijo($event);\">\n                  </app-upload>\n                </span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-row\">\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"estado\" name=\"estado\" type=\"checkbox\" #estado=\"ngModel\" class=\"form-control form-check-input\"\n                [(ngModel)]=\"perfil.estado\" required>\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <!--<div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"estado\">Estado</label>\n          <select class=\"form-control\" id=\"estado\" name=\"estado\" #estado=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.estado\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"1\">\n              Activo\n            </option>\n            <option [ngValue]=\"0\">\n              Inactivo\n            </option>\n          </select>\n        </div>\n      </div>-->\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Modificar Usuario</button>\n    </form>\n  </div>\n</div>";
     /***/
   },
 
@@ -11118,7 +11118,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJ9 */";
+    __webpack_exports__["default"] = ".dropdown.nav-item>a {\r\n    cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL2xheW91dHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kcm9wZG93bi5uYXYtaXRlbT5hIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */";
     /***/
   },
 
@@ -11159,15 +11159,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/services/globalVars */
     "./src/app/services/globalVars.ts");
+    /* harmony import */
+
+
+    var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/services/connexion.service */
+    "./src/app/services/connexion.service.ts");
 
     var NavbarComponent =
     /*#__PURE__*/
     function () {
-      function NavbarComponent() {
+      function NavbarComponent(connexion) {
         _classCallCheck(this, NavbarComponent);
 
+        this.connexion = connexion;
         this.lista = [];
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalVars"].filesDomain;
+        this.equipoActual = '';
+        this.ListCompany = [];
+        this.ListRol = [];
       }
 
       _createClass(NavbarComponent, [{
@@ -11175,16 +11185,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this24 = this;
 
+          this.connexion.get_data('typecontext').subscribe(function (reslo) {
+            _this24.ListCompany = reslo.filter(function (LOC) {
+              return LOC.context_id == '5e82fff755df33706d23801d';
+            });
+            _this24.ListRol = reslo.filter(function (LOC) {
+              return LOC.context_id == '5e82fffe55df33706d23801e';
+            });
+          }, function (error) {
+            console.log('Hubo un problema al cargar datos. ' + error);
+          });
           setTimeout(function () {
-            _this24.lista = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"]['userCompany'];
+            var anny = JSON.parse(localStorage.getItem('userCompany'));
+            anny.forEach(function (element) {
+              _this24.ListCompany.forEach(function (comp) {
+                if (element.companyName == comp._id) {
+                  _this24.lista.push({
+                    id: element.companyName,
+                    valor: comp.name
+                  });
+
+                  _this24.updateEmp(element.companyName);
+                }
+              });
+            });
+            console.log(_this24.lista);
             _this24.userName = localStorage.getItem('userName');
             _this24.perfil = localStorage.getItem('photo');
-          }, 500);
+          }, 1000);
         }
       }, {
-        key: "verificar",
-        value: function verificar() {
-          console.log(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"]['userCompany']);
+        key: "updateEmp",
+        value: function updateEmp(id) {
+          var _this25 = this;
+
+          this.ListCompany.forEach(function (comp) {
+            if (id == comp._id) {
+              localStorage.setItem('actual', id);
+              _this25.equipoActual = comp.name;
+            }
+          });
         }
       }, {
         key: "cerrarSesion",
@@ -11195,6 +11235,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       return NavbarComponent;
     }();
+
+    NavbarComponent.ctorParameters = function () {
+      return [{
+        type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"]
+      }];
+    };
 
     NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-navbar',
@@ -11564,11 +11610,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "listOfErrors",
         value: function listOfErrors() {
-          var _this25 = this;
+          var _this26 = this;
 
           //console.log('esto mandamos al directiva show erros:', this.control);
           return Object.keys(this.control.errors).map(function (field) {
-            return _this25.getMessage(field, _this25.control.errors[field]);
+            return _this26.getMessage(field, _this26.control.errors[field]);
           });
         }
       }, {
@@ -11718,18 +11764,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescendenciaFichaComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this26 = this;
+          var _this27 = this;
 
           this.connexion.get_dataWithParams('location', '?owner=5e14d611d235a7103c0ba4f6').subscribe(function (reslo) {
-            _this26.ListDepts = reslo;
+            _this27.ListDepts = reslo;
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.person = new src_app_models_person__WEBPACK_IMPORTED_MODULE_2__["person"]();
-          var myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-          this.connexion.get_dataWithParamsOne('personAssociated', '?userID=' + localStorage.getItem('code').substr(1) + '&companyName=' + myCompanyName[0].companyName).subscribe(function (regis) {
-            _this26.person = regis[0];
-            _this26.asociados = regis[0].associated;
+          this.connexion.get_dataWithParamsOne('personAssociated', '?userID=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(function (regis) {
+            _this27.person = regis[0];
+            _this27.asociados = regis[0].associated;
             console.log(regis[0].associated);
           }, function (error) {
             var errorMessage = error;
@@ -11877,17 +11922,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state, id) {
-          var _this27 = this;
+          var _this28 = this;
 
+          console.log(state, id);
           this.isLoading = true;
-          var myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-          console.log('?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state);
-          this.cnx.get_dataWithParams('personAssociated', '?userID=' + id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + state).subscribe(function (myAds) {
-            _this27.rows = myAds[0].associated;
+          this.cnx.get_dataWithParams('personAssociated', '?userID=' + id + '&companyName=' + localStorage.getItem('actual') + '&estado=' + state).subscribe(function (myAds) {
+            console.log(myAds);
+            _this28.rows = myAds[0].associated;
             setTimeout(function () {
-              _this27.isLoading = false;
+              _this28.isLoading = false;
             }, 1500);
-            _this27.temp = myAds[0].associated.map(function (prop, key) {
+            _this28.temp = myAds[0].associated.map(function (prop, key) {
               return Object.assign({}, prop, {
                 treeStatus: 'collapsed',
                 parentId: null,
@@ -11947,7 +11992,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onTreeAction",
         value: function onTreeAction(event) {
-          var _this28 = this;
+          var _this29 = this;
 
           var index = event.rowIndex;
           var row = event.row;
@@ -11965,7 +12010,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   id: key
                 });
               });
-              _this28.temp = [].concat(_toConsumableArray(_this28.temp), _toConsumableArray(data));
+              _this29.temp = [].concat(_toConsumableArray(_this29.temp), _toConsumableArray(data));
             });
             row.treeStatus = 'expanded';
             this.cd.detectChanges();
@@ -12099,10 +12144,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescendenciaProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this29 = this;
+          var _this30 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this29.ListDepts = reslo;
+            _this30.ListDepts = reslo;
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
@@ -12113,12 +12158,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cargarDatos",
         value: function cargarDatos(id) {
-          var _this30 = this;
+          var _this31 = this;
 
           var myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
           this.connexion.get_dataWithParamsOne('personAssociated', '?userID=' + id + '&companyName=' + myCompanyName[0].companyName).subscribe(function (regis) {
-            _this30.person = regis[0];
-            _this30.asociados = regis[0].associated;
+            _this31.person = regis[0];
+            _this31.asociados = regis[0].associated;
           }, function (error) {
             var errorMessage = error;
 
@@ -12271,16 +12316,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state) {
-          var _this31 = this;
+          var _this32 = this;
 
           this.isLoading = true;
-          var myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-          this.cnx.get_dataWithParams('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + myCompanyName[0].companyName).subscribe(function (myAds) {
-            _this31.rows = myAds;
+          this.cnx.get_dataWithParams('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(function (myAds) {
+            _this32.rows = myAds;
             setTimeout(function () {
-              _this31.isLoading = false;
+              _this32.isLoading = false;
             }, 1500);
-            _this31.temp = myAds.map(function (prop, key) {
+            _this32.temp = myAds.map(function (prop, key) {
               return Object.assign({}, prop, {
                 id: key
               });
@@ -12484,12 +12528,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.listCiudad = [];
         this.listZona = [];
         this.isSaved = false;
+        this.equipoActual = '';
         this.invitation = new src_app_models_invitation__WEBPACK_IMPORTED_MODULE_4__["invitation"]();
         this.job = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["job"]();
         this.contact = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["contact"]();
         this.profile = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["profile"]();
-        this.address = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["address"]();
-        this.field = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+        this.address = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["address"](); //this.field = new field();
+
         this.invitation.job = this.job;
         this.isSaved = false;
       }
@@ -12497,7 +12542,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(InvitationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this33 = this;
 
           if (localStorage.getItem('code').substring(0, 1) == '0') {
             alert('Su cuenta no está activada.\nPor favor active su cuenta antes de invitar a una persona.');
@@ -12506,27 +12551,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this32.ListLOC = reslo;
-            _this32.ListLOCMain = reslo.filter(function (LOC) {
+            _this33.ListLOC = reslo;
+            _this33.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == '5e82f99555df33706d238006';
             });
-            _this32.depasCI = _this32.ListLOC.filter(function (LOC) {
+            _this33.depasCI = _this33.ListLOC.filter(function (LOC) {
               return LOC.owner == '5e82fa4155df33706d23800a';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            console.log('tyoecontext', reslo);
-            _this32.ListCompany = reslo.filter(function (LOC) {
+            _this33.ListCompany = reslo.filter(function (LOC) {
               return LOC.context_id == '5e82fff755df33706d23801d';
             });
-          }, function (error) {
-            console.log('Hubo un problema al cargar datos. ' + error);
-          });
-          this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            console.log('typecontext', reslo);
-            _this32.ListRol = reslo.filter(function (LOC) {
+            _this33.ListRol = reslo.filter(function (LOC) {
               return LOC.context_id == '5e82fffe55df33706d23801e';
             });
           }, function (error) {
@@ -12536,17 +12575,48 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invitation.profile = this.profile;
           this.contact.address = this.address;
           this.address.country = '';
-          this.address.city = this.field;
-          this.address.state = this.field;
-          this.address.zone = this.field; //this.invitation.job.push(this.job);
+          this.address.city = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+          this.address.state = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+          this.address.zone = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["field"](); //this.invitation.job.push(this.job);
 
           if (this.route.snapshot.params['_id']) {
-            this.connexion.get_dataId('invitationQuick', this.route.snapshot.params['_id']).subscribe(function (resp) {
-              _this32.invitation = resp;
+            setTimeout(function () {
+              _this33.connexion.get_dataId('invitationQuick', _this33.route.snapshot.params['_id']).subscribe(function (resp) {
+                _this33.invitation = resp;
 
-              _this32.agregarDireccion();
-            });
+                _this33.editAddress(resp.contact.address);
+
+                _this33.editCompany(resp.job);
+              });
+            }, 500);
           }
+
+          setTimeout(function () {
+            _this33.updateEmp(localStorage.getItem('actual'));
+          }, 1000);
+        }
+      }, {
+        key: "editAddress",
+        value: function editAddress(direccion) {
+          this.listDepa = this.ListLOC.filter(function (LOC) {
+            return LOC.owner == direccion.country;
+          });
+          this.listCiudad = this.ListLOC.filter(function (LOC) {
+            return LOC.owner == direccion.state.id;
+          });
+          this.listZona = this.ListLOC.filter(function (LOC) {
+            return LOC.owner == direccion.city.id;
+          });
+        }
+      }, {
+        key: "editCompany",
+        value: function editCompany(trabajo) {
+          this.ListCompany = this.ListCompany.filter(function (LOC) {
+            return LOC._id == trabajo.companyName;
+          });
+          this.ListRol = this.ListRol.filter(function (LOC) {
+            return LOC._id == trabajo.typeAccount;
+          });
         }
       }, {
         key: "verificarUsuario",
@@ -12580,7 +12650,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this33 = this;
+          var _this34 = this;
 
           /*if (this.invitado) {
             for (let i = 0; i < this.invitado.associated.length; i++) {
@@ -12608,16 +12678,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invitation.password = pass;
           this.invitation.profile.photo = 'assets/img/noPicture.png';
           this.connexion.addObject('invitation', this.invitation).subscribe(function (regis) {
-            _this33.procesando = 'noProcesa';
-            _this33.esVisible = 'invisible';
-            _this33.correct = true;
+            _this34.procesando = 'noProcesa';
+            _this34.esVisible = 'invisible';
+            _this34.correct = true;
             alert('La invitación fue realizada de manera correcta');
 
-            _this33._router.navigate(['/']);
+            _this34._router.navigate(['/']);
           }, function (error) {
-            _this33.isSaved = false;
+            _this34.isSaved = false;
             var errorMessage = error;
-            _this33.correct = false;
+            _this34.correct = false;
 
             switch (errorMessage.status) {
               case 400:
@@ -12720,7 +12790,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "updateSelectEquipo",
-        value: function updateSelectEquipo(index) {//this.ListRol = this.ListLOC.filter(LOC => LOC.typecon_id == index);
+        value: function updateSelectEquipo(index) {//this.ListCompany = this.ListCompany.filter(LOC => LOC._id == index);
+        }
+      }, {
+        key: "updateSelectRol",
+        value: function updateSelectRol(index) {//this.ListRol = this.ListRol.filter(LOC => LOC._id == index);
+        }
+      }, {
+        key: "updateEmp",
+        value: function updateEmp(id) {
+          var _this35 = this;
+
+          this.ListCompany.forEach(function (comp) {
+            if (id == comp._id) {
+              localStorage.setItem('actual', id);
+              _this35.equipoActual = comp.name;
+            }
+          });
         }
       }]);
 
@@ -12840,11 +12926,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cargarDatos",
         value: function cargarDatos(id) {
-          var _this34 = this;
+          var _this36 = this;
 
           this.connexion.get_dataId('person', id).subscribe(function (regis) {
             localStorage.setItem('photo', regis.profile.photo.toString());
-            _this34.person = regis;
+            _this36.person = regis;
           }, function (error) {
             var errorMessage = error;
 
@@ -13006,14 +13092,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this35 = this;
+          var _this37 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this35.ListLOC = reslo;
-            _this35.ListLOCMain = reslo.filter(function (LOC) {
+            _this37.ListLOC = reslo;
+            _this37.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == '5e82f99555df33706d238006';
             });
-            _this35.depasCI = _this35.ListLOC.filter(function (LOC) {
+            _this37.depasCI = _this37.ListLOC.filter(function (LOC) {
               return LOC.owner == '5e82fa4155df33706d23800a';
             });
           }, function (error) {
@@ -13023,15 +13109,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (codigo) {
             this.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
-              _this35.perfil = myUser;
-              _this35.urlImage = myUser.profile.photo.toString();
-              _this35.listDepa = _this35.ListLOC.filter(function (LOC) {
+              console.log(myUser);
+              _this37.perfil = myUser;
+              _this37.urlImage = myUser.profile.photo.toString();
+              _this37.listDepa = _this37.ListLOC.filter(function (LOC) {
                 return LOC.owner == myUser.contact.address.country;
               });
-              _this35.listCiudad = _this35.ListLOC.filter(function (LOC) {
+              _this37.listCiudad = _this37.ListLOC.filter(function (LOC) {
                 return LOC.owner == myUser.contact.address.state.id;
               });
-              _this35.listZona = _this35.ListLOC.filter(function (LOC) {
+              _this37.listZona = _this37.ListLOC.filter(function (LOC) {
                 return LOC.owner == myUser.contact.address.city.id;
               });
             });
@@ -13046,13 +13133,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpdate",
         value: function onUpdate() {
-          var _this36 = this;
+          var _this38 = this;
 
           this.connexion.editObject('person', this.perfil).subscribe(function (regis) {
             localStorage.setItem('code', regis['estado'].toString() + regis['_id'].toString());
             alert('Actualización de Usuario Satisfactorio.');
 
-            _this36._router.navigate(['/']);
+            _this38._router.navigate(['/']);
           }, function (error) {
             var errorMessage = error;
 
@@ -13571,21 +13658,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ToastComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this39 = this;
 
           this.subscription = this.toastService.onAlert(this.id).subscribe(function (alert) {
             if (!alert.message) {
               // clear alerts when an empty alert is received
-              _this37.alerts = [];
+              _this39.alerts = [];
               return;
             } // add alert to array
 
 
-            _this37.alerts.push(alert);
+            _this39.alerts.push(alert);
 
-            _this37.message = alert.message;
-            _this37.title = alert.title;
-            _this37.tipoAlert = _this37.cssClass(alert);
+            _this39.message = alert.message;
+            _this39.title = alert.title;
+            _this39.tipoAlert = _this39.cssClass(alert);
             $('.toast').toast('show');
           });
         }
@@ -13898,7 +13985,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpload",
         value: function onUpload() {
-          var _this38 = this;
+          var _this40 = this;
 
           if (!this.selectedFile) {
             console.log('Archivo Eliminado');
@@ -13913,22 +14000,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _loop2 = function _loop2(index) {
             var fdScale = new FormData();
 
-            var nuevoNombre = _this38.changeName(_this38.selectedFile[index].name);
+            var nuevoNombre = _this40.changeName(_this40.selectedFile[index].name);
 
             try {
               fdScale.append('file_name', nuevoNombre);
-              fdScale.append('file_path', _this38.path_server);
-              fdScale.append('file', _this38.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
+              fdScale.append('file_path', _this40.path_server);
+              fdScale.append('file', _this40.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
 
-              _this38.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
+              _this40.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
                 reportProgress: true,
                 observe: 'events',
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].UploadProgress) {
-                  _this38.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
-                  document.getElementById("pbFile" + _this38.selectedFile[index].name).style.width = _this38.porcentajeUpload;
-                  document.getElementById("pbFile" + _this38.selectedFile[index].name).innerHTML = _this38.porcentajeUpload;
+                  _this40.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
+                  document.getElementById("pbFile" + _this40.selectedFile[index].name).style.width = _this40.porcentajeUpload;
+                  document.getElementById("pbFile" + _this40.selectedFile[index].name).innerHTML = _this40.porcentajeUpload;
                 }
               });
             } catch (error) {
@@ -13953,12 +14040,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
-                  _this38.desdeElHijo.emit({
+                  _this40.desdeElHijo.emit({
                     upload: event.body
                   });
 
-                  _this38.muestraMIDDLE = 'noMuestra';
-                  _this38.muestraDOWN = 'noMuestra';
+                  _this40.muestraMIDDLE = 'noMuestra';
+                  _this40.muestraDOWN = 'noMuestra';
                 }
               });
             } catch (error) {
@@ -14369,7 +14456,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ToastService(router) {
-        var _this39 = this;
+        var _this41 = this;
 
         _classCallCheck(this, ToastService);
 
@@ -14379,12 +14466,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
-            if (_this39.keepAfterRouteChange) {
+            if (_this41.keepAfterRouteChange) {
               // only keep for a single route change
-              _this39.keepAfterRouteChange = false;
+              _this41.keepAfterRouteChange = false;
             } else {
               // clear alert messages
-              _this39.clear();
+              _this41.clear();
             }
           }
         });
