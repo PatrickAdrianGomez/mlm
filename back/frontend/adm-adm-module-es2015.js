@@ -8601,6 +8601,7 @@ let InvitationComponent = class InvitationComponent {
             }
           }
         }*/
+        this.job.companyName = localStorage.getItem('actual');
         this.esVisible = 'visible';
         this.procesando = 'procesa';
         this.isSaved = true;
@@ -8867,6 +8868,9 @@ let ProfileComponent = class ProfileComponent {
         this.muestraMIDDLE = 'noMuestra';
         this.muestraDOWN = 'noMuestra';
         this.job = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["job"]();
+        this.contact = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["contact"]();
+        this.profile = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["profile"]();
+        this.address = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["address"]();
     }
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
@@ -8878,14 +8882,15 @@ let ProfileComponent = class ProfileComponent {
         });
         let codigo = localStorage.getItem('code').substr(1);
         if (codigo) {
-            this.connexion.get_dataId('person', codigo).subscribe(myUser => {
-                console.log(myUser);
-                this.perfil = myUser;
-                this.urlImage = myUser.profile.photo.toString();
-                this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
-                this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
-                this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
-            });
+            setTimeout(() => {
+                this.connexion.get_dataId('person', codigo).subscribe(myUser => {
+                    this.perfil = myUser;
+                    this.urlImage = myUser.profile.photo.toString();
+                    this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
+                    this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
+                    this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
+                });
+            }, 500);
         }
     }
     recibeDeHijo(event) {

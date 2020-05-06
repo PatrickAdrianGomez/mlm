@@ -12661,6 +12661,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           }*/
+          this.job.companyName = localStorage.getItem('actual');
           this.esVisible = 'visible';
           this.procesando = 'procesa';
           this.isSaved = true;
@@ -13087,6 +13088,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.muestraMIDDLE = 'noMuestra';
         this.muestraDOWN = 'noMuestra';
         this.job = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["job"]();
+        this.contact = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["contact"]();
+        this.profile = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["profile"]();
+        this.address = new _models_schema__WEBPACK_IMPORTED_MODULE_2__["address"]();
       }
 
       _createClass(ProfileComponent, [{
@@ -13108,20 +13112,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var codigo = localStorage.getItem('code').substr(1);
 
           if (codigo) {
-            this.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
-              console.log(myUser);
-              _this37.perfil = myUser;
-              _this37.urlImage = myUser.profile.photo.toString();
-              _this37.listDepa = _this37.ListLOC.filter(function (LOC) {
-                return LOC.owner == myUser.contact.address.country;
+            setTimeout(function () {
+              _this37.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
+                _this37.perfil = myUser;
+                _this37.urlImage = myUser.profile.photo.toString();
+                _this37.listDepa = _this37.ListLOC.filter(function (LOC) {
+                  return LOC.owner == myUser.contact.address.country;
+                });
+                _this37.listCiudad = _this37.ListLOC.filter(function (LOC) {
+                  return LOC.owner == myUser.contact.address.state.id;
+                });
+                _this37.listZona = _this37.ListLOC.filter(function (LOC) {
+                  return LOC.owner == myUser.contact.address.city.id;
+                });
               });
-              _this37.listCiudad = _this37.ListLOC.filter(function (LOC) {
-                return LOC.owner == myUser.contact.address.state.id;
-              });
-              _this37.listZona = _this37.ListLOC.filter(function (LOC) {
-                return LOC.owner == myUser.contact.address.city.id;
-              });
-            });
+            }, 500);
           }
         }
       }, {

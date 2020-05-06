@@ -950,13 +950,8 @@ let RegisterComponent = class RegisterComponent {
         this.contact = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["contact"]();
         this.profile = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["profile"]();
         this.address = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["address"]();
-        this.field = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
-        console.log(this.invitation);
-        console.log(this.job);
-        console.log(this.contact);
-        console.log(this.profile);
-        console.log(this.address);
-        console.log(this.field);
+        this.invitation.job = this.job;
+        //this.field = new field();
     }
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
@@ -979,14 +974,14 @@ let RegisterComponent = class RegisterComponent {
         this.invitation.contact = this.contact;
         this.invitation.profile = this.profile;
         this.contact.address = this.address;
-        this.contact.address.city = this.field;
-        this.contact.address.state = this.field;
-        this.contact.address.zone = this.field;
+        this.contact.address.city = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+        this.contact.address.state = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+        this.contact.address.zone = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
         //this.invitation.contact = this.contact;
     }
     onRegister() {
         this.agregarDireccion();
-        this.invitation.job[0] = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
+        this.invitation.job = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
         this.invitation.profile.photo = 'assets/img/noPicture.png';
         this.connexion.addObject('register', this.invitation).subscribe(regis => {
             localStorage.setItem('userPhone', regis.toString());
