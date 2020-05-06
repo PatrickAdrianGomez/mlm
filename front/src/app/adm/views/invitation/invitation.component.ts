@@ -143,6 +143,7 @@ export class InvitationComponent implements OnInit {
         }
       }
     }*/
+    this.job.companyName = localStorage.getItem('actual');
     this.esVisible = 'visible';
     this.procesando = 'procesa';
     this.isSaved = true;

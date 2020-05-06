@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { person } from "../../../models/person";
-import { job, field, address, Location } from "../../../models/schema";
+import { job, field, address, Location, contact, profile } from "../../../models/schema";
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { Router } from '@angular/router';
 import { globalVars } from 'src/app/services/globalVars';
@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
 
   perfil: person;
   public job: job;
+  public contact: contact;
+  public profile: profile;
+  public address: address;
 
   ListLOC: Location[] = [];
   ListLOCMain: Location[] = [];
@@ -47,6 +50,9 @@ export class ProfileComponent implements OnInit {
 
   constructor(private connexion: ConnexionService, private _router: Router) {
     this.job = new job();
+    this.contact = new contact();
+    this.profile = new profile();
+    this.address = new address();
   }
 
   ngOnInit() {
@@ -59,14 +65,15 @@ export class ProfileComponent implements OnInit {
     });
     let codigo = localStorage.getItem('code').substr(1);
     if (codigo) {
-      this.connexion.get_dataId<person>('person', codigo).subscribe(myUser => {
-        console.log(myUser);
-        this.perfil = myUser;
-        this.urlImage = myUser.profile.photo.toString();
-        this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
-        this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
-        this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
-      });
+      setTimeout(() => {
+        this.connexion.get_dataId<person>('person', codigo).subscribe(myUser => {
+          this.perfil = myUser;
+          this.urlImage = myUser.profile.photo.toString();
+          this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);
+          this.listCiudad = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.state.id);
+          this.listZona = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.city.id);
+        });
+      }, 500);
     }
   }
 
