@@ -7646,13 +7646,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
 /* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_global_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/global.service */ "./src/app/services/global.service.ts");
+
 
 
 
 
 let NavbarComponent = class NavbarComponent {
-    constructor(connexion) {
+    constructor(connexion, globalEquipo) {
         this.connexion = connexion;
+        this.globalEquipo = globalEquipo;
         this.lista = [];
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalVars"].filesDomain;
         this.equipoActual = '';
@@ -7672,11 +7675,15 @@ let NavbarComponent = class NavbarComponent {
                 this.ListCompany.forEach(comp => {
                     if (element.companyName == comp._id) {
                         this.lista.push({ id: element.companyName, valor: comp.name });
-                        this.updateEmp(element.companyName);
+                        if (localStorage.getItem('actual')) {
+                            this.updateEmp(localStorage.getItem('actual'));
+                        }
+                        else {
+                            this.updateEmp(element.companyName);
+                        }
                     }
                 });
             });
-            console.log(this.lista);
             this.userName = localStorage.getItem('userName');
             this.perfil = localStorage.getItem('photo');
         }, 1000);
@@ -7685,6 +7692,7 @@ let NavbarComponent = class NavbarComponent {
         this.ListCompany.forEach(comp => {
             if (id == comp._id) {
                 localStorage.setItem('actual', id);
+                this.globalEquipo.equipo = id;
                 this.equipoActual = comp.name;
             }
         });
@@ -7694,7 +7702,8 @@ let NavbarComponent = class NavbarComponent {
     }
 };
 NavbarComponent.ctorParameters = () => [
-    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] }
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
+    { type: src_app_services_global_service__WEBPACK_IMPORTED_MODULE_4__["GlobalService"] }
 ];
 NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -8479,6 +8488,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/toast.service */ "./src/app/services/toast.service.ts");
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_services_global_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/global.service */ "./src/app/services/global.service.ts");
+
 
 
 
@@ -8488,11 +8499,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let InvitationComponent = class InvitationComponent {
-    constructor(connexion, _router, route, toastService) {
+    constructor(connexion, _router, route, toastService, globalEquipo) {
         this.connexion = connexion;
         this._router = _router;
         this.route = route;
         this.toastService = toastService;
+        this.globalEquipo = globalEquipo;
         this.esVisible = 'invisible';
         this.procesando = 'noProcesa';
         this.correct = false;
@@ -8514,6 +8526,7 @@ let InvitationComponent = class InvitationComponent {
         //this.field = new field();
         this.invitation.job = this.job;
         this.isSaved = false;
+        console.log(globalEquipo.equipo);
     }
     ngOnInit() {
         if (localStorage.getItem('code').substring(0, 1) == '0') {
@@ -8715,7 +8728,8 @@ InvitationComponent.ctorParameters = () => [
     { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_2__["ConnexionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"] }
+    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"] },
+    { type: src_app_services_global_service__WEBPACK_IMPORTED_MODULE_8__["GlobalService"] }
 ];
 InvitationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -9698,6 +9712,36 @@ AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], AuthenticationService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/global.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/global.service.ts ***!
+  \********************************************/
+/*! exports provided: GlobalService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalService", function() { return GlobalService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let GlobalService = class GlobalService {
+    constructor() {
+        this.domain = "http://localhost:3000";
+        this.equipo = null;
+    }
+};
+GlobalService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], GlobalService);
 
 
 

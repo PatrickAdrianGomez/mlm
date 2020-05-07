@@ -11165,14 +11165,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/services/connexion.service */
     "./src/app/services/connexion.service.ts");
+    /* harmony import */
+
+
+    var src_app_services_global_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/services/global.service */
+    "./src/app/services/global.service.ts");
 
     var NavbarComponent =
     /*#__PURE__*/
     function () {
-      function NavbarComponent(connexion) {
+      function NavbarComponent(connexion, globalEquipo) {
         _classCallCheck(this, NavbarComponent);
 
         this.connexion = connexion;
+        this.globalEquipo = globalEquipo;
         this.lista = [];
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalVars"].filesDomain;
         this.equipoActual = '';
@@ -11205,11 +11212,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     valor: comp.name
                   });
 
-                  _this24.updateEmp(element.companyName);
+                  if (localStorage.getItem('actual')) {
+                    _this24.updateEmp(localStorage.getItem('actual'));
+                  } else {
+                    _this24.updateEmp(element.companyName);
+                  }
                 }
               });
             });
-            console.log(_this24.lista);
             _this24.userName = localStorage.getItem('userName');
             _this24.perfil = localStorage.getItem('photo');
           }, 1000);
@@ -11222,6 +11232,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.ListCompany.forEach(function (comp) {
             if (id == comp._id) {
               localStorage.setItem('actual', id);
+              _this25.globalEquipo.equipo = id;
               _this25.equipoActual = comp.name;
             }
           });
@@ -11239,6 +11250,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     NavbarComponent.ctorParameters = function () {
       return [{
         type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"]
+      }, {
+        type: src_app_services_global_service__WEBPACK_IMPORTED_MODULE_4__["GlobalService"]
       }];
     };
 
@@ -12505,17 +12518,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var util__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
     __webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_7__);
+    /* harmony import */
+
+
+    var src_app_services_global_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/services/global.service */
+    "./src/app/services/global.service.ts");
 
     var InvitationComponent =
     /*#__PURE__*/
     function () {
-      function InvitationComponent(connexion, _router, route, toastService) {
+      function InvitationComponent(connexion, _router, route, toastService, globalEquipo) {
         _classCallCheck(this, InvitationComponent);
 
         this.connexion = connexion;
         this._router = _router;
         this.route = route;
         this.toastService = toastService;
+        this.globalEquipo = globalEquipo;
         this.esVisible = 'invisible';
         this.procesando = 'noProcesa';
         this.correct = false;
@@ -12537,6 +12557,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.invitation.job = this.job;
         this.isSaved = false;
+        console.log(globalEquipo.equipo);
       }
 
       _createClass(InvitationComponent, [{
@@ -12823,6 +12844,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
       }, {
         type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"]
+      }, {
+        type: src_app_services_global_service__WEBPACK_IMPORTED_MODULE_8__["GlobalService"]
       }];
     };
 
@@ -14398,6 +14421,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     })], AuthenticationService);
+    /***/
+  },
+
+  /***/
+  "./src/app/services/global.service.ts":
+  /*!********************************************!*\
+    !*** ./src/app/services/global.service.ts ***!
+    \********************************************/
+
+  /*! exports provided: GlobalService */
+
+  /***/
+  function srcAppServicesGlobalServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "GlobalService", function () {
+      return GlobalService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var GlobalService = function GlobalService() {
+      _classCallCheck(this, GlobalService);
+
+      this.domain = "http://localhost:3000";
+      this.equipo = null;
+    };
+
+    GlobalService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], GlobalService);
     /***/
   },
 
