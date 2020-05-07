@@ -3,6 +3,7 @@ import { globalConfigurations, globalVars } from 'src/app/services/globalVars';
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { TypeContext } from 'src/app/models/contextclases';
 import { field } from 'src/app/models/schema';
+import { GlobalService } from 'src/app/services/global.service';
 
 declare var $: any;
 
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
   ListCompany: TypeContext[] = [];
   ListRol: TypeContext[] = [];
 
-  constructor(private connexion: ConnexionService) {
+  constructor(private connexion: ConnexionService, public globalEquipo: GlobalService) {
   }
 
   ngOnInit() {
@@ -39,22 +40,27 @@ export class NavbarComponent implements OnInit {
         this.ListCompany.forEach(comp => {
           if (element.companyName == comp._id) {
             this.lista.push({ id: element.companyName, valor: comp.name });
-            this.updateEmp(element.companyName);
+            if (localStorage.getItem('actual')) {
+              this.updateEmp(localStorage.getItem('actual'));
+            } else {
+              this.updateEmp(element.companyName);
+            }
           }
         });
       });
-      console.log(this.lista);
       this.userName = localStorage.getItem('userName');
       this.perfil = localStorage.getItem('photo');
     }, 1000);
-
+    
   }
 
   updateEmp(id: string) {
     this.ListCompany.forEach(comp => {
       if (id == comp._id) {
         localStorage.setItem('actual', id);
+        this.globalEquipo.equipo = id;
         this.equipoActual = comp.name;
+        
       }
     });
   }

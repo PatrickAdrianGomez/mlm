@@ -6,8 +6,10 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
 
   public domain: string;
+  public equipo: string;
 
   constructor() {
-    this.domain = "http://localhost:3000"
+    this.domain = "http://localhost:3000";
+    this.equipo = null;
   }
 }

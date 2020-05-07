@@ -7,6 +7,7 @@ import { ToastService } from 'src/app/services/toast.service';
 import { person } from 'src/app/models/person';
 import { isNullOrUndefined } from 'util';
 import { TypeContext } from 'src/app/models/contextclases';
+import { GlobalService } from 'src/app/services/global.service';
 
 declare var $: any;
 
@@ -40,7 +41,7 @@ export class InvitationComponent implements OnInit {
   isSaved: boolean = false;
   equipoActual: string = '';
 
-  constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService) {
+  constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService, public globalEquipo: GlobalService) {
     this.invitation = new invitation();
     this.job = new job();
     this.contact = new contact();
@@ -49,6 +50,7 @@ export class InvitationComponent implements OnInit {
     //this.field = new field();
     this.invitation.job = this.job;
     this.isSaved = false;
+    console.log(globalEquipo.equipo);
   }
 
   ngOnInit() {
