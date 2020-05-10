@@ -89,7 +89,7 @@ export class InvitationComponent implements OnInit {
           this.editAddress(resp.contact.address);
           this.editCompany(resp.job);
         });
-      }, 500); 
+      }, 500);
     }
     setTimeout(() => {
       this.updateEmp(localStorage.getItem('actual'));
@@ -109,20 +109,11 @@ export class InvitationComponent implements OnInit {
 
   verificarUsuario() {
     if (this.invitation.profile.ci) {
-      this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.profile.ci).subscribe(myUser => {
+      this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.profile.ci + '&equipo=' + localStorage.getItem('actual')).subscribe(myUser => {
         if (myUser._id) {
           alert('El usuario ya es parte del sistema');
-          /*this.invitation.profile = myUser.profile;
-          this.invitation.contact = myUser.contact;
-          this.invitation.job = myUser.associated;*/
         } else {
-          if (myUser['id'] == -1) {
-            alert(myUser['message']);
-          } else {
-            if (myUser['id'] == 0) {
-              alert(myUser['message']);
-            }
-          }
+          alert(myUser['message']);
         }
       });
     } else {

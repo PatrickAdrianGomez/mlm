@@ -144,15 +144,19 @@ exports.updatePersonInvitation = async (req, res, next) => { }
 exports.getPersonInvitation = async (req, res, next) => {
     let user = await getUser(req.query.ci);
     if (user) {
-        let person = await getUserPerson(user._id);
-        if (person) {
-            person.associated = user.job;
-            res.status(200).json(person);
+        let tieneEquipo = false;
+        user.job.forEach(myJob => {
+            if (myJob.companyName == req.query.equipo) {
+                tieneEquipo = true;
+            }
+        });
+        if (tieneEquipo == false) {
+            res.json({ id: -1, message: "El usuario no existe en el sistema." });
         } else {
-            res.json({ id: 0, message: "Usuario previamente registrado" });
+            res.json({ id: 0, message: "Usuario previamente registrado." });
         }
     } else {
-        res.json({ id: -1, message: "El usuario no existe en el sistema" });
+        res.json({ id: -1, message: "El usuario no existe en el sistema." });
     }
 }
 

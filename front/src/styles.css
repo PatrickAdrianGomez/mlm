@@ -5,6 +5,12 @@ form label.required:before {
     content: "*   ";
 }
 
+form label.optional:after {
+  color: green;
+  font-size: 1.2em;
+  content: "   (opcional)";
+}
+
 .ng-touched.ng-invalid:not(form) {
     border-color: red ;
 }
@@ -18,11 +24,11 @@ form label.required:before {
     box-shadow: 0 0 0 0.1rem #b96a70;
 }
 
-form label.optional:after {
+/*form label.optional:after {
     color: inherit;
     font-size: 1em;
     content: "   (optional)";
-}
+}*/
 
 select {
     background-color: #27293d!important;

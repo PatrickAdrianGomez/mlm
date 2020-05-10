@@ -61,7 +61,7 @@
           <app-show-errors [control]="gender" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
-          <label for="birthDate">Fecha de Nacimiento</label>
+          <label for="birthDate" class="optional">Fecha de Nacimiento</label>
           <input type="date" name="birthDate" #birthDate="ngModel" [(ngModel)]="invitation.profile.birthDate"
             id="birthDate" class="form-control" placeholder="Fecha de Nacimiento">
         </div>
@@ -75,7 +75,7 @@
           <app-show-errors [control]="phone" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
-          <label for="email">e-mail</label>
+          <label for="email" class="optional">e-mail</label>
           <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="invitation.contact.email"
             id="email" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
           <app-show-errors [control]="email" class="show-err"></app-show-errors>
@@ -150,7 +150,7 @@
             <app-show-errors [control]="streetDirecction" class="show-err"></app-show-errors>
           </div>
           <div class="form-group col-md-4 campoFormulario">
-            <label for="codePostal" class="control-label">Zip Code</label>
+            <label for="codePostal" class="control-label optional">Zip Code</label>
             <input type="text" placeholder="Code Postal" class="form-control" name="codePostal" id="codePostal"
               #codePostal="ngModel" [(ngModel)]="invitation.contact.codePostal" minlength="4">
           </div>
