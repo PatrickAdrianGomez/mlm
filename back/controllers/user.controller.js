@@ -161,6 +161,7 @@ exports.getPersonInvitation = async (req, res, next) => {
 }
 
 exports.getPersonAssociated = async (req, res, next) => {
+    console.log(req.query.companyName);
     let person = await getPerson(req.query.userID);
     if (person) {
         let personaArmada = {};

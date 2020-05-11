@@ -37,6 +37,7 @@ export class InvitationListComponent implements OnInit {
     this.isLoading = true;
     this.cnx.get_dataWithParams<invitation>('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(myAds => {
       this.rows = myAds;
+      console.log('myAds', myAds);
       setTimeout(() => {
         this.isLoading = false;
       }, 1500);

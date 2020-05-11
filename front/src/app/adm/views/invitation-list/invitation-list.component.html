@@ -65,7 +65,11 @@
         <ngx-datatable-column name="Nombre" prop="profile.firstName">{{firstName}}</ngx-datatable-column>
         <ngx-datatable-column name="Apellido Paterno" prop="profile.lastNameP">{{lastNameP}}</ngx-datatable-column>
         <ngx-datatable-column name="Apellido Materno" prop="profile.lastNameM">{{lastNameM}}</ngx-datatable-column>
-        <ngx-datatable-column name="Fecha" prop="date">{{date}}</ngx-datatable-column>
+        <ngx-datatable-column name="Fecha">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.date | date:'dd-MM-yyyy'}}
+          </ng-template>
+        </ngx-datatable-column>
         <ngx-datatable-column name="Estado">
           <ng-template ngx-datatable-cell-template let-row="row">
             <ng-container *ngIf="row.estado; else elseTemplate">
