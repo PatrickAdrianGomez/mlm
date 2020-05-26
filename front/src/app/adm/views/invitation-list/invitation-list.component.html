@@ -73,10 +73,10 @@
         <ngx-datatable-column name="Estado">
           <ng-template ngx-datatable-cell-template let-row="row">
             <ng-container *ngIf="row.estado; else elseTemplate">
-              Activo
+              Vigente
             </ng-container>
             <ng-template #elseTemplate>
-              Inactivo
+              Caduco
             </ng-template>
           </ng-template>
         </ngx-datatable-column>

@@ -183,12 +183,12 @@
           <app-show-errors [control]="typeAccount" class="show-err"></app-show-errors>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row" hidden>
         <div class="form-group col-12">
           <div class="form-check">
             <label class="form-check-label">
               <input id="acuerdo" name="acuerdo" type="checkbox" #acuerdo="ngModel"
-                class="form-control form-check-input" [(ngModel)]="invitation.estado" required>
+                class="form-control form-check-input" [(ngModel)]="invitation.estado">
               <span class="form-check-sign">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>
             </label>
           </div>

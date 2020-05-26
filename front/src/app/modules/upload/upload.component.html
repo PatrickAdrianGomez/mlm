@@ -1,6 +1,6 @@
 <div id="divMainFile">
-  <h1 *ngIf="title_upload">{{title_upload}}</h1>
-  <input class="custom-control {{muestraUP}}" type="file" name="imageUp" id="imageUp" (change)="onFileSelected($event)" style="z-index: 0!important;">
+  <label for="imageUp" style="margin-bottom:0; background-color: #344675;">Elige un Imagen</label>
+  <input class="custom-control {{muestraUP}}" type="file" accept="image/jpeg" name="imageUp" id="imageUp" value="Sube imagen"(change)="onFileSelected($event)" style="z-index: 0!important;">
 
   <div class="card text-center float-left  {{muestraMIDDLE}}">
     <div id="card-body" class="card-body">

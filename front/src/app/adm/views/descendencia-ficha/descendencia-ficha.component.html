@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h2>Mis Asociados</h2>
-    <div class="col-4 col-md-3" style="margin: 10px; float: left;" *ngFor="let item of asociados">
+    <div class="col-6 col-md-4 col-lg-3" style="margin: 10px; float: left;" *ngFor="let item of asociados">
         <span>{{item.profile.ci}} {{item.profile.expedido | expedido: ListDepts}}</span>
         <div class="row ficha" [routerLink]="['/descendenciaFicha', item._id]" [routerLinkActive]="['linkActivo']">
             <div class="col-4">
