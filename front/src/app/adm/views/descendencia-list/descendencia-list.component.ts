@@ -126,4 +126,9 @@ export class DescendenciaListComponent implements OnInit {
       this.cd.detectChanges();
     }
   }
+
+  deleteFunction($event) {
+    $event.preventDefault();
+    this.router.navigate(['/descendenciaFicha/' + this.activeRow._id]);
+  }
 }

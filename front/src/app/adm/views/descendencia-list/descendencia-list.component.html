@@ -99,12 +99,12 @@
                     [resizeable]="false">
                     <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
                         let-selectFn="selectFn">
-                        Eliminar
+                        Ficha
                     </ng-template>
                     <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
                         let-onCheckboxChangeFn="onCheckboxChangeFn">
-                        <a href="#" class="btn btn-round btn-danger btn-icon btn-sm remove"
-                            (click)="deleteFunction($event)"><i class="fas fa-times" style="margin-top: 7px;"></i></a>
+                        <a class="btn btn-round btn-warning btn-icon btn-sm" (click)="deleteFunction($event)">
+                            <i class="far fa-id-badge" style="margin-top: 7px;"></i></a> <!-- [routerLink]="['/descendenciaFicha', profile.firstName]" [routerLinkActive]="['linkActivo']">-->
                     </ng-template>
                 </ngx-datatable-column>
             </ngx-datatable>

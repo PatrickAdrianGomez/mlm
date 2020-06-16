@@ -85,7 +85,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" style="background-color: var(--primary);width: 80px;" for="listaEquipos">Equipo</label>
                     </div>
-                    <select class="custom-select" id="listaEquipos" name="listaEquipos" #listaEquipos="ngModel"  (ngModelChange)="updateEmp($event)" [(ngModel)]="name">
+                    <select class="custom-select" id="listaEquipos" name="listaEquipos" #listaEquipos="ngModel"  (ngModelChange)="updateEmp($event, true)" [(ngModel)]="name">
                         <option [ngValue]="undefined" selected>Elige un Equipo...</option>
                         <option *ngFor="let equipo of lista" [(ngValue)]="equipo.id">{{equipo.valor}}</option>
                     </select>

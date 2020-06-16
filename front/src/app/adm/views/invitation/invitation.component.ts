@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { invitation } from "src/app/models/invitation";
@@ -8,6 +8,7 @@ import { person } from 'src/app/models/person';
 import { isNullOrUndefined } from 'util';
 import { TypeContext } from 'src/app/models/contextclases';
 import { GlobalService } from 'src/app/services/global.service';
+import { ChangeLiveService } from 'src/app/services/change-live.service';
 
 declare var $: any;
 
@@ -41,7 +42,8 @@ export class InvitationComponent implements OnInit {
   isSaved: boolean = false;
   equipoActual: string = '';
 
-  constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService, public globalEquipo: GlobalService) {
+
+  constructor(private connexion: ConnexionService, private _router: Router, private route: ActivatedRoute, public toastService: ToastService, public globalEquipo: GlobalService, public inLive: ChangeLiveService) {
     this.invitation = new invitation();
     this.job = new job();
     this.contact = new contact();
@@ -50,10 +52,10 @@ export class InvitationComponent implements OnInit {
     //this.field = new field();
     this.invitation.job = this.job;
     this.isSaved = false;
-    console.log(globalEquipo.equipo);
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     if (localStorage.getItem('code').substring(0, 1) == '0') {
       alert('Su cuenta no está activada.\nPor favor active su cuenta antes de invitar a una persona.');
       this._router.navigate(['/profile']);
@@ -256,6 +258,10 @@ export class InvitationComponent implements OnInit {
         this.equipoActual = comp.name;
       }
     });
+  }
+
+  recibeDeHijo(algo) {
+    console.log('ALGO PASO AQUI', algo)
   }
 
 }

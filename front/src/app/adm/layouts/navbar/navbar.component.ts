@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { globalConfigurations, globalVars } from 'src/app/services/globalVars';
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { TypeContext } from 'src/app/models/contextclases';
 import { field } from 'src/app/models/schema';
 import { GlobalService } from 'src/app/services/global.service';
+import { ChangeLiveService } from 'src/app/services/change-live.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -20,10 +22,12 @@ export class NavbarComponent implements OnInit {
   userName: string;
   equipoActual: string = '';
 
+  @Output() desdeElHijo = new EventEmitter();
+
   ListCompany: TypeContext[] = [];
   ListRol: TypeContext[] = [];
 
-  constructor(private connexion: ConnexionService, public globalEquipo: GlobalService) {
+  constructor(private connexion: ConnexionService, public globalEquipo: GlobalService, public changeTeam: ChangeLiveService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -41,9 +45,9 @@ export class NavbarComponent implements OnInit {
           if (element.companyName == comp._id) {
             this.lista.push({ id: element.companyName, valor: comp.name });
             if (localStorage.getItem('actual')) {
-              this.updateEmp(localStorage.getItem('actual'));
+              this.updateEmp(localStorage.getItem('actual'), false);
             } else {
-              this.updateEmp(element.companyName);
+              this.updateEmp(element.companyName, false);
             }
           }
         });
@@ -51,18 +55,22 @@ export class NavbarComponent implements OnInit {
       this.userName = localStorage.getItem('userName');
       this.perfil = localStorage.getItem('photo');
     }, 1000);
-    
   }
 
-  updateEmp(id: string) {
+  updateEmp(id: string, bol: boolean) {
     this.ListCompany.forEach(comp => {
       if (id == comp._id) {
-        localStorage.setItem('actual', id);
+        this.changeTeam.setEquipo(id);
+        this.desdeElHijo.emit(id);
         this.globalEquipo.equipo = id;
         this.equipoActual = comp.name;
-        
       }
     });
+    if (bol == true) {
+      //this._router.navigate(['/invitacion/']);
+      window.location.reload();
+      console.log('this.desdeElHijo.emit(id)');
+    }
   }
 
   cerrarSesion() {

@@ -36,8 +36,8 @@
             <select name="datatable_status" aria-controls="datatable"
               class="form-control float-left align-middle form-control-md" (change)="statusChange($event)"
               style="width: 100px;">
-              <option value="1" [selected]="estado==1">Activo</option>
-              <option value="0" [selected]="estado==0">Inactivo</option>
+              <option value="1" [selected]="estado==1">Vigente</option>
+              <option value="0" [selected]="estado==0">Caduco</option>
             </select>
           </div>
         </div>
@@ -89,10 +89,10 @@
           </ng-template>
           <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
             let-onCheckboxChangeFn="onCheckboxChangeFn">
-            <a href="#" class="btn btn-round btn-warning btn-icon btn-sm edit" (click)="editFunction($event)">
+            <a class="btn btn-round btn-warning btn-icon btn-sm edit" (click)="editFunction($event)">
               <i class="fas fa-user-edit" style="margin-top: 7px;"></i>
             </a>
-            <a href="#" class="btn btn-round btn-danger btn-icon btn-sm remove" (click)="deleteFunction($event)"><i
+            <a class="btn btn-round btn-danger btn-icon btn-sm remove" (click)="deleteFunction($event)"><i
                 class="fas fa-times" style="margin-top: 7px;"></i></a>
           </ng-template>
         </ngx-datatable-column>

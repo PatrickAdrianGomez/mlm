@@ -1,0 +1,21 @@
+<div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="background-color: var(--primary);width: 80px;" for="listaEquipos">Equipo</label>
+                    </div>
+                    <select class="custom-select" id="listaEquipos" name="listaEquipos" #listaEquipos="ngModel"  (ngModelChange)="updateEmp($event)" [(ngModel)]="name">
+                        <option [ngValue]="undefined" selected>Elige un Equipo...</option>
+                        <option *ngFor="let equipo of lista" [(ngValue)]="equipo.id">{{equipo.valor}}</option>
+                    </select>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

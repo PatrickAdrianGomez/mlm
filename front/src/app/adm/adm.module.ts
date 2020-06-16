@@ -20,6 +20,7 @@ import { DescendenciaListComponent } from './views/descendencia-list/descendenci
 import { InvitationListComponent } from './views/invitation-list/invitation-list.component';
 import { ExpedidoPipe } from '../pipes/expedido.pipe';
 import { NombrePipe } from '../pipes/nombre.pipe';
+import { ConfigurationComponent } from './views/configuration/configuration.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NombrePipe } from '../pipes/nombre.pipe';
     InvitationListComponent,
     DescendenciaListComponent,
     ExpedidoPipe,
-    NombrePipe
+    NombrePipe,
+    ConfigurationComponent
   ],
   imports: [
     CommonModule,

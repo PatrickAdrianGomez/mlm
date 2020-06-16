@@ -646,10 +646,12 @@ let ConnexionService = class ConnexionService {
     editObject(ruta, xobject) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
         let xid = xobject['_id'];
+        console.log(this.url_base + subruta + "/" + xid + "/", xobject);
         return this.http.put(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     delObject(ruta, id) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
+        console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
         return this.http.delete(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     verifyUser(ruta) {

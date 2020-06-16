@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/services/toast.service';
 import { invitation } from 'src/app/models/invitation';
+import { ChangeLiveService } from 'src/app/services/change-live.service';
 
 @Component({
   selector: 'app-invitation-list',
@@ -18,9 +19,10 @@ export class InvitationListComponent implements OnInit {
   rows;
   activeRow: any;
 
-  constructor(private cnx: ConnexionService, private router: Router, public toastService: ToastService) { }
+  constructor(private cnx: ConnexionService, private router: Router, public toastService: ToastService, public inLive: ChangeLiveService) { }
 
   ngOnInit() {
+    //console.log(this.inLive.setEquipo());
     this.obtenerDatos(this.status);
   }
 
@@ -37,7 +39,6 @@ export class InvitationListComponent implements OnInit {
     this.isLoading = true;
     this.cnx.get_dataWithParams<invitation>('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(myAds => {
       this.rows = myAds;
-      console.log('myAds', myAds);
       setTimeout(() => {
         this.isLoading = false;
       }, 1500);
@@ -72,6 +73,18 @@ export class InvitationListComponent implements OnInit {
   editFunction($event) {
     $event.preventDefault();
     this.router.navigate(['/invitacion/' + this.activeRow._id]);
+  }
+
+  deleteFunction($event) {
+    $event.preventDefault();
+    this.activeRow.estado = 0;
+    let nuevaInvitacion: invitation;
+    nuevaInvitacion = this.activeRow;
+    this.cnx.editObject<invitation>('invitationQuick', nuevaInvitacion).subscribe(resp => {
+      console.log('RESP: ', resp);
+      this.obtenerDatos(this.status);
+    });
+    //this.router.navigate(['/invitacion/' + this.activeRow._id]);
   }
 
   refreshFunction(event) {

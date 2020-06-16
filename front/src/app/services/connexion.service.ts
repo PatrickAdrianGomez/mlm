@@ -108,6 +108,7 @@ export class ConnexionService {
   editObject<T>(ruta: string, xobject: T) {
     let subruta = globalRoutes[ruta];
     let xid = xobject['_id'];
+    console.log(this.url_base + subruta + "/" + xid + "/", xobject);
     return this.http.put<T>(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(
       map(res => res)
     );
@@ -115,6 +116,7 @@ export class ConnexionService {
 
   delObject<T>(ruta: string, id: string) {
     let subruta = globalRoutes[ruta];
+    console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
     return this.http.delete<T>(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(
       map(res => res)
     );
