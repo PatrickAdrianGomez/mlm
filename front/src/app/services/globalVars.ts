@@ -37,5 +37,6 @@ export const globalRoutes = {
 
     user: 'api/v1/quser',
     login: 'api/v1/login',
-    register: 'api/v1/register'
+    register: 'api/v1/register',
+    recover: 'api/v1/recover'
 };

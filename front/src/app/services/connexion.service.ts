@@ -70,6 +70,7 @@ export class ConnexionService {
 
   get_dataWithParams<T>(ruta: string, params: string): Observable<T[]> {
     let subRuta = globalRoutes[ruta];
+    console.log(this.url_base + subRuta + params);
     return this.http.get<T[]>(this.url_base + subRuta + params, { headers: this.generarAutorizacion('without') }).pipe(
       map(response => response)
     );

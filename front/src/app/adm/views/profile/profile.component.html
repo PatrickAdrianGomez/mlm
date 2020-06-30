@@ -43,6 +43,14 @@
             [(ngModel)]="perfil.profile.lastNameM" id="lastNameM" placeholder="Apellido Materno" required>
           <app-show-errors [control]="lastNameM" class="show-err"></app-show-errors>
         </div>
+
+
+        <div class="form-group col-6 col-md-4">
+          <label for="changePass"></label>
+          <input class="form-control btn btn-primary" type="button" value="Cambio de Contraseña" routerLink="/sign/password" routerLinkActive="active" name="changePass" style="padding: 0 10px;">
+        </div>
+
+
         <div class="form-group col-6 col-md-4">
           <label for="gender">Sexo</label>
           <select class="form-control" id="gender" name="gender" #gender="ngModel" tabindex="-1"
@@ -174,7 +182,7 @@
           </div>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row" *ngIf="perfil.estado == 0">
         <div class="form-group col-12">
           <div class="form-check">
             <label class="form-check-label">

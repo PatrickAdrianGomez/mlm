@@ -91,7 +91,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n    <div class=\"form-sign center z-depth-4\">\n        <img src=\"assets/v.png\" alt=\"Ventun\">\n          <h5>Recuperar Contraseña</h5><hr>\n      \n          <div class=\"row\">\n            <form class=\"col s12\">\n              <div class=\"row\">\n                <div class=\"input-field col s12\">\n                  <i class=\"material-icons prefix\">email</i>\n                  <input type=\"email\" class=\"validate\" id=\"email\">\n                  <label for=\"email\">E-Mail</label>\n                </div>\n              </div>\n            </form>\n          </div>\n        \n          <div style=\"padding-bottom: 20px;\">\n            <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n              <i class=\"material-icons right\">send</i>\n            </button>\n          </div>\n          <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\" rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n        \n        </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 2em; vertical-align: center;\">\n    <div class=\"card-header text-center\">\n      <img src=\"assets/img/logos/v.png\" alt=\"Ventun\">\n      <h5>Cambio de Contraseña</h5>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <form class=\"col s12\" #formUser=\"ngForm\" (ngSubmit)=\"onSignIn()\">\n          <div class=\"form-group\">\n            <i class=\"fas fa-fingerprint\"></i>\n            <label for=\"ci\">&nbsp; Cédula de Identidad</label>\n            <input type=\"text\" class=\"form-control\" id=\"ci\" name=\"ci\" [(ngModel)]=\"user.ci\" #ci=\"ngModel\"\n              aria-describedby=\"ciHelp\" placeholder=\"Introduzca su CI\">\n            <small id=\"ciHelp\" class=\"form-text text-muted\">Su número de carnet incluida la extensión.</small>\n          </div>\n          <div class=\"form-group\">\n            <i class=\"fas fa-key\"></i>\n            <label for=\"password\">&nbsp; Contraseña</label>\n            <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"user.password\"\n              #password=\"ngModel\" placeholder=\"Introduzca su Contraseña\">\n            <div (click)=\"typeChange()\" class=\"ubicacion\">\n              <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n              <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password1\">&nbsp; Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password1\" name=\"password1\"\n                  [(ngModel)]=\"passwd1\" placeholder=\"Introduzca su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password2\">&nbsp; Repita Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password2\" name=\"password\"\n                  [(ngModel)]=\"passwd2\" placeholder=\"Repita su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div style=\"padding-bottom: 20px;\" class=\"text-center\">\n            <div class=\"row\">\n              <div class=\"col-12 col-md-2\"></div>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" type=\"submit\" name=\"action\">Cambio de Contraseña\n                <i class=\"fas fa-sign-in-alt\"></i>\n              </button>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" name=\"action\" (click)=\"vaTras()\">Cancelar\n              </button>\n              <div class=\"col-12 col-md-2\"></div>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!--\n    <div style=\"padding-bottom: 20px;\">\n      <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n        <i class=\"material-icons right\">send</i>\n      </button>\n    </div>\n    <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\"\n        rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n\n  </div>\n</div>-->";
     /***/
   },
 
@@ -1259,6 +1259,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "get_dataWithParams",
         value: function get_dataWithParams(ruta, params) {
           var subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
+          console.log(this.url_base + subRuta + params);
           return this.http.get(this.url_base + subRuta + params, {
             headers: this.generarAutorizacion('without')
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
@@ -1448,7 +1449,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       typecontextact: 'api/v1/qtypecontext?estado=1',
       user: 'api/v1/quser',
       login: 'api/v1/login',
-      register: 'api/v1/register'
+      register: 'api/v1/register',
+      recover: 'api/v1/recover'
     };
     /***/
   },
@@ -1665,7 +1667,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NpZ24vcmVjb3Zlci9yZWNvdmVyLmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = ".ubicacion {\r\n    width: 18px!important;\r\n    height: 14px!important;\r\n    overflow: hidden;\r\n    position: relative;\r\n    top: -50px;\r\n    left: -10px;\r\n    float: right;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lnbi9yZWNvdmVyL3JlY292ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHFCQUFxQjtJQUNyQixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsV0FBVztJQUNYLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9zaWduL3JlY292ZXIvcmVjb3Zlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnViaWNhY2lvbiB7XHJcbiAgICB3aWR0aDogMThweCFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDE0cHghaW1wb3J0YW50O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogLTUwcHg7XHJcbiAgICBsZWZ0OiAtMTBweDtcclxuICAgIGZsb2F0OiByaWdodDtcclxufSJdfQ== */";
     /***/
   },
 
@@ -1700,21 +1702,130 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_models_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/models/user */
+    "./src/app/models/user.ts");
+    /* harmony import */
+
+
+    var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/services/connexion.service */
+    "./src/app/services/connexion.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! util */
+    "./node_modules/util/util.js");
+    /* harmony import */
+
+
+    var util__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
 
     var RecoverComponent =
     /*#__PURE__*/
     function () {
-      function RecoverComponent() {
+      function RecoverComponent(connexion, _router, _location) {
         _classCallCheck(this, RecoverComponent);
+
+        this.connexion = connexion;
+        this._router = _router;
+        this._location = _location;
+        this.typeInput = 'password';
+        this.passwd1 = '';
+        this.passwd2 = '';
+        this.user = new src_app_models_user__WEBPACK_IMPORTED_MODULE_2__["user"]();
       }
 
       _createClass(RecoverComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "onSignIn",
+        value: function onSignIn() {
+          var _this2 = this;
+
+          if (this.passwd1 === this.passwd2) {
+            try {
+              this.connexion.get_dataWithParams('recover', '?ci=' + this.user.ci + '&password=' + this.user.password + '&newpass=' + this.passwd2).subscribe(function (userJWT) {
+                console.log('userJWT', userJWT);
+
+                if (!Object(util__WEBPACK_IMPORTED_MODULE_5__["isNullOrUndefined"])(userJWT)) {
+                  localStorage.clear();
+
+                  _this2._router.navigate(['/sign/login']);
+                } else {
+                  localStorage.clear();
+                }
+              }, function (error) {
+                var errorMessage = error;
+
+                if (errorMessage.error.message === 'User does not exist') {
+                  alert('Usuario aún no registrado. \n Por favor intente nuevamente');
+                  _this2.user.email = null;
+                  _this2.user.password = null;
+                }
+
+                if (errorMessage.error.message === 'Password did not match') {
+                  alert('Contraseña incorrecta. \n Por favor intente nuevamente');
+                  _this2.user.email = null;
+                  _this2.user.password = null;
+                }
+              });
+            } catch (error) {
+              alert('El nombre de usuario o la contraseña son incorrectos. \n Por favor intente nuevamente');
+              this.user.email = null;
+              this.user.password = null;
+            }
+          } else {
+            alert('Las nuevas contraseñas deben de coincidir');
+          }
+        }
+      }, {
+        key: "typeChange",
+        value: function typeChange() {
+          if (this.typeInput == 'password') {
+            this.typeInput = 'text';
+          } else {
+            this.typeInput = 'password';
+          }
+        }
+      }, {
+        key: "vaTras",
+        value: function vaTras() {
+          this._location.back();
+        }
       }]);
 
       return RecoverComponent;
     }();
+
+    RecoverComponent.ctorParameters = function () {
+      return [{
+        type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"]
+      }];
+    };
 
     RecoverComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-recover',
@@ -1844,28 +1955,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(RegisterComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
+          var _this3 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this2.ListLOC = reslo;
-            _this2.ListLOCMain = reslo.filter(function (LOC) {
+            _this3.ListLOC = reslo;
+            _this3.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == '5e82f99555df33706d238006';
             });
-            _this2.depasCI = _this2.ListLOC.filter(function (LOC) {
+            _this3.depasCI = _this3.ListLOC.filter(function (LOC) {
               return LOC.owner == '5e82fa4155df33706d23800a';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this2.ListCompany = reslo.filter(function (LOC) {
+            _this3.ListCompany = reslo.filter(function (LOC) {
               return LOC.context_id == '5e82fff755df33706d23801d';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this2.ListRol = reslo.filter(function (LOC) {
+            _this3.ListRol = reslo.filter(function (LOC) {
               return LOC.context_id == '5e82fffe55df33706d23801e';
             });
           }, function (error) {
@@ -1881,7 +1992,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this3 = this;
+          var _this4 = this;
 
           this.agregarDireccion();
           this.invitation.job = {
@@ -1893,12 +2004,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.connexion.addObject('register', this.invitation).subscribe(function (regis) {
             localStorage.setItem('userPhone', regis.toString());
             alert('Registro de Usuario Satisfactorio, Verifique su correo electrónico.');
-            _this3.correct = true;
+            _this4.correct = true;
 
-            _this3._router.navigate(['/sign/login']);
+            _this4._router.navigate(['/sign/login']);
           }, function (error) {
             var errorMessage = error;
-            _this3.correct = false;
+            _this4.correct = false;
 
             switch (errorMessage.status) {
               case 400:

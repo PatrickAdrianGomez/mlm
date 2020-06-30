@@ -1,26 +1,81 @@
 <div class="container">
-    <div class="form-sign center z-depth-4">
-        <img src="assets/v.png" alt="Ventun">
-          <h5>Recuperar Contraseña</h5><hr>
-      
+  <div class="card" style="top: 2em; vertical-align: center;">
+    <div class="card-header text-center">
+      <img src="assets/img/logos/v.png" alt="Ventun">
+      <h5>Cambio de Contraseña</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <form class="col s12" #formUser="ngForm" (ngSubmit)="onSignIn()">
+          <div class="form-group">
+            <i class="fas fa-fingerprint"></i>
+            <label for="ci">&nbsp; Cédula de Identidad</label>
+            <input type="text" class="form-control" id="ci" name="ci" [(ngModel)]="user.ci" #ci="ngModel"
+              aria-describedby="ciHelp" placeholder="Introduzca su CI">
+            <small id="ciHelp" class="form-text text-muted">Su número de carnet incluida la extensión.</small>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-key"></i>
+            <label for="password">&nbsp; Contraseña</label>
+            <input type="{{typeInput}}" class="form-control" id="password" name="password" [(ngModel)]="user.password"
+              #password="ngModel" placeholder="Introduzca su Contraseña">
+            <div (click)="typeChange()" class="ubicacion">
+              <i class="far fa-eye" *ngIf="typeInput=='password'" style="float: right;"></i>
+              <i class="far fa-eye-slash" *ngIf="typeInput=='text'" style="float: right;"></i>
+            </div>
+          </div>
           <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <i class="material-icons prefix">email</i>
-                  <input type="email" class="validate" id="email">
-                  <label for="email">E-Mail</label>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <i class="fas fa-key"></i>
+                <label for="password1">&nbsp; Nueva Contraseña</label>
+                <input type="{{typeInput}}" class="form-control" id="password1" name="password1"
+                  [(ngModel)]="passwd1" placeholder="Introduzca su Nueva Contraseña">
+                <div (click)="typeChange()" class="ubicacion">
+                  <i class="far fa-eye" *ngIf="typeInput=='password'" style="float: right;"></i>
+                  <i class="far fa-eye-slash" *ngIf="typeInput=='text'" style="float: right;"></i>
                 </div>
               </div>
-            </form>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <i class="fas fa-key"></i>
+                <label for="password2">&nbsp; Repita Nueva Contraseña</label>
+                <input type="{{typeInput}}" class="form-control" id="password2" name="password"
+                  [(ngModel)]="passwd2" placeholder="Repita su Nueva Contraseña">
+                <div (click)="typeChange()" class="ubicacion">
+                  <i class="far fa-eye" *ngIf="typeInput=='password'" style="float: right;"></i>
+                  <i class="far fa-eye-slash" *ngIf="typeInput=='text'" style="float: right;"></i>
+                </div>
+              </div>
+            </div>
           </div>
-        
-          <div style="padding-bottom: 20px;">
-            <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Recuperar
-              <i class="material-icons right">send</i>
-            </button>
+          <div style="padding-bottom: 20px;" class="text-center">
+            <div class="row">
+              <div class="col-12 col-md-2"></div>
+              <button class="btn waves-effect waves-light red darken-4 col-12 col-md-4" type="submit" name="action">Cambio de Contraseña
+                <i class="fas fa-sign-in-alt"></i>
+              </button>
+              <button class="btn waves-effect waves-light red darken-4 col-12 col-md-4" name="action" (click)="vaTras()">Cancelar
+              </button>
+              <div class="col-12 col-md-2"></div>
+            </div>
           </div>
-          <span style="margin-left:20px;"><a [routerLink]="['/sign/login']" [routerLinkActive]="['linkActivo']" rel="noopener noreferrer">Volver a Iniciar Sesión</a></span>
-        
-        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!--
+    <div style="padding-bottom: 20px;">
+      <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Recuperar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+    <span style="margin-left:20px;"><a [routerLink]="['/sign/login']" [routerLinkActive]="['linkActivo']"
+        rel="noopener noreferrer">Volver a Iniciar Sesión</a></span>
+
+  </div>
+</div>-->

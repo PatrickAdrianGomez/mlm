@@ -59,7 +59,6 @@ exports.getAllInvitations = async (req, res, next) => {
 
 
 exports.registerInvitation = async (req, res, next) => {
-    console.log(req.body);
     let profile = req.body.profile;
     let contac = req.body.contact;
     let job = req.body.job;
@@ -240,6 +239,44 @@ exports.userLogin = async (req, res, next) => {
     return token;
 };
 
+exports.passwordRecover = async (req, res, next) => {
+    let token = {};
+    let userExists = true;
+    let user = await getUser(req.query.ci).then(user => {
+        if (!user) {
+            userExists = false;
+            return null;
+        } else {
+            return user;
+        }
+    });
+    if (!userExists) {
+        res.status(401).json({ message: "User does not exist" });
+        return token;
+    }
+    if (!(req.query.password == user.password)) {
+        res.status(401).json({ message: "Password did not match" });
+        return token;
+    } else {
+        contact = {};
+        job = {};
+        profile = {};
+        contact.email = user.email;
+        contact.phone = user.phone;
+        job = user.job;
+        profile.ci = user.ci;
+        console.log(user);
+        elID = user._id;
+        
+        let resp = await User.findOneAndUpdate({ _id: elID }, { 'password': req.query.newpass }, {
+            new: true,
+            upsert: true,
+            rawResult: true
+          });
+        res.status(200).json({ resp: resp });
+    }
+}
+
 setUser = async (profile, contact, pass, job) => {
     let newUser = new User({
         ci: profile.ci,
@@ -298,6 +335,7 @@ getPerson = (id) => {
 getInvitations = (estado, ciMain, companyName) => {
     return Invitation.find({ estado: estado, 'job.ciMain': ciMain, 'job.companyName': companyName });
 };
+
 
 /*exports.getUserPerson = async (req, res, next) => {
     'use strict';

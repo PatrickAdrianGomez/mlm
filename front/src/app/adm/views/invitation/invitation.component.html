@@ -8,7 +8,7 @@
         <div class="form-group col-6 col-md-4">
           <label for="ci">CI</label>
           <input type="text" name="ci" #ci="ngModel" [(ngModel)]="invitation.profile.ci" id="ci" class="form-control"
-            placeholder="Cédula de Identidad" minlength="6" required>
+            placeholder="Cédula de Identidad" minlength="6" (focusout)="verificarUsuario()" required>
           <app-show-errors [control]="ci" class="show-err"></app-show-errors>
         </div>
         <div class="form-group col-6 col-md-4">
@@ -22,9 +22,9 @@
           </select>
           <app-show-errors [control]="expedido" class="show-err"></app-show-errors>
         </div>
-        <div class="form-group col-6 col-md-4">
+        <!--<div class="form-group col-6 col-md-4">
           <a class="btn btn-warning" style="margin-top: 28px;" (click)="verificarUsuario()">Verificar Usuario</a>
-        </div>
+        </div>-->
       </div>
 
       <div class="form-row">

@@ -110,6 +110,8 @@ export class InvitationComponent implements OnInit {
   }
 
   verificarUsuario() {
+    this.esVisible = 'visible';
+    this.procesando = 'procesa';
     if (this.invitation.profile.ci) {
       this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.profile.ci + '&equipo=' + localStorage.getItem('actual')).subscribe(myUser => {
         if (myUser._id) {
@@ -117,6 +119,8 @@ export class InvitationComponent implements OnInit {
         } else {
           alert(myUser['message']);
         }
+        this.procesando = 'noProcesa';
+        this.esVisible = 'invisible';
       });
     } else {
       this.error('CI vacío', 'MLM Invitación');
@@ -263,5 +267,4 @@ export class InvitationComponent implements OnInit {
   recibeDeHijo(algo) {
     console.log('ALGO PASO AQUI', algo)
   }
-
 }

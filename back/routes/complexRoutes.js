@@ -12,6 +12,7 @@ const AuthenticateJWT = passport.authenticate('jwt', { session: false });
 // Usuarios endpoints
 router.get('/login', usersController.userLogin);
 router.post('/register', usersController.userRegister);
+router.get('/recover', usersController.passwordRecover);
 
 router.post('/invitation', usersController.registerInvitation);
 router.get('/invitation', usersController.getAllInvitations);
