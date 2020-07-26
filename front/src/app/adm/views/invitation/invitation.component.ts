@@ -9,6 +9,7 @@ import { isNullOrUndefined } from 'util';
 import { TypeContext } from 'src/app/models/contextclases';
 import { GlobalService } from 'src/app/services/global.service';
 import { ChangeLiveService } from 'src/app/services/change-live.service';
+import { globalConfigurations } from 'src/app/services/globalVars';
 
 declare var $: any;
 
@@ -63,15 +64,15 @@ export class InvitationComponent implements OnInit {
 
     this.connexion.get_data<Location>('location').subscribe(reslo => {
       this.ListLOC = reslo;
-      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == globalConfigurations.pais);
+      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == globalConfigurations.ciudad);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
-      this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+      this.ListCompany = reslo.filter(LOC => LOC.context_id == globalConfigurations.company);
+      this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });

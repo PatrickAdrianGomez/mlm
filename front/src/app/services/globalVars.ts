@@ -1,14 +1,19 @@
 export const globalVars = {
-    domain: 'http://35.239.157.9:8001',
-    filesDomain: 'http://35.239.157.9:8001',
-    //domain: 'http://127.0.0.1:8001',
-    //filesDomain: 'http://127.0.0.1:8001/',
+    //domain: 'http://35.239.157.9:8001',
+    //filesDomain: 'http://35.239.157.9:8001',
+    domain: 'http://127.0.0.1:8001',
+    filesDomain: 'http://127.0.0.1:8001/',
 
     language: 'es',
     moneda: 'BOL'
 };
 
-export const globalConfigurations = {};
+export const globalConfigurations = {
+    pais: '5e14d334d235a7103c0ba4f1',
+    ciudad: '5e14d611d235a7103c0ba4f6',
+    company: '5e252fb391a1412bf8709a69',
+    rol: '5f151a066223cb2cdc7c606e'
+};
 
 export const globalImages = {
 };

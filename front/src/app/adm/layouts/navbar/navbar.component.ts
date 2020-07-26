@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
-      this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+      this.ListCompany = reslo.filter(LOC => LOC.context_id == globalConfigurations.company);
+      this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });

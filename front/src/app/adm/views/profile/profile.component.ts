@@ -3,7 +3,7 @@ import { person } from "../../../models/person";
 import { job, field, address, Location, contact, profile } from "../../../models/schema";
 import { ConnexionService } from 'src/app/services/connexion.service';
 import { Router } from '@angular/router';
-import { globalVars } from 'src/app/services/globalVars';
+import { globalVars, globalConfigurations } from 'src/app/services/globalVars';
 import { isNullOrUndefined } from 'util';
 declare var $: any;
 
@@ -58,8 +58,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.connexion.get_data<Location>('location').subscribe(reslo => {
       this.ListLOC = reslo;
-      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == globalConfigurations.pais);
+      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == globalConfigurations.ciudad);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });

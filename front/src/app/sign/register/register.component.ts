@@ -7,6 +7,7 @@ import { job, address, field, contact, profile, Location } from "../../models/sc
 import { invitation } from "../../models/invitation";
 import { ShowErrorsComponent } from 'src/app/adm/tools/show-errors/show-errors.component';
 import { TypeContext } from 'src/app/models/contextclases';
+import { globalConfigurations } from 'src/app/services/globalVars';
 
 declare var $: any;
 
@@ -49,20 +50,21 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.connexion.get_data<Location>('location').subscribe(reslo => {
       this.ListLOC = reslo;
-      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+      this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == globalConfigurations.pais);
+      this.depasCI = this.ListLOC.filter(LOC => LOC.owner == globalConfigurations.ciudad);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
+      this.ListCompany = reslo.filter(LOC => LOC.context_id == globalConfigurations.company);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
 
     this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-      this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+      console.log('typecontext', reslo)
+      this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
     }, error => {
       console.log('Hubo un problema al cargar datos. ' + error);
     });
