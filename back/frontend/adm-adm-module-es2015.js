@@ -7687,8 +7687,8 @@ let NavbarComponent = class NavbarComponent {
     }
     ngOnInit() {
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
-            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+            this.ListCompany = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company);
+            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
@@ -8588,6 +8588,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var src_app_services_global_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/global.service */ "./src/app/services/global.service.ts");
 /* harmony import */ var src_app_services_change_live_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/change-live.service */ "./src/app/services/change-live.service.ts");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+
 
 
 
@@ -8636,14 +8638,14 @@ let InvitationComponent = class InvitationComponent {
         }
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais);
+            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
-            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+            this.ListCompany = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company);
+            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
@@ -8988,8 +8990,8 @@ let ProfileComponent = class ProfileComponent {
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].pais);
+            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].ciudad);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

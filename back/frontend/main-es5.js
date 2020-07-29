@@ -1417,14 +1417,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var globalVars = {
-      domain: 'http://35.239.157.9:8001',
-      filesDomain: 'http://35.239.157.9:8001',
+      domain: 'http://104.197.114.137:8001',
+      filesDomain: 'http://104.197.114.137:8001',
       //domain: 'http://127.0.0.1:8001',
       //filesDomain: 'http://127.0.0.1:8001/',
       language: 'es',
       moneda: 'BOL'
     };
-    var globalConfigurations = {};
+    var globalConfigurations = {
+      pais: '5e14d334d235a7103c0ba4f1',
+      ciudad: '5e14d611d235a7103c0ba4f6',
+      company: '5e252fb391a1412bf8709a69',
+      rol: '5f151a066223cb2cdc7c606e'
+    };
     var globalImages = {};
     var jobs = [];
     var globalImagesSize = {
@@ -1926,6 +1931,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _models_invitation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../models/invitation */
     "./src/app/models/invitation.ts");
+    /* harmony import */
+
+
+    var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/services/globalVars */
+    "./src/app/services/globalVars.ts");
 
     var RegisterComponent =
     /*#__PURE__*/
@@ -1960,24 +1971,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this3.ListLOC = reslo;
             _this3.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e82f99555df33706d238006';
+              return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].pais;
             });
             _this3.depasCI = _this3.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e82fa4155df33706d23800a';
+              return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].ciudad;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this3.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fff755df33706d23801d';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
+            console.log('typecontext', reslo);
             _this3.ListRol = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fffe55df33706d23801e';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);

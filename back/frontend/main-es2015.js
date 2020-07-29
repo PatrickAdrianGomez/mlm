@@ -694,14 +694,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 const globalVars = {
-    domain: 'http://35.239.157.9:8001',
-    filesDomain: 'http://35.239.157.9:8001',
+    domain: 'http://104.197.114.137:8001',
+    filesDomain: 'http://104.197.114.137:8001',
     //domain: 'http://127.0.0.1:8001',
     //filesDomain: 'http://127.0.0.1:8001/',
     language: 'es',
     moneda: 'BOL'
 };
-const globalConfigurations = {};
+const globalConfigurations = {
+    pais: '5e14d334d235a7103c0ba4f1',
+    ciudad: '5e14d611d235a7103c0ba4f6',
+    company: '5e252fb391a1412bf8709a69',
+    rol: '5f151a066223cb2cdc7c606e'
+};
 const globalImages = {};
 var jobs = [];
 const globalImagesSize = {
@@ -1000,6 +1005,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _models_schema__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/schema */ "./src/app/models/schema.ts");
 /* harmony import */ var _models_invitation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/invitation */ "./src/app/models/invitation.ts");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+
 
 
 
@@ -1031,18 +1038,19 @@ let RegisterComponent = class RegisterComponent {
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == '5e82f99555df33706d238006');
-            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == '5e82fa4155df33706d23800a');
+            this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].pais);
+            this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].ciudad);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == '5e82fff755df33706d23801d');
+            this.ListCompany = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListRol = reslo.filter(LOC => LOC.context_id == '5e82fffe55df33706d23801e');
+            console.log('typecontext', reslo);
+            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

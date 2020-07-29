@@ -11235,10 +11235,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this24.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fff755df33706d23801d';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company;
             });
             _this24.ListRol = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fffe55df33706d23801e';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
@@ -12695,6 +12695,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_services_change_live_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! src/app/services/change-live.service */
     "./src/app/services/change-live.service.ts");
+    /* harmony import */
+
+
+    var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/services/globalVars */
+    "./src/app/services/globalVars.ts");
 
     var InvitationComponent =
     /*#__PURE__*/
@@ -12747,20 +12753,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this34.ListLOC = reslo;
             _this34.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e82f99555df33706d238006';
+              return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais;
             });
             _this34.depasCI = _this34.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e82fa4155df33706d23800a';
+              return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this34.ListCompany = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fff755df33706d23801d';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company;
             });
             _this34.ListRol = reslo.filter(function (LOC) {
-              return LOC.context_id == '5e82fffe55df33706d23801e';
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
@@ -13303,10 +13309,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.connexion.get_data('location').subscribe(function (reslo) {
             _this39.ListLOC = reslo;
             _this39.ListLOCMain = reslo.filter(function (LOC) {
-              return LOC.typecon_id == '5e82f99555df33706d238006';
+              return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].pais;
             });
             _this39.depasCI = _this39.ListLOC.filter(function (LOC) {
-              return LOC.owner == '5e82fa4155df33706d23800a';
+              return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].ciudad;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
