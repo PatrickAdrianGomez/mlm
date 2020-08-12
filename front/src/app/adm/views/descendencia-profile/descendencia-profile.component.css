@@ -3,7 +3,14 @@ ul.nav-pills {
 }
 
 ul.nav-pills .active{
-    box-shadow: 0px 5px 35px 0px #ffffff4d;
+    box-shadow: 0px 5px 15px 0px #ffffff4d;
+}
+
+#descendenciaTab {
+    padding-top: 16px;
+}
+.tab-pane {
+    background-color: #1e1e2f;
 }
 
 li.nav-item {

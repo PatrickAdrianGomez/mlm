@@ -28,6 +28,7 @@ export class InvitationComponent implements OnInit {
   public field: field;
   public esVisible: string = 'invisible';
   public procesando: string = 'noProcesa';
+  public usuarioValido: boolean = true;
   correct: boolean = false;
 
   ListCompany: TypeContext[] = [];
@@ -115,10 +116,12 @@ export class InvitationComponent implements OnInit {
     this.procesando = 'procesa';
     if (this.invitation.profile.ci) {
       this.connexion.get_dataWithParamsOne<person>('personInvitation', '?ci=' + this.invitation.profile.ci + '&equipo=' + localStorage.getItem('actual')).subscribe(myUser => {
-        if (myUser._id) {
-          alert('El usuario ya es parte del sistema');
+        if (myUser['id'] == 0) {
+          this.usuarioValido = false;
+          this.error(myUser['message'], 'Invitación a MLM')
         } else {
-          alert(myUser['message']);
+          this.usuarioValido = true;
+          this.success(myUser['message'], 'Invitación a MLM')
         }
         this.procesando = 'noProcesa';
         this.esVisible = 'invisible';
@@ -131,6 +134,10 @@ export class InvitationComponent implements OnInit {
 
   error(message: string, title: string) {
     this.toastService.error(message, title);
+  }
+
+  success(message: string, title: string) {
+    this.toastService.success(message, title);
   }
 
   onRegister() {
@@ -170,10 +177,12 @@ export class InvitationComponent implements OnInit {
         this.correct = false;
         switch (errorMessage.status) {
           case 400:
+            this.usuarioValido = false;
             alert('El usuario ya fue invitado. \n Por favor intente nuevamente.');
             break;
 
           default:
+            this.usuarioValido = true;
             alert('Ocurrió un error al intentar invitar el usuario. \n Por favor verifique los datos e intente nuevamente.');
             break;
         }

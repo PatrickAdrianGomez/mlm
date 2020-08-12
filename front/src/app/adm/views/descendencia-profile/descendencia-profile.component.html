@@ -3,7 +3,7 @@
         <h4 class="card-title">Asociado {{title}}</h4>
     </div>
     <div class="card-body">
-        <ul class="nav nav-pills">
+        <ul class="nav nav-tabs card-header-tabs" style="margin-left: 0.1em!important;">
             <li class="nav-item">
                 <a href="#resumen" data-toggle="pill" class="nav-link active">Resumen</a>
             </li>
@@ -11,7 +11,6 @@
                 <a href="#cuotas" data-toggle="pill" class="nav-link">Cuotas</a>
             </li>
         </ul>
-
         <div class="tab-content" id="descendenciaTab">
             <div class="tab-pane fade show active container" id="resumen" role="tabpanel" aria-labelledby="resumen-tab">
                 <div class="row">
@@ -73,14 +72,13 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="cuotas" role="tabpanel" aria-labelledby="cuotas-tab">
-
+            <div class="tab-pane fade container" id="cuotas" role="tabpanel" aria-labelledby="cuotas-tab">
                 <div class="row">
-                    <div class="update ml-auto mr-auto">
+                    <!--<div class="update ml-auto mr-auto">
                         <button class="btn btn-primary" (click)="saveService()">Save</button>
                         <button type="button" class="btn btn-info" (click)="cancelStaff()">Cancel</button>
                         <a href="#profile" class="nav-link btn btn-primary">Profile</a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

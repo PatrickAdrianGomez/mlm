@@ -160,7 +160,6 @@ exports.getPersonInvitation = async (req, res, next) => {
 }
 
 exports.getPersonAssociated = async (req, res, next) => {
-    console.log(req.query.companyName);
     let person = await getPerson(req.query.userID);
     if (person) {
         let personaArmada = {};
@@ -224,6 +223,10 @@ exports.userLogin = async (req, res, next) => {
         token.userPhone = user.phone;
         token.userCi = user.ci;
         token.userCompany = user.job;
+        let person = await getUserPerson(user._id);
+        if (person) {
+            token.userActive = person.estado;
+        }
     }
     await getUserPerson(user._id).then(detail => {
         if (!detail) {
@@ -265,7 +268,6 @@ exports.passwordRecover = async (req, res, next) => {
         contact.phone = user.phone;
         job = user.job;
         profile.ci = user.ci;
-        console.log(user);
         elID = user._id;
         
         let resp = await User.findOneAndUpdate({ _id: elID }, { 'password': req.query.newpass }, {

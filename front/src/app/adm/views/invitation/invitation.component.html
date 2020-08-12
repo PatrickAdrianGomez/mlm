@@ -194,7 +194,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="contextForm.invalid">Invitar</button>
+      <button *ngIf="usuarioValido" type="submit" class="btn btn-primary" [disabled]="contextForm.invalid">Invitar</button>
     </form>
   </div>
 </div>

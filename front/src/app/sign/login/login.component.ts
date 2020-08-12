@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     try {
       this.connexion.get_dataWithParams<user>('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(
         (userJWT) => {
+          console.log(userJWT);
           if (!isNullOrUndefined(userJWT)) {
             localStorage.clear();
             if (userJWT['userCompany'].length > 0) {
@@ -47,7 +48,14 @@ export class LoginComponent implements OnInit {
                 globalConfigurations[propiedad] = userJWT[propiedad];
               }
             }
-            this._router.navigate(['/']);
+            if (localStorage.getItem('userActive') == '0') {
+              localStorage.removeItem('userActive');
+              this._router.navigate(['/profile']);
+            } else {
+              localStorage.removeItem('userActive');
+              this._router.navigate(['/']);
+            }
+            
           } else {
             localStorage.clear();
           }

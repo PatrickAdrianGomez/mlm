@@ -67,6 +67,7 @@ export class ProfileComponent implements OnInit {
     if (codigo) {
       setTimeout(() => {
         this.connexion.get_dataId<person>('person', codigo).subscribe(myUser => {
+          console.log(myUser);
           this.perfil = myUser;
           this.urlImage = myUser.profile.photo.toString();
           this.listDepa = this.ListLOC.filter(LOC => LOC.owner == myUser.contact.address.country);

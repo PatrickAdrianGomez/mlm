@@ -1422,13 +1422,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       //domain: 'http://127.0.0.1:8001',
       //filesDomain: 'http://127.0.0.1:8001/',
       language: 'es',
-      moneda: 'BOL'
+      moneda: 'BOL',
+      caducaEnDias: 7
     };
     var globalConfigurations = {
-      pais: '5e14d334d235a7103c0ba4f1',
-      ciudad: '5e14d611d235a7103c0ba4f6',
-      company: '5e252fb391a1412bf8709a69',
-      rol: '5f151a066223cb2cdc7c606e'
+      pais: '5f20d21991a91e3e79106752',
+      ciudad: '5f20d29391a91e3e79106756',
+      company: '5f20d1de91a91e3e79106750',
+      rol: '5f20d1f091a91e3e79106751'
     };
     var globalImages = {};
     var jobs = [];
@@ -1574,6 +1575,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           try {
             this.connexion.get_dataWithParams('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(function (userJWT) {
+              console.log(userJWT);
+
               if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {
                 localStorage.clear();
 
@@ -1595,7 +1598,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   }
                 }
 
-                _this._router.navigate(['/']);
+                if (localStorage.getItem('userActive') == '0') {
+                  localStorage.removeItem('userActive');
+
+                  _this._router.navigate(['/profile']);
+                } else {
+                  localStorage.removeItem('userActive');
+
+                  _this._router.navigate(['/']);
+                }
               } else {
                 localStorage.clear();
               }

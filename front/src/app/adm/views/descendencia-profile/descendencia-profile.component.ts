@@ -36,8 +36,9 @@ export class DescendenciaProfileComponent implements OnInit {
 
   cargarDatos(id) {
     let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
-    this.connexion.get_dataWithParamsOne<person>('personAssociated', '?userID=' + id + '&companyName=' + myCompanyName[0].companyName).subscribe(
+    this.connexion.get_dataWithParamsOne<person>('personAssociated', '?userID=' + id + '&companyName=' + localStorage.getItem('actual')).subscribe(
       regis => {
+        console.log('regisaa',regis);
         this.person = regis[0];
         this.asociados = regis[0].associated;
       },

@@ -38,6 +38,7 @@ var invitationSchema = new Schema({
         type: Schema.Types.Number,
         required: true,
         unique: false
+        //0=Invitación ya aceptada, 1=Invitación vigente, 2=
     }
 });
 

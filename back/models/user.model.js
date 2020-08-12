@@ -46,6 +46,7 @@ var userSchema = new Schema({
         required: true,
         unique: false,
         default: 0
+        //0=Recien Creado sin activar, 1=Usuario Activado y Activo, 2
     }
 });
 

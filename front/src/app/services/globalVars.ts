@@ -1,18 +1,19 @@
 export const globalVars = {
-    //domain: 'http://35.239.157.9:8001',
-    //filesDomain: 'http://35.239.157.9:8001',
-    domain: 'http://127.0.0.1:8001',
-    filesDomain: 'http://127.0.0.1:8001/',
+    domain: 'http://104.197.114.137:8001',
+    filesDomain: 'http://104.197.114.137:8001',
+    //domain: 'http://127.0.0.1:8001',
+    //filesDomain: 'http://127.0.0.1:8001/',
 
     language: 'es',
-    moneda: 'BOL'
+    moneda: 'BOL',
+    caducaEnDias: 7
 };
 
 export const globalConfigurations = {
-    pais: '5e14d334d235a7103c0ba4f1',
-    ciudad: '5e14d611d235a7103c0ba4f6',
-    company: '5e252fb391a1412bf8709a69',
-    rol: '5f151a066223cb2cdc7c606e'
+    pais: '5f20d21991a91e3e79106752',
+    ciudad: '5f20d29391a91e3e79106756',//5f20d2c491a91e3e79106757',
+    company: '5f20d1de91a91e3e79106750',
+    rol: '5f20d1f091a91e3e79106751'
 };
 
 export const globalImages = {

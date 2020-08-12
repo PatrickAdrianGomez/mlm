@@ -699,13 +699,14 @@ const globalVars = {
     //domain: 'http://127.0.0.1:8001',
     //filesDomain: 'http://127.0.0.1:8001/',
     language: 'es',
-    moneda: 'BOL'
+    moneda: 'BOL',
+    caducaEnDias: 7
 };
 const globalConfigurations = {
-    pais: '5e14d334d235a7103c0ba4f1',
-    ciudad: '5e14d611d235a7103c0ba4f6',
-    company: '5e252fb391a1412bf8709a69',
-    rol: '5f151a066223cb2cdc7c606e'
+    pais: '5f20d21991a91e3e79106752',
+    ciudad: '5f20d29391a91e3e79106756',
+    company: '5f20d1de91a91e3e79106750',
+    rol: '5f20d1f091a91e3e79106751'
 };
 const globalImages = {};
 var jobs = [];
@@ -790,6 +791,7 @@ let LoginComponent = class LoginComponent {
     onSignIn() {
         try {
             this.connexion.get_dataWithParams('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe((userJWT) => {
+                console.log(userJWT);
                 if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {
                     localStorage.clear();
                     if (userJWT['userCompany'].length > 0) {
@@ -808,7 +810,14 @@ let LoginComponent = class LoginComponent {
                             src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];
                         }
                     }
-                    this._router.navigate(['/']);
+                    if (localStorage.getItem('userActive') == '0') {
+                        localStorage.removeItem('userActive');
+                        this._router.navigate(['/profile']);
+                    }
+                    else {
+                        localStorage.removeItem('userActive');
+                        this._router.navigate(['/']);
+                    }
                 }
                 else {
                     localStorage.clear();
