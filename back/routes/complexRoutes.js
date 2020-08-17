@@ -1,5 +1,6 @@
 const usersController = require('../controllers/user.controller');
-const fileController = require('../controllers/file.controller')
+const fileController = require('../controllers/file.controller');
+//const mailController = require('../controllers/mail.controller');
 
 var express = require('express');
 var router = express.Router();
@@ -21,6 +22,9 @@ router.put('/personInvitation', usersController.updatePersonInvitation);
 router.get('/personAssociated', usersController.getPersonAssociated);
 
 router.post('/image', AuthenticateJWT, fileController.upload);
+
+//router.post('/mailSender', mailController.mailSender);
+//router.get('/mailReciver', mailController.decryURL);
 
 app.use(passport.initialize());
 require('../configurations/authenticationJWT')(passport);

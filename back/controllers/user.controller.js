@@ -1,11 +1,10 @@
-var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
 var config = require('../configurations/configurations');
 var User = require('../models/user.model');
 var Person = require('../models/person.model');
 var Invitation = require('../models/invitation.model');
-var Schema = require('../models/schemas');
+var Mail = require('./mail.controller')
 var ObjectId = require('mongodb').ObjectID;
 
 /**
@@ -29,7 +28,7 @@ exports.userRegister = async (req, res, next) => {
         }
     });
     if (!userExists) {
-        let passUser = 'ABC123';
+        let passUser = Math.random().toString(36).substring(7);
         /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
@@ -62,7 +61,7 @@ exports.registerInvitation = async (req, res, next) => {
     let profile = req.body.profile;
     let contac = req.body.contact;
     let job = req.body.job;
-    let pass = req.body.password;
+    let pass = Math.random().toString(36).substring(7);
     let state = req.body.estado;
     let date = req.body.date;
     let code = req.body.codeInvitation;
@@ -107,13 +106,13 @@ exports.registerInvitation = async (req, res, next) => {
     }
 
     if (!userExists) {
-        let passUser = 'ABC123';
+        //let passUser = ;
         /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
             }
         );*/
-        codigoUser = await setUser(profile, contac, passUser, job);
+        codigoUser = await setUser(profile, contac, pass, job);
 
         let codePerson = '';
         codePerson = await getUserPerson(codigoUser).then((person) => {
@@ -134,6 +133,8 @@ exports.registerInvitation = async (req, res, next) => {
             { $push: { associated: { ciMain: codePerson, companyName: job.companyName, typeAccount: job.typeAccount } } },
             { new: true }
         );
+        let newReq = {nombre: req.body.profile.lastNameP + ' ' + req.body.profile.lastNameM + ', ' + req.body.profile.firstName, email: req.body.contact.email, password: pass}
+        Mail.mailSender(newReq, 'verificacion');
     }
     res.status(200).json('token');
 };

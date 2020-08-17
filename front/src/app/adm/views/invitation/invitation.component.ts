@@ -163,6 +163,7 @@ export class InvitationComponent implements OnInit {
     this.invitation.codeInvitation = pass;
     this.invitation.password = pass;
     this.invitation.profile.photo = '/assets/img/noPicture.png';
+    console.log('invitation', this.invitation);
     this.connexion.addObject<invitation>('invitation', this.invitation).subscribe(
       regis => {
         this.procesando = 'noProcesa';

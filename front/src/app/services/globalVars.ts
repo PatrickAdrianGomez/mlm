@@ -41,6 +41,10 @@ export const globalRoutes = {
     typecontext:'api/v1/qtypecontext',
     typecontextact:'api/v1/qtypecontext?estado=1',
 
+    mailSender: 'api/v1/mailSender',
+    userVerification: 'api/v1/userVerification',
+    mailProduct: 'api/v1/mailProduct',
+    
     user: 'api/v1/quser',
     login: 'api/v1/login',
     register: 'api/v1/register',
