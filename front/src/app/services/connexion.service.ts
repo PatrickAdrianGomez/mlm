@@ -63,7 +63,7 @@ export class ConnexionService {
     let subRuta = globalRoutes[ruta];
     //console.log(this.url_base + subRuta);
 
-    return this.http.get<T[]>(this.url_base + subRuta, { headers: this.generarAutorizacion('with') }).pipe(
+    return this.http.get<T[]>(this.url_base + subRuta, { headers: this.generarAutorizacion('without') }).pipe(
       map(response => response)
     );
   }

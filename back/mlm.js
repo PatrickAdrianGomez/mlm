@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const app = express();
+//const bodyParser = require('body-parser');
 
 const routesManager = require('./routes/routesManager');
 var config = require('./configurations/configurations');
@@ -28,7 +28,7 @@ app.use(cors());
 config.serverURL = __dirname;
 config.serverURL = path.join(config.serverURL, 'frontend');
 // middelewares
-app.use(express.json({limit: '50mb', extended: true}));//remplaza a body-parser
+app.use(express.json({limit: '100mb', extended: true}));//remplaza a body-parser
 // Inicialización de las rutas
 app.use('/api', routesManager);
 //Redirect all the other resquests

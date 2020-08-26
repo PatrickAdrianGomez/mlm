@@ -32,17 +32,19 @@ export class LoginComponent implements OnInit {
           console.log(userJWT);
           if (!isNullOrUndefined(userJWT)) {
             localStorage.clear();
-            if (userJWT['userCompany'].length > 0) {
+            /*if (userJWT['userCompany'].length > 0) {
               for (let i = 0; i < userJWT['userCompany'].length; i++) {
                 console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
               }
-            }
+            }*/
             for (var propiedad in userJWT) {
               if (userJWT.hasOwnProperty(propiedad)) {
                 if ((userJWT['userCompany'].length > 0) && (propiedad == 'userCompany')) {
                   localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                  console.log(propiedad, JSON.stringify(userJWT[propiedad]));
                 } else {
                   localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                  console.log(propiedad, JSON.stringify(userJWT[propiedad]));
                 }
                 
                 globalConfigurations[propiedad] = userJWT[propiedad];

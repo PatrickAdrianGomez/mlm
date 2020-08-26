@@ -165,10 +165,13 @@ exports.getPersonAssociated = async (req, res, next) => {
     if (person) {
         let personaArmada = {};
         let asociados = [];
+        console.log(person.associated);
         for (let i = 0; i < person.associated.length; i++) {
             var socio = person.associated[i];
             if (socio.companyName == req.query.companyName) {
+                console.log(socio.companyName, req.query.companyName);
                 let socios = await getPerson(socio.ciMain);
+                console.log('SOCIOS: ', socios);
                 try {
                     if (!req.query.estado) {
                         asociados.push(socios);

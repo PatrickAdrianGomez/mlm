@@ -1250,7 +1250,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta]; //console.log(this.url_base + subRuta);
 
           return this.http.get(this.url_base + subRuta, {
-            headers: this.generarAutorizacion('with')
+            headers: this.generarAutorizacion('without')
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
             return response;
           }));
@@ -1420,7 +1420,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       domain: 'http://104.197.114.137:8001',
       filesDomain: 'http://104.197.114.137:8001',
       //domain: 'http://127.0.0.1:8001',
-      //filesDomain: 'http://127.0.0.1:8001/',
+      //filesDomain: 'http://127.0.0.1:8001',
+      //domain: '',
+      //filesDomain: '',
       language: 'es',
       moneda: 'BOL',
       caducaEnDias: 7
@@ -1582,19 +1584,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {
                 localStorage.clear();
-
-                if (userJWT['userCompany'].length > 0) {
-                  for (var i = 0; i < userJWT['userCompany'].length; i++) {
+                /*if (userJWT['userCompany'].length > 0) {
+                  for (let i = 0; i < userJWT['userCompany'].length; i++) {
                     console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
                   }
-                }
+                }*/
 
                 for (var propiedad in userJWT) {
                   if (userJWT.hasOwnProperty(propiedad)) {
                     if (userJWT['userCompany'].length > 0 && propiedad == 'userCompany') {
                       localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                      console.log(propiedad, JSON.stringify(userJWT[propiedad]));
                     } else {
                       localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                      console.log(propiedad, JSON.stringify(userJWT[propiedad]));
                     }
 
                     src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];
@@ -2190,7 +2193,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var environment = {
-      production: false
+      production: false,
+      apiUrl: 'api/v1'
     };
     /*
      * For easier debugging in development mode, you can import the following file
