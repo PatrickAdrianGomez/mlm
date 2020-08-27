@@ -117,6 +117,7 @@ exports.mailSender = (req, res) => {
             break;
     }
 
+    console.log('Correo donde se envía el correo: ', correo)
     let mailOptions = {
         from: 'mlm.conexion@gmail.com',
         //to: 'patrick_adrian@hotmail.com',
