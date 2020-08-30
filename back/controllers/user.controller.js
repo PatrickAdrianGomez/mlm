@@ -165,13 +165,10 @@ exports.getPersonAssociated = async (req, res, next) => {
     if (person) {
         let personaArmada = {};
         let asociados = [];
-        console.log(person.associated);
         for (let i = 0; i < person.associated.length; i++) {
             var socio = person.associated[i];
             if (socio.companyName == req.query.companyName) {
-                console.log(socio.companyName, req.query.companyName);
                 let socios = await getPerson(socio.ciMain);
-                console.log('SOCIOS: ', socios);
                 try {
                     if (!req.query.estado) {
                         asociados.push(socios);
@@ -214,6 +211,10 @@ exports.userLogin = async (req, res, next) => {
     if (!userExists) {
         res.status(401).json({ message: "User does not exist" });
         return token;
+    } else {
+        if (user.estado == 0) {
+            return user.estado;
+        }
     }
     //let mybcrypt = await bcrypt.compare(req.query.password, user.password);
     //if (!mybcrypt) {
@@ -290,7 +291,7 @@ setUser = async (profile, contact, pass, job) => {
         phone: contact.phone,
         password: pass,
         job: job,
-        estado: 1
+        estado: 0
     });
     let res = await newUser.save();
     return res._id;

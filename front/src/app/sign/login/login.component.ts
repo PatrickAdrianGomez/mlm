@@ -29,38 +29,40 @@ export class LoginComponent implements OnInit {
     try {
       this.connexion.get_dataWithParams<user>('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(
         (userJWT) => {
-          console.log(userJWT);
-          if (!isNullOrUndefined(userJWT)) {
-            localStorage.clear();
-            /*if (userJWT['userCompany'].length > 0) {
-              for (let i = 0; i < userJWT['userCompany'].length; i++) {
-                console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
-              }
-            }*/
-            for (var propiedad in userJWT) {
-              if (userJWT.hasOwnProperty(propiedad)) {
-                if ((userJWT['userCompany'].length > 0) && (propiedad == 'userCompany')) {
-                  localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
-                  console.log(propiedad, JSON.stringify(userJWT[propiedad]));
-                } else {
-                  localStorage.setItem(propiedad, userJWT[propiedad].toString());
-                  console.log(propiedad, JSON.stringify(userJWT[propiedad]));
-                }
-                
-                globalConfigurations[propiedad] = userJWT[propiedad];
-              }
-            }
-            if (localStorage.getItem('userActive') == '0') {
-              localStorage.removeItem('userActive');
-              this._router.navigate(['/profile']);
-            } else {
-              localStorage.removeItem('userActive');
-              this._router.navigate(['/']);
-            }
-            
+          if (userJWT['userActive'] == 0) {
+            this._router.navigate(['/sign/password']);
           } else {
-            localStorage.clear();
+            if (!isNullOrUndefined(userJWT)) {
+              localStorage.clear();
+              /*if (userJWT['userCompany'].length > 0) {
+                for (let i = 0; i < userJWT['userCompany'].length; i++) {
+                  console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
+                }
+              }*/
+              for (var propiedad in userJWT) {
+                if (userJWT.hasOwnProperty(propiedad)) {
+                  if ((userJWT['userCompany'].length > 0) && (propiedad == 'userCompany')) {
+                    localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                  } else {
+                    localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                  }
+
+                  globalConfigurations[propiedad] = userJWT[propiedad];
+                }
+              }
+              if (localStorage.getItem('userActive') == '0') {
+                localStorage.removeItem('userActive');
+                this._router.navigate(['/profile']);
+              } else {
+                localStorage.removeItem('userActive');
+                this._router.navigate(['/']);
+              }
+
+            } else {
+              localStorage.clear();
+            }
           }
+
         },
         (error) => {
           let errorMessage = <any>error;

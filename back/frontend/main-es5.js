@@ -1580,41 +1580,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           try {
             this.connexion.get_dataWithParams('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(function (userJWT) {
-              console.log(userJWT);
-
-              if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {
-                localStorage.clear();
-                /*if (userJWT['userCompany'].length > 0) {
-                  for (let i = 0; i < userJWT['userCompany'].length; i++) {
-                    console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
-                  }
-                }*/
-
-                for (var propiedad in userJWT) {
-                  if (userJWT.hasOwnProperty(propiedad)) {
-                    if (userJWT['userCompany'].length > 0 && propiedad == 'userCompany') {
-                      localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
-                      console.log(propiedad, JSON.stringify(userJWT[propiedad]));
-                    } else {
-                      localStorage.setItem(propiedad, userJWT[propiedad].toString());
-                      console.log(propiedad, JSON.stringify(userJWT[propiedad]));
-                    }
-
-                    src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];
-                  }
-                }
-
-                if (localStorage.getItem('userActive') == '0') {
-                  localStorage.removeItem('userActive');
-
-                  _this._router.navigate(['/profile']);
-                } else {
-                  localStorage.removeItem('userActive');
-
-                  _this._router.navigate(['/']);
-                }
+              if (userJWT['userActive'] == 0) {
+                _this._router.navigate(['/sign/password']);
               } else {
-                localStorage.clear();
+                if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {
+                  localStorage.clear();
+                  /*if (userJWT['userCompany'].length > 0) {
+                    for (let i = 0; i < userJWT['userCompany'].length; i++) {
+                      console.log('userJWT[userCompany]userJWT[userCompany]', userJWT['userCompany']);
+                    }
+                  }*/
+
+                  for (var propiedad in userJWT) {
+                    if (userJWT.hasOwnProperty(propiedad)) {
+                      if (userJWT['userCompany'].length > 0 && propiedad == 'userCompany') {
+                        localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                      } else {
+                        localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                      }
+
+                      src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];
+                    }
+                  }
+
+                  if (localStorage.getItem('userActive') == '0') {
+                    localStorage.removeItem('userActive');
+
+                    _this._router.navigate(['/profile']);
+                  } else {
+                    localStorage.removeItem('userActive');
+
+                    _this._router.navigate(['/']);
+                  }
+                } else {
+                  localStorage.clear();
+                }
               }
             }, function (error) {
               var errorMessage = error;
