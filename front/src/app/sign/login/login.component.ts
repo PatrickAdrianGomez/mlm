@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     try {
       this.connexion.get_dataWithParams<user>('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(
         (userJWT) => {
-          if (userJWT['userActive'] == 0) {
+          if (userJWT.toString() == '0') {
             this._router.navigate(['/sign/password']);
           } else {
             if (!isNullOrUndefined(userJWT)) {

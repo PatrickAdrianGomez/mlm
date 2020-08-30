@@ -213,6 +213,7 @@ exports.userLogin = async (req, res, next) => {
         return token;
     } else {
         if (user.estado == 0) {
+            res.status(200).json(user.estado);
             return user.estado;
         }
     }
