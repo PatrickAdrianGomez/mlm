@@ -275,7 +275,7 @@ exports.passwordRecover = async (req, res, next) => {
         profile.ci = user.ci;
         elID = user._id;
         
-        let resp = await User.findOneAndUpdate({ _id: elID }, { 'password': req.query.newpass }, {
+        let resp = await User.findOneAndUpdate({ _id: elID }, { 'password': req.query.newpass, 'estado': 1 }, {
             new: true,
             upsert: true,
             rawResult: true
