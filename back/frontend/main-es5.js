@@ -1580,7 +1580,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           try {
             this.connexion.get_dataWithParams('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe(function (userJWT) {
-              if (userJWT['userActive'] == 0) {
+              if (userJWT.toString() == '0') {
                 _this._router.navigate(['/sign/password']);
               } else {
                 if (!Object(util__WEBPACK_IMPORTED_MODULE_4__["isNullOrUndefined"])(userJWT)) {

@@ -796,7 +796,7 @@ let LoginComponent = class LoginComponent {
     onSignIn() {
         try {
             this.connexion.get_dataWithParams('login', '?ci=' + this.user.ci + '&password=' + this.user.password).subscribe((userJWT) => {
-                if (userJWT['userActive'] == 0) {
+                if (userJWT.toString() == '0') {
                     this._router.navigate(['/sign/password']);
                 }
                 else {
