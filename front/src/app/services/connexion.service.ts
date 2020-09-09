@@ -117,8 +117,7 @@ export class ConnexionService {
 
   delObject<T>(ruta: string, id: string) {
     let subruta = globalRoutes[ruta];
-    console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
-    return this.http.delete<T>(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(
+    return this.http.delete<T>(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('without') }).pipe(
       map(res => res)
     );
   }
@@ -126,7 +125,7 @@ export class ConnexionService {
   verifyUser(ruta: string) {
     let subruta = globalRoutes[ruta];
     //console.log(this.url_base + subruta);
-    return this.http.post(this.url_base + subruta, { headers: this.generarAutorizacion('with') }).pipe(
+    return this.http.post(this.url_base + subruta, { headers: this.generarAutorizacion('without') }).pipe(
       map(res => {
         //console.log('resresresresresresresresresresresresresresres', res);
       })
