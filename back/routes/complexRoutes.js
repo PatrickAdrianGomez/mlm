@@ -21,7 +21,7 @@ router.get('/personInvitation', usersController.getPersonInvitation);
 router.put('/personInvitation', usersController.updatePersonInvitation);
 router.get('/personAssociated', usersController.getPersonAssociated);
 
-router.post('/image', fileController.upload);
+router.post('/image', AuthenticateJWT, fileController.upload);
 
 //router.post('/mailSender', mailController.mailSender);
 //router.get('/mailReciver', mailController.decryURL);

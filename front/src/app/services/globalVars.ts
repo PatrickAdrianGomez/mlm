@@ -1,8 +1,8 @@
 export const globalVars = {
-    domain: 'http://104.197.114.137:8001',
-    filesDomain: 'http://104.197.114.137:8001',
-    //domain: 'http://127.0.0.1:8001',
-    //filesDomain: 'http://127.0.0.1:8001',
+    //domain: 'http://104.197.114.137:8001',
+    //filesDomain: 'http://104.197.114.137:8001',
+    domain: 'http://127.0.0.1:8001',
+    filesDomain: 'http://127.0.0.1:8001',
 
     //domain: '',
     //filesDomain: '',

@@ -3,6 +3,7 @@ const fs = require('fs');
 const config = require('../configurations/configurations');
 
 exports.upload = (req, res) => {
+    console.log('req', req);
     var form = new formidable.IncomingForm();
     var nombre_archivo = '';
     var direccion_archivo = '/';
