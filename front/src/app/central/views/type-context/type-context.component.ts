@@ -61,6 +61,8 @@ export class TypeContextComponent implements OnInit {
     this.myData.toCancel();
   }
 
+  setOrder(cad1: string, cad2: string){ }
+  
   saveContext() {
     if (this.myData.mode == 'edit') {
       this.conexionService.editObject<TypeContext>('typecontext', this.myData.xCurrent).subscribe(

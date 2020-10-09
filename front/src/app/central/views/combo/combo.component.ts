@@ -52,6 +52,8 @@ export class ComboComponent implements OnInit {
     this.myData.toSelect(contexto as Location);
   }
 
+  setOrder(cad1: string, cad2: string){ }
+
   toSort() {
     for (let i = 0; i < this.ListContext.length; i++) {
       let ctx = this.ListContext[i];

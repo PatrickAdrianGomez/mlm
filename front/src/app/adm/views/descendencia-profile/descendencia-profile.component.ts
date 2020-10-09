@@ -14,6 +14,7 @@ export class DescendenciaProfileComponent implements OnInit {
 
   public person: person;
   public asociados: job[];
+  public title: string = '';
   urlGlobal = globalVars.filesDomain;
   ListDepts: Location[] = [];
   

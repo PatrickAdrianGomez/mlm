@@ -50,6 +50,8 @@ export class ContextComponent implements OnInit {
     this.myData.toNew(new Contexto(undefined, '', '', '', 1, undefined));
   }
 
+  setOrder(cad1: string, cad2: string){ }
+  
   cancelContext() {
     this.myData.toCancel();
   }
