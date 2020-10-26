@@ -60,6 +60,7 @@ exports.getAllInvitations = async (req, res, next) => {
 exports.registerInvitation = async (req, res, next) => {
     let profile = req.body.profile;
     let contac = req.body.contact;
+    let vehiculo = req.body.vehiculo;
     let job = req.body.job;
     let pass = Math.random().toString(36).substring(7);
     let state = req.body.estado;
@@ -69,7 +70,7 @@ exports.registerInvitation = async (req, res, next) => {
     let tieneJobs = false;
     let codigoUser = '';
 
-    setInvitation(profile, contac, pass, code, date, job, state);
+    setInvitation(profile, contac, vehiculo, pass, code, date, job, state);
 
     await getUser(profile.ci).then((user) => {
         if (user) {
@@ -120,7 +121,7 @@ exports.registerInvitation = async (req, res, next) => {
             if (!person) {
                 let myUser = codigoUser;
                 let myAssociated = [];
-                return setPerson(myUser, profile, contac, myAssociated, false);
+                return setPerson(myUser, profile, contac, vehiculo, myAssociated, false);
             }
             return '';
         });
@@ -241,6 +242,7 @@ exports.userLogin = async (req, res, next) => {
         token.code = detail.estado + detail._id;
         userPlain.detail = detail;
         token.userName = detail.profile.firstName + ' ' + detail.profile.lastNameP + ' ' + detail.profile.lastNameM;
+        token.vehiculo = detail.vehiculo;
     });
     token.token = getToken(userPlain);
 
@@ -298,11 +300,12 @@ setUser = async (profile, contact, pass, job) => {
     return res._id;
 };
 
-setPerson = async (user, profile, contact, associated, estado) => {
+setPerson = async (user, profile, contact, vehiculo, associated, estado) => {
     let newPerson = new Person({
         user: user,
         profile: profile,
         contact: contact,
+        vehiculo: vehiculo,
         associated: associated,
         estado: estado
     });
@@ -310,11 +313,12 @@ setPerson = async (user, profile, contact, associated, estado) => {
     return res._id;
 };
 
-setInvitation = (profile, contac, pass, code, date, job, state) => {
+setInvitation = (profile, contac, vehiculo, pass, code, date, job, state) => {
     let newInvitation = new Invitation({
         codeInvitation: code,
         profile: profile,
         contact: contac,
+        vehiculo: vehiculo,
         job: job,
         password: pass,
         date: date,

@@ -14,6 +14,11 @@ var personSchema = new Schema({
     profile: {
         type: schemas.profileScheme
     },
+    vehiculo: {
+        type: schemas.vehiculoScheme,
+        required: false,
+        unique: false
+    },
     contact: {
         type: schemas.contactSchema
     },

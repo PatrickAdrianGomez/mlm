@@ -25,6 +25,11 @@ var productSchema = new Schema({
         required: false,
         unique: false
     },
+    costo: {
+        type: Schema.Types.Number,
+        required: false,
+        unique: false
+    },
     existencia: {
         type: Schema.Types.Number,
         require: true,

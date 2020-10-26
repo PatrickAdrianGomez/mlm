@@ -11,13 +11,21 @@ var allowedExt = [
     '.js',
     '.ico',
     '.css',
+    '.bmp',
+    '.BMP',
     '.png',
+    '.PNG',
+    '.jfif',
+    '.JFIF',
+    '.jpeg',
+    '.JPEG',
     '.jpg',
     '.JPG',
     '.woff2',
     '.woff',
     '.ttf',
     '.svg',
+    '.txt'
 ];
 // settings
 app.set('port', config.server.port);

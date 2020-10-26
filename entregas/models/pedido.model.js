@@ -78,7 +78,17 @@ var pedidoSchema = new Schema({
             required: false,
             unique: false
         },
+        tipoVehiculo: {
+            type: Schema.Types.String,
+            required: false,
+            unique: false
+        },
         placaVehiculo: {
+            type: Schema.Types.String,
+            required: false,
+            unique: false
+        },
+        detallesVehiculo: {
             type: Schema.Types.String,
             required: false,
             unique: false

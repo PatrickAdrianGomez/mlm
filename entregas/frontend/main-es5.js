@@ -975,7 +975,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/models/schema.ts ***!
     \**********************************/
 
-  /*! exports provided: job, address, field, contact, profile, Contexto, State, Products, Pedido, Location, TypeContext */
+  /*! exports provided: job, address, field, contact, vehiculo, profile, Contexto, State, Products, Pedido, Location, TypeContext */
 
   /***/
   function srcAppModelsSchemaTs(module, __webpack_exports__, __webpack_require__) {
@@ -1005,6 +1005,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     __webpack_require__.d(__webpack_exports__, "contact", function () {
       return contact;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "vehiculo", function () {
+      return vehiculo;
     });
     /* harmony export (binding) */
 
@@ -1069,6 +1075,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var contact = function contact() {
       _classCallCheck(this, contact);
+    };
+
+    var vehiculo = function vehiculo() {
+      _classCallCheck(this, vehiculo);
     };
 
     var profile = function profile() {
@@ -1313,7 +1323,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function get_dataId(ruta, id) {
           var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
           return this.http.get(this.url_base + subruta + "/" + id, {
-            headers: this.generarAutorizacion('without')
+            headers: this.generarAutorizacion('with')
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
             return res;
           }));
@@ -1458,7 +1468,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       pais: '5f20d21991a91e3e79106752',
       ciudad: '5f20d29391a91e3e79106756',
       company: '5f20d1de91a91e3e79106750',
-      rol: '5f20d1f091a91e3e79106751'
+      rol: '5f20d1f091a91e3e79106751',
+      vehiculo: '5f9643504f5a0d13e04f6327'
     };
     var userPermissions = {
       adm: '5f2b0dab9f5ad6106c166233',
@@ -1631,7 +1642,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       if (userJWT['userCompany'].length > 0 && propiedad == 'userCompany') {
                         localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
                       } else {
-                        localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                        if (userJWT['vehiculo'] && propiedad == 'vehiculo') {
+                          localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                        } else {
+                          localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                        }
                       }
 
                       src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];

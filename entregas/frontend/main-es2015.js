@@ -473,7 +473,7 @@ class invitation {
 /*!**********************************!*\
   !*** ./src/app/models/schema.ts ***!
   \**********************************/
-/*! exports provided: job, address, field, contact, profile, Contexto, State, Products, Pedido, Location, TypeContext */
+/*! exports provided: job, address, field, contact, vehiculo, profile, Contexto, State, Products, Pedido, Location, TypeContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -482,6 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "address", function() { return address; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "field", function() { return field; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contact", function() { return contact; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vehiculo", function() { return vehiculo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "profile", function() { return profile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contexto", function() { return Contexto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
@@ -498,6 +499,8 @@ class address {
 class field {
 }
 class contact {
+}
+class vehiculo {
 }
 class profile {
 }
@@ -644,7 +647,7 @@ let ConnexionService = class ConnexionService {
     }
     get_dataId(ruta, id) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        return this.http.get(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
+        return this.http.get(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     addObject(ruta, xobject) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
@@ -716,7 +719,8 @@ const globalConfigurations = {
     pais: '5f20d21991a91e3e79106752',
     ciudad: '5f20d29391a91e3e79106756',
     company: '5f20d1de91a91e3e79106750',
-    rol: '5f20d1f091a91e3e79106751'
+    rol: '5f20d1f091a91e3e79106751',
+    vehiculo: '5f9643504f5a0d13e04f6327'
 };
 const userPermissions = {
     adm: '5f2b0dab9f5ad6106c166233',
@@ -829,7 +833,12 @@ let LoginComponent = class LoginComponent {
                                     localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
                                 }
                                 else {
-                                    localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                                    if ((userJWT['vehiculo']) && (propiedad == 'vehiculo')) {
+                                        localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                                    }
+                                    else {
+                                        localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                                    }
                                 }
                                 src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"][propiedad] = userJWT[propiedad];
                             }

@@ -10365,7 +10365,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"sidebar\">\n  <div class=\"logo\">\n    <a class=\"simple-text\" href=\"http://ventun.com/\">\n      <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n        <img src=\"/assets/img/ventun.png\" />\n      </div>\n    </a>\n  </div>\n\n  <div class=\"sidebar-wrapper\">\n    <ul class=\"nav\">\n      <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n        <!--If is a single link-->\n        <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link' && menuitem.visible\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}</p>\n        </a>\n        <!--If it have a submenu-->\n        <a data-toggle=\"collapse\" href=\"#{{ menuitem.collapse }}\" *ngIf=\"menuitem.type === 'sub' && menuitem.visible\"\n          (click)=\"myFunc($event, menuitem); (menuitem.isCollapsed = !menuitem.isCollapsed)\"\n          [attr.aria-expanded]=\"!menuitem.isCollapsed\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n        </a>\n\n        <!--Display the submenu items-->\n        <div id=\"{{ menuitem.collapse }}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n          <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\">\n              <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </li>\n    </ul>\n  </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"sidebar\" style=\"height: 85vh;\">\n  <div class=\"logo\">\n    <a class=\"simple-text\">\n      <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n        <img src=\"/assets/img/ventun.png\" />\n      </div>\n    </a>\n  </div>\n\n  <div class=\"sidebar-wrapper\">\n    <ul class=\"nav\">\n      <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n        <!--If is a single link-->\n        <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link' && menuitem.visible\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}</p>\n        </a>\n        <!--If it have a submenu-->\n        <a data-toggle=\"collapse\" href=\"#{{ menuitem.collapse }}\" *ngIf=\"menuitem.type === 'sub' && menuitem.visible\"\n          (click)=\"myFunc($event, menuitem); (menuitem.isCollapsed = !menuitem.isCollapsed)\"\n          [attr.aria-expanded]=\"!menuitem.isCollapsed\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n        </a>\n\n        <!--Display the submenu items-->\n        <div id=\"{{ menuitem.collapse }}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n          <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\">\n              <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </li>\n      <li style=\"visibility: hidden; height: 80px;\"></li>\n    </ul>\n  </div>\n</div>";
     /***/
   },
 
@@ -10405,7 +10405,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">{{codigoPedido}}</label>\n        </div>\n    </div>\n    <div class=\"row\">\n        <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n        <div class=\"form-group col-6\">\n            <label for=\"nombreCliente\">Nombres</label>\n            <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                [(ngModel)]=\"pedido.nombreCliente\">\n            <small id=\"helpNombres\" class=\"text-muted\">Nombre del Cliente</small>\n        </div>\n        <div class=\"form-group col-6\">\n            <label for=\"apellidoCliente\">Apellidos</label>\n            <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                [(ngModel)]=\"pedido.apellidoCliente\">\n            <small id=\"helpApellidos\" class=\"text-muted\">Apellidos del Cliente</small>\n        </div>\n        <div class=\"form-group col-6\">\n            <label for=\"direccion\">Dirección</label>\n            <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\" placeholder=\"Dirección del Cliente\"\n                aria-describedby=\"helpDireccion\" #direccion=\"ngModel\" [(ngModel)]=\"pedido.direccion\">\n            <small id=\"helpDireccion\" class=\"text-muted\">Dirección del Cliente</small>\n        </div>\n        <div class=\"form-group col-6\">\n            <label for=\"telefono\">Teléfono</label>\n            <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Nombres del Cliente\"\n                minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\">\n            <small id=\"helpTelefono\" class=\"text-muted\">Teléfono del Cliente</small>\n        </div>\n        <div class=\"form-group col-12\">\n            <label for=\"telefono\">Ubicación en Mapa</label>\n            <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\" placeholder=\"Nombres del Cliente\"\n                aria-describedby=\"helpGeolocalizacion\" #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\">\n            <small id=\"helpGeolocalizacion\" class=\"text-muted\">Ubicación según el Mapa</small>\n        </div>\n    </div>\n    <div class=\"row\">\n        <input type=\"button\" value=\"Agendar\" class=\"btn btn-primary\" (click)=\"enviar()\">\n    </div>\n\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}</label>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\"\n                    required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -10425,7 +10425,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Compra de Productos</h3>\n<div class=\"row\">\n    <div class=\"col-9\">\n        <div class=\"row\">\n            <div class=\"producto card text-white\" *ngFor=\"let item of productos; let i=index\" style=\"margin: 10px!important; width: 200px; background-color: white; border-color: yellow;\" (click)=\"comprando(item)\">\n                <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.imagen}}\" style=\"height: 200px; width: 150px; background-color: white; display: block; margin: auto;\"\n                    alt=\"Imágen del producto\">\n                <div class=\"card-body\" style=\"background-color: rgb(25, 92, 179);\">\n                    <h4 class=\"card-title\">{{item.acronym}}</h4>\n                    <p class=\"card-text\">{{item.nombre}}</p>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3\" *ngIf=\"compra.length>0\">\n        <h4>Detalle de la Compra</h4>\n        <div class=\"minus row\" *ngFor=\"let prod of compra; let i=index\" style=\"font-size: 1.2em; color: whitesmoke; margin-bottom: 10px;\" (click)=\"quitar(prod.id)\">\n            <div class=\"col-8\">{{prod.nombre}}</div>\n            <div class=\"col\">{{prod.cantidad}}</div>\n            <div class=\"col-2\"><i class=\"far fa-minus-square fa-lg\" style=\"color: rgba(255, 0, 0, 0.9);\"></i></div>\n        </div>\n        <div class=\"row\">\n            <input class=\"col-12 btn btn-secondary\" type=\"button\" value=\"Comprar\" (click)=\"comprar()\">\n        </div>\n        <div class=\"row\">\n            <input class=\"col-12 btn btn-warning\" type=\"button\" value=\"Cancelar\" (click)=\"cancelar()\">\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Compra de Productos</h3>\n<div class=\"row\">\n    <div class=\"col-6 col-md-9\">\n        <div class=\"row\">\n            <div class=\"producto card text-white\" *ngFor=\"let item of productos; let i=index\"\n                style=\"margin: 10px!important; width: 200px; background-color: white; border-color: yellow;\"\n                (click)=\"comprando(item)\">\n                <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.imagen}}\"\n                    style=\"height: 150px; width: 150px; background-color: white; display: block; margin: auto;\"\n                    alt=\"Imágen del producto\">\n                <div class=\"card-body\" style=\"background-color: rgb(25, 92, 179);\">\n                    <div class=\"row card-title\">\n                        <h4 class=\"col-8\" style=\"margin-bottom: 0;\">{{item.acronym}}</h4>\n                        <h5 class=\"col-4\" style=\"top: 4px; margin-bottom: 0;\">{{item.costo}}bs</h5>\n                    </div>\n                    <p class=\"card-text\">{{item.nombre}}</p>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-6 col-md-3\" *ngIf=\"compra.length>0\">\n        <div class=\"float-buy\" style=\"width: 100%; overflow: hidden; position: -webkit-sticky; position: sticky; top: 25%; padding: 10px 10px 0 10px;\">\n            <div class=\"row\">\n                <h3 class=\"col-8\">Detalle de la Compra</h3> \n                <h4 class=\"col-4\" style=\"color: white; top: 20px;\">Total: {{totalCompra}}bs</h4>\n            </div>\n            <div class=\"minus row\" *ngFor=\"let prod of compra; let i=index\"\n                style=\"font-size: 1.2em; color: whitesmoke; margin-bottom: 10px;\" (click)=\"quitar(prod.id)\">\n                <div class=\"col-7\">{{prod.nombre}}</div>\n                <div class=\"col\">{{prod.cantidad}}<span style=\"color: red;\">x</span>{{prod.costo}}bs</div>\n                <div class=\"col-2\"><i class=\"far fa-minus-square fa-lg\" style=\"color: rgba(255, 0, 0, 0.9);\"></i></div>\n            </div>\n            <div class=\"row\">\n                <input class=\"col-12 btn btn-secondary\" type=\"button\" value=\"Comprar\" (click)=\"comprar()\">\n            </div>\n            <div class=\"row\">\n                <input class=\"col-12 btn btn-warning\" type=\"button\" value=\"Cancelar\" (click)=\"cancelar()\">\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -10525,7 +10525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a></div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right;\">{{item.restar}}</h4>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important; color: white!important;\">\n            {{titulo}}\n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div><br><br>\n                    <h4 class=\"col-12\" style=\"color: black;\">Teléfono: {{elegido?.telefono}}</h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Teléfono: {{elegido?.usuario.telefono}}</h5>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\" style=\"display: none;\">Placa:\n                        {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 10px auto 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a></div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right;\">{{item.restar}}</h4>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important; color: white!important;\">\n            {{titulo}}\n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div><br><br>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Teléfono: {{elegido?.usuario.telefono}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -10565,7 +10565,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"content\" (desdeElHijo)=\"recibeDeHijo($event)\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" (focusout)=\"verificarUsuario()\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <!--<div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar Usuario</a>\n        </div>-->\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\" class=\"optional\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\" class=\"optional\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state.id\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city.id\" aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone.id\" aria-hidden=\"true\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Calle\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label optional\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"companyName\">Empresa</label>\n          <input style=\"color: white;\" id=\"companyName\" name=\"companyName\" type=\"text\" class=\"form-control\"\n            value=\"{{companiaActual}}\" readonly>\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"sucursalName\">Sucursal</label>\n          <select class=\"form-control\" id=\"sucursalName\" name=\"sucursalName\" #sucursalName=\"ngModel\"\n            [(ngModel)]=\"job.sucursalName\" (ngModelChange)=\"updateSelectSucursal($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.listSucursal' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"sucursalName\" class=\"show-err\"></app-show-errors>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label for=\"typeAccount\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" (ngModelChange)=\"updateSelectRol($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n      <div class=\"form-row\" hidden>\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\">\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <button *ngIf=\"usuarioValido\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Invitar</button>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"content\" (desdeElHijo)=\"recibeDeHijo($event)\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" (focusout)=\"verificarUsuario()\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <!--<div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar Usuario</a>\n        </div>-->\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\" class=\"optional\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\" class=\"optional\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state.id\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city.id\" aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone.id\" aria-hidden=\"true\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Calle\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label optional\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"companyName\">Empresa</label>\n          <input style=\"color: white;\" id=\"companyName\" name=\"companyName\" type=\"text\" class=\"form-control\"\n            value=\"{{companiaActual}}\" readonly>\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"sucursalName\">Sucursal</label>\n          <select class=\"form-control\" id=\"sucursalName\" name=\"sucursalName\" #sucursalName=\"ngModel\"\n            [(ngModel)]=\"job.sucursalName\" (ngModelChange)=\"updateSelectSucursal($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.listSucursal' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"sucursalName\" class=\"show-err\"></app-show-errors>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label for=\"typeAccount\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" (ngModelChange)=\"updateSelectRol($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n      <div class=\"form-row\" *ngIf=\"verVehiculo\">\n        <div class=\"form-gro col-md-6\">\n          <label for=\"tipoVehiculo\">Tipo Vehículo</label>\n          <select class=\"form-control\" id=\"tipoVehiculo\" name=\"tipoVehiculo\" #tipoVehiculo=\"ngModel\"\n            [(ngModel)]=\"invitation.vehiculo.tipoVehiculo\" (ngModelChange)=\"updateSelectVehiculo($event)\">\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListVehiculo' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n        </div>\n        <div class=\"form-gro col-md-6\">\n          <label for=\"placaVehiculo\" class=\"control-label optional\">Placa Vehículo</label>\n          <input type=\"text\" placeholder=\"Placa vehículo\" class=\"form-control\" name=\"placaVehiculo\" id=\"placaVehiculo\"\n            #placaVehiculo=\"ngModel\" [(ngModel)]=\"invitation.vehiculo.placaVehiculo\" minlength=\"6\">\n        </div>\n        <div class=\"form-gro col-md-6\">\n          <label for=\"detallesVehiculo\" class=\"control-label optional\">Detalles Vehículo</label>\n          <textarea name=\"detallesVehiculo\" id=\"detallesVehiculo\" cols=\"30\" rows=\"10\" class=\"form-control\"\n            placeholder=\"Detalles sobre el vehículo\" #detallesVehiculo=\"ngModel\"\n            [(ngModel)]=\"invitation.vehiculo.detallesVehiculo\"></textarea>\n        </div>\n      </div>\n\n      <div class=\"form-row\" hidden>\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\">\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-row\" style=\"margin-top: 15px;\">\n        <button *ngIf=\"usuarioValido\" type=\"submit\" class=\"btn btn-primary\"\n          [disabled]=\"contextForm.invalid\">Invitar</button>\n      </div>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>";
     /***/
   },
 
@@ -10625,7 +10625,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Lista de Productos</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/cargaProducto']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nuevo Producto</button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> productos </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Habilitado</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Inhabilitado</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Eliminado</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"Código\" prop=\"acronym\">{{acronym}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre del Producto\" prop=\"nombre\">{{nombre}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Descripción\" prop=\"descripcion\">{{descripcion}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Habilitado\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inhabilitado\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>\n\n\n                <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\"\n                    [resizeable]=\"false\">\n                    <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n                        let-selectFn=\"selectFn\">\n                        Producto\n                    </ng-template>\n                    <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n                        let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n                        <a class=\"btn btn-round btn-warning btn-icon btn-sm\" (click)=\"deleteFunction($event)\">\n                            <i class=\"far fa-id-badge\" style=\"margin-top: 7px;\"></i></a> <!-- [routerLink]=\"['/descendenciaFicha', profile.firstName]\" [routerLinkActive]=\"['linkActivo']\">-->\n                    </ng-template>\n                </ngx-datatable-column>\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Lista de Productos</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/cargaProducto']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nuevo Producto</button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> productos </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Habilitado</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Inhabilitado</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Eliminado</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"Código\" prop=\"acronym\">{{acronym}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre del Producto\" prop=\"nombre\">{{nombre}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Descripción\" prop=\"descripcion\">{{descripcion}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Precio\" prop=\"costo\">{{costo}}</ngx-datatable-column>\n                <!--<ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Habilitado\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inhabilitado\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>-->\n\n\n                <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\"\n                    [resizeable]=\"false\">\n                    <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n                        let-selectFn=\"selectFn\">\n                        Producto\n                    </ng-template>\n                    <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n                        let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n                        <a class=\"btn btn-round btn-warning btn-icon btn-sm\" (click)=\"deleteFunction($event)\">\n                            <i class=\"far fa-id-badge\" style=\"margin-top: 7px;\"></i></a> <!-- [routerLink]=\"['/descendenciaFicha', profile.firstName]\" [routerLinkActive]=\"['linkActivo']\">-->\n                    </ng-template>\n                </ngx-datatable-column>\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>";
     /***/
   },
 
@@ -10645,7 +10645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Agregar producto</h3>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"form-group col-4\">\n            <label for=\"acronym\">Código</label>\n            <input type=\"text\" name=\"acronym\" id=\"acronym\" class=\"form-control\" placeholder=\"Código de Producto\"\n                aria-describedby=\"helpCodigo\" #acronym=\"ngModel\" [(ngModel)]=\"producto.acronym\">\n            <small id=\"helpCodigo\" class=\"text-muted\">Código de Producto</small>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"form-group col-12\">\n            <label for=\"nombre\">Nombre del Producto</label>\n            <input type=\"text\" name=\"nombre\" id=\"nombre\" class=\"form-control\"\n                placeholder=\"Nombre del Producto a la venta\" aria-describedby=\"helpNombre\" #nombre=\"ngModel\" [(ngModel)]=\"producto.nombre\">\n            <small id=\"helpNombre\" class=\"text-muted\">Nombre del Producto a la venta</small>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"form-group col-4\">\n            <label>Imagen del Producto</label>\n            <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n                <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                        src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n                </div>\n                <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n                <div class=\"user-edit-image-buttons\">\n                    <span class=\"btn btn-azure btn-file\">\n                        <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                            (desdeElHijo)=\"recibeDeHijo($event);\">\n                        </app-upload>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"form-group col-8\">\n            <label for=\"descripcion\">Descripción</label>\n            <textarea name=\"descripcion\" id=\"descripcion\" cols=\"30\" rows=\"20\" placeholder=\"Descripción del Producto\"\n                class=\"form-control\" aria-describedby=\"helpDescripcion\" #descripcion=\"ngModel\" [(ngModel)]=\"producto.descripcion\"></textarea>\n            <small id=\"helpDescripcion\" class=\"text-muted\">Descripción del Producto</small>\n        </div>\n    </div>\n    <div class=\"row\">\n        <input type=\"button\" value=\"Guardar\" class=\"btn btn-primary\" (click)=\"guardar()\">\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>{{opcion}} producto</h3>\n<div class=\"container\">\n    <form (ngSubmit)=\"guardar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <div class=\"form-group col-4\">\n                <label for=\"acronym\">Código de Producto</label>\n                <input type=\"text\" name=\"acronym\" id=\"acronym\" class=\"form-control\" placeholder=\"Código de Producto\"\n                    aria-describedby=\"helpCodigo\" #acronym=\"ngModel\" [(ngModel)]=\"producto.acronym\" required>\n                <app-show-errors [control]=\"acronym\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"form-group col-12\">\n                <label for=\"nombre\">Nombre del Producto a la venta</label>\n                <input type=\"text\" name=\"nombre\" id=\"nombre\" class=\"form-control\"\n                    placeholder=\"Nombre del Producto a la venta\" aria-describedby=\"helpNombre\" #nombre=\"ngModel\"\n                    [(ngModel)]=\"producto.nombre\" required>\n                <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"form-group col-4\">\n                <label>Imagen del Producto</label>\n                <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n                    <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                            src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n                    </div>\n                    <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n                    <div class=\"user-edit-image-buttons\">\n                        <span class=\"btn btn-azure btn-file\">\n                            <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                                (desdeElHijo)=\"recibeDeHijo($event);\">\n                            </app-upload>\n                        </span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group col-8\">\n                <div class=\"row\">\n                    <div class=\"form-group col-12\">\n                        <label for=\"costo\">Costo del Producto (Bs)</label>\n                        <input type=\"number\" name=\"costo\" id=\"costo\" class=\"form-control\"\n                            placeholder=\"Precio del Producto a la Venta\" aria-describedby=\"helpCosto\" #costo=\"ngModel\"\n                            [(ngModel)]=\"producto.costo\" required>\n                        <app-show-errors [control]=\"costo\" class=\"show-err\"></app-show-errors>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"form-group col-12\">\n                        <label for=\"descripcion\">Descripción del Producto</label>\n                        <textarea name=\"descripcion\" id=\"descripcion\" cols=\"30\" rows=\"20\"\n                            placeholder=\"Descripción del Producto\" class=\"form-control\"\n                            aria-describedby=\"helpDescripcion\" #descripcion=\"ngModel\"\n                            [(ngModel)]=\"producto.descripcion\"></textarea>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Guardar</button>\n        </div>\n    </form>\n</div>";
     /***/
   },
 
@@ -10946,6 +10946,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }]
     }, {
       path: 'cargaProducto',
+      component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+      children: [{
+        path: '',
+        component: _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_13__["ProductsLoadComponent"]
+      }]
+    }, {
+      path: 'editaProducto/:producto',
       component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
       children: [{
         path: '',
@@ -12179,6 +12186,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.connexion = connexion;
         this.router = router;
+        this.totalCompra = 0;
 
         this.generaCodigoVerificacion = function () {
           return Math.random().toString(36).substring(7);
@@ -12194,6 +12202,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.codigoPedido = this.generaCodigoVerificacion();
             this.pedido = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__["Pedido"]();
             this.pedido.productos = JSON.parse(localStorage.getItem('pedido'));
+            this.calculaTotal();
           } else {
             this.router.navigate(['/sign/login']);
           }
@@ -12210,7 +12219,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             nombre: '',
             telefono: '',
             fotografia: '',
-            placaVehiculo: ''
+            tipoVehiculo: '',
+            placaVehiculo: '',
+            detallesVehiculo: ''
           };
           this.pedido.companyName = this.localCompany[0].companyName;
           this.pedido.sucursalName = this.localCompany[0].sucursalName;
@@ -12223,6 +12234,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this27.router.navigate(['/compraProductos']);
           }, function (error) {
             console.log('Error al guardar los datos.');
+          });
+        }
+      }, {
+        key: "calculaTotal",
+        value: function calculaTotal() {
+          var _this28 = this;
+
+          this.totalCompra = 0;
+          this.pedido.productos.forEach(function (element) {
+            _this28.totalCompra += Number(element.costo) * Number(element.cantidad);
           });
         }
       }]);
@@ -12266,7 +12287,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".producto:hover {\r\n    box-shadow: 5px 5px 5px 0px rgba(255,255,255,0.6);\r\n}\r\n.minus:hover {\r\n    cursor: pointer!important;\r\n    color: rgba(255, 0, 0, 0.9)!important;\r\n    border-bottom: 1px solid rgba(255, 0, 0, 0.5);\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2NvbXByYS1wcm9kdWN0by9jb21wcmEtcHJvZHVjdG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUdJLGlEQUFpRDtBQUNyRDtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLHFDQUFxQztJQUNyQyw2Q0FBNkM7QUFDakQiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvY29tcHJhLXByb2R1Y3RvL2NvbXByYS1wcm9kdWN0by5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnByb2R1Y3RvOmhvdmVyIHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogNXB4IDVweCA1cHggMHB4IHJnYmEoMjU1LDI1NSwyNTUsMC42KTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogNXB4IDVweCA1cHggMHB4IHJnYmEoMjU1LDI1NSwyNTUsMC42KTtcclxuICAgIGJveC1zaGFkb3c6IDVweCA1cHggNXB4IDBweCByZ2JhKDI1NSwyNTUsMjU1LDAuNik7XHJcbn1cclxuLm1pbnVzOmhvdmVyIHtcclxuICAgIGN1cnNvcjogcG9pbnRlciFpbXBvcnRhbnQ7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDAsIDAsIDAuOSkhaW1wb3J0YW50O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjU1LCAwLCAwLCAwLjUpO1xyXG59Il19 */";
+    __webpack_exports__["default"] = ".producto:hover {\r\n    box-shadow: 5px 5px 5px 0px rgba(255,255,255,0.6);\r\n}\r\n.minus:hover {\r\n    cursor: pointer!important;\r\n    color: rgba(255, 0, 0, 0.9)!important;\r\n    border-bottom: 1px solid rgba(255, 0, 0, 0.5);\r\n}\r\n.float-buy {\r\n    box-shadow: 0px 2px 20px 1px rgba(84,84,84,0.74);\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2NvbXByYS1wcm9kdWN0by9jb21wcmEtcHJvZHVjdG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUdJLGlEQUFpRDtBQUNyRDtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLHFDQUFxQztJQUNyQyw2Q0FBNkM7QUFDakQ7QUFFQTtJQUdJLGdEQUFnRDtBQUNwRCIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9jb21wcmEtcHJvZHVjdG8vY29tcHJhLXByb2R1Y3RvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJvZHVjdG86aG92ZXIge1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiA1cHggNXB4IDVweCAwcHggcmdiYSgyNTUsMjU1LDI1NSwwLjYpO1xyXG4gICAgLW1vei1ib3gtc2hhZG93OiA1cHggNXB4IDVweCAwcHggcmdiYSgyNTUsMjU1LDI1NSwwLjYpO1xyXG4gICAgYm94LXNoYWRvdzogNXB4IDVweCA1cHggMHB4IHJnYmEoMjU1LDI1NSwyNTUsMC42KTtcclxufVxyXG4ubWludXM6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyIWltcG9ydGFudDtcclxuICAgIGNvbG9yOiByZ2JhKDI1NSwgMCwgMCwgMC45KSFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgyNTUsIDAsIDAsIDAuNSk7XHJcbn1cclxuXHJcbi5mbG9hdC1idXkge1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiAwcHggMnB4IDIwcHggMXB4IHJnYmEoODQsODQsODQsMC43NCk7XHJcbiAgICAtbW96LWJveC1zaGFkb3c6IDBweCAycHggMjBweCAxcHggcmdiYSg4NCw4NCw4NCwwLjc0KTtcclxuICAgIGJveC1zaGFkb3c6IDBweCAycHggMjBweCAxcHggcmdiYSg4NCw4NCw4NCwwLjc0KTtcclxufSJdfQ== */";
     /***/
   },
 
@@ -12330,6 +12351,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.urlImage = '/assets/img/noProduct.png';
         this.compra = [];
+        this.totalCompra = 0;
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].filesDomain;
         this.cont = 0;
       }
@@ -12337,14 +12359,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CompraProductoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this28 = this;
+          var _this29 = this;
 
           var localCompany = JSON.parse(localStorage.getItem('userCompany'));
 
           if (localCompany) {
             this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName).subscribe(function (myProds) {
-              console.log(myProds);
-              _this28.productos = myProds;
+              _this29.productos = myProds;
             });
           } //this.compra = [];/*
           //this.compra.id = 0
@@ -12360,8 +12381,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.compra.length == 0) {
             this.compra.push({
               id: item._id,
-              nombre: item.acronym,
-              cantidad: 1
+              nombre: item.nombre,
+              cantidad: 1,
+              costo: item.costo
             });
           } else {
             var nuevaCantidad = 1;
@@ -12372,8 +12394,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 nuevaCantidad = this.compra[i].cantidad + 1;
                 this.compra[i] = {
                   id: item._id,
-                  nombre: item.acronym,
-                  cantidad: nuevaCantidad
+                  nombre: item.nombre,
+                  cantidad: nuevaCantidad,
+                  costo: item.costo
                 };
                 ubicacion = i;
                 break;
@@ -12383,11 +12406,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (ubicacion == -1) {
               this.compra.push({
                 id: item._id,
-                nombre: item.acronym,
-                cantidad: nuevaCantidad
+                nombre: item.nombre,
+                cantidad: nuevaCantidad,
+                costo: item.costo
               });
             }
           }
+
+          this.calculaTotal();
         }
       }, {
         key: "quitar",
@@ -12402,13 +12428,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 this.compra[i] = {
                   id: this.compra[i].id,
                   nombre: this.compra[i].nombre,
-                  cantidad: nuevaCantidad
+                  cantidad: nuevaCantidad,
+                  costo: this.compra[i].costo
                 };
               }
 
               break;
             }
           }
+
+          this.calculaTotal();
+        }
+      }, {
+        key: "calculaTotal",
+        value: function calculaTotal() {
+          var _this30 = this;
+
+          this.totalCompra = 0;
+          this.compra.forEach(function (element) {
+            _this30.totalCompra += element.costo * element.cantidad;
+          });
         }
       }, {
         key: "comprar",
@@ -12617,17 +12656,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescendenciaFichaComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this29 = this;
+          var _this31 = this;
 
           this.connexion.get_dataWithParams('location', '?owner=5e14d611d235a7103c0ba4f6').subscribe(function (reslo) {
-            _this29.ListDepts = reslo;
+            _this31.ListDepts = reslo;
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.person = new src_app_models_person__WEBPACK_IMPORTED_MODULE_2__["person"]();
           this.connexion.get_dataWithParamsOne('personAssociated', '?userID=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(function (regis) {
-            _this29.person = regis[0];
-            _this29.asociados = regis[0].associated;
+            _this31.person = regis[0];
+            _this31.asociados = regis[0].associated;
             console.log(regis[0].associated);
           }, function (error) {
             var errorMessage = error;
@@ -12775,17 +12814,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state, id) {
-          var _this30 = this;
+          var _this32 = this;
 
           console.log(state, id);
           this.isLoading = true;
           this.cnx.get_dataWithParams('personAssociated', '?userID=' + id + '&companyName=' + localStorage.getItem('actual') + '&estado=' + state).subscribe(function (myAds) {
             console.log(myAds);
-            _this30.rows = myAds[0].associated;
+            _this32.rows = myAds[0].associated;
             setTimeout(function () {
-              _this30.isLoading = false;
+              _this32.isLoading = false;
             }, 1500);
-            _this30.temp = myAds[0].associated.map(function (prop, key) {
+            _this32.temp = myAds[0].associated.map(function (prop, key) {
               return Object.assign({}, prop, {
                 treeStatus: 'collapsed',
                 parentId: null,
@@ -12845,7 +12884,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onTreeAction",
         value: function onTreeAction(event) {
-          var _this31 = this;
+          var _this33 = this;
 
           var index = event.rowIndex;
           var row = event.row;
@@ -12863,7 +12902,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   id: key
                 });
               });
-              _this31.temp = [].concat(_toConsumableArray(_this31.temp), _toConsumableArray(data));
+              _this33.temp = [].concat(_toConsumableArray(_this33.temp), _toConsumableArray(data));
             });
             row.treeStatus = 'expanded';
             this.cd.detectChanges();
@@ -13003,10 +13042,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescendenciaProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this34 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this32.ListDepts = reslo;
+            _this34.ListDepts = reslo;
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
@@ -13017,13 +13056,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cargarDatos",
         value: function cargarDatos(id) {
-          var _this33 = this;
+          var _this35 = this;
 
           var myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
           this.connexion.get_dataWithParamsOne('personAssociated', '?userID=' + id + '&companyName=' + localStorage.getItem('actual')).subscribe(function (regis) {
             console.log('regisaa', regis);
-            _this33.person = regis[0];
-            _this33.asociados = regis[0].associated;
+            _this35.person = regis[0];
+            _this35.asociados = regis[0].associated;
           }, function (error) {
             var errorMessage = error;
 
@@ -13147,6 +13186,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/services/globalVars */
     "./src/app/services/globalVars.ts");
+    /* harmony import */
+
+
+    var src_app_models_person__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/models/person */
+    "./src/app/models/person.ts");
 
     var FichaPedidoComponent =
     /*#__PURE__*/
@@ -13160,31 +13205,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.toastService = toastService;
         this.titulo = '';
         this.pedidos = [];
+        this.ListVehiculo = [];
         this.urlImage = '/assets/img/noPicture.png';
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalVars"].filesDomain;
         this.rolActual = '';
         this.btnAccion = '';
         this.listSucursal = [];
+        this.persona = new src_app_models_person__WEBPACK_IMPORTED_MODULE_6__["person"]();
       }
 
       _createClass(FichaPedidoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this34 = this;
+          var _this36 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this34.listSucursal = reslo.filter(function (LOC) {
+            _this36.listSucursal = reslo.filter(function (LOC) {
               return LOC.typecon_id == '5f6839d468bab21d3861ccc6';
             });
           });
           this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
           this.rolActual = this.buscaRol();
           this.ruta.paramMap.subscribe(function (params) {
-            _this34.estadoActual = params.get('estado');
+            _this36.estadoActual = params.get('estado');
 
-            _this34.cambiaTitulo(_this34.estadoActual);
+            _this36.cambiaTitulo(_this36.estadoActual);
 
-            _this34.cargaFichas(_this34.estadoActual);
+            _this36.cargaFichas(_this36.estadoActual);
+
+            if (_this36.rolActual == 'rep' && _this36.estadoActual == '1') {
+              _this36.connexion.get_data('typecontext').subscribe(function (reslo) {
+                _this36.ListVehiculo = reslo.filter(function (LOC) {
+                  return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo;
+                });
+              }, function (error) {
+                console.log('Hubo un problema al cargar datos. ' + error);
+              });
+              /*this.connexion.get_dataId<person>('person', localStorage.getItem('code')).subscribe(
+                resp => {
+                  console.log('resp', resp);
+                  this.persona = resp[0];
+                }
+              );*/
+
+            }
           });
         }
       }, {
@@ -13301,14 +13365,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cargaFichas",
         value: function cargaFichas(estado) {
-          var _this35 = this;
+          var _this37 = this;
 
           var consulta = this.armaConsulta(estado);
           this.connexion.get_dataWithParamsNoAuth('pedido', consulta).subscribe(function (resp) {
             var ahora = new Date().getTime();
-            _this35.pedidos = resp;
+            _this37.pedidos = resp;
 
-            _this35.pedidos.forEach(function (element) {
+            _this37.pedidos.forEach(function (element) {
               var tiempoTemp = (ahora - new Date(element.fechaHora).getTime()) / (1000 * 60 * 60);
               var tiempoFinal = '';
 
@@ -13320,9 +13384,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               element['restar'] = tiempoFinal;
 
-              for (var i = 0; i < _this35.listSucursal.length; i++) {
-                if (_this35.listSucursal[i]._id == element.sucursalName) {
-                  element['sucursal'] = _this35.listSucursal[i].name;
+              for (var i = 0; i < _this37.listSucursal.length; i++) {
+                if (_this37.listSucursal[i]._id == element.sucursalName) {
+                  element['sucursal'] = _this37.listSucursal[i].name;
                 }
               }
             });
@@ -13333,16 +13397,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ampliar",
         value: function ampliar(item) {
+          console.log(item);
           this.elegido = item;
         }
       }, {
         key: "btnPedido",
         value: function btnPedido(id) {
-          var _this36 = this;
+          var _this38 = this;
 
           this.pedidos.forEach(function (element) {
             if (element['_id'] == id) {
-              _this36.realizaCambio(element);
+              _this38.realizaCambio(element);
             }
           });
           $('#ampliado').modal('hide');
@@ -13350,8 +13415,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "realizaCambio",
         value: function realizaCambio(element) {
-          var _this37 = this;
+          var _this39 = this;
 
+          console.log('this.persona', this.persona);
           var nuevoEstado = this.calculaEstado();
           element.estadoActual = nuevoEstado;
           element.usuario.id = localStorage.getItem('code');
@@ -13359,9 +13425,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           element.usuario.telefono = localStorage.getItem('userPhone');
           element.usuario.fotografia = localStorage.getItem('photo'); //this.urlImage = element.usuario.fotografia;
 
-          element.usuario.placaVehiculo = localStorage.getItem('code');
+          for (var i = 0; i < this.ListVehiculo.length; i++) {
+            if (this.ListVehiculo[i]._id == JSON.parse(localStorage.getItem('vehiculo')).tipoVehiculo) {
+              //this.persona.vehiculo.tipoVehiculo) {
+              element.usuario.tipoVehiculo = this.ListVehiculo[i].name;
+            }
+          }
+
+          element.usuario.placaVehiculo = JSON.parse(localStorage.getItem('vehiculo')).placaVehiculo;
+          element.usuario.detallesVehiculo = JSON.parse(localStorage.getItem('vehiculo')).detallesVehiculo;
           this.connexion.editObject('pedido', element).subscribe(function (resp) {
-            _this37.cargaFichas(_this37.estadoActual);
+            _this39.cargaFichas(_this39.estadoActual);
           }, function (error) {
             console.log('Error: ' + error);
           });
@@ -13543,15 +13617,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state) {
-          var _this38 = this;
+          var _this40 = this;
 
           this.isLoading = true;
           this.cnx.get_dataWithParams('invitation', '?estado=' + state + '&ciMain=' + localStorage.getItem('code').substr(1) + '&companyName=' + localStorage.getItem('actual')).subscribe(function (myAds) {
-            _this38.rows = myAds;
+            _this40.rows = myAds;
             setTimeout(function () {
-              _this38.isLoading = false;
+              _this40.isLoading = false;
             }, 1500);
-            _this38.temp = myAds.map(function (prop, key) {
+            _this40.temp = myAds.map(function (prop, key) {
               return Object.assign({}, prop, {
                 id: key
               });
@@ -13588,7 +13662,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteFunction",
         value: function deleteFunction($event) {
-          var _this39 = this;
+          var _this41 = this;
 
           $event.preventDefault();
           this.activeRow.estado = 0;
@@ -13597,7 +13671,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.cnx.editObject('invitationQuick', nuevaInvitacion).subscribe(function (resp) {
             console.log('RESP: ', resp);
 
-            _this39.obtenerDatos(_this39.status);
+            _this41.obtenerDatos(_this41.status);
           }); //this.router.navigate(['/invitacion/' + this.activeRow._id]);
         }
       }, {
@@ -13786,6 +13860,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.correct = false;
         this.ListCompany = [];
         this.ListRol = [];
+        this.ListVehiculo = [];
         this.ListLOC = [];
         this.ListLOCMain = [];
         this.listDepa = [];
@@ -13795,9 +13870,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.listSucursal = [];
         this.isSaved = false;
         this.companiaActual = '';
+        this.verVehiculo = false;
         this.invitation = new src_app_models_invitation__WEBPACK_IMPORTED_MODULE_4__["invitation"]();
         this.job = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["job"]();
         this.contact = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["contact"]();
+        this.vehiculo = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["vehiculo"]();
         this.profile = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["profile"]();
         this.address = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["address"](); //this.field = new field();
 
@@ -13808,7 +13885,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(InvitationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this40 = this;
+          var _this42 = this;
 
           window.scrollTo(0, 0);
 
@@ -13819,30 +13896,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this40.ListLOC = reslo;
-            _this40.ListLOCMain = reslo.filter(function (LOC) {
+            _this42.ListLOC = reslo;
+            _this42.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais;
             });
-            _this40.depasCI = _this40.ListLOC.filter(function (LOC) {
+            _this42.depasCI = _this42.ListLOC.filter(function (LOC) {
               return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad;
             });
-            _this40.listSucursal = reslo.filter(function (LOC) {
+            _this42.listSucursal = reslo.filter(function (LOC) {
               return LOC.typecon_id == '5f6839d468bab21d3861ccc6';
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this40.ListCompany = reslo.filter(function (LOC) {
+            _this42.ListCompany = reslo.filter(function (LOC) {
               return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company;
             });
-            _this40.ListRol = reslo.filter(function (LOC) {
+            _this42.ListRol = reslo.filter(function (LOC) {
               return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol;
+            });
+            _this42.ListVehiculo = reslo.filter(function (LOC) {
+              return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo;
             });
           }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
           });
           this.invitation.contact = this.contact;
+          this.invitation.vehiculo = this.vehiculo;
           this.invitation.profile = this.profile;
           this.contact.address = this.address;
           this.address.country = '';
@@ -13852,24 +13933,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.route.snapshot.params['_id']) {
             setTimeout(function () {
-              _this40.connexion.get_dataId('invitationQuick', _this40.route.snapshot.params['_id']).subscribe(function (resp) {
-                _this40.invitation = resp;
+              _this42.connexion.get_dataId('invitationQuick', _this42.route.snapshot.params['_id']).subscribe(function (resp) {
+                _this42.invitation = resp;
 
-                _this40.editAddress(resp.contact.address);
+                _this42.editAddress(resp.contact.address);
 
-                _this40.editCompany(resp.job);
+                _this42.editCompany(resp.job);
               });
             }, 500);
           }
 
           setTimeout(function () {
-            _this40.updateEmp(localStorage.getItem('actual'));
+            _this42.updateEmp(localStorage.getItem('actual'));
           }, 1000);
         }
       }, {
         key: "editAddress",
         value: function editAddress(direccion) {
-          console.log(direccion);
           this.listDepa = this.ListLOC.filter(function (LOC) {
             return LOC.owner == direccion.country;
           });
@@ -13883,7 +13963,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editCompany",
         value: function editCompany(trabajo) {
-          console.log(trabajo);
           this.ListCompany = this.ListCompany.filter(function (LOC) {
             return LOC._id == trabajo.companyName;
           });
@@ -13894,7 +13973,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "verificarUsuario",
         value: function verificarUsuario() {
-          var _this41 = this;
+          var _this43 = this;
 
           this.esVisible = 'visible';
           this.procesando = 'procesa';
@@ -13902,17 +13981,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.invitation.profile.ci) {
             this.connexion.get_dataWithParamsOne('personInvitation', '?ci=' + this.invitation.profile.ci + '&equipo=' + localStorage.getItem('actual')).subscribe(function (myUser) {
               if (myUser['id'] == 0) {
-                _this41.usuarioValido = false;
+                _this43.usuarioValido = false;
 
-                _this41.error(myUser['message'], 'Invitación a MLM');
+                _this43.error(myUser['message'], 'Invitación a MLM');
               } else {
-                _this41.usuarioValido = true;
+                _this43.usuarioValido = true;
 
-                _this41.success(myUser['message'], 'Invitación a MLM');
+                _this43.success(myUser['message'], 'Invitación a MLM');
               }
 
-              _this41.procesando = 'noProcesa';
-              _this41.esVisible = 'invisible';
+              _this43.procesando = 'noProcesa';
+              _this43.esVisible = 'invisible';
             });
           } else {
             this.error('CI vacío', 'MLM Invitación');
@@ -13931,7 +14010,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this42 = this;
+          var _this44 = this;
 
           /*if (this.invitado) {
             for (let i = 0; i < this.invitado.associated.length; i++) {
@@ -13962,25 +14041,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invitation.profile.photo = '/assets/img/noPicture.png';
           console.log('invitation', this.invitation);
           this.connexion.addObject('invitation', this.invitation).subscribe(function (regis) {
-            _this42.procesando = 'noProcesa';
-            _this42.esVisible = 'invisible';
-            _this42.correct = true;
+            _this44.procesando = 'noProcesa';
+            _this44.esVisible = 'invisible';
+            _this44.correct = true;
             alert('La invitación fue realizada de manera correcta');
 
-            _this42._router.navigate(['/']);
+            _this44._router.navigate(['/']);
           }, function (error) {
-            _this42.isSaved = false;
+            _this44.isSaved = false;
             var errorMessage = error;
-            _this42.correct = false;
+            _this44.correct = false;
 
             switch (errorMessage.status) {
               case 400:
-                _this42.usuarioValido = false;
+                _this44.usuarioValido = false;
                 alert('El usuario ya fue invitado. \n Por favor intente nuevamente.');
                 break;
 
               default:
-                _this42.usuarioValido = true;
+                _this44.usuarioValido = true;
                 alert('Ocurrió un error al intentar invitar el usuario. \n Por favor verifique los datos e intente nuevamente.');
                 break;
             }
@@ -14084,17 +14163,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "updateSelectRol",
-        value: function updateSelectRol(index) {//this.ListRol = this.ListRol.filter(LOC => LOC._id == index);
+        value: function updateSelectRol(index) {
+          if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["userPermissions"].rep == index) {
+            this.verVehiculo = true;
+          } else {
+            this.verVehiculo = false;
+          } //this.ListRol = this.ListRol.filter(LOC => LOC._id == index);
+
         }
+      }, {
+        key: "updateSelectVehiculo",
+        value: function updateSelectVehiculo(index) {}
       }, {
         key: "updateEmp",
         value: function updateEmp(id) {
-          var _this43 = this;
+          var _this45 = this;
 
           this.ListCompany.forEach(function (comp) {
             if (id == comp._id) {
               localStorage.setItem('actual', id);
-              _this43.companiaActual = comp.name;
+              _this45.companiaActual = comp.name;
             }
           });
         }
@@ -14226,7 +14314,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ListaAgendadosComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.obtenerDatos(1, this.myID = '123');
+          this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
+          this.sucursalName = this.localCompany[0].sucursalName;
+          this.obtenerDatos(1, this.sucursalName);
         }
       }, {
         key: "entriesChange",
@@ -14242,17 +14332,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state, id) {
-          var _this44 = this;
+          var _this46 = this;
 
-          console.log(state, id);
           this.isLoading = true;
-          this.cnx.get_data('pedido').subscribe(function (myProds) {
+          this.cnx.get_dataWithParams('pedido', '?estadoActual=' + state + '&sucursalName=' + this.sucursalName).subscribe(function (myProds) {
             console.log(myProds);
-            _this44.rows = myProds;
+            _this46.rows = myProds;
             setTimeout(function () {
-              _this44.isLoading = false;
+              _this46.isLoading = false;
             }, 1500);
-            _this44.temp = myProds.map(function (prop, key) {
+            _this46.temp = myProds.map(function (prop, key) {
               return Object.assign({}, prop, {
                 parentId: null,
                 id: key
@@ -14462,11 +14551,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cargarDatos",
         value: function cargarDatos(id) {
-          var _this45 = this;
+          var _this47 = this;
 
           this.connexion.get_dataId('person', id).subscribe(function (regis) {
             localStorage.setItem('photo', regis.profile.photo.toString());
-            _this45.person = regis;
+            _this47.person = regis;
           }, function (error) {
             var errorMessage = error;
 
@@ -14611,7 +14700,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state, id) {
-          var _this46 = this;
+          var _this48 = this;
 
           var localCompany = JSON.parse(localStorage.getItem('userCompany'));
 
@@ -14619,11 +14708,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.isLoading = true;
             this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName + '&estado=' + state).subscribe(function (myProds) {
               console.log(myProds);
-              _this46.rows = myProds;
+              _this48.rows = myProds;
               setTimeout(function () {
-                _this46.isLoading = false;
+                _this48.isLoading = false;
               }, 1500);
-              _this46.temp = myProds.map(function (prop, key) {
+              _this48.temp = myProds.map(function (prop, key) {
                 return Object.assign({}, prop, {
                   parentId: null,
                   id: key
@@ -14712,7 +14801,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteFunction",
         value: function deleteFunction($event) {
-          $event.preventDefault(); //this.router.navigate(['/descendenciaFicha/' + this.activeRow._id]);
+          $event.preventDefault();
+          this.router.navigate(['/editaProducto/' + this.activeRow._id]); //this.router.navigate(['/descendenciaFicha/' + this.activeRow._id]);
         }
       }]);
 
@@ -14824,25 +14914,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ProductsLoadComponent =
     /*#__PURE__*/
     function () {
-      function ProductsLoadComponent(connexion, _router) {
+      function ProductsLoadComponent(connexion, _router, route) {
         _classCallCheck(this, ProductsLoadComponent);
 
         this.connexion = connexion;
         this._router = _router;
+        this.route = route;
         this.path_server = 'userFiles/imagesCompany';
         this.mostrar = true;
         this.title_upload = '';
         this.urlImage = '/assets/img/noProduct.png';
+        this.opcion = 'Agregar';
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalVars"].filesDomain;
       }
 
       _createClass(ProductsLoadComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this49 = this;
+
+          this.productoId = this.route.snapshot.params['producto'];
           this.producto = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__["Products"]();
-          this.producto.imagen = this.urlImage;
-          this.producto.existencia = 0;
-          this.producto.estado = 1;
+
+          if (this.productoId) {
+            this.connexion.get_dataId('products', this.productoId).subscribe(function (prod) {
+              _this49.producto = prod;
+              console.log(prod);
+            }, function (error) {
+              console.log('Ocurrió un error al intentar recuperar los datos.', error);
+
+              _this49._router.navigate(['/listaProductos']);
+            });
+          } else {
+            this.urlImage = '/assets/img/noProduct.png';
+            this.producto.imagen = this.urlImage;
+            this.producto.existencia = 0;
+            this.producto.estado = 1;
+          }
         }
       }, {
         key: "recibeDeHijo",
@@ -14853,23 +14961,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "guardar",
         value: function guardar() {
-          var _this47 = this;
+          var _this50 = this;
 
-          var localCompany = JSON.parse(localStorage.getItem('userCompany'));
+          if (this.productoId) {
+            this.connexion.editObject('products', this.producto).subscribe(function (resp) {
+              console.log('Datos editados con éxito.', resp);
 
-          if (localCompany) {
-            this.producto.companyName = localCompany[0].companyName;
-            this.producto.sucursalName = localCompany[0].sucursalName;
-            console.log(this.producto);
-            this.connexion.addObject('products', this.producto).subscribe(function (regis) {
-              console.log('Datos guardados con éxito.');
-
-              _this47.ngOnInit();
+              _this50._router.navigate(['/listaProductos']);
             }, function (error) {
-              console.log('Error al guardar los datos.');
+              console.log('Ocurrió un error al intentar guardar los datos.', error); //this._router.navigate(['/listaProductos']);
             });
           } else {
-            this._router.navigate(['/sign/login']);
+            var localCompany = JSON.parse(localStorage.getItem('userCompany'));
+
+            if (localCompany) {
+              this.producto.companyName = localCompany[0].companyName;
+              this.producto.sucursalName = localCompany[0].sucursalName;
+              this.connexion.addObject('products', this.producto).subscribe(function (regis) {
+                console.log('Datos guardados con éxito.');
+
+                _this50.ngOnInit();
+              }, function (error) {
+                console.log('Error al guardar los datos.');
+              });
+            } else {
+              this._router.navigate(['/sign/login']);
+            }
           }
         }
       }]);
@@ -14882,6 +14999,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__["ConnexionService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }];
     };
 
@@ -15024,14 +15143,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this48 = this;
+          var _this51 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this48.ListLOC = reslo;
-            _this48.ListLOCMain = reslo.filter(function (LOC) {
+            _this51.ListLOC = reslo;
+            _this51.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].pais;
             });
-            _this48.depasCI = _this48.ListLOC.filter(function (LOC) {
+            _this51.depasCI = _this51.ListLOC.filter(function (LOC) {
               return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].ciudad;
             });
           }, function (error) {
@@ -15041,17 +15160,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (codigo) {
             setTimeout(function () {
-              _this48.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
+              _this51.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
                 console.log(myUser);
-                _this48.perfil = myUser;
-                _this48.urlImage = myUser.profile.photo.toString();
-                _this48.listDepa = _this48.ListLOC.filter(function (LOC) {
+                _this51.perfil = myUser;
+                _this51.urlImage = myUser.profile.photo.toString();
+                _this51.listDepa = _this51.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.country;
                 });
-                _this48.listCiudad = _this48.ListLOC.filter(function (LOC) {
+                _this51.listCiudad = _this51.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.state.id;
                 });
-                _this48.listZona = _this48.ListLOC.filter(function (LOC) {
+                _this51.listZona = _this51.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.city.id;
                 });
               });
@@ -15067,13 +15186,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpdate",
         value: function onUpdate() {
-          var _this49 = this;
+          var _this52 = this;
 
           this.connexion.editObject('person', this.perfil).subscribe(function (regis) {
             localStorage.setItem('code', regis['estado'].toString() + regis['_id'].toString());
             alert('Actualización de Usuario Satisfactorio.');
 
-            _this49._router.navigate(['/']);
+            _this52._router.navigate(['/']);
           }, function (error) {
             var errorMessage = error;
 
@@ -15592,21 +15711,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ToastComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this53 = this;
 
           this.subscription = this.toastService.onAlert(this.id).subscribe(function (alert) {
             if (!alert.message) {
               // clear alerts when an empty alert is received
-              _this50.alerts = [];
+              _this53.alerts = [];
               return;
             } // add alert to array
 
 
-            _this50.alerts.push(alert);
+            _this53.alerts.push(alert);
 
-            _this50.message = alert.message;
-            _this50.title = alert.title;
-            _this50.tipoAlert = _this50.cssClass(alert);
+            _this53.message = alert.message;
+            _this53.title = alert.title;
+            _this53.tipoAlert = _this53.cssClass(alert);
             $('.toast').toast('show');
           });
         }
@@ -15919,7 +16038,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpload",
         value: function onUpload() {
-          var _this51 = this;
+          var _this54 = this;
 
           if (!this.selectedFile) {
             console.log('Archivo Eliminado');
@@ -15934,22 +16053,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _loop2 = function _loop2(index) {
             var fdScale = new FormData();
 
-            var nuevoNombre = _this51.changeName(_this51.selectedFile[index].name);
+            var nuevoNombre = _this54.changeName(_this54.selectedFile[index].name);
 
             try {
               fdScale.append('file_name', nuevoNombre);
-              fdScale.append('file_path', _this51.path_server);
-              fdScale.append('file', _this51.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
+              fdScale.append('file_path', _this54.path_server);
+              fdScale.append('file', _this54.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
 
-              _this51.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
+              _this54.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
                 reportProgress: true,
                 observe: 'events',
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].UploadProgress) {
-                  _this51.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
-                  document.getElementById("pbFile" + _this51.selectedFile[index].name).style.width = _this51.porcentajeUpload;
-                  document.getElementById("pbFile" + _this51.selectedFile[index].name).innerHTML = _this51.porcentajeUpload;
+                  _this54.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
+                  document.getElementById("pbFile" + _this54.selectedFile[index].name).style.width = _this54.porcentajeUpload;
+                  document.getElementById("pbFile" + _this54.selectedFile[index].name).innerHTML = _this54.porcentajeUpload;
                 }
               });
             } catch (error) {
@@ -15974,12 +16093,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
-                  _this51.desdeElHijo.emit({
+                  _this54.desdeElHijo.emit({
                     upload: event.body
                   });
 
-                  _this51.muestraMIDDLE = 'noMuestra';
-                  _this51.muestraDOWN = 'noMuestra';
+                  _this54.muestraMIDDLE = 'noMuestra';
+                  _this54.muestraDOWN = 'noMuestra';
                 }
               });
             } catch (error) {
@@ -16500,7 +16619,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ToastService(router) {
-        var _this52 = this;
+        var _this55 = this;
 
         _classCallCheck(this, ToastService);
 
@@ -16510,12 +16629,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
-            if (_this52.keepAfterRouteChange) {
+            if (_this55.keepAfterRouteChange) {
               // only keep for a single route change
-              _this52.keepAfterRouteChange = false;
+              _this55.keepAfterRouteChange = false;
             } else {
               // clear alert messages
-              _this52.clear();
+              _this55.clear();
             }
           }
         });

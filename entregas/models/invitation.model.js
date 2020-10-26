@@ -19,6 +19,11 @@ var invitationSchema = new Schema({
         required: false,
         unique: false
     },
+    vehiculo: {
+        type: schemas.vehiculoScheme,
+        required: false,
+        unique: false
+    },
     job: {
         type: schemas.jobSchema,
         required: false,
