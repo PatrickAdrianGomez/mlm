@@ -54,7 +54,7 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #525f7f;
+  color: #ffffff;
   text-align: left;
   background-color: #1e1e2f; }
 
@@ -9584,7 +9584,7 @@ fieldset[disabled]
   filter: alpha(opacity=100); }
 
 .form-control {
-  border-color: #2b3553;
+  border-color: #6c757d;
   border-radius: 0.4285rem;
   font-size: 0.75rem;
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out; }

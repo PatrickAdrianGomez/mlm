@@ -1501,6 +1501,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       typecontextact: 'api/v1/qtypecontext?estado=1',
       products: 'api/v1/qproducts',
       pedido: 'api/v1/qpedido',
+      creaPedido: 'api/v1/pedido',
       mailSender: 'api/v1/mailSender',
       userVerification: 'api/v1/userVerification',
       mailProduct: 'api/v1/mailProduct',

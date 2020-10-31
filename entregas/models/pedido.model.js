@@ -6,7 +6,7 @@ var Schema = model.Schema;
 
 var pedidoSchema = new Schema({
     codigo: {
-        type: Schema.Types.String,
+        type: Schema.Types.Number,
         required: true,
         unique: false
     },
