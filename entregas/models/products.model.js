@@ -25,7 +25,7 @@ var productSchema = new Schema({
     },
     costo: {
         type: Schema.Types.Number,
-        required: false,
+        required: true,
         unique: false,
         default: 0
     },
