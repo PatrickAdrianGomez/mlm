@@ -705,10 +705,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 const globalVars = {
-    //domain: 'http://104.197.114.137:8002',
-    //filesDomain: 'http://104.197.114.137:8002',
-    domain: 'http://127.0.0.1:8002',
-    filesDomain: 'http://127.0.0.1:8002',
+    domain: 'http://104.197.114.137:8002',
+    filesDomain: 'http://104.197.114.137:8002',
+    //domain: 'http://127.0.0.1:8002',
+    //filesDomain: 'http://127.0.0.1:8002',
     //domain: '',
     //filesDomain: '',
     language: 'es',

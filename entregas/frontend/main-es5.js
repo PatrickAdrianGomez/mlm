@@ -1454,10 +1454,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var globalVars = {
-      //domain: 'http://104.197.114.137:8002',
-      //filesDomain: 'http://104.197.114.137:8002',
-      domain: 'http://127.0.0.1:8002',
-      filesDomain: 'http://127.0.0.1:8002',
+      domain: 'http://104.197.114.137:8002',
+      filesDomain: 'http://104.197.114.137:8002',
+      //domain: 'http://127.0.0.1:8002',
+      //filesDomain: 'http://127.0.0.1:8002',
       //domain: '',
       //filesDomain: '',
       language: 'es',
