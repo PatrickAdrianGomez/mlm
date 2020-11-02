@@ -1,7 +1,5 @@
 const model = require('./db');
 var restful = require('node-restful');
-
-var schemas = require('./schemas');
 var Schema = model.Schema;
 
 var productSchema = new Schema({
@@ -28,7 +26,8 @@ var productSchema = new Schema({
     costo: {
         type: Schema.Types.Number,
         required: false,
-        unique: false
+        unique: false,
+        default: 0
     },
     existencia: {
         type: Schema.Types.Number,
