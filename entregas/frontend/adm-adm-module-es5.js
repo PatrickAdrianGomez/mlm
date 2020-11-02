@@ -14968,6 +14968,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this50 = this;
 
           if (this.productoId) {
+            console.log('products', this.producto);
             this.connexion.editObject('products', this.producto).subscribe(function (resp) {
               console.log('Datos editados con éxito.', resp);
 

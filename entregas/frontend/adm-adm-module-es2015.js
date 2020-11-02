@@ -10072,6 +10072,7 @@ let ProductsLoadComponent = class ProductsLoadComponent {
     }
     guardar() {
         if (this.productoId) {
+            console.log('products', this.producto);
             this.connexion.editObject('products', this.producto).subscribe(resp => {
                 console.log('Datos editados con éxito.', resp);
                 this._router.navigate(['/listaProductos']);
