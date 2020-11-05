@@ -125,7 +125,7 @@ var pedidoSchema = new Schema({
             required: false,
             unique: false
         },
-        pendientePedido: {
+        cancelaPedido: {
             type: Schema.Types.Date,
             required: false,
             unique: false
