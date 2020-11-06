@@ -10525,7 +10525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right;\">{{item.restar}}</h4>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important; color: white!important;\" [ngStyle]=\"{'background-color': item.color}\">\n            {{titulo}}\n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right;\">{{item.restar}}</h4>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -12209,6 +12209,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function enviar() {
           var _this27 = this;
 
+          console.log('this.pedido', this.pedido);
           this.pedido.codigo = 0; //this.codigoPedido;
 
           this.pedido.fechaHora = new Date();
@@ -12233,7 +12234,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             recogidoPedido: new Date(),
             entregadoPedido: new Date()
           };
-          console.log(this.pedido);
           this.connexion.addObject('creaPedido', this.pedido).subscribe(function (regis) {
             console.log('Datos guardados con éxito.');
 
@@ -13382,6 +13382,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this37.pedidos = resp;
 
             _this37.pedidos.forEach(function (element) {
+              element = _this37.calculaTotal(element);
+
               switch (estado) {
                 case '1':
                   element = _this37.calculaHora(element, element.fechaHora);
@@ -13409,6 +13411,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "calculaTotal",
+        value: function calculaTotal(array) {
+          console.log('antes', array);
+          var total = 0;
+          array.productos.forEach(function (element) {
+            total += element.cantidad * element.costo;
+          });
+          array['total'] = total;
+          console.log('despues', array);
+          return array;
+        }
+      }, {
         key: "calculaHora",
         value: function calculaHora(array, fecha) {
           var ahora = new Date().getTime();
@@ -13417,21 +13431,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (Math.trunc(tiempoTemp) > 0) {
             tiempoFinal = Math.trunc(tiempoTemp) + ' hrs ' + Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) + ' min';
+            array['color'] = 'red';
           } else {
             tiempoFinal = Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) + ' min';
+
+            if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 5) {
+              array['color'] = 'green';
+            } else {
+              if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 10) {
+                array['color'] = 'yellow';
+              } else {
+                array['color'] = 'red';
+              }
+            }
           }
 
           array['restar'] = tiempoFinal;
-
-          if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 5) {
-            array['color'] = 'green';
-          } else {
-            if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 10) {
-              array['color'] = 'yellow';
-            } else {
-              array['color'] = 'red';
-            }
-          }
 
           for (var i = 0; i < this.listSucursal.length; i++) {
             if (this.listSucursal[i]._id == array.sucursalName) {

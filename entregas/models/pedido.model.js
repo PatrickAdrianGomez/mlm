@@ -35,6 +35,11 @@ var pedidoSchema = new Schema({
             type: Schema.Types.Number,
             require: false,
             unique: false
+        },
+        costo: {
+            type: Schema.Types.Number,
+            require: false,
+            unique: false
         }
     }],
     direccion: {
