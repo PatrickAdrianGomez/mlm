@@ -10525,7 +10525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right;\">{{item.restar}}</h4>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\" style=\"padding-bottom: 5px;\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"https://www.google.com/maps/place/Factory+Grill+%26+Bar/@-17.7962017,-63.1809039,16.75z/data=!4m5!3m4!1s0x93f1e81559a85bc1:0x2f01d75de6fffcc!8m2!3d-17.7962127!4d-63.1806028\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restar}}</h4><br>\n            <div class=\"row\" style=\"clear: both; border-top: 1px solid white;\">\n                <h4 class=\"col-12 text-center\" style=\"margin-bottom: 0; font-weight: bold;\">{{item.total}}Bs.</h4>\n            </div>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}Bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -10605,7 +10605,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n  <div class=\"col-12\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header \">\n        <div class=\"row\">\n          <div class=\"col-sm-6 text-left\">\n            <h5 class=\"card-category\">Total</h5>\n            <h2 class=\"card-title\">Cuentas</h2>\n          </div>\n          <!--<div class=\"col-sm-6\">\n            <div class=\"btn-group btn-group-toggle float-right\" data-toggle=\"buttons\">\n              <label class=\"btn btn-sm btn-primary btn-simple active\" id=\"0\">\n                <input type=\"radio\" name=\"options\" checked>\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Accounts</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-single-02\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"1\">\n                <input type=\"radio\" class=\"d-none d-sm-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Purchases</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-gift-2\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"2\">\n                <input type=\"radio\" class=\"d-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Sessions</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-tap-02\"></i>\n                </span>\n              </label>\n            </div>\n          </div>-->\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartBig1\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Ventas</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-bell-55 text-primary\"></i> 763,215</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLinePurple\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cobros diarios</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-delivery-fast text-info\"></i> 3,500€</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"CountryChart\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cantidad de Asociados</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-send text-success\"></i> 12,100K</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLineGreen\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--<div class=\"row\">\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card card-tasks\">\n      <div class=\"card-header \">\n        <h6 class=\"title d-inline\">Asociados(5)</h6>\n        <p class=\"card-category d-inline\">today</p>\n        <div class=\"dropdown\">\n          <button type=\"button\" class=\"btn btn-link dropdown-toggle btn-icon\" data-toggle=\"dropdown\">\n            <i class=\"tim-icons icon-settings-gear-63\"></i>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#pablo\">Action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Another action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Something else</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <div class=\"table-full-width table-responsive\">\n          <table class=\"table\">\n            <tbody>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Update the Documentation</p>\n                  <p class=\"text-muted\">Dwuamish Head, Seattle, WA 8:47 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\" checked=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">GDPR Compliance</p>\n                  <p class=\"text-muted\">The GDPR is a regulation that requires businesses to protect the personal data\n                    and privacy of Europe citizens for transactions that occur within EU member states.</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Solve the issues</p>\n                  <p class=\"text-muted\">Fifty percent of all respondents said they would be more likely to shop at a\n                    company </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Release v2.0.0</p>\n                  <p class=\"text-muted\">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Export the processed files</p>\n                  <p class=\"text-muted\">The report also shows that consumers will not easily forgive a company once a\n                    breach exposing their personal data occurs. </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Arival at export process</p>\n                  <p class=\"text-muted\">Capitol Hill, Seattle, WA 12:34 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Simple Table</h4>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table tablesorter \" id=\"\">\n            <thead class=\" text-primary\">\n              <tr>\n                <th>\n                  Name\n                </th>\n                <th>\n                  Country\n                </th>\n                <th>\n                  City\n                </th>\n                <th class=\"text-center\">\n                  Salary\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-center\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-center\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-center\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-center\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-center\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->";
+    __webpack_exports__["default"] = "<div class=\"row\">\n  <div class=\"col-12\">\n\n\n    <!--<input type=\"button\" value=\"capturar\" (click)=\"capturar()\">-->\n\n\n\n\n    <div class=\"card card-chart\">\n      <div class=\"card-header \">\n        <div class=\"row\">\n          <div class=\"col-sm-6 text-left\">\n            <h5 class=\"card-category\">Total</h5>\n            <h2 class=\"card-title\">Cuentas</h2>\n          </div>\n          <!--<div class=\"col-sm-6\">\n            <div class=\"btn-group btn-group-toggle float-right\" data-toggle=\"buttons\">\n              <label class=\"btn btn-sm btn-primary btn-simple active\" id=\"0\">\n                <input type=\"radio\" name=\"options\" checked>\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Accounts</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-single-02\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"1\">\n                <input type=\"radio\" class=\"d-none d-sm-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Purchases</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-gift-2\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"2\">\n                <input type=\"radio\" class=\"d-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Sessions</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-tap-02\"></i>\n                </span>\n              </label>\n            </div>\n          </div>-->\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartBig1\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Ventas</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-bell-55 text-primary\"></i> 763,215</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLinePurple\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cobros diarios</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-delivery-fast text-info\"></i> 3,500€</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"CountryChart\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cantidad de Asociados</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-send text-success\"></i> 12,100K</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLineGreen\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--<div class=\"row\">\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card card-tasks\">\n      <div class=\"card-header \">\n        <h6 class=\"title d-inline\">Asociados(5)</h6>\n        <p class=\"card-category d-inline\">today</p>\n        <div class=\"dropdown\">\n          <button type=\"button\" class=\"btn btn-link dropdown-toggle btn-icon\" data-toggle=\"dropdown\">\n            <i class=\"tim-icons icon-settings-gear-63\"></i>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#pablo\">Action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Another action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Something else</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <div class=\"table-full-width table-responsive\">\n          <table class=\"table\">\n            <tbody>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Update the Documentation</p>\n                  <p class=\"text-muted\">Dwuamish Head, Seattle, WA 8:47 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\" checked=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">GDPR Compliance</p>\n                  <p class=\"text-muted\">The GDPR is a regulation that requires businesses to protect the personal data\n                    and privacy of Europe citizens for transactions that occur within EU member states.</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Solve the issues</p>\n                  <p class=\"text-muted\">Fifty percent of all respondents said they would be more likely to shop at a\n                    company </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Release v2.0.0</p>\n                  <p class=\"text-muted\">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Export the processed files</p>\n                  <p class=\"text-muted\">The report also shows that consumers will not easily forgive a company once a\n                    breach exposing their personal data occurs. </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Arival at export process</p>\n                  <p class=\"text-muted\">Capitol Hill, Seattle, WA 12:34 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Simple Table</h4>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table tablesorter \" id=\"\">\n            <thead class=\" text-primary\">\n              <tr>\n                <th>\n                  Name\n                </th>\n                <th>\n                  Country\n                </th>\n                <th>\n                  City\n                </th>\n                <th class=\"text-center\">\n                  Salary\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-center\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-center\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-center\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-center\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-center\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->";
     /***/
   },
 
@@ -12209,7 +12209,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function enviar() {
           var _this27 = this;
 
-          console.log('this.pedido', this.pedido);
           this.pedido.codigo = 0; //this.codigoPedido;
 
           this.pedido.fechaHora = new Date();
@@ -13413,13 +13412,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculaTotal",
         value: function calculaTotal(array) {
-          console.log('antes', array);
           var total = 0;
           array.productos.forEach(function (element) {
             total += element.cantidad * element.costo;
           });
           array['total'] = total;
-          console.log('despues', array);
           return array;
         }
       }, {
@@ -14622,6 +14619,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.connexion = connexion;
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].filesDomain;
+        this.constraints = {
+          video: true,
+          audio: true
+        };
+        this.video = document.querySelector('video');
       }
 
       _createClass(MainComponent, [{
@@ -14631,13 +14633,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.cargarDatos(localStorage.getItem('code').substring(1));
         }
       }, {
+        key: "capturar",
+        value: function capturar() {
+          var _this47 = this;
+
+          function hasGetUserMedia() {
+            return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+          }
+
+          if (hasGetUserMedia()) {
+            alert('TIENRE');
+            navigator.mediaDevices.getUserMedia(this.constraints).then(function (stream) {
+              _this47.video.srcObject = stream;
+            });
+          } else {
+            alert('getUserMedia() is not supported by your browser');
+          }
+        }
+      }, {
         key: "cargarDatos",
         value: function cargarDatos(id) {
-          var _this47 = this;
+          var _this48 = this;
 
           this.connexion.get_dataId('person', id).subscribe(function (regis) {
             localStorage.setItem('photo', regis.profile.photo.toString());
-            _this47.person = regis;
+            _this48.person = regis;
           }, function (error) {
             var errorMessage = error;
 
@@ -14782,7 +14802,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "obtenerDatos",
         value: function obtenerDatos(state, id) {
-          var _this48 = this;
+          var _this49 = this;
 
           var localCompany = JSON.parse(localStorage.getItem('userCompany'));
 
@@ -14790,11 +14810,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.isLoading = true;
             this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName + '&estado=' + state).subscribe(function (myProds) {
               console.log(myProds);
-              _this48.rows = myProds;
+              _this49.rows = myProds;
               setTimeout(function () {
-                _this48.isLoading = false;
+                _this49.isLoading = false;
               }, 1500);
-              _this48.temp = myProds.map(function (prop, key) {
+              _this49.temp = myProds.map(function (prop, key) {
                 return Object.assign({}, prop, {
                   parentId: null,
                   id: key
@@ -15020,20 +15040,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProductsLoadComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this49 = this;
+          var _this50 = this;
 
           this.productoId = this.route.snapshot.params['producto'];
           this.producto = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__["Products"]();
 
           if (this.productoId) {
             this.connexion.get_dataId('products', this.productoId).subscribe(function (prod) {
-              _this49.producto = prod; //console.log(prod);
+              _this50.producto = prod; //console.log(prod);
             }, function (error) {
               console.log('Ocurrió un error al intentar recuperar los datos.', error);
 
-              _this49.error('Ocurrió un error al intentar recuperar los datos.', 'Productos');
+              _this50.error('Ocurrió un error al intentar recuperar los datos.', 'Productos');
 
-              _this49._router.navigate(['/listaProductos']);
+              _this50._router.navigate(['/listaProductos']);
             });
           } else {
             this.urlImage = '/assets/img/noProduct.png';
@@ -15051,18 +15071,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "guardar",
         value: function guardar() {
-          var _this50 = this;
+          var _this51 = this;
 
           if (this.productoId) {
             console.log('products', this.producto);
             this.connexion.editObject('products', this.producto).subscribe(function (resp) {
               //console.log('Datos editados con éxito.',resp);
-              _this50.success('Datos editados con éxito.', 'Productos');
+              _this51.success('Datos editados con éxito.', 'Productos');
 
-              _this50._router.navigate(['/listaProductos']);
+              _this51._router.navigate(['/listaProductos']);
             }, function (error) {
               //console.log('Ocurrió un error al intentar guardar los datos.', error);
-              _this50.error('Ocurrió un error al intentar guardar los datos.', 'Productos'); //this._router.navigate(['/listaProductos']);
+              _this51.error('Ocurrió un error al intentar guardar los datos.', 'Productos'); //this._router.navigate(['/listaProductos']);
 
             });
           } else {
@@ -15073,13 +15093,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               this.producto.sucursalName = localCompany[0].sucursalName;
               this.connexion.addObject('products', this.producto).subscribe(function (regis) {
                 //console.log('Datos guardados con éxito.');
-                _this50.success('Datos guardados con éxito.', 'Productos');
+                _this51.success('Datos guardados con éxito.', 'Productos');
 
-                _this50.success('Continúa creando nuevos productos', 'Productos');
+                _this51.success('Continúa creando nuevos productos', 'Productos');
 
-                _this50.ngOnInit();
+                _this51.ngOnInit();
               }, function (error) {
-                _this50.error('Error al guardar los datos.', 'Productos'); //console.log('Error al guardar los datos.'); 
+                _this51.error('Error al guardar los datos.', 'Productos'); //console.log('Error al guardar los datos.'); 
 
               });
             } else {
@@ -15253,14 +15273,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this52 = this;
 
           this.connexion.get_data('location').subscribe(function (reslo) {
-            _this51.ListLOC = reslo;
-            _this51.ListLOCMain = reslo.filter(function (LOC) {
+            _this52.ListLOC = reslo;
+            _this52.ListLOCMain = reslo.filter(function (LOC) {
               return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].pais;
             });
-            _this51.depasCI = _this51.ListLOC.filter(function (LOC) {
+            _this52.depasCI = _this52.ListLOC.filter(function (LOC) {
               return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].ciudad;
             });
           }, function (error) {
@@ -15270,17 +15290,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (codigo) {
             setTimeout(function () {
-              _this51.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
+              _this52.connexion.get_dataId('person', codigo).subscribe(function (myUser) {
                 console.log(myUser);
-                _this51.perfil = myUser;
-                _this51.urlImage = myUser.profile.photo.toString();
-                _this51.listDepa = _this51.ListLOC.filter(function (LOC) {
+                _this52.perfil = myUser;
+                _this52.urlImage = myUser.profile.photo.toString();
+                _this52.listDepa = _this52.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.country;
                 });
-                _this51.listCiudad = _this51.ListLOC.filter(function (LOC) {
+                _this52.listCiudad = _this52.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.state.id;
                 });
-                _this51.listZona = _this51.ListLOC.filter(function (LOC) {
+                _this52.listZona = _this52.ListLOC.filter(function (LOC) {
                   return LOC.owner == myUser.contact.address.city.id;
                 });
               });
@@ -15296,13 +15316,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpdate",
         value: function onUpdate() {
-          var _this52 = this;
+          var _this53 = this;
 
           this.connexion.editObject('person', this.perfil).subscribe(function (regis) {
             localStorage.setItem('code', regis['estado'].toString() + regis['_id'].toString());
             alert('Actualización de Usuario Satisfactorio.');
 
-            _this52._router.navigate(['/']);
+            _this53._router.navigate(['/']);
           }, function (error) {
             var errorMessage = error;
 
@@ -15821,21 +15841,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ToastComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this53 = this;
+          var _this54 = this;
 
           this.subscription = this.toastService.onAlert(this.id).subscribe(function (alert) {
             if (!alert.message) {
               // clear alerts when an empty alert is received
-              _this53.alerts = [];
+              _this54.alerts = [];
               return;
             } // add alert to array
 
 
-            _this53.alerts.push(alert);
+            _this54.alerts.push(alert);
 
-            _this53.message = alert.message;
-            _this53.title = alert.title;
-            _this53.tipoAlert = _this53.cssClass(alert);
+            _this54.message = alert.message;
+            _this54.title = alert.title;
+            _this54.tipoAlert = _this54.cssClass(alert);
             $('.toast').toast('show');
           });
         }
@@ -16148,7 +16168,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onUpload",
         value: function onUpload() {
-          var _this54 = this;
+          var _this55 = this;
 
           if (!this.selectedFile) {
             console.log('Archivo Eliminado');
@@ -16163,22 +16183,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _loop2 = function _loop2(index) {
             var fdScale = new FormData();
 
-            var nuevoNombre = _this54.changeName(_this54.selectedFile[index].name);
+            var nuevoNombre = _this55.changeName(_this55.selectedFile[index].name);
 
             try {
               fdScale.append('file_name', nuevoNombre);
-              fdScale.append('file_path', _this54.path_server);
-              fdScale.append('file', _this54.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
+              fdScale.append('file_path', _this55.path_server);
+              fdScale.append('file', _this55.scaledImage[index], 'Scale' + dt.getUTCMinutes().toString() + dt.getUTCSeconds().toString() + dt.getUTCMilliseconds().toString() + nuevoNombre);
 
-              _this54.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
+              _this55.http.post(src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].domain + '/api/v1/image/', fdScale, {
                 reportProgress: true,
                 observe: 'events',
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].UploadProgress) {
-                  _this54.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
-                  document.getElementById("pbFile" + _this54.selectedFile[index].name).style.width = _this54.porcentajeUpload;
-                  document.getElementById("pbFile" + _this54.selectedFile[index].name).innerHTML = _this54.porcentajeUpload;
+                  _this55.porcentajeUpload = Math.round(event.loaded / event.total * 100) + "%";
+                  document.getElementById("pbFile" + _this55.selectedFile[index].name).style.width = _this55.porcentajeUpload;
+                  document.getElementById("pbFile" + _this55.selectedFile[index].name).innerHTML = _this55.porcentajeUpload;
                 }
               });
             } catch (error) {
@@ -16203,12 +16223,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 headers: head
               }).subscribe(function (event) {
                 if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].Response) {
-                  _this54.desdeElHijo.emit({
+                  _this55.desdeElHijo.emit({
                     upload: event.body
                   });
 
-                  _this54.muestraMIDDLE = 'noMuestra';
-                  _this54.muestraDOWN = 'noMuestra';
+                  _this55.muestraMIDDLE = 'noMuestra';
+                  _this55.muestraDOWN = 'noMuestra';
                 }
               });
             } catch (error) {
@@ -16729,7 +16749,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ToastService(router) {
-        var _this55 = this;
+        var _this56 = this;
 
         _classCallCheck(this, ToastService);
 
@@ -16739,12 +16759,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
-            if (_this55.keepAfterRouteChange) {
+            if (_this56.keepAfterRouteChange) {
               // only keep for a single route change
-              _this55.keepAfterRouteChange = false;
+              _this56.keepAfterRouteChange = false;
             } else {
               // clear alert messages
-              _this55.clear();
+              _this56.clear();
             }
           }
         });
