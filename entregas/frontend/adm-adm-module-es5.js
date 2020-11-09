@@ -10405,7 +10405,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <!--<div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>-->\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\"\n                    required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <!--<div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>-->\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\"\n                    required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button id=\"btnAgendar\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/capture/capture.component.html":
+  /*!************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/capture/capture.component.html ***!
+    \************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAdmViewsCaptureCaptureComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>capture works!</p>\n\n<h1>\n    MDN - WebRTC: Still photo capture demo\n</h1>\n<p>\n    This example demonstrates how to set up a media stream using your built-in webcam, fetch an image from that stream, and create a PNG using that image.\n</p>\n<div class=\"camera\">\n<video id=\"video\">Video stream not available.</video>\n<button id=\"startbutton\">Take photo</button> \n</div>\n<canvas id=\"canvas\">\n</canvas>\n<div class=\"output\">\n<img id=\"photo\" alt=\"The screen capture will appear in this box.\"> \n</div>";
     /***/
   },
 
@@ -10862,6 +10882,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
     /*! ./views/ficha-pedido/ficha-pedido.component */
     "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
+    /* harmony import */
+
+
+    var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ./views/capture/capture.component */
+    "./src/app/adm/views/capture/capture.component.ts");
 
     var routes = [{
       path: '',
@@ -10992,6 +11018,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       children: [{
         path: '',
         component: _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_18__["FichaPedidoComponent"]
+      }]
+    }, {
+      path: 'capture',
+      component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+      children: [{
+        path: '',
+        component: _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_19__["CaptureComponent"]
       }]
     }];
 
@@ -11278,13 +11311,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
     /*! ./views/ficha-pedido/ficha-pedido.component */
     "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
+    /* harmony import */
+
+
+    var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    /*! ./views/capture/capture.component */
+    "./src/app/adm/views/capture/capture.component.ts");
 
     var AdmModule = function AdmModule() {
       _classCallCheck(this, AdmModule);
     };
 
     AdmModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_adm_component__WEBPACK_IMPORTED_MODULE_6__["AdmComponent"], _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"], _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_8__["SidebarComponent"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_9__["FooterComponent"], _views_main_main_component__WEBPACK_IMPORTED_MODULE_11__["MainComponent"], _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_13__["StaffListComponent"], _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_14__["InvitationComponent"], _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_15__["ShowErrorsComponent"], _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_16__["DescendenciaFichaComponent"], _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_17__["DescendenciaProfileComponent"], _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_19__["InvitationListComponent"], _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_18__["DescendenciaListComponent"], _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__["ExpedidoPipe"], _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__["NombrePipe"], _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__["ConfigurationComponent"], _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__["ProductListComponent"], _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__["ProductsLoadComponent"], _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__["CompraProductoComponent"], _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__["AgendaPedidoComponent"], _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__["ListaAgendadosComponent"], _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__["FichaPedidoComponent"]],
+      declarations: [_adm_component__WEBPACK_IMPORTED_MODULE_6__["AdmComponent"], _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"], _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_8__["SidebarComponent"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_9__["FooterComponent"], _views_main_main_component__WEBPACK_IMPORTED_MODULE_11__["MainComponent"], _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_13__["StaffListComponent"], _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_14__["InvitationComponent"], _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_15__["ShowErrorsComponent"], _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_16__["DescendenciaFichaComponent"], _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_17__["DescendenciaProfileComponent"], _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_19__["InvitationListComponent"], _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_18__["DescendenciaListComponent"], _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__["ExpedidoPipe"], _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__["NombrePipe"], _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__["ConfigurationComponent"], _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__["ProductListComponent"], _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__["ProductsLoadComponent"], _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__["CompraProductoComponent"], _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__["AgendaPedidoComponent"], _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__["ListaAgendadosComponent"], _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__["FichaPedidoComponent"], _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__["CaptureComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_4__["NgxDatatableModule"], _adm_routing_module__WEBPACK_IMPORTED_MODULE_5__["AdmRoutingModule"], _modules_modules_module__WEBPACK_IMPORTED_MODULE_10__["ModulesModule"]]
     })], AdmModule);
     /***/
@@ -12209,6 +12248,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function enviar() {
           var _this27 = this;
 
+          document.getElementById("btnAgendar")['disabled'] = true;
           this.pedido.codigo = 0; //this.codigoPedido;
 
           this.pedido.fechaHora = new Date();
@@ -12277,6 +12317,171 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./agenda-pedido.component.css */
       "./src/app/adm/views/agenda-pedido/agenda-pedido.component.css")).default]
     })], AgendaPedidoComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/adm/views/capture/capture.component.css":
+  /*!*********************************************************!*\
+    !*** ./src/app/adm/views/capture/capture.component.css ***!
+    \*********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAdmViewsCaptureCaptureComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9jYXB0dXJlL2NhcHR1cmUuY29tcG9uZW50LmNzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/adm/views/capture/capture.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/adm/views/capture/capture.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: CaptureComponent */
+
+  /***/
+  function srcAppAdmViewsCaptureCaptureComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CaptureComponent", function () {
+      return CaptureComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var CaptureComponent =
+    /*#__PURE__*/
+    function () {
+      function CaptureComponent() {
+        _classCallCheck(this, CaptureComponent);
+
+        this.width = 320; // We will scale the photo width to this
+
+        this.height = 0; // This will be computed based on the input stream
+        // |streaming| indicates whether or not we're currently streaming
+        // video from the camera. Obviously, we start at false.
+
+        this.streaming = false; // The various HTML elements we need to configure or control. These
+        // will be set by the startup() function.
+
+        this.video = null;
+        this.canvas = null;
+        this.photo = null;
+        this.startbutton = null;
+      }
+
+      _createClass(CaptureComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.startup();
+        }
+      }, {
+        key: "startup",
+        value: function startup() {
+          this.video = document.getElementById('video');
+          this.canvas = document.getElementById('canvas');
+          this.photo = document.getElementById('photo');
+          this.startbutton = document.getElementById('startbutton');
+          var self = this;
+          navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+          }).then(function (stream) {
+            self.video.srcObject = stream;
+            self.video.play();
+          }).catch(function (err) {
+            console.log("An error occurred: " + err);
+          });
+          this.video.addEventListener('canplay', function (ev) {
+            if (!this.streaming) {
+              this.height = this.video.videoHeight / (this.video.videoWidth / this.width); // Firefox currently has a bug where the height can't be read from
+              // the video, so we will make assumptions if this happens.
+
+              if (isNaN(this.height)) {
+                this.height = this.width / (4 / 3);
+              }
+
+              this.video.setAttribute('width', this.width);
+              this.video.setAttribute('height', this.height);
+              this.canvas.setAttribute('width', this.width);
+              this.canvas.setAttribute('height', this.height);
+              this.streaming = true;
+            }
+          }, false);
+          this.startbutton.addEventListener('click', function (ev) {
+            self.takepicture();
+            ev.preventDefault();
+          }, false);
+          this.clearphoto();
+        } // Fill the photo with an indication that none has been
+        // captured.
+
+      }, {
+        key: "clearphoto",
+        value: function clearphoto() {
+          var context = this.canvas.getContext('2d');
+          context.fillStyle = "#AAA";
+          context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+          var data = this.canvas.toDataURL('image/png');
+          this.photo.setAttribute('src', data);
+        } // Capture a photo by fetching the current contents of the video
+        // and drawing it into a canvas, then converting that to a PNG
+        // format data URL. By drawing it on an offscreen canvas and then
+        // drawing that to the screen, we can change its size and/or apply
+        // other changes before drawing it.
+
+      }, {
+        key: "takepicture",
+        value: function takepicture() {
+          var context = this.canvas.getContext('2d');
+
+          if (this.width && this.height) {
+            this.canvas.width = this.width;
+            this.canvas.height = this.height;
+            context.drawImage(this.video, 0, 0, this.width, this.height);
+            var data = this.canvas.toDataURL('image/png');
+            this.photo.setAttribute('src', data);
+          } else {
+            this.clearphoto();
+          }
+        }
+      }]);
+
+      return CaptureComponent;
+    }();
+
+    CaptureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-capture',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./capture.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/capture/capture.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./capture.component.css */
+      "./src/app/adm/views/capture/capture.component.css")).default]
+    })], CaptureComponent);
     /***/
   },
 
