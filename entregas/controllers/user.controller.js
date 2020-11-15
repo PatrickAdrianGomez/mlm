@@ -39,6 +39,8 @@ exports.userRegister = async (req, res, next) => {
         let myAssociated = [];
 
         await setPerson(codigoUser, prof, contac, vehiculo, myAssociated, state);
+        let newReq = {nombre: req.body.profile.lastNameP + ' ' + req.body.profile.lastNameM + ', ' + req.body.profile.firstName, email: req.body.contact.email, password: passUser}
+        Mail.mailSender(newReq, 'verificacion');
         res.status(200).json(contac.phone);
     } else {
         res.status(400).json({ message: "El usuario que intenta crear ya existe." });
