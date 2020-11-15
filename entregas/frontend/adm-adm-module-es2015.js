@@ -8508,7 +8508,7 @@ let CompraProductoComponent = class CompraProductoComponent {
     ngOnInit() {
         let localCompany = JSON.parse(localStorage.getItem('userCompany'));
         if (localCompany) {
-            this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName).subscribe(myProds => {
+            this.cnx.get_dataWithParams('products', '?companyName=' + localCompany[0].companyName + '&estado=1').subscribe(myProds => {
                 this.productos = myProds;
             });
         }
