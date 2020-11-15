@@ -17,6 +17,7 @@ exports.userRegister = async (req, res, next) => {
     let ci = req.body.profile.ci;
     let prof = req.body.profile;
     let contac = req.body.contact;
+    let vehiculo = req.body.vehiculo;
     let job = req.body.job;
     let pass = req.body.password;
     let state = req.body.estado;
@@ -37,7 +38,7 @@ exports.userRegister = async (req, res, next) => {
         let codigoUser = await setUser(prof, contac, passUser, job);
         let myAssociated = [];
 
-        await setPerson(codigoUser, prof, contac, myAssociated, state);
+        await setPerson(codigoUser, prof, contac, vehiculo, myAssociated, state);
         res.status(200).json(contac.phone);
     } else {
         res.status(400).json({ message: "El usuario que intenta crear ya existe." });

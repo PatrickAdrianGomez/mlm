@@ -10318,7 +10318,7 @@ var FichaPedidoComponent = /** @class */ (function () {
     FichaPedidoComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.connexion.get_data('location').subscribe(function (reslo) {
-            _this.listSucursal = reslo.filter(function (LOC) { return LOC.typecon_id == '5f6839d468bab21d3861ccc6'; });
+            _this.listSucursal = reslo.filter(function (LOC) { return LOC.typecon_id == localStorage.getItem('actual'); });
         });
         this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
         this.rolActual = this.buscaRol();
@@ -10835,7 +10835,6 @@ var InvitationComponent = /** @class */ (function () {
         });
         this.connexion.get_data('typecontext').subscribe(function (reslo) {
             _this.ListCompany = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company; });
-            console.log(_this.ListCompany);
             _this.ListRol = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol; });
             _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo; });
         }, function (error) {
