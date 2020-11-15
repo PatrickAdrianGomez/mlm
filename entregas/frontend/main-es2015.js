@@ -487,10 +487,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImagesSize", function() { return globalImagesSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalRoutes", function() { return globalRoutes; });
 const globalVars = {
-    domain: 'http://104.197.114.137:8002',
-    filesDomain: 'http://104.197.114.137:8002',
-    //domain: 'http://127.0.0.1:8002',
-    //filesDomain: 'http://127.0.0.1:8002',
+    //domain: 'http://104.197.114.137:8002',
+    //filesDomain: 'http://104.197.114.137:8002',
+    domain: 'http://127.0.0.1:8002',
+    filesDomain: 'http://127.0.0.1:8002',
     //domain: '',
     //filesDomain: '',
     language: 'es',
@@ -886,7 +886,7 @@ let RegisterComponent = class RegisterComponent {
     }
     onRegister() {
         this.agregarDireccion();
-        this.invitation.job = { ciMain: '', companyName: this.job.companyName, typeAccount: this.job.typeAccount };
+        this.invitation.job = { ciMain: '', companyName: this.job.companyName, sucursalName: '0', typeAccount: this.job.typeAccount };
         this.invitation.profile.photo = 'assets/img/noPicture.png';
         this.connexion.addObject('register', this.invitation).subscribe(regis => {
             localStorage.setItem('userPhone', regis.toString());
