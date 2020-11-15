@@ -547,10 +547,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImagesSize", function() { return globalImagesSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalRoutes", function() { return globalRoutes; });
 var globalVars = {
-    //domain: 'http://104.197.114.137:8002',
-    //filesDomain: 'http://104.197.114.137:8002',
-    domain: 'http://127.0.0.1:8002',
-    filesDomain: 'http://127.0.0.1:8002',
+    domain: 'http://104.197.114.137:8002',
+    filesDomain: 'http://104.197.114.137:8002',
+    //domain: 'http://127.0.0.1:8002',
+    //filesDomain: 'http://127.0.0.1:8002',
     //domain: '',
     //filesDomain: '',
     language: 'es',
