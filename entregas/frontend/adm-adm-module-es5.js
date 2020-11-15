@@ -9809,7 +9809,7 @@ var CompraProductoComponent = /** @class */ (function () {
         var _this = this;
         var localCompany = JSON.parse(localStorage.getItem('userCompany'));
         if (localCompany) {
-            this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName).subscribe(function (myProds) {
+            this.cnx.get_dataWithParams('products', '?companyName=' + localCompany[0].companyName + '&estado=1').subscribe(function (myProds) {
                 _this.productos = myProds;
             });
         }
