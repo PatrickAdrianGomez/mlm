@@ -10,7 +10,7 @@ var config = {
             reconnectInterval: 500
         },
         //uri: 'mongodb://localhost:27017/mlm'
-        uri: 'mongodb://userENTREGAS:MPatrickLRobertoM77@104.197.114.137:8890/entregas'
+        uri: 'mongodb://userENTREGAS:MPatrickLRobertoM77@34.67.218.15:8890/entregas'
     },
     bcrypt: {
         saltRounds: 11
