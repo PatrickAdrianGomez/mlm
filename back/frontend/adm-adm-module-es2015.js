@@ -7136,211 +7136,256 @@ function elementsFromPoint(x, y) {
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/adm.component.html":
-/*!******************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/adm.component.html ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/adm.component.html":
+/*!******************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/adm.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"wrapper\">\n  <app-sidebar></app-sidebar>\n  <div class=\"main-panel\">\n    <app-navbar></app-navbar>\n    <div class=\"main-panel\">\n      <div class=\"content\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n    <!--<app-footer></app-footer>-->\n  </div>\n  <!--<div class=\"fixed-plugin\">\n    <div class=\"dropdown show-dropdown\">\n      <a href=\"#\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-cog fa-2x\"> </i>\n      </a>\n      <ul class=\"dropdown-menu\">\n        <li class=\"header-title\"> Sidebar Background</li>\n        <li class=\"adjustments-line\">\n          <a href=\"javascript:void(0)\" class=\"switch-trigger background-color\">\n            <div class=\"badge-colors text-center\">\n              <span class=\"badge filter badge-primary active\" data-color=\"primary\"></span>\n              <span class=\"badge filter badge-info\" data-color=\"blue\"></span>\n              <span class=\"badge filter badge-success\" data-color=\"green\"></span>\n            </div>\n            <div class=\"clearfix\"></div>\n          </a>\n        </li>\n        <li class=\"adjustments-line text-center color-change\">\n          <span class=\"color-label\">LIGHT MODE</span>\n          <span class=\"badge light-badge mr-2\"></span>\n          <span class=\"badge dark-badge ml-2\"></span>\n          <span class=\"color-label\">DARK MODE</span>\n        </li>\n        <li class=\"button-container\">\n          <a href=\"https://www.creative-tim.com/product/black-dashboard\" target=\"_blank\"\n            class=\"btn btn-primary btn-block btn-round\">Download Now</a>\n          <a href=\"https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html\"\n            target=\"_blank\" class=\"btn btn-default btn-block btn-round\">\n            Documentation\n          </a>\n        </li>\n        <li class=\"header-title\">Thank you for 95 shares!</li>\n        <li class=\"button-container text-center\">\n          <button id=\"twitter\" class=\"btn btn-round btn-info\"><i class=\"fab fa-twitter\"></i> &middot; 45</button>\n          <button id=\"facebook\" class=\"btn btn-round btn-info\"><i class=\"fab fa-facebook-f\"></i> &middot; 50</button>\n          <br>\n          <br>\n          <a class=\"github-button\" href=\"https://github.com/creativetimofficial/black-dashboard\"\n            data-icon=\"octicon-star\" data-size=\"large\" data-show-count=\"true\"\n            aria-label=\"Star ntkme/github-buttons on GitHub\">Star</a>\n        </li>\n      </ul>\n    </div>\n  </div>-->\n</div>");
+module.exports = "<div class=\"wrapper\">\n  <app-sidebar></app-sidebar>\n  <div class=\"main-panel\">\n    <app-navbar></app-navbar>\n    <div class=\"main-panel\">\n      <div class=\"content\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n    <!--<app-footer></app-footer>-->\n  </div>\n  <!--<div class=\"fixed-plugin\">\n    <div class=\"dropdown show-dropdown\">\n      <a href=\"#\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-cog fa-2x\"> </i>\n      </a>\n      <ul class=\"dropdown-menu\">\n        <li class=\"header-title\"> Sidebar Background</li>\n        <li class=\"adjustments-line\">\n          <a href=\"javascript:void(0)\" class=\"switch-trigger background-color\">\n            <div class=\"badge-colors text-center\">\n              <span class=\"badge filter badge-primary active\" data-color=\"primary\"></span>\n              <span class=\"badge filter badge-info\" data-color=\"blue\"></span>\n              <span class=\"badge filter badge-success\" data-color=\"green\"></span>\n            </div>\n            <div class=\"clearfix\"></div>\n          </a>\n        </li>\n        <li class=\"adjustments-line text-center color-change\">\n          <span class=\"color-label\">LIGHT MODE</span>\n          <span class=\"badge light-badge mr-2\"></span>\n          <span class=\"badge dark-badge ml-2\"></span>\n          <span class=\"color-label\">DARK MODE</span>\n        </li>\n        <li class=\"button-container\">\n          <a href=\"https://www.creative-tim.com/product/black-dashboard\" target=\"_blank\"\n            class=\"btn btn-primary btn-block btn-round\">Download Now</a>\n          <a href=\"https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html\"\n            target=\"_blank\" class=\"btn btn-default btn-block btn-round\">\n            Documentation\n          </a>\n        </li>\n        <li class=\"header-title\">Thank you for 95 shares!</li>\n        <li class=\"button-container text-center\">\n          <button id=\"twitter\" class=\"btn btn-round btn-info\"><i class=\"fab fa-twitter\"></i> &middot; 45</button>\n          <button id=\"facebook\" class=\"btn btn-round btn-info\"><i class=\"fab fa-facebook-f\"></i> &middot; 50</button>\n          <br>\n          <br>\n          <a class=\"github-button\" href=\"https://github.com/creativetimofficial/black-dashboard\"\n            data-icon=\"octicon-star\" data-size=\"large\" data-show-count=\"true\"\n            aria-label=\"Star ntkme/github-buttons on GitHub\">Star</a>\n        </li>\n      </ul>\n    </div>\n  </div>-->\n</div>"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/footer/footer.component.html":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/footer/footer.component.html ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/footer/footer.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/layouts/footer/footer.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"footer\">\n    <div class=\"container-fluid\">\n      <ul class=\"nav\">\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            Creative Tim\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            About Us\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            Blog\n          </a>\n        </li>\n      </ul>\n      <div class=\"copyright\">\n        ©\n        <script>\n          document.write(new Date().getFullYear())\n        </script>2019 construido por \n        <a href=\"javascript:void(0)\" target=\"_blank\">Ventun</a>\n      </div>\n    </div>\n  </footer>");
+module.exports = "<footer class=\"footer\">\n    <div class=\"container-fluid\">\n      <ul class=\"nav\">\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            Creative Tim\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            About Us\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"javascript:void(0)\" class=\"nav-link\">\n            Blog\n          </a>\n        </li>\n      </ul>\n      <div class=\"copyright\">\n        ©\n        <script>\n          document.write(new Date().getFullYear())\n        </script>2019 construido por \n        <a href=\"javascript:void(0)\" target=\"_blank\">Ventun</a>\n      </div>\n    </div>\n  </footer>"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/navbar/navbar.component.html":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/navbar/navbar.component.html ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/navbar/navbar.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/layouts/navbar/navbar.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-wrapper\">\r\n            <div class=\"navbar-toggle d-inline\">\r\n                <button type=\"button\" class=\"navbar-toggler\">\r\n                    <span class=\"navbar-toggler-bar bar1\"></span>\r\n                    <span class=\"navbar-toggler-bar bar2\"></span>\r\n                    <span class=\"navbar-toggler-bar bar3\"></span>\r\n                </button>\r\n            </div>\r\n            <a class=\"navbar-brand\" style=\"top: 0;\">\r\n                <img src=\"/assets/img/ventun.png\">\r\n            </a>\r\n        </div>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n        </button>\r\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\r\n            <ul class=\"navbar-nav ml-auto\">\r\n                <li class=\"input-group\">\r\n                    <span style=\"display: inline;\">Equipo Actual: <h2 style=\"display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;\">{{equipoActual}}</h2></span>\r\n                </li>\r\n                <li class=\"search-bar input-group\">\r\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\r\n                            class=\"tim-icons icon-zoom-split\"></i>\r\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\r\n                    </button>\r\n                </li>\r\n                <!--<li class=\"dropdown nav-item\">\r\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\r\n                        <i class=\"tim-icons icon-sound-wave\"></i>\r\n                        <p class=\"d-lg-none\">\r\n                            Notifications\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\r\n                                email</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\r\n                                tasks</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\r\n                                Michael is in town</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\r\n                                notification</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\r\n                        </li>\r\n                    </ul>\r\n                </li>-->\r\n                <li class=\"dropdown nav-item\">\r\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"photo\">\r\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\r\n                        </div>\r\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\r\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\r\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\r\n                            Cerrar Sessión\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\r\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\r\n                        <li class=\"dropdown-divider\"></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\r\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\r\n                                Sessión</a></li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"separator d-lg-none\"></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <app-toast></app-toast>\r\n</nav>\r\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <div class=\"input-group mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\r\n                    </div>\r\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event, true)\" [(ngModel)]=\"name\">\r\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\r\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <i class=\"tim-icons icon-simple-remove\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-wrapper\">\r\n            <div class=\"navbar-toggle d-inline\">\r\n                <button type=\"button\" class=\"navbar-toggler\">\r\n                    <span class=\"navbar-toggler-bar bar1\"></span>\r\n                    <span class=\"navbar-toggler-bar bar2\"></span>\r\n                    <span class=\"navbar-toggler-bar bar3\"></span>\r\n                </button>\r\n            </div>\r\n            <a class=\"navbar-brand\" style=\"top: 0;\">\r\n                <img src=\"/assets/img/ventun.png\">\r\n            </a>\r\n        </div>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n        </button>\r\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\r\n            <ul class=\"navbar-nav ml-auto\">\r\n                <!--<li class=\"input-group\">\r\n                    <span style=\"display: inline;\">Equipo Actual: <h2 style=\"display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;\">{{equipoActual}}</h2></span>\r\n                </li>\r\n                <li class=\"search-bar input-group\">\r\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\r\n                            class=\"tim-icons icon-zoom-split\"></i>\r\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\r\n                    </button>\r\n                </li>\r\n                <li class=\"dropdown nav-item\">\r\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\r\n                        <i class=\"tim-icons icon-sound-wave\"></i>\r\n                        <p class=\"d-lg-none\">\r\n                            Notifications\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\r\n                                email</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\r\n                                tasks</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\r\n                                Michael is in town</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\r\n                                notification</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\r\n                        </li>\r\n                    </ul>\r\n                </li>-->\r\n                <li class=\"dropdown nav-item\">\r\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"photo\">\r\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\r\n                        </div>\r\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\r\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\r\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\r\n                            Cerrar Sessión\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\r\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\r\n                        <li class=\"dropdown-divider\"></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\r\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\r\n                                Sessión</a></li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"separator d-lg-none\"></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <app-toast></app-toast>\r\n</nav>\r\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <div class=\"input-group mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\r\n                    </div>\r\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event, true)\" [(ngModel)]=\"name\">\r\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\r\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <i class=\"tim-icons icon-simple-remove\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/sidebar/sidebar.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/sidebar/sidebar.component.html ***!
-  \**************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/sidebar/sidebar.component.html":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/layouts/sidebar/sidebar.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sidebar\">\n    <div class=\"logo\">\n      <a class=\"simple-text logo-mini\">\n        <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n            <img src=\"./assets/img/logos/logo-ventun.png\" />\n        </div>\n      </a>\n      <a href=\"http://ventun.com/\" class=\"simple-text logo-normal\">\n        MLM\n      </a>\n    </div>\n  \n    <div class=\"sidebar-wrapper\">\n      <ul class=\"nav\">\n        <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n          <!--If is a single link-->\n          <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link'\">\n            <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n            <p>{{ menuitem.title }}</p>\n          </a>\n          <!--If it have a submenu-->\n          <a\n            data-toggle=\"collapse\"\n            href=\"#{{ menuitem.collapse }}\"\n            *ngIf=\"menuitem.type === 'sub'\"\n            (click)=\"\n              myFunc($event, menuitem);\n                (menuitem.isCollapsed = !menuitem.isCollapsed)\n            \"\n            [attr.aria-expanded]=\"!menuitem.isCollapsed\"\n          >\n            <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n            <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n          </a>\n  \n          <!--Display the submenu items-->\n          <div\n            id=\"{{ menuitem.collapse }}\"\n            class=\"collapse\"\n            *ngIf=\"menuitem.type === 'sub'\"\n          >\n            <ul class=\"nav\">\n              <li\n                routerLinkActive=\"active\"\n                *ngFor=\"let childitem of menuitem.children\"\n              >\n                <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                  <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                  <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n                </a>\n              </li>\n            </ul>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  ");
+module.exports = "<div class=\"sidebar\" style=\"height: 85vh;\">\n  <div class=\"logo\">\n    <a class=\"simple-text\">\n      <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n        <img src=\"/assets/img/ventun.png\" />\n      </div>\n    </a>\n  </div>\n\n  <div class=\"sidebar-wrapper\">\n    <ul class=\"nav\">\n      <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n        <!--If is a single link-->\n        <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link' && menuitem.visible\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}</p>\n        </a>\n        <!--If it have a submenu-->\n        <a data-toggle=\"collapse\" href=\"#{{ menuitem.collapse }}\" *ngIf=\"menuitem.type === 'sub' && menuitem.visible\"\n          (click)=\"myFunc($event, menuitem); (menuitem.isCollapsed = !menuitem.isCollapsed)\"\n          [attr.aria-expanded]=\"!menuitem.isCollapsed\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n        </a>\n\n        <!--Display the submenu items-->\n        <div id=\"{{ menuitem.collapse }}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n          <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\">\n              <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </li>\n      <li style=\"visibility: hidden; height: 80px;\"></li>\n    </ul>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/tools/show-errors/show-errors.component.html":
-/*!********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/tools/show-errors/show-errors.component.html ***!
-  \********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"shouldShowErrors()\" class=\"roedor\">\n    <p class=\"globito\" *ngFor=\"let error of listOfErrors()\">{{error}}</p>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/configuration/configuration.component.html":
-/*!************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/configuration/configuration.component.html ***!
-  \************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\n                    </div>\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event)\" [(ngModel)]=\"name\">\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\n                    </select>\n                </div>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                    <i class=\"tim-icons icon-simple-remove\"></i>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html":
-/*!**********************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html ***!
-  \**********************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n    <h2>Mis Asociados</h2>\n    <div class=\"col-6 col-md-4 col-lg-3\" style=\"margin: 10px; float: left;\" *ngFor=\"let item of asociados\">\n        <span>{{item.profile.ci}} {{item.profile.expedido | expedido: ListDepts}}</span>\n        <div class=\"row ficha\" [routerLink]=\"['/descendenciaFicha', item._id]\" [routerLinkActive]=\"['linkActivo']\">\n            <div class=\"col-4\">\n                <ng-container *ngIf=\"item.profile?.photo; then conFoto; else sinFoto\"></ng-container>\n                <ng-template #conFoto>\n                    <img class=\"foto\" src=\"{{urlGlobal}}{{item.profile.photo}}\" srcset=\"{{urlGlobal}}{{item.profile.photo}} 100w\" alt=\"Foto de Perfil\">\n                </ng-template>\n                <ng-template #sinFoto>\n                    <img class=\"foto\" src=\"assets/img/noPicture.png\" srcset=\"assets/img/noPicture.png 200w\" alt=\"Sin foto de Perfil\">\n                </ng-template>\n            </div>\n            <div class=\"col-8\" style=\"overflow: hidden;\">\n                <p hidden>{{item._id}}</p>\n                <span class=\"row\">{{item.profile.firstName}} {{item.profile.lastNameP}}\n                    {{item.profile.lastNameM}}</span>\n                <span class=\"row\">{{item.contact?.phone}}</span>\n                <span class=\"row\">{{item.contact?.email}}</span>\n                <div class=\"row\" style=\"border-top: 1px solid red;\">\n                    <div class=\"col-4\"><span>1200bs</span></div>\n                    <div class=\"col-4\">\n                        <span>5 </span>\n                        <i class=\"fas fa-long-arrow-alt-right\" style=\"color: green;\"></i>\n                    </div>\n                    <div class=\"col-4\">\n                        <span>6 </span>\n                        <i class=\"fas fa-long-arrow-alt-down\" style=\"color: green;\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-list/descendencia-list.component.html":
-/*!********************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-list/descendencia-list.component.html ***!
-  \********************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Mis Asociados</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/invitacion']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nueva Invitación</button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> asociados </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Activo</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Inactivo</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Eliminado</option>\n                            <option value=\"3\" [selected]=\"estado==3\">Deudor</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"C.I.\" [isTreeColumn]=\"true\" prop=\"profile.ci\" [treeLevelIndent]=\"20\">{{ci}}\n\n                    <ng-template ngx-datatable-tree-toggle let-tree=\"cellContext\">\n                        <button [disabled]=\"tree.treeStatus === 'disabled'\" (click)=\"tree.onTreeAction()\">\n                            <span *ngIf=\"tree.treeStatus === 'loading'\">\n                                <i class=\"fas fa-spinner fa-spin\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'collapsed'\">\n                                <i class=\"fas fa-level-up-alt\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'expanded'\">\n                                <i class=\"fas fa-level-down-alt\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'disabled'\">\n                                <i class=\"fas fa-skull-crossbones\"></i>\n                            </span>\n                        </button>\n                    </ng-template>\n\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre\" prop=\"profile.firstName\">{{firstName}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Apellido Paterno\" prop=\"profile.lastNameP\">{{lastNameP}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Apellido Materno\" prop=\"profile.lastNameM\">{{lastNameM}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Activo\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inactivo\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>\n\n\n                <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\"\n                    [resizeable]=\"false\">\n                    <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n                        let-selectFn=\"selectFn\">\n                        Ficha\n                    </ng-template>\n                    <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n                        let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n                        <a class=\"btn btn-round btn-warning btn-icon btn-sm\" (click)=\"deleteFunction($event)\">\n                            <i class=\"far fa-id-badge\" style=\"margin-top: 7px;\"></i></a> <!-- [routerLink]=\"['/descendenciaFicha', profile.firstName]\" [routerLinkActive]=\"['linkActivo']\">-->\n                    </ng-template>\n                </ngx-datatable-column>\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html":
-/*!**************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html ***!
-  \**************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card-user card\">\n    <div class=\"card-header\">\n        <h4 class=\"card-title\">Asociado {{title}}</h4>\n    </div>\n    <div class=\"card-body\">\n        <ul class=\"nav nav-tabs card-header-tabs\" style=\"margin-left: 0.1em!important;\">\n            <li class=\"nav-item\">\n                <a href=\"#resumen\" data-toggle=\"pill\" class=\"nav-link active\">Resumen</a>\n            </li>\n            <li class=\"nav-item\">\n                <a href=\"#cuotas\" data-toggle=\"pill\" class=\"nav-link\">Cuotas</a>\n            </li>\n        </ul>\n        <div class=\"tab-content\" id=\"descendenciaTab\">\n            <div class=\"tab-pane fade show active container\" id=\"resumen\" role=\"tabpanel\" aria-labelledby=\"resumen-tab\">\n                <div class=\"row\">\n                    <div class=\"col-6\">\n                        <h4>Información Personal</h4>\n                        <div class=\"row\">\n                            <label for=\"ci\">C.I.</label>\n                            <span id=\"ci\" name=\"ci\">{{person.profile?.ci}} {{person.profile?.expedido | expedido: ListDepts}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"nombre\">Nombre</label>\n                            <span id=\"nombre\" name=\"nombre\">{{person.profile?.lastNameP}} {{person.profile?.lastNameM}}\n                                {{person.profile?.firstName}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"fecha\">Fecha de Naciemiento</label>\n                            <span id=\"fecha\" name=\"fecha\">{{person.profile?.birthDate | date: 'shortDate'}}</span>\n                        </div>\n                        <br>\n                        <h4>Datos de Contacto</h4>\n                        <div class=\"row\">\n                            <label for=\"phone\">Teléfono</label>\n                            <span id=\"phone\" name=\"phone\">{{person.contact?.phone}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"email\">e-mail</label>\n                            <span id=\"email\" name=\"email\">{{person.contact?.email}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"web\">Página web</label>\n                            <span id=\"web\" name=\"web\">{{person.contact?.web}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"country\">País</label>\n                            <span id=\"country\" name=\"country\">{{person.contact?.address?.country | nombre: ListDepts}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"state\">Departamento</label>\n                            <span id=\"state\" name=\"state\">{{person.contact?.address?.state.id | nombre: ListDepts}}</span><!--valor en lugar de id-->\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"city\">Ciudad</label>\n                            <span id=\"city\" name=\"city\">{{person.contact?.address?.city.id | nombre: ListDepts}}</span><!--valor en lugar de id-->\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"especificLocation\">Dirección</label>\n                            <span id=\"especificLocation\"\n                                name=\"especificLocation\">{{person.contact?.address?.especificLocation}}</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"row\">\n                            <label for=\"foto\">Fotografía</label>\n                        </div>\n                        <div class=\"row\">\n                            <img id=\"foto\" style=\"width: 250px\" name=\"foto\" class=\"foto\" src=\"{{urlGlobal}}{{person.profile?.photo}}\"\n                                srcset=\"{{urlGlobal}}{{person.profile?.photo}} 200w\" alt=\"Sin foto de Perfil\">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"tab-pane fade container\" id=\"cuotas\" role=\"tabpanel\" aria-labelledby=\"cuotas-tab\">\n                <div class=\"row\">\n                    <!--<div class=\"update ml-auto mr-auto\">\n                        <button class=\"btn btn-primary\" (click)=\"saveService()\">Save</button>\n                        <button type=\"button\" class=\"btn btn-info\" (click)=\"cancelStaff()\">Cancel</button>\n                        <a href=\"#profile\" class=\"nav-link btn btn-primary\">Profile</a>\n                    </div>-->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n\n<div class=\"container-fluid\">\n    <div class=\"col-4 col-md-3\" style=\"margin: 10px; float: left;\" *ngFor=\"let item of asociados\">\n        <div class=\"row ficha\" (click)=\"verAsociado(item._id)\">\n            <!--[routerLink]=\"['/descendenciaFicha', item._id]\" [routerLinkActive]=\"['linkActivo']\">-->\n            <div class=\"col-4\">\n                <ng-container *ngIf=\"item.profile?.photo; then conFoto; else sinFoto\"></ng-container>\n                <ng-template #conFoto>\n                    <img class=\"foto\" src=\"{{urlGlobal}}{{item.profile.photo}}\" srcset=\"{{urlGlobal}}{{item.profile.photo}} 100w\"\n                        alt=\"Foto de Perfil\">\n                </ng-template>\n                <ng-template #sinFoto>\n                    <img class=\"foto\" src=\"assets/img/noPicture.png\" srcset=\"assets/img/noPicture.png 200w\"\n                        alt=\"Sin foto de Perfil\">\n                </ng-template>\n            </div>\n            <div class=\"col-8\">\n                <p hidden>{{item._id}}</p>\n                <span class=\"row\">{{item.profile.firstName}} {{item.profile.lastNameP}}\n                    {{item.profile.lastNameM}}</span>\n                <span class=\"row\">{{item.contact?.phone}}</span>\n                <span class=\"row\">{{item.contact?.email}}</span>\n                <div class=\"row\" style=\"border-top: 1px solid red;\">\n                    <div class=\"col-4\"><span>1200bs</span></div>\n                    <div class=\"col-4\">\n                        <span>5 </span>\n                        <i class=\"fas fa-long-arrow-alt-right\" style=\"color: green;\"></i>\n                    </div>\n                    <div class=\"col-4\">\n                        <span>6 </span>\n                        <i class=\"fas fa-long-arrow-alt-down\" style=\"color: green;\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation-list/invitation-list.component.html":
-/*!****************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation-list/invitation-list.component.html ***!
-  \****************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-header\">\n    <div class=\"row\">\n      <h2 class=\"col-12 col-md-4 card-title\">Lista de Invitados</h2>\n      <div class=\"col-12 col-md-8 toolbar\">\n        <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n            class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n        <button type=\"button\" class=\"btn-simple btn btn-success float-right\" (click)=\"refreshFunction($event)\"><i\n            class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n        <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/invitacion']\"\n          [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nueva Invitación</button>\n      </div>\n    </div>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"dataTables_wrapper\">\n      <div class=\"row\">\n        <div class=\"col-6 col-md-4\">\n          <div class=\"dataTables_length\" id=\"datatable_length\">\n            <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n            <select name=\"datatable_length\" aria-controls=\"datatable\"\n              class=\"form-control float-left align-middle form-control-md\" (change)=\"entriesChange($event)\"\n              style=\"width: 100px;\">\n              <option value=\"10\" [selected]=\"entries==10\">10</option>\n              <option value=\"25\" [selected]=\"entries==25\">25</option>\n              <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n            </select>\n            <label class=\"float-left\" style=\"margin: 10px;\"> invitaciones </label>\n          </div>\n        </div>\n\n        <div class=\"col-6 col-md-4\">\n          <div class=\"dataTables_length\" id=\"datatable_status\">\n            <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n            <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n            <select name=\"datatable_status\" aria-controls=\"datatable\"\n              class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n              style=\"width: 100px;\">\n              <option value=\"1\" [selected]=\"estado==1\">Vigente</option>\n              <option value=\"0\" [selected]=\"estado==0\">Caduco</option>\n            </select>\n          </div>\n        </div>\n\n        <div class=\"col-12 col-md-4\">\n          <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n            <label>\n              <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n            </label>\n          </div>\n        </div>\n      </div>\n      <!--\n          <ngx-datatable-column name=\"My Custom Column Header\" prop=\"client\">\n        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n          <strong>{{ value.clientCode }} </strong> - {{ value.clientName }}\n        </ng-template>\n      </ngx-datatable-column>\n      -->\n      <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\" [footerHeight]=\"50\"\n        [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\" (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\">\n\n        <ngx-datatable-column name=\"C.I.\" prop=\"profile.ci\">{{ci}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Nombre\" prop=\"profile.firstName\">{{firstName}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Apellido Paterno\" prop=\"profile.lastNameP\">{{lastNameP}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Apellido Materno\" prop=\"profile.lastNameM\">{{lastNameM}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Fecha\">\n          <ng-template let-row=\"row\" ngx-datatable-cell-template>\n            {{row.date | date:'dd-MM-yyyy'}}\n          </ng-template>\n        </ngx-datatable-column>\n        <ngx-datatable-column name=\"Estado\">\n          <ng-template ngx-datatable-cell-template let-row=\"row\">\n            <ng-container *ngIf=\"row.estado; else elseTemplate\">\n              Vigente\n            </ng-container>\n            <ng-template #elseTemplate>\n              Caduco\n            </ng-template>\n          </ng-template>\n        </ngx-datatable-column>\n\n\n        <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\" [resizeable]=\"false\">\n          <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n            let-selectFn=\"selectFn\">\n            Acciones\n          </ng-template>\n          <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n            let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n            <a class=\"btn btn-round btn-warning btn-icon btn-sm edit\" (click)=\"editFunction($event)\">\n              <i class=\"fas fa-user-edit\" style=\"margin-top: 7px;\"></i>\n            </a>\n            <a class=\"btn btn-round btn-danger btn-icon btn-sm remove\" (click)=\"deleteFunction($event)\"><i\n                class=\"fas fa-times\" style=\"margin-top: 7px;\"></i></a>\n          </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div>\n\n  </div>\n  <!-- end content-->\n</div>\n<!--  end card  -->");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation/invitation.component.html":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation/invitation.component.html ***!
-  \******************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\" (desdeElHijo)=\"recibeDeHijo($event)\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" (focusout)=\"verificarUsuario()\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <!--<div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar Usuario</a>\n        </div>-->\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\" class=\"optional\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\" class=\"optional\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state.id\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city.id\" aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone.id\" aria-hidden=\"true\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label optional\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"companyName\">Compañía</label>\n          <input style=\"color: white;\" id=\"companyName\" name=\"companyName\" type=\"text\" class=\"form-control\"\n            value=\"{{equipoActual}}\" readonly>\n          <!--<select class=\"form-control\" name=\"companyName\" id=\"companyName\" #companyName=\"ngModel\"\n            [(ngModel)]=\"job.companyName\" required (ngModelChange)=\"updateSelectEquipo($event)\">\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListCompany' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"companyName\" class=\"show-err\"></app-show-errors>-->\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"typeAccount\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" (ngModelChange)=\"updateSelectRol($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n      <div class=\"form-row\" hidden>\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\">\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <button *ngIf=\"usuarioValido\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Invitar</button>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/main/main.component.html":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/main/main.component.html ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n  <div class=\"col-12\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header \">\n        <div class=\"row\">\n          <div class=\"col-sm-6 text-left\">\n            <h5 class=\"card-category\">Total</h5>\n            <h2 class=\"card-title\">Cuentas</h2>\n          </div>\n          <!--<div class=\"col-sm-6\">\n            <div class=\"btn-group btn-group-toggle float-right\" data-toggle=\"buttons\">\n              <label class=\"btn btn-sm btn-primary btn-simple active\" id=\"0\">\n                <input type=\"radio\" name=\"options\" checked>\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Accounts</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-single-02\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"1\">\n                <input type=\"radio\" class=\"d-none d-sm-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Purchases</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-gift-2\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"2\">\n                <input type=\"radio\" class=\"d-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Sessions</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-tap-02\"></i>\n                </span>\n              </label>\n            </div>\n          </div>-->\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartBig1\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Ventas</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-bell-55 text-primary\"></i> 763,215</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLinePurple\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cobros diarios</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-delivery-fast text-info\"></i> 3,500€</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"CountryChart\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cantidad de Asociados</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-send text-success\"></i> 12,100K</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLineGreen\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--<div class=\"row\">\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card card-tasks\">\n      <div class=\"card-header \">\n        <h6 class=\"title d-inline\">Asociados(5)</h6>\n        <p class=\"card-category d-inline\">today</p>\n        <div class=\"dropdown\">\n          <button type=\"button\" class=\"btn btn-link dropdown-toggle btn-icon\" data-toggle=\"dropdown\">\n            <i class=\"tim-icons icon-settings-gear-63\"></i>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#pablo\">Action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Another action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Something else</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <div class=\"table-full-width table-responsive\">\n          <table class=\"table\">\n            <tbody>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Update the Documentation</p>\n                  <p class=\"text-muted\">Dwuamish Head, Seattle, WA 8:47 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\" checked=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">GDPR Compliance</p>\n                  <p class=\"text-muted\">The GDPR is a regulation that requires businesses to protect the personal data\n                    and privacy of Europe citizens for transactions that occur within EU member states.</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Solve the issues</p>\n                  <p class=\"text-muted\">Fifty percent of all respondents said they would be more likely to shop at a\n                    company </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Release v2.0.0</p>\n                  <p class=\"text-muted\">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Export the processed files</p>\n                  <p class=\"text-muted\">The report also shows that consumers will not easily forgive a company once a\n                    breach exposing their personal data occurs. </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Arival at export process</p>\n                  <p class=\"text-muted\">Capitol Hill, Seattle, WA 12:34 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Simple Table</h4>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table tablesorter \" id=\"\">\n            <thead class=\" text-primary\">\n              <tr>\n                <th>\n                  Name\n                </th>\n                <th>\n                  Country\n                </th>\n                <th>\n                  City\n                </th>\n                <th class=\"text-center\">\n                  Salary\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-center\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-center\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-center\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-center\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-center\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/profile/profile.component.html":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/profile/profile.component.html ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Información Personal</h2>\n    <hr>\n    <form (ngSubmit)=\"onUpdate()\" name=\"contextForm\" #contextForm=\"ngForm\" *ngIf=\"perfil\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" class=\"form-control\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"perfil.profile.ci\" id=\"ci\"\n            placeholder=\"Cédula de Identidad\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select class=\"form-control\" name=\"expedido\" id=\"expedido\" #expedido=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.expedido\" required aria-hidden=\"true\">\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"firstName\">Nombre</label>\n          <input type=\"text\" class=\"form-control\" name=\"firstName\" #firstName=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.firstName\" id=\"firstName\" placeholder=\"Nombre Usuario\" required>\n          <app-show-errors [control]=\"firstName\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameP\">Apellido Paterno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameP\" #lastNameP=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameP\" id=\"lastNameP\" placeholder=\"Apellido Paterno\" required>\n          <app-show-errors [control]=\"lastNameP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameM\">Apellido Materno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameM\" #lastNameM=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameM\" id=\"lastNameM\" placeholder=\"Apellido Materno\" required>\n          <app-show-errors [control]=\"lastNameM\" class=\"show-err\"></app-show-errors>\n        </div>\n\n\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"changePass\"></label>\n          <input class=\"form-control btn btn-primary\" type=\"button\" value=\"Cambio de Contraseña\" routerLink=\"/sign/password\" routerLinkActive=\"active\" name=\"changePass\" style=\"padding: 0 10px;\">\n        </div>\n\n\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" id=\"gender\" name=\"gender\" #gender=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.profile.gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n        </div>\n        <!--\n          <input type=\"date\" id=\"bday\" name=\"bday\" max=today min=\"1919-01-01\" class=\"form-control\" #bday=\"ngModel\"\n              [ngModel]=\"mySeller.xCurrent.profile.birthDate | date:'yyyy-MM-dd'\"\n              (ngModelChange)=\"mySeller.xCurrent.profile.birthDate = $event\">\n        -->\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" class=\"form-control\" name=\"birthDate\" #birthDate=\"ngModel\"\n            [ngModel]=\"perfil.profile.birthDate\" (ngModelChange)=\"perfil.profile.birthDate = $event\" id=\"birthDate\"\n            placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" class=\"form-control\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"perfil.contact.phone\"\n            id=\"phone\" placeholder=\"Número Telefónico\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"perfil.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select class=\"form-control\" name=\"local\" id=\"local\" #local=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.country\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectedValue($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select class=\"form-control\" name=\"depaMini\" id=\"depaMini\" #depaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.state.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectDepartamento($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.city.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select tabindex=\"-1\" class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.zone.id\" required aria-hidden=\"true\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\" type=\"text\" required\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"perfil.contact.address.especificLocation\">\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"perfil.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-row\">\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Imagen Personal</label>\n            <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n              <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                  src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n              </div>\n              <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n              <div class=\"user-edit-image-buttons\">\n                <span class=\"btn btn-azure btn-file\">\n                  <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                    (desdeElHijo)=\"recibeDeHijo($event);\">\n                  </app-upload>\n                </span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-row\" *ngIf=\"perfil.estado == 0\">\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"estado\" name=\"estado\" type=\"checkbox\" #estado=\"ngModel\" class=\"form-control form-check-input\"\n                [(ngModel)]=\"perfil.estado\" required>\n              <span class=\"form-check-sign\">Estoy de acuerdo con <a href=\"http://ventun.com/index.php/terms\" target=\"_blank\">Términos de Servicio</a> y <a href=\"http://ventun.com/index.php/privacy\" target=\"_blank\">Política de Privacidad</a></span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <!--<div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"estado\">Estado</label>\n          <select class=\"form-control\" id=\"estado\" name=\"estado\" #estado=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.estado\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"1\">\n              Activo\n            </option>\n            <option [ngValue]=\"0\">\n              Inactivo\n            </option>\n          </select>\n        </div>\n      </div>-->\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Modificar Usuario</button>\n    </form>\n  </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/staff-list/staff-list.component.html":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/staff-list/staff-list.component.html ***!
-  \******************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form id=\"fSeller\" name=\"fSeller\" #fSeller='ngForm' *ngIf=\"job\">\n  <div class=\"form-group col-md-6\">\n    <label for=\"ciMain\">ciMain</label>\n    <input type=\"text\" class=\"form-control\" name=\"ciMain\" #ciMain=\"ngModel\" [(ngModel)]=\"job.ciMain\"\n      id=\"ciMain\" placeholder=\"Apellidos\">\n  </div>\n  <div class=\"form-group col-md-6\">\n    <label for=\"companyName\">companyName</label>\n    <input type=\"text\" class=\"form-control\" name=\"companyName\" #companyName=\"ngModel\" [(ngModel)]=\"job.companyName\"\n      id=\"companyName\" placeholder=\"Apellidos\">\n  </div>\n  <div class=\"form-group col-md-6\">\n    <label for=\"typeAccount\">typeAccount</label>\n    <input type=\"text\" class=\"form-control\" name=\"typeAccount\" #typeAccount=\"ngModel\" [(ngModel)]=\"job.typeAccount\"\n      id=\"typeAccount\" placeholder=\"Apellidos\">\n  </div>\n  <button class=\"btn btn-primary\" (click)=\"guardar()\">GUARDAR</button>\n</form>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/toast/toast.component.html":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/toast/toast.component.html ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--<div *ngFor=\"let alert of alerts\" class=\"{{cssClass(alert)}} alert-dismissable\">\n        {{alert.message}}\n        <a class=\"close\" (click)=\"removeAlert(alert)\">&times;</a>\n    </div>-->\n<div aria-live=\"polite\" aria-atomic=\"true\" style=\"position: relative;\" attr.id=\"{{idx}}\">\n    <div style=\"position: absolute; top: 40px; right: 0;\">\n\n        <div class=\"toast {{tipoAlert}}\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" data-delay=\"4000\">\n            <div class=\"toast-header\">\n                <strong class=\"mr-auto\">{{title}}</strong>\n                <small class=\"text-muted\">Ahora</small>\n                <button type=\"button\" class=\"ml-2 mb-1 close\" data-dismiss=\"toast\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"toast-body\">\n                {{message}}\n            </div>\n        </div>\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/upload/upload.component.html":
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/tools/show-errors/show-errors.component.html":
 /*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/upload/upload.component.html ***!
+  !*** ./node_modules/raw-loader!./src/app/adm/tools/show-errors/show-errors.component.html ***!
   \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"divMainFile\">\n  <label for=\"imageUp\" style=\"margin-bottom:0; background-color: #344675;\">Elige un Imagen</label>\n  <input class=\"custom-control {{muestraUP}}\" type=\"file\" accept=\"image/jpeg\" name=\"imageUp\" id=\"imageUp\" value=\"Sube imagen\"(change)=\"onFileSelected($event)\" style=\"z-index: 0!important;\">\n\n  <div class=\"card text-center float-left  {{muestraMIDDLE}}\">\n    <div id=\"card-body\" class=\"card-body\">\n      <div class=\"card text-white cardCompleto float-left\" *ngFor=\"let item of datosImagen; let i=index\">\n        <img src=\"{{item.src}}\" class=\"figure-img img-fluid rounded img-thumbnail\" alt=\"{{item.dataName}}\"\n          style=\"max-width: 164!important; max-height: 224px; margin: 20px 10px;\">\n        <div class=\"card-img-overlay\">\n          <p class=\"card-text\">{{item.dataName}}</p>\n          <a href=\"#\" class=\"btn btn-round btn-warning btn-icon\" (click)=\"deleteFunction($event, item.dataName)\"\n            style=\"margin-top: 15%;\">\n            <i class=\"fas fa-times\" style=\"margin-top: 7px;\"></i>\n          </a>\n        </div>\n        <div class='progress'>\n          <div id='pbFile{{item.dataName}}' class='progress-bar progress-bar-striped bg-success' role='progressbar'\n            aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'></div>\n        </div>\n      </div>\n    </div>\n    <hr style=\"clear: both;\">\n    <div class=\"card-footer text-muted {{muestraDOWN}}\" *ngIf=\"mostrar==true\">\n      <input class=\"btn btn-outline-primary\" type=\"button\" value=\"Subir Imagen\" (click)=\"onUpload()\">\n      <input class=\"btn btn-outline-secondary\" type=\"button\" value=\"Cancelar\" (click)=\"onCancel()\">\n    </div>\n  </div>\n</div>");
+module.exports = "<div *ngIf=\"shouldShowErrors()\" class=\"roedor\">\n    <p class=\"globito\" *ngFor=\"let error of listOfErrors()\">{{error}}</p>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/agenda-pedido/agenda-pedido.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/agenda-pedido/agenda-pedido.component.html ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <!--<div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>-->\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\"\n                    required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button id=\"btnAgendar\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/capture/capture.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/capture/capture.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>capture works!</p>\n\n<h1>\n    MDN - WebRTC: Still photo capture demo\n</h1>\n<p>\n    This example demonstrates how to set up a media stream using your built-in webcam, fetch an image from that stream, and create a PNG using that image.\n</p>\n<div class=\"camera\">\n<video id=\"video\">Video stream not available.</video>\n<button id=\"startbutton\">Take photo</button> \n</div>\n<canvas id=\"canvas\">\n</canvas>\n<div class=\"output\">\n<img id=\"photo\" alt=\"The screen capture will appear in this box.\"> \n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/compra-producto/compra-producto.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/compra-producto/compra-producto.component.html ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"compras\">\n    <h3>Compra de Productos</h3>\n    <div class=\"row\">\n        <div class=\"col-6 col-md-9\">\n            <div class=\"row\">\n                <div class=\"producto card text-white\" *ngFor=\"let item of productos; let i=index\"\n                    style=\"margin: 10px!important; width: 200px; background-color: white; border-color: yellow;\"\n                    (click)=\"comprando(item)\">\n                    <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.imagen}}\"\n                        style=\"height: 150px; width: 150px; background-color: white; display: block; margin: auto;\"\n                        alt=\"Imagen del producto\">\n                    <div class=\"card-body\" style=\"background-color: rgb(25, 92, 179);\">\n                        <div class=\"row card-title\">\n                            <h4 class=\"col-8\" style=\"margin-bottom: 0;\">{{item.acronym}}</h4>\n                            <h5 class=\"col-4\" style=\"top: 4px; margin-bottom: 0;\">{{item.costo}}bs</h5>\n                        </div>\n                        <p class=\"card-text\">{{item.nombre}}</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-6 col-md-3\" *ngIf=\"compra.length>0\">\n            <div class=\"float-buy\"\n                style=\"width: 100%; overflow: hidden; position: -webkit-sticky; position: sticky; top: 25%; padding: 10px 10px 0 10px;\">\n                <div class=\"row\">\n                    <h3 class=\"col-12 col-md-8\">Detalle de la Compra</h3>\n                    <h4 class=\"col-12 col-md-4\" style=\"color: white; top: 20px;\">Total: {{totalCompra}}bs</h4>\n                </div>\n                <div class=\"minus row\" *ngFor=\"let prod of compra; let i=index\"\n                    style=\"font-size: 1.2em; color: whitesmoke; margin-bottom: 10px;\" (click)=\"quitar(prod.id)\">\n                    <div class=\"col-12\">{{prod.nombre}}</div>\n                    <div class=\"col\">{{prod.cantidad}}<span style=\"color: red;\">x</span>{{prod.costo}}bs</div>\n                    <div class=\"col-3\"><i class=\"far fa-minus-square fa-lg\" style=\"color: rgba(255, 0, 0, 0.9);\"></i>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <input class=\"col-12 btn btn-secondary\" type=\"button\" value=\"Comprar\" (click)=\"comprar()\">\n                </div>\n                <div class=\"row\">\n                    <input class=\"col-12 btn btn-warning\" type=\"button\" value=\"Cancelar\" (click)=\"cancelar()\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/configuration/configuration.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/configuration/configuration.component.html ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\n                    </div>\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event)\" [(ngModel)]=\"name\">\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\n                    </select>\n                </div>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                    <i class=\"tim-icons icon-simple-remove\"></i>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n    <h2>Mis Asociados</h2>\n    <div class=\"col-6 col-md-4 col-lg-3\" style=\"margin: 10px; float: left;\" *ngFor=\"let item of asociados\">\n        <span>{{item.profile.ci}} {{item.profile.expedido | expedido: ListDepts}}</span>\n        <div class=\"row ficha\" [routerLink]=\"['/descendenciaFicha', item._id]\" [routerLinkActive]=\"['linkActivo']\">\n            <div class=\"col-4\">\n                <ng-container *ngIf=\"item.profile?.photo; then conFoto; else sinFoto\"></ng-container>\n                <ng-template #conFoto>\n                    <img class=\"foto\" src=\"{{urlGlobal}}{{item.profile.photo}}\" srcset=\"{{urlGlobal}}{{item.profile.photo}} 100w\" alt=\"Foto de Perfil\">\n                </ng-template>\n                <ng-template #sinFoto>\n                    <img class=\"foto\" src=\"assets/img/noPicture.png\" srcset=\"assets/img/noPicture.png 200w\" alt=\"Sin foto de Perfil\">\n                </ng-template>\n            </div>\n            <div class=\"col-8\" style=\"overflow: hidden;\">\n                <p hidden>{{item._id}}</p>\n                <span class=\"row\">{{item.profile.firstName}} {{item.profile.lastNameP}}\n                    {{item.profile.lastNameM}}</span>\n                <span class=\"row\">{{item.contact?.phone}}</span>\n                <span class=\"row\">{{item.contact?.email}}</span>\n                <div class=\"row\" style=\"border-top: 1px solid red;\">\n                    <div class=\"col-4\"><span>1200bs</span></div>\n                    <div class=\"col-4\">\n                        <span>5 </span>\n                        <i class=\"fas fa-long-arrow-alt-right\" style=\"color: green;\"></i>\n                    </div>\n                    <div class=\"col-4\">\n                        <span>6 </span>\n                        <i class=\"fas fa-long-arrow-alt-down\" style=\"color: green;\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-list/descendencia-list.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/descendencia-list/descendencia-list.component.html ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Mis Asociados</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/invitacion']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nueva Invitación</button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> asociados </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Activo</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Inactivo</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Eliminado</option>\n                            <option value=\"3\" [selected]=\"estado==3\">Deudor</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"C.I.\" [isTreeColumn]=\"true\" prop=\"profile.ci\" [treeLevelIndent]=\"20\">{{ci}}\n\n                    <ng-template ngx-datatable-tree-toggle let-tree=\"cellContext\">\n                        <button [disabled]=\"tree.treeStatus === 'disabled'\" (click)=\"tree.onTreeAction()\">\n                            <span *ngIf=\"tree.treeStatus === 'loading'\">\n                                <i class=\"fas fa-spinner fa-spin\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'collapsed'\">\n                                <i class=\"fas fa-level-up-alt\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'expanded'\">\n                                <i class=\"fas fa-level-down-alt\"></i>\n                            </span>\n                            <span *ngIf=\"tree.treeStatus === 'disabled'\">\n                                <i class=\"fas fa-skull-crossbones\"></i>\n                            </span>\n                        </button>\n                    </ng-template>\n\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre\" prop=\"profile.firstName\">{{firstName}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Apellido Paterno\" prop=\"profile.lastNameP\">{{lastNameP}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Apellido Materno\" prop=\"profile.lastNameM\">{{lastNameM}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Activo\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inactivo\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>\n\n\n                <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\"\n                    [resizeable]=\"false\">\n                    <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n                        let-selectFn=\"selectFn\">\n                        Ficha\n                    </ng-template>\n                    <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n                        let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n                        <a class=\"btn btn-round btn-warning btn-icon btn-sm\" (click)=\"deleteFunction($event)\">\n                            <i class=\"far fa-id-badge\" style=\"margin-top: 7px;\"></i></a> <!-- [routerLink]=\"['/descendenciaFicha', profile.firstName]\" [routerLinkActive]=\"['linkActivo']\">-->\n                    </ng-template>\n                </ngx-datatable-column>\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card-user card\">\n    <div class=\"card-header\">\n        <h4 class=\"card-title\">Asociado {{title}}</h4>\n    </div>\n    <div class=\"card-body\">\n        <ul class=\"nav nav-tabs card-header-tabs\" style=\"margin-left: 0.1em!important;\">\n            <li class=\"nav-item\">\n                <a href=\"#resumen\" data-toggle=\"pill\" class=\"nav-link active\">Resumen</a>\n            </li>\n            <li class=\"nav-item\">\n                <a href=\"#cuotas\" data-toggle=\"pill\" class=\"nav-link\">Cuotas</a>\n            </li>\n        </ul>\n        <div class=\"tab-content\" id=\"descendenciaTab\">\n            <div class=\"tab-pane fade show active container\" id=\"resumen\" role=\"tabpanel\" aria-labelledby=\"resumen-tab\">\n                <div class=\"row\">\n                    <div class=\"col-6\">\n                        <h4>Información Personal</h4>\n                        <div class=\"row\">\n                            <label for=\"ci\">C.I.</label>\n                            <span id=\"ci\" name=\"ci\">{{person.profile?.ci}} {{person.profile?.expedido | expedido: ListDepts}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"nombre\">Nombre</label>\n                            <span id=\"nombre\" name=\"nombre\">{{person.profile?.lastNameP}} {{person.profile?.lastNameM}}\n                                {{person.profile?.firstName}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"fecha\">Fecha de Naciemiento</label>\n                            <span id=\"fecha\" name=\"fecha\">{{person.profile?.birthDate | date: 'shortDate'}}</span>\n                        </div>\n                        <br>\n                        <h4>Datos de Contacto</h4>\n                        <div class=\"row\">\n                            <label for=\"phone\">Teléfono</label>\n                            <span id=\"phone\" name=\"phone\">{{person.contact?.phone}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"email\">e-mail</label>\n                            <span id=\"email\" name=\"email\">{{person.contact?.email}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"web\">Página web</label>\n                            <span id=\"web\" name=\"web\">{{person.contact?.web}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"country\">País</label>\n                            <span id=\"country\" name=\"country\">{{person.contact?.address?.country | nombre: ListDepts}}</span>\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"state\">Departamento</label>\n                            <span id=\"state\" name=\"state\">{{person.contact?.address?.state.id | nombre: ListDepts}}</span><!--valor en lugar de id-->\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"city\">Ciudad</label>\n                            <span id=\"city\" name=\"city\">{{person.contact?.address?.city.id | nombre: ListDepts}}</span><!--valor en lugar de id-->\n                        </div>\n                        <div class=\"row\">\n                            <label for=\"especificLocation\">Dirección</label>\n                            <span id=\"especificLocation\"\n                                name=\"especificLocation\">{{person.contact?.address?.especificLocation}}</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"row\">\n                            <label for=\"foto\">Fotografía</label>\n                        </div>\n                        <div class=\"row\">\n                            <img id=\"foto\" style=\"width: 250px\" name=\"foto\" class=\"foto\" src=\"{{urlGlobal}}{{person.profile?.photo}}\"\n                                srcset=\"{{urlGlobal}}{{person.profile?.photo}} 200w\" alt=\"Sin foto de Perfil\">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"tab-pane fade container\" id=\"cuotas\" role=\"tabpanel\" aria-labelledby=\"cuotas-tab\">\n                <div class=\"row\">\n                    <!--<div class=\"update ml-auto mr-auto\">\n                        <button class=\"btn btn-primary\" (click)=\"saveService()\">Save</button>\n                        <button type=\"button\" class=\"btn btn-info\" (click)=\"cancelStaff()\">Cancel</button>\n                        <a href=\"#profile\" class=\"nav-link btn btn-primary\">Profile</a>\n                    </div>-->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n\n<div class=\"container-fluid\">\n    <div class=\"col-4 col-md-3\" style=\"margin: 10px; float: left;\" *ngFor=\"let item of asociados\">\n        <div class=\"row ficha\" (click)=\"verAsociado(item._id)\">\n            <!--[routerLink]=\"['/descendenciaFicha', item._id]\" [routerLinkActive]=\"['linkActivo']\">-->\n            <div class=\"col-4\">\n                <ng-container *ngIf=\"item.profile?.photo; then conFoto; else sinFoto\"></ng-container>\n                <ng-template #conFoto>\n                    <img class=\"foto\" src=\"{{urlGlobal}}{{item.profile.photo}}\" srcset=\"{{urlGlobal}}{{item.profile.photo}} 100w\"\n                        alt=\"Foto de Perfil\">\n                </ng-template>\n                <ng-template #sinFoto>\n                    <img class=\"foto\" src=\"assets/img/noPicture.png\" srcset=\"assets/img/noPicture.png 200w\"\n                        alt=\"Sin foto de Perfil\">\n                </ng-template>\n            </div>\n            <div class=\"col-8\">\n                <p hidden>{{item._id}}</p>\n                <span class=\"row\">{{item.profile.firstName}} {{item.profile.lastNameP}}\n                    {{item.profile.lastNameM}}</span>\n                <span class=\"row\">{{item.contact?.phone}}</span>\n                <span class=\"row\">{{item.contact?.email}}</span>\n                <div class=\"row\" style=\"border-top: 1px solid red;\">\n                    <div class=\"col-4\"><span>1200bs</span></div>\n                    <div class=\"col-4\">\n                        <span>5 </span>\n                        <i class=\"fas fa-long-arrow-alt-right\" style=\"color: green;\"></i>\n                    </div>\n                    <div class=\"col-4\">\n                        <span>6 </span>\n                        <i class=\"fas fa-long-arrow-alt-down\" style=\"color: green;\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/ficha-pedido/ficha-pedido.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/ficha-pedido/ficha-pedido.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <h5 class=\"text-secondary text-center\" style=\"padding: 0!important; margin: 0!important; font-size: .9em;\">{{item.empresa}}</h5>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\" style=\"padding-bottom: 5px;\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white; font-size: .8em;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"{{item.geoData}}\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restar}}</h4><br>\n            <div class=\"row\" style=\"clear: both; border-top: 1px solid white;\">\n                <h4 class=\"col-12 text-center\" style=\"margin-bottom: 0; font-weight: bold;\">{{item.total}}Bs.</h4>\n            </div>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\" *ngIf=\"mostrar\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}Bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/invitation-list/invitation-list.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/invitation-list/invitation-list.component.html ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    <div class=\"row\">\n      <h2 class=\"col-12 col-md-4 card-title\">Lista de Invitados</h2>\n      <div class=\"col-12 col-md-8 toolbar\">\n        <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n            class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n        <button type=\"button\" class=\"btn-simple btn btn-success float-right\" (click)=\"refreshFunction($event)\"><i\n            class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n        <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/invitacion']\"\n          [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nueva Invitación</button>\n      </div>\n    </div>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"dataTables_wrapper\">\n      <div class=\"row\">\n        <div class=\"col-6 col-md-4\">\n          <div class=\"dataTables_length\" id=\"datatable_length\">\n            <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n            <select name=\"datatable_length\" aria-controls=\"datatable\"\n              class=\"form-control float-left align-middle form-control-md\" (change)=\"entriesChange($event)\"\n              style=\"width: 100px;\">\n              <option value=\"10\" [selected]=\"entries==10\">10</option>\n              <option value=\"25\" [selected]=\"entries==25\">25</option>\n              <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n            </select>\n            <label class=\"float-left\" style=\"margin: 10px;\"> invitaciones </label>\n          </div>\n        </div>\n\n        <div class=\"col-6 col-md-4\">\n          <div class=\"dataTables_length\" id=\"datatable_status\">\n            <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n            <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n            <select name=\"datatable_status\" aria-controls=\"datatable\"\n              class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n              style=\"width: 100px;\">\n              <option value=\"1\" [selected]=\"estado==1\">Vigente</option>\n              <option value=\"0\" [selected]=\"estado==0\">Caduco</option>\n            </select>\n          </div>\n        </div>\n\n        <div class=\"col-12 col-md-4\">\n          <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n            <label>\n              <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n            </label>\n          </div>\n        </div>\n      </div>\n      <!--\n          <ngx-datatable-column name=\"My Custom Column Header\" prop=\"client\">\n        <ng-template let-value=\"value\" ngx-datatable-cell-template>\n          <strong>{{ value.clientCode }} </strong> - {{ value.clientName }}\n        </ng-template>\n      </ngx-datatable-column>\n      -->\n      <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\" [footerHeight]=\"50\"\n        [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\" (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\">\n\n        <ngx-datatable-column name=\"C.I.\" prop=\"profile.ci\">{{ci}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Nombre\" prop=\"profile.firstName\">{{firstName}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Apellido Paterno\" prop=\"profile.lastNameP\">{{lastNameP}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Apellido Materno\" prop=\"profile.lastNameM\">{{lastNameM}}</ngx-datatable-column>\n        <ngx-datatable-column name=\"Fecha\">\n          <ng-template let-row=\"row\" ngx-datatable-cell-template>\n            {{row.date | date:'dd-MM-yyyy'}}\n          </ng-template>\n        </ngx-datatable-column>\n        <ngx-datatable-column name=\"Estado\">\n          <ng-template ngx-datatable-cell-template let-row=\"row\">\n            <ng-container *ngIf=\"row.estado; else elseTemplate\">\n              Vigente\n            </ng-container>\n            <ng-template #elseTemplate>\n              Caduco\n            </ng-template>\n          </ng-template>\n        </ngx-datatable-column>\n\n\n        <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\" [resizeable]=\"false\">\n          <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n            let-selectFn=\"selectFn\">\n            Acciones\n          </ng-template>\n          <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n            let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n            <a class=\"btn btn-round btn-warning btn-icon btn-sm edit\" (click)=\"editFunction($event)\">\n              <i class=\"fas fa-user-edit\" style=\"margin-top: 7px;\"></i>\n            </a>\n            <a class=\"btn btn-round btn-danger btn-icon btn-sm remove\" (click)=\"deleteFunction($event)\"><i\n                class=\"fas fa-times\" style=\"margin-top: 7px;\"></i></a>\n          </ng-template>\n        </ngx-datatable-column>\n      </ngx-datatable>\n    </div>\n\n  </div>\n  <!-- end content-->\n</div>\n<!--  end card  -->"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/invitation/invitation.component.html":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/invitation/invitation.component.html ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content\" (desdeElHijo)=\"recibeDeHijo($event)\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Invitación</h2>\n    <hr>\n    <form (ngSubmit)=\"onRegister()\" name=\"contextForm\" #contextForm=\"ngForm\" class=\"{{procesando}}\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"invitation.profile.ci\" id=\"ci\" class=\"form-control\"\n            placeholder=\"Cédula de Identidad\" minlength=\"6\" (focusout)=\"verificarUsuario()\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select name=\"expedido\" #expedido=\"ngModel\" [(ngModel)]=\"invitation.profile.expedido\" id=\"expedido\"\n            class=\"form-control\" aria-hidden=\"true\" required>\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"expedido\" class=\"show-err\"></app-show-errors>\n        </div>\n        <!--<div class=\"form-group col-6 col-md-4\">\n          <a class=\"btn btn-warning\" style=\"margin-top: 28px;\" (click)=\"verificarUsuario()\">Verificar Usuario</a>\n        </div>-->\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"nombre\">Nombre</label>\n          <input type=\"text\" name=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"invitation.profile.firstName\" id=\"nombre\"\n            class=\"form-control\" placeholder=\"Nombre Invitado\" minlength=\"3\" required>\n          <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoP\">Apellido Paterno</label>\n          <input type=\"text\" name=\"apellidoP\" #apellidoP=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameP\"\n            id=\"apellidoP\" class=\"form-control\" placeholder=\"Apellido Paterno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"apellidoM\">Apellido Materno</label>\n          <input type=\"text\" name=\"apellidoM\" #apellidoM=\"ngModel\" [(ngModel)]=\"invitation.profile.lastNameM\"\n            id=\"apellidoM\" class=\"form-control\" placeholder=\"Apellido Materno\" minlength=\"3\" required>\n          <app-show-errors [control]=\"apellidoM\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" name=\"gender\" #gender=\"ngModel\" [(ngModel)]=\"invitation.profile.gender\"\n            id=\"gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n          <app-show-errors [control]=\"gender\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\" class=\"optional\">Fecha de Nacimiento</label>\n          <input type=\"date\" name=\"birthDate\" #birthDate=\"ngModel\" [(ngModel)]=\"invitation.profile.birthDate\"\n            id=\"birthDate\" class=\"form-control\" placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"invitation.contact.phone\" id=\"phone\"\n            class=\"form-control\" placeholder=\"Número Telefónico\" minlength=\"7\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\" class=\"optional\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"invitation.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\" hidden>\n          <label for=\"password\">Contraseña</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" #password=\"ngModel\"\n            [(ngModel)]=\"invitation.password\" id=\"password\" placeholder=\"Contraseña\">\n          <app-show-errors [control]=\"password\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select name=\"local\" #local=\"ngModel\" [(ngModel)]=\"invitation.contact.address.country\" id=\"local\"\n              aria-hidden=\"true\" class=\"form-control\" (ngModelChange)=\"updateSelectedValue($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select name=\"depaMini\" #depaMini=\"ngModel\" [(ngModel)]=\"invitation.contact.address.state.id\" id=\"depaMini\"\n              class=\"form-control\" aria-hidden=\"true\" (ngModelChange)=\"updateSelectDepartamento($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.city.id\" aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"invitation.contact.address.zone.id\" aria-hidden=\"true\" required>\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <!---->\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Calle\n            </label>\n            <input type=\"text\" name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\"\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"invitation.contact.address.especificLocation\" required>\n            <app-show-errors [control]=\"streetDirecction\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label optional\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"invitation.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"companyName\">Empresa</label>\n          <input style=\"color: white;\" id=\"companyName\" name=\"companyName\" type=\"text\" class=\"form-control\"\n            value=\"{{companiaActual}}\" readonly>\n        </div>\n        <div class=\"form-group col-md-6\">\n          <label for=\"sucursalName\">Sucursal</label>\n          <select class=\"form-control\" id=\"sucursalName\" name=\"sucursalName\" #sucursalName=\"ngModel\"\n            [(ngModel)]=\"job.sucursalName\" (ngModelChange)=\"updateSelectSucursal($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.listSucursal' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"sucursalName\" class=\"show-err\"></app-show-errors>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label for=\"typeAccount\">Rol</label>\n          <select class=\"form-control\" id=\"typeAccount\" name=\"typeAccount\" #typeAccount=\"ngModel\"\n            [(ngModel)]=\"job.typeAccount\" (ngModelChange)=\"updateSelectRol($event)\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListRol' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n          <app-show-errors [control]=\"typeAccount\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n      <div class=\"form-row\" *ngIf=\"verVehiculo\">\n        <div class=\"form-gro col-md-6\">\n          <label for=\"tipoVehiculo\">Tipo Vehículo</label>\n          <select class=\"form-control\" id=\"tipoVehiculo\" name=\"tipoVehiculo\" #tipoVehiculo=\"ngModel\"\n            [(ngModel)]=\"invitation.vehiculo.tipoVehiculo\" (ngModelChange)=\"updateSelectVehiculo($event)\">\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option *ngFor='let item of this.ListVehiculo' [ngValue]=\"item._id\">\n              {{item.name}}\n            </option>\n          </select>\n        </div>\n        <div class=\"form-gro col-md-6\">\n          <label for=\"placaVehiculo\" class=\"control-label optional\">Placa Vehículo</label>\n          <input type=\"text\" placeholder=\"Placa vehículo\" class=\"form-control\" name=\"placaVehiculo\" id=\"placaVehiculo\"\n            #placaVehiculo=\"ngModel\" [(ngModel)]=\"invitation.vehiculo.placaVehiculo\" minlength=\"6\">\n        </div>\n        <div class=\"form-gro col-md-6\">\n          <label for=\"detallesVehiculo\" class=\"control-label optional\">Detalles Vehículo</label>\n          <textarea name=\"detallesVehiculo\" id=\"detallesVehiculo\" cols=\"30\" rows=\"10\" class=\"form-control\"\n            placeholder=\"Detalles sobre el vehículo\" #detallesVehiculo=\"ngModel\"\n            [(ngModel)]=\"invitation.vehiculo.detallesVehiculo\"></textarea>\n        </div>\n      </div>\n\n      <div class=\"form-row\" hidden>\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"acuerdo\" name=\"acuerdo\" type=\"checkbox\" #acuerdo=\"ngModel\"\n                class=\"form-control form-check-input\" [(ngModel)]=\"invitation.estado\">\n              <span class=\"form-check-sign\">Estoy de acuerdo con Términos de Servicio y Política de Privacidad</span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-row\" style=\"margin-top: 15px;\">\n        <button *ngIf=\"usuarioValido\" type=\"submit\" class=\"btn btn-primary\"\n          [disabled]=\"contextForm.invalid\">Invitar</button>\n      </div>\n    </form>\n  </div>\n</div>\n\n<div class=\"procesando {{esVisible}}\">\n  <h3>Procesando Solicitud</h3>\n  <i class=\"fas fa-spinner fa-lg fa-spin\" style=\"margin: 0 auto; display: block; color: white;\"></i>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/lista-agendados/lista-agendados.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/lista-agendados/lista-agendados.component.html ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Estado de pedidos agendados</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <!--<button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/cargaProducto']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nuevo Producto</button>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> pedidos </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Pendientes</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Cancelados</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Asignados</option>\n                            <option value=\"3\" [selected]=\"estado==3\">Recogidos</option>\n                            <option value=\"4\" [selected]=\"estado==4\">En Tránsito</option>\n                            <option value=\"5\" [selected]=\"estado==5\">Entregados</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"Código\" prop=\"codigo\">{{codigo}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre del Cliente\" prop=\"nombreCliente\">{{nombreCliente}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Apellido del Cliente\" prop=\"apellidoCliente\">{{apellidoCliente}}\n                </ngx-datatable-column>\n\n                <ngx-datatable-column name=\"Fecha y hora\" prop=\"fechaHora\">{{fechaHora|date:'short'}}\n                </ngx-datatable-column>\n                <ngx-datatable-column name=\"Teléfono Cliente\" prop=\"telefono\">{{telefono}}\n                </ngx-datatable-column>\n                <!--<ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Habilitado\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inhabilitado\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>-->\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/main/main.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/main/main.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-12\">\n\n\n    <input type=\"button\" value=\"capturar\" (click)=\"capturar()\">\n\n\n\n\n    <div class=\"card card-chart\">\n      <div class=\"card-header \">\n        <div class=\"row\">\n          <div class=\"col-sm-6 text-left\">\n            <h5 class=\"card-category\">Total</h5>\n            <h2 class=\"card-title\">Cuentas</h2>\n          </div>\n          <!--<div class=\"col-sm-6\">\n            <div class=\"btn-group btn-group-toggle float-right\" data-toggle=\"buttons\">\n              <label class=\"btn btn-sm btn-primary btn-simple active\" id=\"0\">\n                <input type=\"radio\" name=\"options\" checked>\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Accounts</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-single-02\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"1\">\n                <input type=\"radio\" class=\"d-none d-sm-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Purchases</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-gift-2\"></i>\n                </span>\n              </label>\n              <label class=\"btn btn-sm btn-primary btn-simple\" id=\"2\">\n                <input type=\"radio\" class=\"d-none\" name=\"options\">\n                <span class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block\">Sessions</span>\n                <span class=\"d-block d-sm-none\">\n                  <i class=\"tim-icons icon-tap-02\"></i>\n                </span>\n              </label>\n            </div>\n          </div>-->\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartBig1\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Ventas</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-bell-55 text-primary\"></i> 763,215</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLinePurple\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cobros diarios</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-delivery-fast text-info\"></i> 3,500€</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"CountryChart\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-4\">\n    <div class=\"card card-chart\">\n      <div class=\"card-header\">\n        <h5 class=\"card-category\">Cantidad de Asociados</h5>\n        <h3 class=\"card-title\"><i class=\"tim-icons icon-send text-success\"></i> 12,100K</h3>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"chart-area\">\n          <canvas id=\"chartLineGreen\"></canvas>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--<div class=\"row\">\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card card-tasks\">\n      <div class=\"card-header \">\n        <h6 class=\"title d-inline\">Asociados(5)</h6>\n        <p class=\"card-category d-inline\">today</p>\n        <div class=\"dropdown\">\n          <button type=\"button\" class=\"btn btn-link dropdown-toggle btn-icon\" data-toggle=\"dropdown\">\n            <i class=\"tim-icons icon-settings-gear-63\"></i>\n          </button>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#pablo\">Action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Another action</a>\n            <a class=\"dropdown-item\" href=\"#pablo\">Something else</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <div class=\"table-full-width table-responsive\">\n          <table class=\"table\">\n            <tbody>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Update the Documentation</p>\n                  <p class=\"text-muted\">Dwuamish Head, Seattle, WA 8:47 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\" checked=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">GDPR Compliance</p>\n                  <p class=\"text-muted\">The GDPR is a regulation that requires businesses to protect the personal data\n                    and privacy of Europe citizens for transactions that occur within EU member states.</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Solve the issues</p>\n                  <p class=\"text-muted\">Fifty percent of all respondents said they would be more likely to shop at a\n                    company </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Release v2.0.0</p>\n                  <p class=\"text-muted\">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Export the processed files</p>\n                  <p class=\"text-muted\">The report also shows that consumers will not easily forgive a company once a\n                    breach exposing their personal data occurs. </p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  <div class=\"form-check\">\n                    <label class=\"form-check-label\">\n                      <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n                      <span class=\"form-check-sign\">\n                        <span class=\"check\"></span>\n                      </span>\n                    </label>\n                  </div>\n                </td>\n                <td>\n                  <p class=\"title\">Arival at export process</p>\n                  <p class=\"text-muted\">Capitol Hill, Seattle, WA 12:34 AM</p>\n                </td>\n                <td class=\"td-actions text-right\">\n                  <button type=\"button\" rel=\"tooltip\" title=\"\" class=\"btn btn-link\" data-original-title=\"Edit Task\">\n                    <i class=\"tim-icons icon-pencil\"></i>\n                  </button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-6 col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Simple Table</h4>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table tablesorter \" id=\"\">\n            <thead class=\" text-primary\">\n              <tr>\n                <th>\n                  Name\n                </th>\n                <th>\n                  Country\n                </th>\n                <th>\n                  City\n                </th>\n                <th class=\"text-center\">\n                  Salary\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-center\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-center\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-center\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-center\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-center\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-center\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/product-list/product-list.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/product-list/product-list.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <h2 class=\"col-12 col-md-4 card-title\">Lista de Productos</h2>\n            <div class=\"col-12 col-md-8 toolbar\">\n                <button type=\"button\" class=\"btn-simple btn btn-info float-right\" (click)=\"exportFunction($event)\"><i\n                        class=\"fas fa-file-excel\"></i> Exportar a Excel</button>\n                <button type=\"button\" class=\"btn-simple btn btn-success float-right\"\n                    (click)=\"refreshFunction($event)\"><i class=\"fas fa-sync-alt\"></i> Actualizar Lista</button>\n                <button type=\"button\" class=\"btn-simple btn btn-primary float-right\" [routerLink]=\"['/cargaProducto']\"\n                    [routerLinkActive]=\"['linkActivo']\"><i class=\"fas fa-plus\"></i> Nuevo Producto</button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"dataTables_wrapper\">\n            <div class=\"row\">\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_length\">\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Mostrar</label>\n                        <select name=\"datatable_length\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\"\n                            (change)=\"entriesChange($event)\" style=\"width: 100px;\">\n                            <option value=\"10\" [selected]=\"entries==10\">10</option>\n                            <option value=\"25\" [selected]=\"entries==25\">25</option>\n                            <option value=\"-1\" [selected]=\"entries==-1\">All</option>\n                        </select>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> productos </label>\n                    </div>\n                </div>\n\n                <div class=\"col-6 col-md-4\">\n                    <div class=\"dataTables_length\" id=\"datatable_status\">\n                        <i class=\"fas fa-filter float-left\" style=\"margin: 10px 0;\"></i>\n                        <label class=\"float-left\" style=\"margin: 10px;\"> Estado</label>\n                        <select name=\"datatable_status\" aria-controls=\"datatable\"\n                            class=\"form-control float-left align-middle form-control-md\" (change)=\"statusChange($event)\"\n                            style=\"width: 100px;\">\n                            <option value=\"1\" [selected]=\"estado==1\">Habilitado</option>\n                            <option value=\"0\" [selected]=\"estado==0\">Inhabilitado</option>\n                            <option value=\"2\" [selected]=\"estado==2\">Eliminado</option>\n                        </select>\n                    </div>\n                </div>\n\n                <div class=\"col-12 col-md-4\">\n                    <div id=\"datatable_filter\" class=\"dataTables_filter form-control-md\">\n                        <label>\n                            <input type=\"search\" class=\"form-control\" style=\"width: 100%;\" placeholder=\"Buscar...\"\n                                aria-controls=\"datatable\" (keyup)=\"filterTable($event)\" />\n                        </label>\n                    </div>\n                </div>\n            </div>\n            <ngx-datatable class=\"bootstrap selection-cell\" [columnMode]=\"'force'\" [headerHeight]=\"50\"\n                [footerHeight]=\"50\" [rowHeight]=\"'auto'\" [limit]=\"entries != -1 ? entries:undefined\"\n                (activate)=\"onActivate($event)\" [rows]=\"temp\" [loadingIndicator]=\"isLoading\"\n                [treeFromRelation]=\"parentId\" [treeToRelation]=\"id\" (treeAction)=\"onTreeAction($event)\">\n\n                <ngx-datatable-column name=\"Código\" prop=\"acronym\">{{acronym}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Nombre del Producto\" prop=\"nombre\">{{nombre}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Descripción\" prop=\"descripcion\">{{descripcion}}</ngx-datatable-column>\n                <ngx-datatable-column name=\"Precio\" prop=\"costo\">{{costo}}</ngx-datatable-column>\n                <!--<ngx-datatable-column name=\"Estado\">\n                    <ng-template ngx-datatable-cell-template let-row=\"row\">\n                        <ng-container *ngIf=\"row.estado; else elseTemplate\">\n                            Habilitado\n                        </ng-container>\n                        <ng-template #elseTemplate>\n                            Inhabilitado\n                        </ng-template>\n                    </ng-template>\n                </ngx-datatable-column>-->\n\n\n                <ngx-datatable-column [sortable]=\"false\" [canAutoResize]=\"false\" [draggable]=\"false\"\n                    [resizeable]=\"false\">\n                    <ng-template ngx-datatable-header-template let-value=\"value\" let-allRowsSelected=\"allRowsSelected\"\n                        let-selectFn=\"selectFn\">\n                        Producto\n                    </ng-template>\n                    <ng-template ngx-datatable-cell-template let-value=\"value\" let-isSelected=\"isSelected\"\n                        let-onCheckboxChangeFn=\"onCheckboxChangeFn\">\n                        <a class=\"btn btn-round btn-warning btn-icon btn-sm\" (click)=\"deleteFunction($event)\">\n                            <i class=\"far fa-id-badge\" style=\"margin-top: 7px;\"></i></a> <!-- [routerLink]=\"['/descendenciaFicha', profile.firstName]\" [routerLinkActive]=\"['linkActivo']\">-->\n                    </ng-template>\n                </ngx-datatable-column>\n            </ngx-datatable>\n        </div>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/products-load/products-load.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/products-load/products-load.component.html ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>{{opcion}} producto</h3>\n<div class=\"container\">\n    <form (ngSubmit)=\"guardar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <div class=\"form-group col-4\">\n                <label for=\"acronym\">Código de Producto</label>\n                <input type=\"text\" name=\"acronym\" id=\"acronym\" class=\"form-control\" placeholder=\"Código de Producto\"\n                    aria-describedby=\"helpCodigo\" #acronym=\"ngModel\" [(ngModel)]=\"producto.acronym\" required>\n                <app-show-errors [control]=\"acronym\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"form-group col-12\">\n                <label for=\"nombre\">Nombre del Producto a la venta</label>\n                <input type=\"text\" name=\"nombre\" id=\"nombre\" class=\"form-control\"\n                    placeholder=\"Nombre del Producto a la venta\" aria-describedby=\"helpNombre\" #nombre=\"ngModel\"\n                    [(ngModel)]=\"producto.nombre\" required>\n                <app-show-errors [control]=\"nombre\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"form-group col-4\">\n                <label>Imagen del Producto</label>\n                <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n                    <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                            src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n                    </div>\n                    <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n                    <div class=\"user-edit-image-buttons\">\n                        <span class=\"btn btn-azure btn-file\">\n                            <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                                (desdeElHijo)=\"recibeDeHijo($event);\">\n                            </app-upload>\n                        </span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group col-8\">\n                <div class=\"row\">\n                    <div class=\"form-group col-12\">\n                        <label for=\"costo\">Costo del Producto (Bs)</label>\n                        <input type=\"number\" name=\"costo\" id=\"costo\" class=\"form-control\"\n                            placeholder=\"Precio del Producto a la Venta\" aria-describedby=\"helpCosto\" #costo=\"ngModel\"\n                            [(ngModel)]=\"producto.costo\" required>\n                        <app-show-errors [control]=\"costo\" class=\"show-err\"></app-show-errors>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"form-group col-12\">\n                        <label for=\"descripcion\">Descripción del Producto</label>\n                        <textarea name=\"descripcion\" id=\"descripcion\" cols=\"30\" rows=\"20\"\n                            placeholder=\"Descripción del Producto\" class=\"form-control\"\n                            aria-describedby=\"helpDescripcion\" #descripcion=\"ngModel\"\n                            [(ngModel)]=\"producto.descripcion\"></textarea>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Guardar</button>\n        </div>\n    </form>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/profile/profile.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/profile/profile.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content\">\n  <div class=\"form-sign center z-depth-4\">\n    <!--<img src=\"assets/img/logos/v.png\" alt=\"Ventun\">-->\n    <h2 class=\"center\">Información Personal</h2>\n    <hr>\n    <form (ngSubmit)=\"onUpdate()\" name=\"contextForm\" #contextForm=\"ngForm\" *ngIf=\"perfil\">\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"ci\">CI</label>\n          <input type=\"text\" class=\"form-control\" name=\"ci\" #ci=\"ngModel\" [(ngModel)]=\"perfil.profile.ci\" id=\"ci\"\n            placeholder=\"Cédula de Identidad\" required>\n          <app-show-errors [control]=\"ci\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"expedido\" class=\"control-label\">Expedido en:</label>\n          <select class=\"form-control\" name=\"expedido\" id=\"expedido\" #expedido=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.expedido\" required aria-hidden=\"true\">\n            <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n            <option *ngFor='let littleDepa of depasCI' [ngValue]=\"littleDepa._id\">\n              {{littleDepa.name}}\n            </option>\n          </select>\n\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"firstName\">Nombre</label>\n          <input type=\"text\" class=\"form-control\" name=\"firstName\" #firstName=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.firstName\" id=\"firstName\" placeholder=\"Nombre Usuario\" required>\n          <app-show-errors [control]=\"firstName\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameP\">Apellido Paterno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameP\" #lastNameP=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameP\" id=\"lastNameP\" placeholder=\"Apellido Paterno\" required>\n          <app-show-errors [control]=\"lastNameP\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"lastNameM\">Apellido Materno</label>\n          <input type=\"text\" class=\"form-control\" name=\"lastNameM\" #lastNameM=\"ngModel\"\n            [(ngModel)]=\"perfil.profile.lastNameM\" id=\"lastNameM\" placeholder=\"Apellido Materno\" required>\n          <app-show-errors [control]=\"lastNameM\" class=\"show-err\"></app-show-errors>\n        </div>\n\n\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"changePass\"></label>\n          <input class=\"form-control btn btn-primary\" type=\"button\" value=\"Cambio de Contraseña\" routerLink=\"/sign/password\" routerLinkActive=\"active\" name=\"changePass\" style=\"padding: 0 10px;\">\n        </div>\n\n\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"gender\">Sexo</label>\n          <select class=\"form-control\" id=\"gender\" name=\"gender\" #gender=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.profile.gender\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"0\">\n              Hombre\n            </option>\n            <option [ngValue]=\"1\">\n              Mujer\n            </option>\n          </select>\n        </div>\n        <!--\n          <input type=\"date\" id=\"bday\" name=\"bday\" max=today min=\"1919-01-01\" class=\"form-control\" #bday=\"ngModel\"\n              [ngModel]=\"mySeller.xCurrent.profile.birthDate | date:'yyyy-MM-dd'\"\n              (ngModelChange)=\"mySeller.xCurrent.profile.birthDate = $event\">\n        -->\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"birthDate\">Fecha de Nacimiento</label>\n          <input type=\"date\" class=\"form-control\" name=\"birthDate\" #birthDate=\"ngModel\"\n            [ngModel]=\"perfil.profile.birthDate\" (ngModelChange)=\"perfil.profile.birthDate = $event\" id=\"birthDate\"\n            placeholder=\"Fecha de Nacimiento\">\n        </div>\n      </div>\n\n      <div class=\"form-row\">\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"phone\">Teléfono</label>\n          <input type=\"phone\" class=\"form-control\" name=\"phone\" #phone=\"ngModel\" [(ngModel)]=\"perfil.contact.phone\"\n            id=\"phone\" placeholder=\"Número Telefónico\" required>\n          <app-show-errors [control]=\"phone\" class=\"show-err\"></app-show-errors>\n        </div>\n        <div class=\"form-group col-6 col-md-4\">\n          <label for=\"email\">e-mail</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" #email=\"ngModel\" [(ngModel)]=\"perfil.contact.email\"\n            id=\"email\" placeholder=\"Correo Electrónico\">\n          <app-show-errors [control]=\"email\" class=\"show-err\"></app-show-errors>\n        </div>\n      </div>\n\n\n      <div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"local\" class=\"control-label\">País</label>\n            <select class=\"form-control\" name=\"local\" id=\"local\" #local=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.country\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectedValue($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleLocal of ListLOCMain' [ngValue]=\"littleLocal._id\">\n                {{littleLocal.name}}\n              </option>\n            </select>\n\n            <app-show-errors [control]=\"local\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"depaMini\" class=\"control-label\">Departamento</label>\n            <select class=\"form-control\" name=\"depaMini\" id=\"depaMini\" #depaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.state.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectDepartamento($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleDepa of listDepa' [ngValue]=\"littleDepa._id\">\n                {{littleDepa.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"depaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n        </div>\n        <div class=\"form-group row\">\n          <div class=\"form-group col-md-12 col-lg-6 campoFormulario\">\n            <label for=\"cityMini\" class=\"control-label\">Ciudad</label>\n            <select class=\"form-control\" name=\"cityMini\" id=\"cityMini\" #cityMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.city.id\" required aria-hidden=\"true\"\n              (ngModelChange)=\"updateSelectCiudad($event)\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleCiudad of listCiudad' [ngValue]=\"littleCiudad._id\">\n                {{littleCiudad.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"cityMini\" class=\"show-err\"></app-show-errors>\n          </div>\n\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"zonaMini\" class=\"control-label\">Zona</label>\n            <select tabindex=\"-1\" class=\"form-control\" name=\"zonaMini\" id=\"zonaMini\" #zonaMini=\"ngModel\"\n              [(ngModel)]=\"perfil.contact.address.zone.id\" required aria-hidden=\"true\">\n              <option [ngValue]=\"undefined\" selected>Elija una Opción</option>\n              <option *ngFor='let littleZona of listZona' [ngValue]=\"littleZona._id\">\n                {{littleZona.name}}\n              </option>\n            </select>\n            <app-show-errors [control]=\"zonaMini\" class=\"show-err\"></app-show-errors>\n          </div>\n          <div class=\"form-group col-md-8 campoFormulario\">\n            <label class=\"control-label\">\n              Street\n            </label>\n            <input name=\"streetDirecction\" class=\"form-control\" id=\"streetDirecction\" type=\"text\" required\n              #streetDirecction=\"ngModel\" [(ngModel)]=\"perfil.contact.address.especificLocation\">\n          </div>\n          <div class=\"form-group col-md-4 campoFormulario\">\n            <label for=\"codePostal\" class=\"control-label\">Zip Code</label>\n            <input type=\"text\" placeholder=\"Code Postal\" class=\"form-control\" name=\"codePostal\" id=\"codePostal\"\n              #codePostal=\"ngModel\" [(ngModel)]=\"perfil.contact.codePostal\" minlength=\"4\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-row\">\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Imagen Personal</label>\n            <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\"><input type=\"hidden\">\n              <div class=\"fileupload-new thumbnail\"><img class=\"e2e-inner-html-interpolated\" alt=\"\"\n                  src=\"{{urlGlobal}}{{urlImage}}\" style=\"width: 200px\">\n              </div>\n              <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"line-height: 10px;\"></div>\n              <div class=\"user-edit-image-buttons\">\n                <span class=\"btn btn-azure btn-file\">\n                  <app-upload [mostrar]='mostrar' [title]=\"title_upload\" [path]=\"path_server\"\n                    (desdeElHijo)=\"recibeDeHijo($event);\">\n                  </app-upload>\n                </span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-row\" *ngIf=\"perfil.estado == 0\">\n        <div class=\"form-group col-12\">\n          <div class=\"form-check\">\n            <label class=\"form-check-label\">\n              <input id=\"estado\" name=\"estado\" type=\"checkbox\" #estado=\"ngModel\" class=\"form-control form-check-input\"\n                [(ngModel)]=\"perfil.estado\" required>\n              <span class=\"form-check-sign\">Estoy de acuerdo con <a href=\"http://ventun.com/index.php/terms\" target=\"_blank\">Términos de Servicio</a> y <a href=\"http://ventun.com/index.php/privacy\" target=\"_blank\">Política de Privacidad</a></span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <!--<div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n          <label for=\"estado\">Estado</label>\n          <select class=\"form-control\" id=\"estado\" name=\"estado\" #estado=\"ngModel\" tabindex=\"-1\"\n            [(ngModel)]=\"perfil.estado\" required>\n            <option [ngValue]=undefined selected>Elija una Opción</option>\n            <option [ngValue]=\"1\">\n              Activo\n            </option>\n            <option [ngValue]=\"0\">\n              Inactivo\n            </option>\n          </select>\n        </div>\n      </div>-->\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Modificar Usuario</button>\n    </form>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/adm/views/staff-list/staff-list.component.html":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/adm/views/staff-list/staff-list.component.html ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form id=\"fSeller\" name=\"fSeller\" #fSeller='ngForm' *ngIf=\"job\">\n  <div class=\"form-group col-md-6\">\n    <label for=\"ciMain\">ciMain</label>\n    <input type=\"text\" class=\"form-control\" name=\"ciMain\" #ciMain=\"ngModel\" [(ngModel)]=\"job.ciMain\"\n      id=\"ciMain\" placeholder=\"Apellidos\">\n  </div>\n  <div class=\"form-group col-md-6\">\n    <label for=\"companyName\">companyName</label>\n    <input type=\"text\" class=\"form-control\" name=\"companyName\" #companyName=\"ngModel\" [(ngModel)]=\"job.companyName\"\n      id=\"companyName\" placeholder=\"Apellidos\">\n  </div>\n  <div class=\"form-group col-md-6\">\n    <label for=\"typeAccount\">typeAccount</label>\n    <input type=\"text\" class=\"form-control\" name=\"typeAccount\" #typeAccount=\"ngModel\" [(ngModel)]=\"job.typeAccount\"\n      id=\"typeAccount\" placeholder=\"Apellidos\">\n  </div>\n  <button class=\"btn btn-primary\" (click)=\"guardar()\">GUARDAR</button>\n</form>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/toast/toast.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/toast/toast.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--<div *ngFor=\"let alert of alerts\" class=\"{{cssClass(alert)}} alert-dismissable\">\n        {{alert.message}}\n        <a class=\"close\" (click)=\"removeAlert(alert)\">&times;</a>\n    </div>-->\n<div aria-live=\"polite\" aria-atomic=\"true\" style=\"position: relative;\" attr.id=\"{{idx}}\">\n    <div style=\"position: absolute; top: 40px; right: 0;\">\n\n        <div class=\"toast {{tipoAlert}}\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" data-delay=\"4000\">\n            <div class=\"toast-header\">\n                <strong class=\"mr-auto\">{{title}}</strong>\n                <small class=\"text-muted\">Ahora</small>\n                <button type=\"button\" class=\"ml-2 mb-1 close\" data-dismiss=\"toast\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"toast-body\">\n                {{message}}\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/upload/upload.component.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/upload/upload.component.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"divMainFile\">\n  <label for=\"imageUp\" style=\"margin-bottom:0; background-color: #344675;\">Elige un Imagen</label>\n  <input class=\"custom-control {{muestraUP}}\" type=\"file\" accept=\".jpeg, .jpg, .png, .bmp, .jfif\" name=\"imageUp\" id=\"imageUp\" value=\"Sube imagen\"(change)=\"onFileSelected($event)\" style=\"z-index: 0!important;\">\n\n  <div class=\"card text-center float-left  {{muestraMIDDLE}}\">\n    <div id=\"card-body\" class=\"card-body\">\n      <div class=\"card text-white cardCompleto float-left\" *ngFor=\"let item of datosImagen; let i=index\">\n        <img src=\"{{item.src}}\" class=\"figure-img img-fluid rounded img-thumbnail\" alt=\"{{item.dataName}}\"\n          style=\"max-width: 164!important; max-height: 224px; margin: 20px 10px;\">\n        <div class=\"card-img-overlay\">\n          <p class=\"card-text\">{{item.dataName}}</p>\n          <a href=\"#\" class=\"btn btn-round btn-warning btn-icon\" (click)=\"deleteFunction($event, item.dataName)\"\n            style=\"margin-top: 15%;\">\n            <i class=\"fas fa-times\" style=\"margin-top: 7px;\"></i>\n          </a>\n        </div>\n        <div class='progress'>\n          <div id='pbFile{{item.dataName}}' class='progress-bar progress-bar-striped bg-success' role='progressbar'\n            aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'></div>\n        </div>\n      </div>\n    </div>\n    <hr style=\"clear: both;\">\n    <div class=\"card-footer text-muted {{muestraDOWN}}\" *ngIf=\"mostrar==true\">\n      <input class=\"btn btn-outline-primary\" type=\"button\" value=\"Subir Imagen\" (click)=\"onUpload()\">\n      <input class=\"btn btn-outline-secondary\" type=\"button\" value=\"Cancelar\" (click)=\"onCancel()\">\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -7367,6 +7412,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/invitation-list/invitation-list.component */ "./src/app/adm/views/invitation-list/invitation-list.component.ts");
 /* harmony import */ var _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/descendencia-list/descendencia-list.component */ "./src/app/adm/views/descendencia-list/descendencia-list.component.ts");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/products-load/products-load.component */ "./src/app/adm/views/products-load/products-load.component.ts");
+/* harmony import */ var _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/product-list/product-list.component */ "./src/app/adm/views/product-list/product-list.component.ts");
+/* harmony import */ var _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/compra-producto/compra-producto.component */ "./src/app/adm/views/compra-producto/compra-producto.component.ts");
+/* harmony import */ var _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/agenda-pedido/agenda-pedido.component */ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts");
+/* harmony import */ var _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/lista-agendados/lista-agendados.component */ "./src/app/adm/views/lista-agendados/lista-agendados.component.ts");
+/* harmony import */ var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/ficha-pedido/ficha-pedido.component */ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
+/* harmony import */ var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/capture/capture.component */ "./src/app/adm/views/capture/capture.component.ts");
+
+
+
+
+
+
+
 
 
 
@@ -7440,6 +7499,46 @@ const routes = [
         component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
         canActivate: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"]],
         children: [{ path: '', component: _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_11__["DescendenciaListComponent"] }]
+    },
+    {
+        path: 'cargaProducto',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_13__["ProductsLoadComponent"] }]
+    },
+    {
+        path: 'editaProducto/:producto',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_13__["ProductsLoadComponent"] }]
+    },
+    {
+        path: 'listaProductos',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_14__["ProductListComponent"] }]
+    },
+    {
+        path: 'compraProductos',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_15__["CompraProductoComponent"] }]
+    },
+    {
+        path: 'agendaPedido',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_16__["AgendaPedidoComponent"] }]
+    },
+    {
+        path: 'pedidosAgendados',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_17__["ListaAgendadosComponent"] }]
+    },
+    {
+        path: 'pedidos/:estado',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_18__["FichaPedidoComponent"] }]
+    },
+    {
+        path: 'capture',
+        component: _adm_component__WEBPACK_IMPORTED_MODULE_3__["AdmComponent"],
+        children: [{ path: '', component: _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_19__["CaptureComponent"] }]
     }
 ];
 let AdmRoutingModule = class AdmRoutingModule {
@@ -7459,12 +7558,10 @@ AdmRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************!*\
   !*** ./src/app/adm/adm.component.css ***!
   \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9hZG0uY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9hZG0uY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -7490,8 +7587,8 @@ let AdmComponent = class AdmComponent {
 AdmComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-adm',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./adm.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/adm.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./adm.component.css */ "./src/app/adm/adm.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./adm.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/adm.component.html"),
+        styles: [__webpack_require__(/*! ./adm.component.css */ "./src/app/adm/adm.component.css")]
     })
 ], AdmComponent);
 
@@ -7532,6 +7629,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../pipes/expedido.pipe */ "./src/app/pipes/expedido.pipe.ts");
 /* harmony import */ var _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../pipes/nombre.pipe */ "./src/app/pipes/nombre.pipe.ts");
 /* harmony import */ var _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./views/configuration/configuration.component */ "./src/app/adm/views/configuration/configuration.component.ts");
+/* harmony import */ var _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./views/product-list/product-list.component */ "./src/app/adm/views/product-list/product-list.component.ts");
+/* harmony import */ var _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./views/products-load/products-load.component */ "./src/app/adm/views/products-load/products-load.component.ts");
+/* harmony import */ var _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./views/compra-producto/compra-producto.component */ "./src/app/adm/views/compra-producto/compra-producto.component.ts");
+/* harmony import */ var _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./views/agenda-pedido/agenda-pedido.component */ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts");
+/* harmony import */ var _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./views/lista-agendados/lista-agendados.component */ "./src/app/adm/views/lista-agendados/lista-agendados.component.ts");
+/* harmony import */ var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./views/ficha-pedido/ficha-pedido.component */ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
+/* harmony import */ var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./views/capture/capture.component */ "./src/app/adm/views/capture/capture.component.ts");
+
+
+
+
+
+
+
 
 
 
@@ -7575,7 +7686,14 @@ AdmModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_18__["DescendenciaListComponent"],
             _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__["ExpedidoPipe"],
             _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__["NombrePipe"],
-            _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__["ConfigurationComponent"]
+            _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__["ConfigurationComponent"],
+            _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__["ProductListComponent"],
+            _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__["ProductsLoadComponent"],
+            _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__["CompraProductoComponent"],
+            _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__["AgendaPedidoComponent"],
+            _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__["ListaAgendadosComponent"],
+            _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__["FichaPedidoComponent"],
+            _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__["CaptureComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -7595,12 +7713,10 @@ AdmModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*********************************************************!*\
   !*** ./src/app/adm/layouts/footer/footer.component.css ***!
   \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -7626,8 +7742,8 @@ let FooterComponent = class FooterComponent {
 FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-footer',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./footer.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/footer/footer.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./footer.component.css */ "./src/app/adm/layouts/footer/footer.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./footer.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/footer/footer.component.html"),
+        styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/adm/layouts/footer/footer.component.css")]
     })
 ], FooterComponent);
 
@@ -7639,12 +7755,10 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*********************************************************!*\
   !*** ./src/app/adm/layouts/navbar/navbar.component.css ***!
   \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".dropdown.nav-item>a {\r\n    cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL2xheW91dHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kcm9wZG93bi5uYXYtaXRlbT5hIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */");
+module.exports = ".dropdown.nav-item>a {\r\n    cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL2xheW91dHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kcm9wZG93bi5uYXYtaXRlbT5hIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -7742,8 +7856,8 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-navbar',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./navbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/navbar/navbar.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./navbar.component.css */ "./src/app/adm/layouts/navbar/navbar.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./navbar.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/navbar/navbar.component.html"),
+        styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/adm/layouts/navbar/navbar.component.css")]
     })
 ], NavbarComponent);
 
@@ -7755,12 +7869,10 @@ NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************************************!*\
   !*** ./src/app/adm/layouts/sidebar/sidebar.component.css ***!
   \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIn0= */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS9sYXlvdXRzL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -7777,11 +7889,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+
 
 
 var misc = {
     sidebar_mini_active: true
 };
+var permissions = [
+    {
+        RoleID: 'adm',
+        menuView: [],
+        subMenuView: []
+    },
+    {
+        RoleID: 'sup',
+        menuView: ["Tablero", "Registro de Ventas", "Pendientes", "Asignados", "Pedidos", "Recogidos", "Entregados"],
+        subMenuView: ["Lista de Productos", "Lista de Pedidos"]
+    },
+    {
+        RoleID: 'dist',
+        menuView: ["Tablero", "Registro de Usuarios", "Registro de Ventas", "Pendientes", "Asignados", "Productos", "Pedidos", "Recogidos", "Entregados"],
+        subMenuView: ["Lista de Productos", "Agregar Productos", "Lista de Pedidos"]
+    },
+    {
+        RoleID: 'rep',
+        menuView: ["Registro de Usuarios", "Registro de Ventas", 'Productos', 'Pedidos'],
+        subMenuView: ["Lista de Productos", "Agregar Productos", "Lista de Pedidos"]
+    } /*,
+    {
+      RoleID: '20003',
+      menuView: ["Calendar", "Supervisors View", "STAFF","SERVICE", "REPORTS","IMPORT"],
+      subMenuView: ["client", "new-client"]
+    }*/
+];
 //Menu Items
 const ROUTES = [
     {
@@ -7791,69 +7932,93 @@ const ROUTES = [
         icontype: "icon-components"
     },
     {
-        path: "/objetivo",
-        title: "Objetivos",
+        path: "/invitacion",
+        title: "Registro de Usuarios",
         type: "link",
         icontype: "icon-badge"
     },
     {
-        path: "/",
-        title: "Descendencia",
+        path: "/compraProductos",
+        title: "Registro de Ventas",
+        type: "link",
+        icontype: "icon-badge"
+    },
+    {
+        path: "/pedidos/1",
+        title: "Pendientes",
+        type: "link",
+        icontype: "icon-badge"
+    },
+    {
+        path: "/pedidos/2",
+        title: "Asignados",
+        type: "link",
+        icontype: "icon-badge"
+    },
+    {
+        path: "",
+        title: "Productos",
         type: "sub",
         icontype: "icon-single-02",
-        collapse: "descendencia",
+        collapse: "",
         isCollapsed: true,
         children: [
-            { path: "descendenciaFicha", title: "Fichas", type: "link", ab: "DF" },
-            { path: "descendenciaLista", title: "Lista", type: "link", ab: "DL" }
+            { path: "listaProductos", title: "Lista de Productos", type: "link", ab: "LP" },
+            { path: "cargaProducto", title: "Agregar Productos", type: "link", ab: "AP" }
         ]
     },
     {
-        path: "/",
-        title: "Invitacion",
+        path: "",
+        title: "Pedidos",
         type: "sub",
         icontype: "icon-single-02",
-        collapse: "invitacion",
+        collapse: "",
         isCollapsed: true,
         children: [
-            { path: "invitacion", title: "Nueva Invitación", type: "link", ab: "II" },
-            { path: "invitacionLista", title: "Lista de Invitaciones", type: "link", ab: "IL" }
+            { path: "pedidosAgendados", title: "Lista de Pedidos", type: "link", ab: "LP" } /*,
+            { path: "cargaProducto", title: "Agregar Productos", type: "link", ab: "AP" }*/
+        ]
+    },
+    /*{
+      path: "#",
+      title: "Invitacion",
+      type: "sub",
+      icontype: "icon-single-02",
+      collapse: "invitacion",
+      isCollapsed: true,
+      children: [
+        { path: "invitacion", title: "Nueva Invitación", type: "link", ab: "II" },
+        { path: "invitacionLista", title: "Lista de Invitaciones", type: "link", ab: "IL" }
+      ] this.router.navigate(['/invitacion/' + this.activeRow._id]);
+    },*/
+    {
+        path: "/pedidos/3",
+        title: "Recogidos",
+        type: "link",
+        icontype: "icon-badge"
+    },
+    {
+        path: "/pedidos/5",
+        title: "Entregados",
+        type: "link",
+        icontype: "icon-badge"
+    },
+    {
+        path: "#",
+        title: "Reportes",
+        type: "sub",
+        icontype: "icon-badge",
+        collapse: "reporte",
+        isCollapsed: true,
+        children: [
+            { path: "reporte1", title: "Reporte 1", type: "link", ab: "R1" },
+            { path: "reporte2", title: "Reporte 2", type: "link", ab: "R2" },
+            { path: "reporte3", title: "Reporte 3", type: "link", ab: "R3" },
+            { path: "reporte4", title: "Reporte 4", type: "link", ab: "R4" }
         ]
     } /*,
     {
-      path: "/mensaje",
-      title: "Mensajes",
-      type: "link",
-      icontype: "icon-badge"
-    },
-    {
-      path: "/job",
-      title: "Job",
-      type: "link",
-      icontype: "icon-badge"
-    },
-    {
-      path: "/ingreso",
-      title: "Ingresos",
-      type: "link",
-      icontype: "icon-badge"
-    },
-    {
-      path: "/",
-      title: "Reportes",
-      type: "sub",
-      icontype: "icon-badge",
-      collapse: "reporte",
-      isCollapsed: true,
-      children: [
-        { path: "reporte1", title: "Reporte 1", type: "link", ab: "R1" },
-        { path: "reporte2", title: "Reporte 2", type: "link", ab: "R2" },
-        { path: "reporte3", title: "Reporte 3", type: "link", ab: "R3" },
-        { path: "reporte4", title: "Reporte 4", type: "link", ab: "R4" }
-      ]
-    },
-    {
-      path: "/comision",
+      path: "#",
       title: "Comisión",
       type: "link",
       icontype: "icon-badge"
@@ -7865,6 +8030,58 @@ let SidebarComponent = class SidebarComponent {
     }
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+        this.permissionsEvent();
+    }
+    buscaRol() {
+        let local = JSON.parse(localStorage.getItem('userCompany'));
+        let rol = '';
+        switch (local[0].typeAccount) {
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].adm:
+                rol = 'adm';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].dist:
+                rol = 'dist';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].rep:
+                rol = 'rep';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].sup:
+                rol = 'sup';
+                break;
+            default:
+                rol = 'rep';
+                break;
+        }
+        return rol;
+    }
+    permissionsEvent() {
+        let idPosition = 0;
+        let rol = this.buscaRol();
+        if (localStorage.getItem('userCompany')) {
+            for (let i = 0; i < permissions.length; i++) {
+                if (permissions[i].RoleID == rol) {
+                    idPosition = i;
+                }
+            }
+        }
+        this.menuItems.forEach(element => {
+            element.visible = true;
+            permissions[idPosition].menuView.forEach(subElement => {
+                if (element.title == subElement) {
+                    element.visible = false;
+                }
+            });
+            if (element.children) {
+                element.children.forEach(childElement => {
+                    childElement.visible = true;
+                    permissions[idPosition].subMenuView.forEach(subElement => {
+                        if (childElement.title == subElement) {
+                            childElement.visible = false;
+                        }
+                    });
+                });
+            }
+        });
     }
     sleep(milliseconds) {
         var start = new Date().getTime();
@@ -7960,8 +8177,8 @@ let SidebarComponent = class SidebarComponent {
 SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-sidebar',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/layouts/sidebar/sidebar.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sidebar.component.css */ "./src/app/adm/layouts/sidebar/sidebar.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/layouts/sidebar/sidebar.component.html"),
+        styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/adm/layouts/sidebar/sidebar.component.css")]
     })
 ], SidebarComponent);
 
@@ -7973,12 +8190,10 @@ SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*****************************************************************!*\
   !*** ./src/app/adm/tools/show-errors/show-errors.component.css ***!
   \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".roedor{\r\n    color: red;\r\n}\r\n.globito{\r\n    color: red !important; \r\n    margin-left: 5px;\r\n    font-size: 0.75rem;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3Rvb2xzL3Nob3ctZXJyb3JzL3Nob3ctZXJyb3JzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxVQUFVO0FBQ2Q7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvYWRtL3Rvb2xzL3Nob3ctZXJyb3JzL3Nob3ctZXJyb3JzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucm9lZG9ye1xyXG4gICAgY29sb3I6IHJlZDtcclxufVxyXG4uZ2xvYml0b3tcclxuICAgIGNvbG9yOiByZWQgIWltcG9ydGFudDsgXHJcbiAgICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gICAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG59Il19 */");
+module.exports = ".roedor{\r\n    color: red;\r\n}\r\n.globito{\r\n    color: red !important; \r\n    margin-left: 5px;\r\n    font-size: 0.75rem;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3Rvb2xzL3Nob3ctZXJyb3JzL3Nob3ctZXJyb3JzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxVQUFVO0FBQ2Q7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvYWRtL3Rvb2xzL3Nob3ctZXJyb3JzL3Nob3ctZXJyb3JzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucm9lZG9ye1xyXG4gICAgY29sb3I6IHJlZDtcclxufVxyXG4uZ2xvYml0b3tcclxuICAgIGNvbG9yOiByZWQgIWltcG9ydGFudDsgXHJcbiAgICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gICAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -8033,10 +8248,342 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ShowErrorsComponent = ShowErrorsComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-show-errors',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./show-errors.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/tools/show-errors/show-errors.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./show-errors.component.css */ "./src/app/adm/tools/show-errors/show-errors.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./show-errors.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/tools/show-errors/show-errors.component.html"),
+        styles: [__webpack_require__(/*! ./show-errors.component.css */ "./src/app/adm/tools/show-errors/show-errors.component.css")]
     })
 ], ShowErrorsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/adm/views/agenda-pedido/agenda-pedido.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9hZ2VuZGEtcGVkaWRvL2FnZW5kYS1wZWRpZG8uY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts ***!
+  \********************************************************************/
+/*! exports provided: AgendaPedidoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgendaPedidoComponent", function() { return AgendaPedidoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/models/schema */ "./src/app/models/schema.ts");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+
+
+
+
+
+let AgendaPedidoComponent = class AgendaPedidoComponent {
+    constructor(connexion, router) {
+        this.connexion = connexion;
+        this.router = router;
+        this.totalCompra = 0;
+    }
+    ngOnInit() {
+        this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
+        if (this.localCompany) {
+            this.codigoPedido = 0; //this.generaCodigoVerificacion();
+            this.pedido = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__["Pedido"]();
+            this.pedido.productos = JSON.parse(localStorage.getItem('pedido'));
+            this.calculaTotal();
+        }
+        else {
+            this.router.navigate(['/sign/login']);
+        }
+    }
+    enviar() {
+        document.getElementById("btnAgendar")['disabled'] = true;
+        this.pedido.codigo = 0; //this.codigoPedido;
+        this.pedido.fechaHora = new Date();
+        this.pedido.usuario = { id: '', nombre: '', telefono: '', fotografia: '', tipoVehiculo: '', placaVehiculo: '', detallesVehiculo: '' };
+        this.pedido.companyName = this.localCompany[0].companyName;
+        if (this.localCompany[0].sucursalName) {
+            this.pedido.sucursalName = this.localCompany[0].sucursalName;
+        }
+        else {
+            this.pedido.sucursalName = '0';
+        }
+        this.pedido.estadoActual = 1;
+        this.pedido.ubicacionActual = 'bbb';
+        this.pedido.entrega = { usuarioNombre: '', registroFoto: '', cancelaPedido: new Date(), asignadoPedido: new Date(), recogidoPedido: new Date(), entregadoPedido: new Date() };
+        this.connexion.addObject('creaPedido', this.pedido).subscribe(regis => {
+            console.log('Datos guardados con éxito.');
+            this.router.navigate(['/compraProductos']);
+        }, error => { console.log('Error al guardar los datos.'); });
+    }
+    /*generaCodigoVerificacion = () => {
+      return Math.random().toString(36).substring(7);
+    }*/
+    calculaTotal() {
+        this.totalCompra = 0;
+        this.pedido.productos.forEach(element => {
+            this.totalCompra += (Number(element.costo) * Number(element.cantidad));
+        });
+    }
+};
+AgendaPedidoComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AgendaPedidoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-agenda-pedido',
+        template: __webpack_require__(/*! raw-loader!./agenda-pedido.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/agenda-pedido/agenda-pedido.component.html"),
+        styles: [__webpack_require__(/*! ./agenda-pedido.component.css */ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.css")]
+    })
+], AgendaPedidoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/capture/capture.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/adm/views/capture/capture.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#video {\r\n    border: 1px solid black;\r\n    box-shadow: 2px 2px 3px black;\r\n    width:320px;\r\n    height:240px;\r\n  }\r\n  \r\n  #photo {\r\n    border: 1px solid black;\r\n    box-shadow: 2px 2px 3px black;\r\n    width:320px;\r\n    height:240px;\r\n  }\r\n  \r\n  #canvas {\r\n    display:none;\r\n  }\r\n  \r\n  .camera {\r\n    width: 340px;\r\n    display:inline-block;\r\n  }\r\n  \r\n  .output {\r\n    width: 340px;\r\n    display:inline-block;\r\n  }\r\n  \r\n  #startbutton {\r\n    display:block;\r\n    position:relative;\r\n    margin-left:auto;\r\n    margin-right:auto;\r\n    bottom:32px;\r\n    background-color: rgba(0, 150, 0, 0.5);\r\n    border: 1px solid rgba(255, 255, 255, 0.7);\r\n    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);\r\n    font-size: 14px;\r\n    font-family: \"Lucida Grande\", \"Arial\", sans-serif;\r\n    color: rgba(255, 255, 255, 1.0);\r\n  }\r\n  \r\n  .contentarea {\r\n    font-size: 16px;\r\n    font-family: \"Lucida Grande\", \"Arial\", sans-serif;\r\n    width: 760px;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2NhcHR1cmUvY2FwdHVyZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksdUJBQXVCO0lBQ3ZCLDZCQUE2QjtJQUM3QixXQUFXO0lBQ1gsWUFBWTtFQUNkOztFQUVBO0lBQ0UsdUJBQXVCO0lBQ3ZCLDZCQUE2QjtJQUM3QixXQUFXO0lBQ1gsWUFBWTtFQUNkOztFQUVBO0lBQ0UsWUFBWTtFQUNkOztFQUVBO0lBQ0UsWUFBWTtJQUNaLG9CQUFvQjtFQUN0Qjs7RUFFQTtJQUNFLFlBQVk7SUFDWixvQkFBb0I7RUFDdEI7O0VBRUE7SUFDRSxhQUFhO0lBQ2IsaUJBQWlCO0lBQ2pCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsV0FBVztJQUNYLHNDQUFzQztJQUN0QywwQ0FBMEM7SUFDMUMsOENBQThDO0lBQzlDLGVBQWU7SUFDZixpREFBaUQ7SUFDakQsK0JBQStCO0VBQ2pDOztFQUVBO0lBQ0UsZUFBZTtJQUNmLGlEQUFpRDtJQUNqRCxZQUFZO0VBQ2QiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvY2FwdHVyZS9jYXB0dXJlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjdmlkZW8ge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgICBib3gtc2hhZG93OiAycHggMnB4IDNweCBibGFjaztcclxuICAgIHdpZHRoOjMyMHB4O1xyXG4gICAgaGVpZ2h0OjI0MHB4O1xyXG4gIH1cclxuICBcclxuICAjcGhvdG8ge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgICBib3gtc2hhZG93OiAycHggMnB4IDNweCBibGFjaztcclxuICAgIHdpZHRoOjMyMHB4O1xyXG4gICAgaGVpZ2h0OjI0MHB4O1xyXG4gIH1cclxuICBcclxuICAjY2FudmFzIHtcclxuICAgIGRpc3BsYXk6bm9uZTtcclxuICB9XHJcbiAgXHJcbiAgLmNhbWVyYSB7XHJcbiAgICB3aWR0aDogMzQwcHg7XHJcbiAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcclxuICB9XHJcbiAgXHJcbiAgLm91dHB1dCB7XHJcbiAgICB3aWR0aDogMzQwcHg7XHJcbiAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcclxuICB9XHJcbiAgXHJcbiAgI3N0YXJ0YnV0dG9uIHtcclxuICAgIGRpc3BsYXk6YmxvY2s7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxuICAgIG1hcmdpbi1sZWZ0OmF1dG87XHJcbiAgICBtYXJnaW4tcmlnaHQ6YXV0bztcclxuICAgIGJvdHRvbTozMnB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAxNTAsIDAsIDAuNSk7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNyk7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDFweCAycHggcmdiYSgwLCAwLCAwLCAwLjIpO1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFwiTHVjaWRhIEdyYW5kZVwiLCBcIkFyaWFsXCIsIHNhbnMtc2VyaWY7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAxLjApO1xyXG4gIH1cclxuICBcclxuICAuY29udGVudGFyZWEge1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFwiTHVjaWRhIEdyYW5kZVwiLCBcIkFyaWFsXCIsIHNhbnMtc2VyaWY7XHJcbiAgICB3aWR0aDogNzYwcHg7XHJcbiAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/capture/capture.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/adm/views/capture/capture.component.ts ***!
+  \********************************************************/
+/*! exports provided: CaptureComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CaptureComponent", function() { return CaptureComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let CaptureComponent = class CaptureComponent {
+    constructor() {
+        this.width = 320; // We will scale the photo width to this
+        this.height = 0; // This will be computed based on the input stream
+        // |streaming| indicates whether or not we're currently streaming
+        // video from the camera. Obviously, we start at false.
+        this.streaming = false;
+        // The various HTML elements we need to configure or control. These
+        // will be set by the startup() function.
+        this.video = null;
+        this.canvas = null;
+        this.photo = null;
+        this.startbutton = null;
+    }
+    ngOnInit() {
+        this.startup();
+    }
+    startup() {
+        this.video = document.getElementById('video');
+        this.canvas = document.getElementById('canvas');
+        this.photo = document.getElementById('photo');
+        this.startbutton = document.getElementById('startbutton');
+        var self = this;
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(function (stream) {
+            self.video.srcObject = stream;
+            self.video.play();
+        })
+            .catch(function (err) {
+            console.log("An error occurred: " + err);
+        });
+        this.video.addEventListener('canplay', function (ev) {
+            if (!this.streaming) {
+                this.height = this.video.videoHeight / (this.video.videoWidth / this.width);
+                // Firefox currently has a bug where the height can't be read from
+                // the video, so we will make assumptions if this happens.
+                if (isNaN(this.height)) {
+                    this.height = this.width / (4 / 3);
+                }
+                this.video.setAttribute('width', this.width);
+                this.video.setAttribute('height', this.height);
+                this.canvas.setAttribute('width', this.width);
+                this.canvas.setAttribute('height', this.height);
+                this.streaming = true;
+            }
+        }, false);
+        this.startbutton.addEventListener('click', function (ev) {
+            self.takepicture();
+            ev.preventDefault();
+        }, false);
+        this.clearphoto();
+    }
+    // Fill the photo with an indication that none has been
+    // captured.
+    clearphoto() {
+        var context = this.canvas.getContext('2d');
+        context.fillStyle = "#AAA";
+        context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        var data = this.canvas.toDataURL('image/png');
+        this.photo.setAttribute('src', data);
+    }
+    // Capture a photo by fetching the current contents of the video
+    // and drawing it into a canvas, then converting that to a PNG
+    // format data URL. By drawing it on an offscreen canvas and then
+    // drawing that to the screen, we can change its size and/or apply
+    // other changes before drawing it.
+    takepicture() {
+        var context = this.canvas.getContext('2d');
+        if (this.width && this.height) {
+            this.canvas.width = this.width;
+            this.canvas.height = this.height;
+            context.drawImage(this.video, 0, 0, this.width, this.height);
+            var data = this.canvas.toDataURL('image/png');
+            this.photo.setAttribute('src', data);
+        }
+        else {
+            this.clearphoto();
+        }
+    }
+};
+CaptureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-capture',
+        template: __webpack_require__(/*! raw-loader!./capture.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/capture/capture.component.html"),
+        styles: [__webpack_require__(/*! ./capture.component.css */ "./src/app/adm/views/capture/capture.component.css")]
+    })
+], CaptureComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/compra-producto/compra-producto.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/adm/views/compra-producto/compra-producto.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".producto:hover {\r\n    box-shadow: 5px 5px 5px 0px rgba(255,255,255,0.6);\r\n}\r\n.minus:hover {\r\n    cursor: pointer!important;\r\n    color: rgba(255, 0, 0, 0.9)!important;\r\n    border-bottom: 1px solid rgba(255, 0, 0, 0.5);\r\n}\r\n.float-buy {\r\n    box-shadow: 0px 2px 20px 1px rgba(84,84,84,0.74);\r\n}\r\n@media (max-width: 576px) { \r\n    .compras {\r\n        font-size: .8em!important;\r\n    }\r\n    div.producto {\r\n        margin: 5px!important;\r\n        width: 100px; \r\n    }\r\n    .producto img.card-img-top {\r\n        height: 80px;\r\n        width: 80px;\r\n    }\r\n    .card-title h4 {\r\n        font-size: 1.5em;\r\n    }\r\n    .card-title h5 {\r\n        font-size: 1em;\r\n    }\r\n    .float-buy h3 {\r\n        font-size: 1.1em;\r\n        margin: 0 auto!important;\r\n        padding: 0 auto!important;\r\n    }\r\n    .float-buy h4 {\r\n        font-size: 1.3em;\r\n        top: 5px!important;\r\n    }\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2NvbXByYS1wcm9kdWN0by9jb21wcmEtcHJvZHVjdG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUdJLGlEQUFpRDtBQUNyRDtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLHFDQUFxQztJQUNyQyw2Q0FBNkM7QUFDakQ7QUFFQTtJQUdJLGdEQUFnRDtBQUNwRDtBQUVBO0lBQ0k7UUFDSSx5QkFBeUI7SUFDN0I7SUFDQTtRQUNJLHFCQUFxQjtRQUNyQixZQUFZO0lBQ2hCO0lBQ0E7UUFDSSxZQUFZO1FBQ1osV0FBVztJQUNmO0lBQ0E7UUFDSSxnQkFBZ0I7SUFDcEI7SUFDQTtRQUNJLGNBQWM7SUFDbEI7SUFDQTtRQUNJLGdCQUFnQjtRQUNoQix3QkFBd0I7UUFDeEIseUJBQXlCO0lBQzdCO0lBQ0E7UUFDSSxnQkFBZ0I7UUFDaEIsa0JBQWtCO0lBQ3RCO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvY29tcHJhLXByb2R1Y3RvL2NvbXByYS1wcm9kdWN0by5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnByb2R1Y3RvOmhvdmVyIHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogNXB4IDVweCA1cHggMHB4IHJnYmEoMjU1LDI1NSwyNTUsMC42KTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogNXB4IDVweCA1cHggMHB4IHJnYmEoMjU1LDI1NSwyNTUsMC42KTtcclxuICAgIGJveC1zaGFkb3c6IDVweCA1cHggNXB4IDBweCByZ2JhKDI1NSwyNTUsMjU1LDAuNik7XHJcbn1cclxuLm1pbnVzOmhvdmVyIHtcclxuICAgIGN1cnNvcjogcG9pbnRlciFpbXBvcnRhbnQ7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDAsIDAsIDAuOSkhaW1wb3J0YW50O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjU1LCAwLCAwLCAwLjUpO1xyXG59XHJcblxyXG4uZmxvYXQtYnV5IHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogMHB4IDJweCAyMHB4IDFweCByZ2JhKDg0LDg0LDg0LDAuNzQpO1xyXG4gICAgLW1vei1ib3gtc2hhZG93OiAwcHggMnB4IDIwcHggMXB4IHJnYmEoODQsODQsODQsMC43NCk7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMnB4IDIwcHggMXB4IHJnYmEoODQsODQsODQsMC43NCk7XHJcbn1cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOiA1NzZweCkgeyBcclxuICAgIC5jb21wcmFzIHtcclxuICAgICAgICBmb250LXNpemU6IC44ZW0haW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgZGl2LnByb2R1Y3RvIHtcclxuICAgICAgICBtYXJnaW46IDVweCFpbXBvcnRhbnQ7XHJcbiAgICAgICAgd2lkdGg6IDEwMHB4OyBcclxuICAgIH1cclxuICAgIC5wcm9kdWN0byBpbWcuY2FyZC1pbWctdG9wIHtcclxuICAgICAgICBoZWlnaHQ6IDgwcHg7XHJcbiAgICAgICAgd2lkdGg6IDgwcHg7XHJcbiAgICB9XHJcbiAgICAuY2FyZC10aXRsZSBoNCB7XHJcbiAgICAgICAgZm9udC1zaXplOiAxLjVlbTtcclxuICAgIH1cclxuICAgIC5jYXJkLXRpdGxlIGg1IHtcclxuICAgICAgICBmb250LXNpemU6IDFlbTtcclxuICAgIH1cclxuICAgIC5mbG9hdC1idXkgaDMge1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMS4xZW07XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG8haW1wb3J0YW50O1xyXG4gICAgICAgIHBhZGRpbmc6IDAgYXV0byFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgICAuZmxvYXQtYnV5IGg0IHtcclxuICAgICAgICBmb250LXNpemU6IDEuM2VtO1xyXG4gICAgICAgIHRvcDogNXB4IWltcG9ydGFudDtcclxuICAgIH1cclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/compra-producto/compra-producto.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/adm/views/compra-producto/compra-producto.component.ts ***!
+  \************************************************************************/
+/*! exports provided: CompraProductoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompraProductoComponent", function() { return CompraProductoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+
+
+
+
+
+let CompraProductoComponent = class CompraProductoComponent {
+    constructor(cnx, router) {
+        this.cnx = cnx;
+        this.router = router;
+        this.urlImage = '/assets/img/noProduct.png';
+        this.compra = [];
+        this.totalCompra = 0;
+        this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].filesDomain;
+        this.cont = 0;
+    }
+    ngOnInit() {
+        let localCompany = JSON.parse(localStorage.getItem('userCompany'));
+        if (localCompany) {
+            this.cnx.get_dataWithParams('products', '?companyName=' + localCompany[0].companyName + '&estado=1').subscribe(myProds => {
+                this.productos = myProds;
+            });
+        }
+        //this.compra = [];/*
+        //this.compra.id = 0
+        //this.compra.nombre = '';
+        //this.compra.cantidad = 0;*/
+    }
+    comprando(item) {
+        this.cont += 1;
+        if (this.compra.length == 0) {
+            this.compra.push({ id: item._id, nombre: item.nombre, cantidad: 1, costo: item.costo });
+        }
+        else {
+            let nuevaCantidad = 1;
+            let ubicacion = -1;
+            for (let i = 0; i < this.compra.length; i++) {
+                if (this.compra[i].id == item._id) {
+                    nuevaCantidad = this.compra[i].cantidad + 1;
+                    this.compra[i] = { id: item._id, nombre: item.nombre, cantidad: nuevaCantidad, costo: item.costo };
+                    ubicacion = i;
+                    break;
+                }
+            }
+            if (ubicacion == -1) {
+                this.compra.push({ id: item._id, nombre: item.nombre, cantidad: nuevaCantidad, costo: item.costo });
+            }
+        }
+        this.calculaTotal();
+    }
+    quitar(id) {
+        for (let i = 0; i < this.compra.length; i++) {
+            if (this.compra[i].id == id) {
+                let nuevaCantidad = this.compra[i].cantidad - 1;
+                if (nuevaCantidad <= 0) {
+                    this.compra.splice(i, 1);
+                }
+                else {
+                    this.compra[i] = { id: this.compra[i].id, nombre: this.compra[i].nombre, cantidad: nuevaCantidad, costo: this.compra[i].costo };
+                }
+                break;
+            }
+        }
+        this.calculaTotal();
+    }
+    calculaTotal() {
+        this.totalCompra = 0;
+        this.compra.forEach(element => {
+            this.totalCompra += (element.costo * element.cantidad);
+        });
+    }
+    comprar() {
+        localStorage.setItem('pedido', JSON.stringify(this.compra));
+        this.router.navigate(['/agendaPedido']);
+    }
+    cancelar() {
+        this.compra = [];
+    }
+};
+CompraProductoComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+CompraProductoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-compra-producto',
+        template: __webpack_require__(/*! raw-loader!./compra-producto.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/compra-producto/compra-producto.component.html"),
+        styles: [__webpack_require__(/*! ./compra-producto.component.css */ "./src/app/adm/views/compra-producto/compra-producto.component.css")]
+    })
+], CompraProductoComponent);
 
 
 
@@ -8046,12 +8593,10 @@ ShowErrorsComponent = ShowErrorsComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__
 /*!*********************************************************************!*\
   !*** ./src/app/adm/views/configuration/configuration.component.css ***!
   \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9jb25maWd1cmF0aW9uL2NvbmZpZ3VyYXRpb24uY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9jb25maWd1cmF0aW9uL2NvbmZpZ3VyYXRpb24uY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -8077,8 +8622,8 @@ let ConfigurationComponent = class ConfigurationComponent {
 ConfigurationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-configuration',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./configuration.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/configuration/configuration.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./configuration.component.css */ "./src/app/adm/views/configuration/configuration.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./configuration.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/configuration/configuration.component.html"),
+        styles: [__webpack_require__(/*! ./configuration.component.css */ "./src/app/adm/views/configuration/configuration.component.css")]
     })
 ], ConfigurationComponent);
 
@@ -8090,12 +8635,10 @@ ConfigurationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************************************************************!*\
   !*** ./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.css ***!
   \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("span {\r\n    color: white;\r\n    text-align: left;\r\n}\r\n\r\n.foto {\r\n    margin: 5px 0;\r\n}\r\n\r\n.ficha {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n    border-left: 4px solid silver;\r\n    padding-right: 4px;\r\n}\r\n\r\n.ficha:hover {\r\n    border: 1px solid silver;\r\n    box-shadow: 0 0 10px silver;\r\n    transition-duration: 300ms;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2Rlc2NlbmRlbmNpYS1maWNoYS9kZXNjZW5kZW5jaWEtZmljaGEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHVCQUF1QjtJQUN2Qiw2QkFBNkI7SUFDN0Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksd0JBQXdCO0lBQ3hCLDJCQUEyQjtJQUMzQiwwQkFBMEI7QUFDOUIiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvZGVzY2VuZGVuY2lhLWZpY2hhL2Rlc2NlbmRlbmNpYS1maWNoYS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3BhbiB7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcblxyXG4uZm90byB7XHJcbiAgICBtYXJnaW46IDVweCAwO1xyXG59XHJcblxyXG4uZmljaGEge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgICBib3JkZXItbGVmdDogNHB4IHNvbGlkIHNpbHZlcjtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDRweDtcclxufVxyXG5cclxuLmZpY2hhOmhvdmVyIHtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIHNpbHZlcjtcclxuICAgIGJveC1zaGFkb3c6IDAgMCAxMHB4IHNpbHZlcjtcclxuICAgIHRyYW5zaXRpb24tZHVyYXRpb246IDMwMG1zO1xyXG59Il19 */");
+module.exports = "span {\r\n    color: white;\r\n    text-align: left;\r\n}\r\n\r\n.foto {\r\n    margin: 5px 0;\r\n}\r\n\r\n.ficha {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n    border-left: 4px solid silver;\r\n    padding-right: 4px;\r\n}\r\n\r\n.ficha:hover {\r\n    border: 1px solid silver;\r\n    box-shadow: 0 0 10px silver;\r\n    transition-duration: 300ms;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2Rlc2NlbmRlbmNpYS1maWNoYS9kZXNjZW5kZW5jaWEtZmljaGEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHVCQUF1QjtJQUN2Qiw2QkFBNkI7SUFDN0Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksd0JBQXdCO0lBQ3hCLDJCQUEyQjtJQUMzQiwwQkFBMEI7QUFDOUIiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvZGVzY2VuZGVuY2lhLWZpY2hhL2Rlc2NlbmRlbmNpYS1maWNoYS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3BhbiB7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcblxyXG4uZm90byB7XHJcbiAgICBtYXJnaW46IDVweCAwO1xyXG59XHJcblxyXG4uZmljaGEge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgICBib3JkZXItbGVmdDogNHB4IHNvbGlkIHNpbHZlcjtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDRweDtcclxufVxyXG5cclxuLmZpY2hhOmhvdmVyIHtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIHNpbHZlcjtcclxuICAgIGJveC1zaGFkb3c6IDAgMCAxMHB4IHNpbHZlcjtcclxuICAgIHRyYW5zaXRpb24tZHVyYXRpb246IDMwMG1zO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -8160,8 +8703,8 @@ DescendenciaFichaComponent.ctorParameters = () => [
 DescendenciaFichaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-descendencia-ficha',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./descendencia-ficha.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./descendencia-ficha.component.css */ "./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./descendencia-ficha.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.html"),
+        styles: [__webpack_require__(/*! ./descendencia-ficha.component.css */ "./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.css")]
     })
 ], DescendenciaFichaComponent);
 
@@ -8173,12 +8716,10 @@ DescendenciaFichaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*****************************************************************************!*\
   !*** ./src/app/adm/views/descendencia-list/descendencia-list.component.css ***!
   \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9kZXNjZW5kZW5jaWEtbGlzdC9kZXNjZW5kZW5jaWEtbGlzdC5jb21wb25lbnQuY3NzIn0= */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9kZXNjZW5kZW5jaWEtbGlzdC9kZXNjZW5kZW5jaWEtbGlzdC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -8313,8 +8854,8 @@ DescendenciaListComponent.ctorParameters = () => [
 DescendenciaListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-descendencia-list',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./descendencia-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-list/descendencia-list.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./descendencia-list.component.css */ "./src/app/adm/views/descendencia-list/descendencia-list.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./descendencia-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-list/descendencia-list.component.html"),
+        styles: [__webpack_require__(/*! ./descendencia-list.component.css */ "./src/app/adm/views/descendencia-list/descendencia-list.component.css")]
     })
 ], DescendenciaListComponent);
 
@@ -8326,12 +8867,10 @@ DescendenciaListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************************************************************!*\
   !*** ./src/app/adm/views/descendencia-profile/descendencia-profile.component.css ***!
   \***********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ul.nav-pills {\r\n    margin-bottom: 50px;\r\n}\r\n\r\nul.nav-pills .active{\r\n    box-shadow: 0px 5px 15px 0px #ffffff4d;\r\n}\r\n\r\n#descendenciaTab {\r\n    padding-top: 16px;\r\n}\r\n\r\n.tab-pane {\r\n    background-color: #1e1e2f;\r\n}\r\n\r\nli.nav-item {\r\n    background-color: var(--gray-dark);\r\n    margin-right: 20px;\r\n    border-radius: 0.25rem;\r\n    -webkit-border-radius: 0.25rem;\r\n    -moz-border-radius: 0.25rem;\r\n    -ms-border-radius: 0.25rem;\r\n    -o-border-radius: 0.25rem;\r\n}\r\n\r\nspan {\r\n    color: white;\r\n    text-align: left;\r\n}\r\n\r\n.foto {\r\n    margin: 5px 0;\r\n}\r\n\r\n.ficha {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n    border-left: 4px solid silver;\r\n    padding-right: 4px;\r\n}\r\n\r\n.ficha:hover {\r\n    border: 1px solid silver;\r\n    box-shadow: 0 0 10px silver;\r\n    transition-duration: 300ms;\r\n}\r\n\r\n#resumen label {\r\n    width: 200px;\r\n    margin: 5px 0;\r\n    font-size: 1.1em;\r\n}\r\n\r\n#resumen span {\r\n    margin: 5px 0;\r\n    font-size: 1.1em;\r\n}\r\n\r\n#resumen .row {\r\n    margin: 5px 0;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2Rlc2NlbmRlbmNpYS1wcm9maWxlL2Rlc2NlbmRlbmNpYS1wcm9maWxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxzQ0FBc0M7QUFDMUM7O0FBRUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxrQ0FBa0M7SUFDbEMsa0JBQWtCO0lBQ2xCLHNCQUFzQjtJQUN0Qiw4QkFBOEI7SUFDOUIsMkJBQTJCO0lBQzNCLDBCQUEwQjtJQUMxQix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQjs7QUFFQTtJQUNJLGVBQWU7SUFDZix1QkFBdUI7SUFDdkIsNkJBQTZCO0lBQzdCLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLHdCQUF3QjtJQUN4QiwyQkFBMkI7SUFDM0IsMEJBQTBCO0FBQzlCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9kZXNjZW5kZW5jaWEtcHJvZmlsZS9kZXNjZW5kZW5jaWEtcHJvZmlsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidWwubmF2LXBpbGxzIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XHJcbn1cclxuXHJcbnVsLm5hdi1waWxscyAuYWN0aXZle1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDVweCAxNXB4IDBweCAjZmZmZmZmNGQ7XHJcbn1cclxuXHJcbiNkZXNjZW5kZW5jaWFUYWIge1xyXG4gICAgcGFkZGluZy10b3A6IDE2cHg7XHJcbn1cclxuLnRhYi1wYW5lIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMxZTFlMmY7XHJcbn1cclxuXHJcbmxpLm5hdi1pdGVtIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWdyYXktZGFyayk7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLW1zLWJvcmRlci1yYWRpdXM6IDAuMjVyZW07XHJcbiAgICAtby1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG59XHJcblxyXG5zcGFuIHtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbn1cclxuXHJcbi5mb3RvIHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbn1cclxuXHJcbi5maWNoYSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgc2lsdmVyO1xyXG4gICAgcGFkZGluZy1yaWdodDogNHB4O1xyXG59XHJcblxyXG4uZmljaGE6aG92ZXIge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgc2lsdmVyO1xyXG4gICAgYm94LXNoYWRvdzogMCAwIDEwcHggc2lsdmVyO1xyXG4gICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogMzAwbXM7XHJcbn1cclxuXHJcbiNyZXN1bWVuIGxhYmVsIHtcclxuICAgIHdpZHRoOiAyMDBweDtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG59XHJcblxyXG4jcmVzdW1lbiBzcGFuIHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG59XHJcblxyXG4jcmVzdW1lbiAucm93IHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbn0iXX0= */");
+module.exports = "ul.nav-pills {\r\n    margin-bottom: 50px;\r\n}\r\n\r\nul.nav-pills .active{\r\n    box-shadow: 0px 5px 15px 0px #ffffff4d;\r\n}\r\n\r\n#descendenciaTab {\r\n    padding-top: 16px;\r\n}\r\n\r\n.tab-pane {\r\n    background-color: #1e1e2f;\r\n}\r\n\r\nli.nav-item {\r\n    background-color: var(--gray-dark);\r\n    margin-right: 20px;\r\n    border-radius: 0.25rem;\r\n    -webkit-border-radius: 0.25rem;\r\n    -moz-border-radius: 0.25rem;\r\n    -ms-border-radius: 0.25rem;\r\n    -o-border-radius: 0.25rem;\r\n}\r\n\r\nspan {\r\n    color: white;\r\n    text-align: left;\r\n}\r\n\r\n.foto {\r\n    margin: 5px 0;\r\n}\r\n\r\n.ficha {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n    border-left: 4px solid silver;\r\n    padding-right: 4px;\r\n}\r\n\r\n.ficha:hover {\r\n    border: 1px solid silver;\r\n    box-shadow: 0 0 10px silver;\r\n    transition-duration: 300ms;\r\n}\r\n\r\n#resumen label {\r\n    width: 200px;\r\n    margin: 5px 0;\r\n    font-size: 1.1em;\r\n}\r\n\r\n#resumen span {\r\n    margin: 5px 0;\r\n    font-size: 1.1em;\r\n}\r\n\r\n#resumen .row {\r\n    margin: 5px 0;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2Rlc2NlbmRlbmNpYS1wcm9maWxlL2Rlc2NlbmRlbmNpYS1wcm9maWxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxzQ0FBc0M7QUFDMUM7O0FBRUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxrQ0FBa0M7SUFDbEMsa0JBQWtCO0lBQ2xCLHNCQUFzQjtJQUN0Qiw4QkFBOEI7SUFDOUIsMkJBQTJCO0lBQzNCLDBCQUEwQjtJQUMxQix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQjs7QUFFQTtJQUNJLGVBQWU7SUFDZix1QkFBdUI7SUFDdkIsNkJBQTZCO0lBQzdCLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLHdCQUF3QjtJQUN4QiwyQkFBMkI7SUFDM0IsMEJBQTBCO0FBQzlCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9kZXNjZW5kZW5jaWEtcHJvZmlsZS9kZXNjZW5kZW5jaWEtcHJvZmlsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidWwubmF2LXBpbGxzIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XHJcbn1cclxuXHJcbnVsLm5hdi1waWxscyAuYWN0aXZle1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDVweCAxNXB4IDBweCAjZmZmZmZmNGQ7XHJcbn1cclxuXHJcbiNkZXNjZW5kZW5jaWFUYWIge1xyXG4gICAgcGFkZGluZy10b3A6IDE2cHg7XHJcbn1cclxuLnRhYi1wYW5lIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMxZTFlMmY7XHJcbn1cclxuXHJcbmxpLm5hdi1pdGVtIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWdyYXktZGFyayk7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG4gICAgLW1zLWJvcmRlci1yYWRpdXM6IDAuMjVyZW07XHJcbiAgICAtby1ib3JkZXItcmFkaXVzOiAwLjI1cmVtO1xyXG59XHJcblxyXG5zcGFuIHtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbn1cclxuXHJcbi5mb3RvIHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbn1cclxuXHJcbi5maWNoYSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgc2lsdmVyO1xyXG4gICAgcGFkZGluZy1yaWdodDogNHB4O1xyXG59XHJcblxyXG4uZmljaGE6aG92ZXIge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgc2lsdmVyO1xyXG4gICAgYm94LXNoYWRvdzogMCAwIDEwcHggc2lsdmVyO1xyXG4gICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogMzAwbXM7XHJcbn1cclxuXHJcbiNyZXN1bWVuIGxhYmVsIHtcclxuICAgIHdpZHRoOiAyMDBweDtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG59XHJcblxyXG4jcmVzdW1lbiBzcGFuIHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG59XHJcblxyXG4jcmVzdW1lbiAucm93IHtcclxuICAgIG1hcmdpbjogNXB4IDA7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -8407,10 +8946,361 @@ DescendenciaProfileComponent.ctorParameters = () => [
 DescendenciaProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-descendencia-profile',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./descendencia-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./descendencia-profile.component.css */ "./src/app/adm/views/descendencia-profile/descendencia-profile.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./descendencia-profile.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/descendencia-profile/descendencia-profile.component.html"),
+        styles: [__webpack_require__(/*! ./descendencia-profile.component.css */ "./src/app/adm/views/descendencia-profile/descendencia-profile.component.css")]
     })
 ], DescendenciaProfileComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/adm/views/ficha-pedido/ficha-pedido.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".ficha {\r\n    width: 250px;\r\n    margin-right: 10px;\r\n    background: rgb(108,117,125);\r\n    background: linear-gradient(180deg, rgba(108,117,125,1) 0%, rgba(50,50,93,1) 15%, rgba(108,117,125,1) 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#6c757d\",endColorstr=\"#6c757d\",GradientType=1);\r\n    -webkit-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#6c757d\",endColorstr=\"#6c757d\",GradientType=1);\r\n}\r\n\r\n.ficha .card-footer {\r\n    border-top: 1px solid red;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2ZpY2hhLXBlZGlkby9maWNoYS1wZWRpZG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsNEJBQTRCO0lBRzVCLDJHQUEyRztJQUMzRywrR0FBK0c7SUFDL0csdUhBQXVIO0FBQzNIOztBQUVBO0lBQ0kseUJBQXlCO0FBQzdCIiwiZmlsZSI6InNyYy9hcHAvYWRtL3ZpZXdzL2ZpY2hhLXBlZGlkby9maWNoYS1wZWRpZG8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5maWNoYSB7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMTA4LDExNywxMjUpO1xyXG4gICAgYmFja2dyb3VuZDogLW1vei1saW5lYXItZ3JhZGllbnQoMTgwZGVnLCByZ2JhKDEwOCwxMTcsMTI1LDEpIDAlLCByZ2JhKDUwLDUwLDkzLDEpIDE1JSwgcmdiYSgxMDgsMTE3LDEyNSwxKSAxMDAlKTtcclxuICAgIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KDE4MGRlZywgcmdiYSgxMDgsMTE3LDEyNSwxKSAwJSwgcmdiYSg1MCw1MCw5MywxKSAxNSUsIHJnYmEoMTA4LDExNywxMjUsMSkgMTAwJSk7XHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTgwZGVnLCByZ2JhKDEwOCwxMTcsMTI1LDEpIDAlLCByZ2JhKDUwLDUwLDkzLDEpIDE1JSwgcmdiYSgxMDgsMTE3LDEyNSwxKSAxMDAlKTtcclxuICAgIGZpbHRlcjpwcm9naWQ6RFhJbWFnZVRyYW5zZm9ybS5NaWNyb3NvZnQuZ3JhZGllbnQoc3RhcnRDb2xvcnN0cj1cIiM2Yzc1N2RcIixlbmRDb2xvcnN0cj1cIiM2Yzc1N2RcIixHcmFkaWVudFR5cGU9MSk7XHJcbiAgICAtd2Via2l0LWZpbHRlcjpwcm9naWQ6RFhJbWFnZVRyYW5zZm9ybS5NaWNyb3NvZnQuZ3JhZGllbnQoc3RhcnRDb2xvcnN0cj1cIiM2Yzc1N2RcIixlbmRDb2xvcnN0cj1cIiM2Yzc1N2RcIixHcmFkaWVudFR5cGU9MSk7XHJcbn1cclxuXHJcbi5maWNoYSAuY2FyZC1mb290ZXIge1xyXG4gICAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHJlZDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts ***!
+  \******************************************************************/
+/*! exports provided: FichaPedidoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FichaPedidoComponent", function() { return FichaPedidoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/toast.service */ "./src/app/services/toast.service.ts");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+/* harmony import */ var src_app_models_person__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/person */ "./src/app/models/person.ts");
+
+
+
+
+
+
+
+let FichaPedidoComponent = class FichaPedidoComponent {
+    constructor(connexion, ruta, router, toastService) {
+        this.connexion = connexion;
+        this.ruta = ruta;
+        this.router = router;
+        this.toastService = toastService;
+        this.titulo = '';
+        this.pedidos = [];
+        this.ListVehiculo = [];
+        this.todasEmpresas = [];
+        this.urlImage = '/assets/img/noPicture.png';
+        this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalVars"].filesDomain;
+        this.rolActual = '';
+        this.btnAccion = '';
+        this.listSucursal = [];
+        this.todasSucursales = [];
+        this.mostrar = true;
+        this.persona = new src_app_models_person__WEBPACK_IMPORTED_MODULE_6__["person"]();
+    }
+    ngOnInit() {
+        this.connexion.get_data('location').subscribe(reslo => {
+            this.todasSucursales = reslo.filter(LOC => LOC.owner == null);
+            this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
+        });
+        this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
+        this.rolActual = this.buscaRol();
+        this.ruta.paramMap.subscribe((params) => {
+            this.estadoActual = params.get('estado');
+            this.cambiaTitulo(this.estadoActual);
+            setTimeout(() => {
+                this.cargaFichas(this.estadoActual);
+            }, 1000);
+            if ((this.rolActual == 'rep') && (this.estadoActual == '1')) {
+                this.connexion.get_data('typecontext').subscribe(reslo => {
+                    this.ListVehiculo = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo);
+                    this.todasEmpresas = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company);
+                }, error => {
+                    console.log('Hubo un problema al cargar datos. ' + error);
+                });
+                /*this.connexion.get_dataId<person>('person', localStorage.getItem('code')).subscribe(
+                  resp => {
+                    console.log('resp', resp);
+                    this.persona = resp[0];
+                  }
+                );*/
+            }
+        });
+    }
+    buscaRol() {
+        let rol = '';
+        switch (this.localCompany[0].typeAccount) {
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].adm:
+                rol = 'adm';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].dist:
+                rol = 'dist';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].rep:
+                rol = 'rep';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].sup:
+                rol = 'sup';
+                break;
+            default:
+                rol = '';
+                break;
+        }
+        return rol;
+    }
+    cambiaTitulo(estado) {
+        if (this.rolActual != '') {
+            switch (estado) {
+                case '0':
+                    this.titulo = 'Cancelados';
+                    this.btnAccion = '';
+                    this.mostrar = true;
+                    break;
+                case '1':
+                    this.titulo = 'Pendientes';
+                    if (this.rolActual == 'rep') {
+                        this.btnAccion = 'Asignarme';
+                    }
+                    else {
+                        this.btnAccion = 'Cancelar Pedido';
+                    }
+                    this.mostrar = true;
+                    break;
+                case '2':
+                    this.titulo = 'Asignados';
+                    if (this.rolActual == 'rep') {
+                        this.btnAccion = 'Recogido';
+                    }
+                    else {
+                        this.btnAccion = 'Cancelar Pedido';
+                    }
+                    this.mostrar = true;
+                    break;
+                case '3':
+                    this.titulo = 'Recogidos';
+                    if (this.rolActual == 'rep') {
+                        this.btnAccion = 'Entregado';
+                    }
+                    else {
+                        this.btnAccion = 'Cancelar Pedido';
+                    }
+                    this.mostrar = true;
+                    break;
+                case '4':
+                    this.titulo = 'En Tránsito';
+                    this.btnAccion = '';
+                    this.mostrar = true;
+                    break;
+                case '5':
+                    this.titulo = 'Entregados';
+                    this.btnAccion = '';
+                    this.mostrar = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+            this.btnAccion = '';
+            this.router.navigate(['/main']);
+        }
+    }
+    armaConsulta(estado) {
+        let eleccion = '';
+        if (this.localCompany) {
+            if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].adm == this.localCompany[0].typeAccount) {
+                //eleccion = '&sucursalName=' + this.localCompany[0].sucursalName;
+                eleccion = '&companyName=' + this.localCompany[0].companyName;
+            }
+            if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].rep == this.localCompany[0].typeAccount) {
+                //eleccion = '&companyName=' + this.localCompany[0].companyName;
+                if (estado != 1) {
+                    eleccion += '&usuario.id=' + localStorage.code;
+                }
+            }
+        }
+        return '?estadoActual=' + estado + eleccion;
+    }
+    cargaFichas(estado) {
+        let consulta = this.armaConsulta(estado);
+        this.connexion.get_dataWithParamsNoAuth('pedido', consulta).subscribe(resp => {
+            this.pedidos = resp;
+            this.pedidos.forEach(element => {
+                /*this.todasSucursales.forEach(sucursal => {
+                  console.log(sucursal._id, element.sucursalName);
+                  if (sucursal._id == element.sucursalName) {
+                    element['Sucursal'] = sucursal.name;
+                  }
+                });*/
+                element = this.calculaTotal(element);
+                switch (estado) {
+                    case '1':
+                        element = this.calculaHora(element, element.fechaHora);
+                        break;
+                    case '2':
+                        element = this.calculaHora(element, element.entrega.asignadoPedido);
+                        break;
+                    case '3':
+                        element = this.calculaHora(element, element.entrega.recogidoPedido);
+                        break;
+                    case '0':
+                        element = this.calculaHora(element, element.entrega.cancelaPedido);
+                        break;
+                    case '5':
+                        element = this.calculaHora(element, element.entrega.entregadoPedido);
+                        break;
+                }
+            });
+            console.log('this.pedidos', this.pedidos);
+        }, error => {
+            console.log('Error: ', error);
+        });
+    }
+    calculaTotal(array) {
+        let total = 0;
+        array.productos.forEach(element => {
+            total += element.cantidad * element.costo;
+        });
+        array['total'] = total;
+        return array;
+    }
+    calculaHora(array, fecha) {
+        let ahora = new Date().getTime();
+        let tiempoTemp = (ahora - new Date(fecha).getTime()) / (1000 * 60 * 60);
+        let tiempoFinal = '';
+        if (Math.trunc(tiempoTemp) > 0) {
+            tiempoFinal = Math.trunc(tiempoTemp) + ' hrs ' + Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) + ' min';
+            array['color'] = 'red';
+        }
+        else {
+            tiempoFinal = Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) + ' min';
+            if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 3) {
+                array['color'] = 'green';
+            }
+            else {
+                if (Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) < 7) {
+                    array['color'] = 'yellow';
+                }
+                else {
+                    array['color'] = 'red';
+                }
+            }
+        }
+        array['restar'] = tiempoFinal;
+        for (let i = 0; i < this.todasSucursales.length; i++) {
+            if (this.todasSucursales[i]._id == array.sucursalName) {
+                array['sucursal'] = this.todasSucursales[i].name;
+                array['geoData'] = this.todasSucursales[i].geoData;
+            }
+        }
+        for (let i = 0; i < this.todasEmpresas.length; i++) {
+            if (this.todasEmpresas[i]._id == array.companyName) {
+                array['empresa'] = this.todasEmpresas[i].name;
+            }
+        }
+        return array;
+    }
+    ampliar(item) {
+        this.elegido = item;
+    }
+    btnPedido(id) {
+        this.pedidos.forEach(element => {
+            if (element['_id'] == id) {
+                this.realizaCambio(element);
+            }
+        });
+        $('#ampliado').modal('hide');
+    }
+    realizaCambio(element) {
+        let nuevoEstado = this.calculaEstado();
+        element.estadoActual = nuevoEstado;
+        if (nuevoEstado != 0) {
+            element.usuario.id = localStorage.getItem('code');
+            element.usuario.nombre = localStorage.getItem('userName');
+            element.usuario.telefono = localStorage.getItem('userPhone');
+            element.usuario.fotografia = localStorage.getItem('photo');
+            //this.urlImage = element.usuario.fotografia;
+            for (let i = 0; i < this.ListVehiculo.length; i++) {
+                if (this.ListVehiculo[i]._id == JSON.parse(localStorage.getItem('vehiculo')).tipoVehiculo) { //this.persona.vehiculo.tipoVehiculo) {
+                    element.usuario.tipoVehiculo = this.ListVehiculo[i].name;
+                }
+            }
+            element.usuario.placaVehiculo = JSON.parse(localStorage.getItem('vehiculo')).placaVehiculo;
+            element.usuario.detallesVehiculo = JSON.parse(localStorage.getItem('vehiculo')).detallesVehiculo;
+        }
+        switch (this.btnAccion) {
+            case 'Asignarme':
+                element.entrega.asignadoPedido = new Date();
+                break;
+            case 'Recogido':
+                element.entrega.recogidoPedido = new Date();
+                break;
+            case 'Entregado':
+                element.entrega.entregadoPedido = new Date();
+                break;
+            case 'Cancelar Pedido':
+                element.entrega.cancelaPedido = new Date();
+                break;
+        }
+        this.connexion.editObject('pedido', element).subscribe(resp => {
+            this.cargaFichas(this.estadoActual);
+        }, error => {
+            console.log('Error: ' + error);
+        });
+    }
+    calculaEstado() {
+        let nuevoEstado = this.estadoActual;
+        if (this.rolActual == 'rep') {
+            switch (this.estadoActual) {
+                case '0':
+                    nuevoEstado = 0;
+                    break;
+                case '1':
+                    nuevoEstado = 2;
+                    break;
+                case '2':
+                    nuevoEstado = 3;
+                    break;
+                case '3':
+                    nuevoEstado = 5;
+                    break;
+                case '4':
+                    nuevoEstado = 0;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+            nuevoEstado = 0;
+        }
+        return nuevoEstado;
+    }
+};
+FichaPedidoComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"] }
+];
+FichaPedidoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-ficha-pedido',
+        template: __webpack_require__(/*! raw-loader!./ficha-pedido.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/ficha-pedido/ficha-pedido.component.html"),
+        styles: [__webpack_require__(/*! ./ficha-pedido.component.css */ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.css")]
+    })
+], FichaPedidoComponent);
 
 
 
@@ -8420,12 +9310,10 @@ DescendenciaProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"](
 /*!*************************************************************************!*\
   !*** ./src/app/adm/views/invitation-list/invitation-list.component.css ***!
   \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9pbnZpdGF0aW9uLWxpc3QvaW52aXRhdGlvbi1saXN0LmNvbXBvbmVudC5jc3MifQ== */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9pbnZpdGF0aW9uLWxpc3QvaW52aXRhdGlvbi1saXN0LmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -8546,8 +9434,8 @@ InvitationListComponent.ctorParameters = () => [
 InvitationListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-invitation-list',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./invitation-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation-list/invitation-list.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./invitation-list.component.css */ "./src/app/adm/views/invitation-list/invitation-list.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./invitation-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/invitation-list/invitation-list.component.html"),
+        styles: [__webpack_require__(/*! ./invitation-list.component.css */ "./src/app/adm/views/invitation-list/invitation-list.component.css")]
     })
 ], InvitationListComponent);
 
@@ -8559,12 +9447,10 @@ InvitationListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************************************!*\
   !*** ./src/app/adm/views/invitation/invitation.component.css ***!
   \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".procesa {\r\n    opacity: .5;\r\n}\r\n\r\n.noProcesa {\r\n    opacity: 1;\r\n}\r\n\r\n.procesando {\r\n    background-color: var(--pink);\r\n    width: 30em;\r\n    height: 100px;\r\n    position: absolute;\r\n    border-radius: 20px;\r\n    align-content: center;\r\n    margin: 0 auto;\r\n    box-shadow: 5px 5px 8px -5px white;\r\n    -moz-box-shadow: 5px 5px 8px -5px white;\r\n    -webkit-box-shadow: 5px 5px 8px -5px white;\r\n    top: 50%;\r\n    left: calc(50% - 15em);\r\n}\r\n\r\n.procesando > h3{\r\n    text-align: center;\r\n    padding-top: 20px;\r\n    margin: 0;\r\n    padding-bottom: 0;\r\n}\r\n\r\n.visible {\r\n    display: block;\r\n}\r\n\r\n.invisible {\r\n    display: none;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2ludml0YXRpb24vaW52aXRhdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksNkJBQTZCO0lBQzdCLFdBQVc7SUFDWCxhQUFhO0lBQ2Isa0JBQWtCO0lBQ2xCLG1CQUFtQjtJQUNuQixxQkFBcUI7SUFDckIsY0FBYztJQUNkLGtDQUFrQztJQUNsQyx1Q0FBdUM7SUFDdkMsMENBQTBDO0lBQzFDLFFBQVE7SUFDUixzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0lBQ2pCLFNBQVM7SUFDVCxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSxjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9pbnZpdGF0aW9uL2ludml0YXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wcm9jZXNhIHtcclxuICAgIG9wYWNpdHk6IC41O1xyXG59XHJcblxyXG4ubm9Qcm9jZXNhIHtcclxuICAgIG9wYWNpdHk6IDE7XHJcbn1cclxuXHJcbi5wcm9jZXNhbmRvIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXBpbmspO1xyXG4gICAgd2lkdGg6IDMwZW07XHJcbiAgICBoZWlnaHQ6IDEwMHB4O1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjBweDtcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIHRvcDogNTAlO1xyXG4gICAgbGVmdDogY2FsYyg1MCUgLSAxNWVtKTtcclxufVxyXG5cclxuLnByb2Nlc2FuZG8gPiBoM3tcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDA7XHJcbn1cclxuLnZpc2libGUge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5pbnZpc2libGUge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufSJdfQ== */");
+module.exports = ".procesa {\r\n    opacity: .5;\r\n}\r\n\r\n.noProcesa {\r\n    opacity: 1;\r\n}\r\n\r\n.procesando {\r\n    background-color: var(--pink);\r\n    width: 30em;\r\n    height: 100px;\r\n    position: absolute;\r\n    border-radius: 20px;\r\n    align-content: center;\r\n    margin: 0 auto;\r\n    box-shadow: 5px 5px 8px -5px white;\r\n    -moz-box-shadow: 5px 5px 8px -5px white;\r\n    -webkit-box-shadow: 5px 5px 8px -5px white;\r\n    top: 50%;\r\n    left: calc(50% - 15em);\r\n}\r\n\r\n.procesando > h3{\r\n    text-align: center;\r\n    padding-top: 20px;\r\n    margin: 0;\r\n    padding-bottom: 0;\r\n}\r\n\r\n.visible {\r\n    display: block;\r\n}\r\n\r\n.invisible {\r\n    display: none;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2ludml0YXRpb24vaW52aXRhdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksNkJBQTZCO0lBQzdCLFdBQVc7SUFDWCxhQUFhO0lBQ2Isa0JBQWtCO0lBQ2xCLG1CQUFtQjtJQUNuQixxQkFBcUI7SUFDckIsY0FBYztJQUNkLGtDQUFrQztJQUNsQyx1Q0FBdUM7SUFDdkMsMENBQTBDO0lBQzFDLFFBQVE7SUFDUixzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0lBQ2pCLFNBQVM7SUFDVCxpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSxjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksYUFBYTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9pbnZpdGF0aW9uL2ludml0YXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wcm9jZXNhIHtcclxuICAgIG9wYWNpdHk6IC41O1xyXG59XHJcblxyXG4ubm9Qcm9jZXNhIHtcclxuICAgIG9wYWNpdHk6IDE7XHJcbn1cclxuXHJcbi5wcm9jZXNhbmRvIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXBpbmspO1xyXG4gICAgd2lkdGg6IDMwZW07XHJcbiAgICBoZWlnaHQ6IDEwMHB4O1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjBweDtcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogNXB4IDVweCA4cHggLTVweCB3aGl0ZTtcclxuICAgIHRvcDogNTAlO1xyXG4gICAgbGVmdDogY2FsYyg1MCUgLSAxNWVtKTtcclxufVxyXG5cclxuLnByb2Nlc2FuZG8gPiBoM3tcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDA7XHJcbn1cclxuLnZpc2libGUge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5pbnZpc2libGUge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -8615,17 +9501,21 @@ let InvitationComponent = class InvitationComponent {
         this.correct = false;
         this.ListCompany = [];
         this.ListRol = [];
+        this.ListVehiculo = [];
         this.ListLOC = [];
         this.ListLOCMain = [];
         this.listDepa = [];
         this.depasCI = [];
         this.listCiudad = [];
         this.listZona = [];
+        this.listSucursal = [];
         this.isSaved = false;
-        this.equipoActual = '';
+        this.companiaActual = '';
+        this.verVehiculo = false;
         this.invitation = new src_app_models_invitation__WEBPACK_IMPORTED_MODULE_4__["invitation"]();
         this.job = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["job"]();
         this.contact = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["contact"]();
+        this.vehiculo = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["vehiculo"]();
         this.profile = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["profile"]();
         this.address = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_5__["address"]();
         //this.field = new field();
@@ -8642,16 +9532,19 @@ let InvitationComponent = class InvitationComponent {
             this.ListLOC = reslo;
             this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais);
             this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad);
+            this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
             this.ListCompany = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company);
             this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
+            this.ListVehiculo = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.invitation.contact = this.contact;
+        this.invitation.vehiculo = this.vehiculo;
         this.invitation.profile = this.profile;
         this.contact.address = this.address;
         this.address.country = '';
@@ -8724,7 +9617,7 @@ let InvitationComponent = class InvitationComponent {
         this.isSaved = true;
         this.agregarDireccion();
         this.invitation.estado = 1;
-        this.invitation.job = { ciMain: localStorage.getItem('code').substr(1), companyName: this.job.companyName, typeAccount: this.job.typeAccount };
+        this.invitation.job = { ciMain: localStorage.getItem('code').substr(1), companyName: this.job.companyName, sucursalName: this.job.sucursalName, typeAccount: this.job.typeAccount };
         let fechaHora = new Date();
         this.invitation.date = fechaHora;
         let pass = this.generarCodigo();
@@ -8816,17 +9709,28 @@ let InvitationComponent = class InvitationComponent {
     updateSelectCiudad(index) {
         this.listZona = this.ListLOC.filter(LOC => LOC.owner == index);
     }
+    updateSelectSucursal(index) {
+        //this.listSucursal = this.ListLOC.filter(LOC => LOC.owner == index);
+    }
     updateSelectEquipo(index) {
         //this.ListCompany = this.ListCompany.filter(LOC => LOC._id == index);
     }
     updateSelectRol(index) {
+        if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["userPermissions"].rep == index) {
+            this.verVehiculo = true;
+        }
+        else {
+            this.verVehiculo = false;
+        }
         //this.ListRol = this.ListRol.filter(LOC => LOC._id == index);
+    }
+    updateSelectVehiculo(index) {
     }
     updateEmp(id) {
         this.ListCompany.forEach(comp => {
             if (id == comp._id) {
                 localStorage.setItem('actual', id);
-                this.equipoActual = comp.name;
+                this.companiaActual = comp.name;
             }
         });
     }
@@ -8845,10 +9749,167 @@ InvitationComponent.ctorParameters = () => [
 InvitationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-invitation',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./invitation.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/invitation/invitation.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./invitation.component.css */ "./src/app/adm/views/invitation/invitation.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./invitation.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/invitation/invitation.component.html"),
+        styles: [__webpack_require__(/*! ./invitation.component.css */ "./src/app/adm/views/invitation/invitation.component.css")]
     })
 ], InvitationComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/lista-agendados/lista-agendados.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/adm/views/lista-agendados/lista-agendados.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9saXN0YS1hZ2VuZGFkb3MvbGlzdGEtYWdlbmRhZG9zLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/lista-agendados/lista-agendados.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/adm/views/lista-agendados/lista-agendados.component.ts ***!
+  \************************************************************************/
+/*! exports provided: ListaAgendadosComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListaAgendadosComponent", function() { return ListaAgendadosComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/toast.service */ "./src/app/services/toast.service.ts");
+
+
+
+
+
+let ListaAgendadosComponent = class ListaAgendadosComponent {
+    constructor(cnx, ruta, router, toastService, cd) {
+        this.cnx = cnx;
+        this.ruta = ruta;
+        this.router = router;
+        this.toastService = toastService;
+        this.cd = cd;
+        this.entries = 10;
+        this.status = 1;
+        this.isLoading = true;
+        this.temp = [];
+    }
+    ngOnInit() {
+        this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
+        this.sucursalName = this.localCompany[0].sucursalName;
+        this.obtenerDatos(1, this.sucursalName);
+    }
+    entriesChange($event) {
+        this.entries = $event.target.value;
+    }
+    statusChange($event) {
+        this.status = $event.target.value;
+        this.obtenerDatos(this.status, this.myID);
+    }
+    obtenerDatos(state, id) {
+        this.isLoading = true;
+        this.cnx.get_dataWithParams('pedido', '?estadoActual=' + state + '&sucursalName=' + this.sucursalName).subscribe(myProds => {
+            console.log(myProds);
+            this.rows = myProds;
+            setTimeout(() => {
+                this.isLoading = false;
+            }, 1500);
+            this.temp = myProds.map((prop, key) => {
+                return Object.assign({}, prop, { parentId: null, id: key });
+            });
+        });
+        this.isLoading = false;
+    }
+    filterTable($event) {
+        let val = $event.target.value.toString().toLowerCase();
+        this.temp = this.rows.filter(function (d) {
+            for (var key in d) {
+                if (d[key]) {
+                    try {
+                        if (d[key].toString().toLowerCase().indexOf(val) !== -1) {
+                            return true;
+                        }
+                    }
+                    catch (error) {
+                        console.log(d[key], error);
+                    }
+                }
+            }
+            return false;
+        });
+    }
+    refreshFunction(event) {
+        event.preventDefault();
+        this.obtenerDatos(this.status, this.myID);
+    }
+    exportFunction(event) {
+        event.preventDefault();
+        this.error('Espacio Insuficiente en el Disco', 'MLM Export');
+    }
+    success(message, title) {
+        this.toastService.success(message, title);
+    }
+    error(message, title) {
+        this.toastService.error(message, title);
+    }
+    onActivate(event) {
+        this.activeRow = event.row;
+    }
+    onTreeAction(event) {
+        /*const index = event.rowIndex;
+        const row = event.row;
+        if (row.treeStatus === 'collapsed') {
+          row.treeStatus = 'loading';
+    
+          let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
+          this.cnx.get_dataWithParams<person>('personAssociated', '?userID=' + row._id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + row.estado).subscribe(myTreeAssoc => {
+            console.log('myAdsmyAds', myTreeAssoc);
+    
+            //this.rows = myTreeAssoc[0].associated;
+            let data = myTreeAssoc[0].associated.map((prop, key) => {
+              return {
+                ...prop,
+                treeStatus: 'collapsed',
+                parentId: row.id,
+                id: key
+              };
+            });
+            this.temp = [...this.temp, ...data]
+          });
+          row.treeStatus = 'expanded';
+          this.cd.detectChanges();
+        } else {
+          row.treeStatus = 'collapsed';
+          this.rows = [...this.rows];
+          this.cd.detectChanges();
+        }*/
+    }
+    deleteFunction($event) {
+        $event.preventDefault();
+        //this.router.navigate(['/descendenciaFicha/' + this.activeRow._id]);
+    }
+};
+ListaAgendadosComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+];
+ListaAgendadosComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-lista-agendados',
+        template: __webpack_require__(/*! raw-loader!./lista-agendados.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/lista-agendados/lista-agendados.component.html"),
+        styles: [__webpack_require__(/*! ./lista-agendados.component.css */ "./src/app/adm/views/lista-agendados/lista-agendados.component.css")]
+    })
+], ListaAgendadosComponent);
 
 
 
@@ -8858,12 +9919,10 @@ InvitationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************************!*\
   !*** ./src/app/adm/views/main/main.component.css ***!
   \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9tYWluL21haW4uY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9tYWluL21haW4uY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -8891,10 +9950,29 @@ let MainComponent = class MainComponent {
     constructor(connexion) {
         this.connexion = connexion;
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["globalVars"].filesDomain;
+        this.constraints = {
+            video: true,
+            audio: true
+        };
+        this.video = document.querySelector('video');
     }
     ngOnInit() {
         this.person = new src_app_models_person__WEBPACK_IMPORTED_MODULE_2__["person"]();
         this.cargarDatos(localStorage.getItem('code').substring(1));
+    }
+    capturar() {
+        function hasGetUserMedia() {
+            return !!(navigator.mediaDevices &&
+                navigator.mediaDevices.getUserMedia);
+        }
+        if (hasGetUserMedia()) {
+            alert('TIENRE');
+            navigator.mediaDevices.getUserMedia(this.constraints).
+                then((stream) => { this.video.srcObject = stream; });
+        }
+        else {
+            alert('getUserMedia() is not supported by your browser');
+        }
     }
     cargarDatos(id) {
         this.connexion.get_dataId('person', id).subscribe(regis => {
@@ -8919,10 +9997,300 @@ MainComponent.ctorParameters = () => [
 MainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-main',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./main.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/main/main.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./main.component.css */ "./src/app/adm/views/main/main.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./main.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/main/main.component.html"),
+        styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/adm/views/main/main.component.css")]
     })
 ], MainComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/product-list/product-list.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/adm/views/product-list/product-list.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9wcm9kdWN0LWxpc3QvcHJvZHVjdC1saXN0LmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/product-list/product-list.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/adm/views/product-list/product-list.component.ts ***!
+  \******************************************************************/
+/*! exports provided: ProductListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductListComponent", function() { return ProductListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/toast.service */ "./src/app/services/toast.service.ts");
+
+
+
+
+
+let ProductListComponent = class ProductListComponent {
+    constructor(cnx, ruta, router, toastService, cd) {
+        this.cnx = cnx;
+        this.ruta = ruta;
+        this.router = router;
+        this.toastService = toastService;
+        this.cd = cd;
+        this.entries = 10;
+        this.status = 1;
+        this.isLoading = true;
+        this.temp = [];
+    }
+    ngOnInit() {
+        this.myID = localStorage.getItem('code').substr(1);
+        this.obtenerDatos(1, this.myID);
+    }
+    entriesChange($event) {
+        this.entries = $event.target.value;
+    }
+    statusChange($event) {
+        this.status = $event.target.value;
+        this.obtenerDatos(this.status, this.myID);
+    }
+    obtenerDatos(state, id) {
+        let localCompany = JSON.parse(localStorage.getItem('userCompany'));
+        if (localCompany) {
+            this.isLoading = true;
+            this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName + '&estado=' + state).subscribe(myProds => {
+                console.log(myProds);
+                this.rows = myProds;
+                setTimeout(() => {
+                    this.isLoading = false;
+                }, 1500);
+                this.temp = myProds.map((prop, key) => {
+                    return Object.assign({}, prop, { parentId: null, id: key });
+                });
+            });
+            this.isLoading = false;
+        }
+    }
+    filterTable($event) {
+        let val = $event.target.value.toString().toLowerCase();
+        this.temp = this.rows.filter(function (d) {
+            for (var key in d) {
+                if (d[key]) {
+                    try {
+                        if (d[key].toString().toLowerCase().indexOf(val) !== -1) {
+                            return true;
+                        }
+                    }
+                    catch (error) {
+                        console.log(d[key], error);
+                    }
+                }
+            }
+            return false;
+        });
+    }
+    refreshFunction(event) {
+        event.preventDefault();
+        this.obtenerDatos(this.status, this.myID);
+    }
+    exportFunction(event) {
+        event.preventDefault();
+        this.error('Espacio Insuficiente en el Disco', 'MLM Export');
+    }
+    success(message, title) {
+        this.toastService.success(message, title);
+    }
+    error(message, title) {
+        this.toastService.error(message, title);
+    }
+    onActivate(event) {
+        this.activeRow = event.row;
+    }
+    onTreeAction(event) {
+        /*const index = event.rowIndex;
+        const row = event.row;
+        if (row.treeStatus === 'collapsed') {
+          row.treeStatus = 'loading';
+    
+          let myCompanyName = JSON.parse(localStorage.getItem('userCompany'));
+          this.cnx.get_dataWithParams<person>('personAssociated', '?userID=' + row._id + '&companyName=' + myCompanyName[0].companyName + '&estado=' + row.estado).subscribe(myTreeAssoc => {
+            console.log('myAdsmyAds', myTreeAssoc);
+    
+            //this.rows = myTreeAssoc[0].associated;
+            let data = myTreeAssoc[0].associated.map((prop, key) => {
+              return {
+                ...prop,
+                treeStatus: 'collapsed',
+                parentId: row.id,
+                id: key
+              };
+            });
+            this.temp = [...this.temp, ...data]
+          });
+          row.treeStatus = 'expanded';
+          this.cd.detectChanges();
+        } else {
+          row.treeStatus = 'collapsed';
+          this.rows = [...this.rows];
+          this.cd.detectChanges();
+        }*/
+    }
+    deleteFunction($event) {
+        $event.preventDefault();
+        this.router.navigate(['/editaProducto/' + this.activeRow._id]);
+        //this.router.navigate(['/descendenciaFicha/' + this.activeRow._id]);
+    }
+};
+ProductListComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+];
+ProductListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-product-list',
+        template: __webpack_require__(/*! raw-loader!./product-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/product-list/product-list.component.html"),
+        styles: [__webpack_require__(/*! ./product-list.component.css */ "./src/app/adm/views/product-list/product-list.component.css")]
+    })
+], ProductListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/adm/views/products-load/products-load.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/adm/views/products-load/products-load.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9wcm9kdWN0cy1sb2FkL3Byb2R1Y3RzLWxvYWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/adm/views/products-load/products-load.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/adm/views/products-load/products-load.component.ts ***!
+  \********************************************************************/
+/*! exports provided: ProductsLoadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsLoadComponent", function() { return ProductsLoadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/models/schema */ "./src/app/models/schema.ts");
+/* harmony import */ var src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/connexion.service */ "./src/app/services/connexion.service.ts");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+/* harmony import */ var src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/toast.service */ "./src/app/services/toast.service.ts");
+
+
+
+
+
+
+
+let ProductsLoadComponent = class ProductsLoadComponent {
+    constructor(connexion, _router, route, toastService) {
+        this.connexion = connexion;
+        this._router = _router;
+        this.route = route;
+        this.toastService = toastService;
+        this.path_server = 'userFiles/imagesCompany';
+        this.mostrar = true;
+        this.title_upload = '';
+        this.urlImage = '/assets/img/noProduct.png';
+        this.opcion = 'Agregar';
+        this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalVars"].filesDomain;
+    }
+    ngOnInit() {
+        this.productoId = this.route.snapshot.params['producto'];
+        this.producto = new src_app_models_schema__WEBPACK_IMPORTED_MODULE_3__["Products"]();
+        if (this.productoId) {
+            this.connexion.get_dataId('products', this.productoId).subscribe(prod => {
+                this.producto = prod;
+                //console.log(prod);
+            }, error => {
+                console.log('Ocurrió un error al intentar recuperar los datos.', error);
+                this.error('Ocurrió un error al intentar recuperar los datos.', 'Productos');
+                this._router.navigate(['/listaProductos']);
+            });
+        }
+        else {
+            this.urlImage = '/assets/img/noProduct.png';
+            this.producto.imagen = this.urlImage;
+            this.producto.existencia = 0;
+            this.producto.estado = 1;
+        }
+    }
+    recibeDeHijo(event) {
+        this.producto.imagen = event.upload.url;
+        this.urlImage = event.upload.url;
+    }
+    guardar() {
+        if (this.productoId) {
+            console.log('products', this.producto);
+            this.connexion.editObject('products', this.producto).subscribe(resp => {
+                //console.log('Datos editados con éxito.',resp);
+                this.success('Datos editados con éxito.', 'Productos');
+                this._router.navigate(['/listaProductos']);
+            }, error => {
+                //console.log('Ocurrió un error al intentar guardar los datos.', error);
+                this.error('Ocurrió un error al intentar guardar los datos.', 'Productos');
+                //this._router.navigate(['/listaProductos']);
+            });
+        }
+        else {
+            let localCompany = JSON.parse(localStorage.getItem('userCompany'));
+            if (localCompany) {
+                this.producto.companyName = localCompany[0].companyName;
+                this.producto.sucursalName = localCompany[0].sucursalName;
+                this.connexion.addObject('products', this.producto).subscribe(regis => {
+                    //console.log('Datos guardados con éxito.');
+                    this.success('Datos guardados con éxito.', 'Productos');
+                    this.success('Continúa creando nuevos productos', 'Productos');
+                    this.ngOnInit();
+                }, error => {
+                    this.error('Error al guardar los datos.', 'Productos');
+                    //console.log('Error al guardar los datos.'); 
+                });
+            }
+            else {
+                this._router.navigate(['/sign/login']);
+            }
+        }
+    }
+    success(message, title) {
+        this.toastService.success(message, title);
+    }
+    error(message, title) {
+        this.toastService.error(message, title);
+    }
+};
+ProductsLoadComponent.ctorParameters = () => [
+    { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__["ConnexionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"] }
+];
+ProductsLoadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-products-load',
+        template: __webpack_require__(/*! raw-loader!./products-load.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/products-load/products-load.component.html"),
+        styles: [__webpack_require__(/*! ./products-load.component.css */ "./src/app/adm/views/products-load/products-load.component.css")]
+    })
+], ProductsLoadComponent);
 
 
 
@@ -8932,12 +10300,10 @@ MainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*********************************************************!*\
   !*** ./src/app/adm/views/profile/profile.component.css ***!
   \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -9113,8 +10479,8 @@ ProfileComponent.ctorParameters = () => [
 ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/profile/profile.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./profile.component.css */ "./src/app/adm/views/profile/profile.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/profile/profile.component.html"),
+        styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/adm/views/profile/profile.component.css")]
     })
 ], ProfileComponent);
 
@@ -9126,12 +10492,10 @@ ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************************************!*\
   !*** ./src/app/adm/views/staff-list/staff-list.component.css ***!
   \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9zdGFmZi1saXN0L3N0YWZmLWxpc3QuY29tcG9uZW50LmNzcyJ9 */");
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9zdGFmZi1saXN0L3N0YWZmLWxpc3QuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -9180,8 +10544,8 @@ StaffListComponent.ctorParameters = () => [
 StaffListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-staff-list',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./staff-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/adm/views/staff-list/staff-list.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./staff-list.component.css */ "./src/app/adm/views/staff-list/staff-list.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./staff-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/adm/views/staff-list/staff-list.component.html"),
+        styles: [__webpack_require__(/*! ./staff-list.component.css */ "./src/app/adm/views/staff-list/staff-list.component.css")]
     })
 ], StaffListComponent);
 
@@ -9200,13 +10564,14 @@ StaffListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Alert", function() { return Alert; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertType", function() { return AlertType; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
 class Alert {
     constructor(init) {
         Object.assign(this, init);
     }
 }
+Alert.ctorParameters = () => [
+    { type: undefined }
+];
 var AlertType;
 (function (AlertType) {
     AlertType[AlertType["Success"] = 0] = "Success";
@@ -9228,8 +10593,6 @@ var AlertType;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jjob", function() { return jjob; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
 class jjob {
 }
 
@@ -9246,8 +10609,6 @@ class jjob {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "person", function() { return person; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
 class person {
 }
 
@@ -9299,12 +10660,10 @@ ModulesModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************************!*\
   !*** ./src/app/modules/toast/toast.component.css ***!
   \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".toastMain {\r\n    z-index: 2050!important;\r\n}\r\n\r\n.toast {\r\n    width: 400px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy90b2FzdC90b2FzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksdUJBQXVCO0FBQzNCOztBQUVBO0lBQ0ksWUFBWTtBQUNoQiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdG9hc3QvdG9hc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50b2FzdE1haW4ge1xyXG4gICAgei1pbmRleDogMjA1MCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi50b2FzdCB7XHJcbiAgICB3aWR0aDogNDAwcHg7XHJcbn0iXX0= */");
+module.exports = ".toastMain {\r\n    z-index: 2050!important;\r\n}\r\n\r\n.toast {\r\n    width: 400px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy90b2FzdC90b2FzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksdUJBQXVCO0FBQzNCOztBQUVBO0lBQ0ksWUFBWTtBQUNoQiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdG9hc3QvdG9hc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50b2FzdE1haW4ge1xyXG4gICAgei1pbmRleDogMjA1MCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi50b2FzdCB7XHJcbiAgICB3aWR0aDogNDAwcHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -9381,8 +10740,8 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ToastComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-toast',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./toast.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/toast/toast.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./toast.component.css */ "./src/app/modules/toast/toast.component.css")).default]
+        template: __webpack_require__(/*! raw-loader!./toast.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/toast/toast.component.html"),
+        styles: [__webpack_require__(/*! ./toast.component.css */ "./src/app/modules/toast/toast.component.css")]
     })
 ], ToastComponent);
 
@@ -9394,12 +10753,10 @@ ToastComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*****************************************************!*\
   !*** ./src/app/modules/upload/upload.component.css ***!
   \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#divMainFile {\r\n    display: block;\r\n    overflow: hidden;\r\n    background-color: lightgrey;\r\n}\r\n\r\n.muestra {\r\n    display: block;\r\n}\r\n\r\n.noMuestra {\r\n    display: none;\r\n}\r\n\r\n.cardCompleto:hover>div {\r\n    background-color: rgba(0,0,0,.4);\r\n}\r\n\r\n.cardCompleto:hover * {\r\n    background-color: var(--color-primary-soft);\r\n    opacity: 0.9;\r\n    filter:  alpha(opacity=90);\r\n    -webkit-filter:  alpha(opacity=90);\r\n}\r\n\r\n.card-text {\r\n    opacity: 0.5;\r\n    filter:  alpha(opacity=50);\r\n    -webkit-filter:  alpha(opacity=50);\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy91cGxvYWQvdXBsb2FkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLDJCQUEyQjtBQUMvQjs7QUFFQTtJQUNJLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZ0NBQWdDO0FBQ3BDOztBQUVBO0lBQ0ksMkNBQTJDO0lBQzNDLFlBQVk7SUFDWiwwQkFBMEI7SUFDMUIsa0NBQWtDO0FBQ3RDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDBCQUEwQjtJQUMxQixrQ0FBa0M7QUFDdEMiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL3VwbG9hZC91cGxvYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNkaXZNYWluRmlsZSB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyZXk7XHJcbn1cclxuXHJcbi5tdWVzdHJhIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG4ubm9NdWVzdHJhIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5jYXJkQ29tcGxldG86aG92ZXI+ZGl2IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsLjQpO1xyXG59XHJcblxyXG4uY2FyZENvbXBsZXRvOmhvdmVyICoge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItcHJpbWFyeS1zb2Z0KTtcclxuICAgIG9wYWNpdHk6IDAuOTtcclxuICAgIGZpbHRlcjogIGFscGhhKG9wYWNpdHk9OTApO1xyXG4gICAgLXdlYmtpdC1maWx0ZXI6ICBhbHBoYShvcGFjaXR5PTkwKTtcclxufVxyXG5cclxuLmNhcmQtdGV4dCB7XHJcbiAgICBvcGFjaXR5OiAwLjU7XHJcbiAgICBmaWx0ZXI6ICBhbHBoYShvcGFjaXR5PTUwKTtcclxuICAgIC13ZWJraXQtZmlsdGVyOiAgYWxwaGEob3BhY2l0eT01MCk7XHJcbn0iXX0= */");
+module.exports = "#divMainFile {\r\n    display: block;\r\n    overflow: hidden;\r\n    background-color: lightgrey;\r\n}\r\n\r\n.muestra {\r\n    display: block;\r\n}\r\n\r\n.noMuestra {\r\n    display: none;\r\n}\r\n\r\n.cardCompleto:hover>div {\r\n    background-color: rgba(0,0,0,.4);\r\n}\r\n\r\n.cardCompleto:hover * {\r\n    background-color: var(--color-primary-soft);\r\n    opacity: 0.9;\r\n    filter:  alpha(opacity=90);\r\n    -webkit-filter:  alpha(opacity=90);\r\n}\r\n\r\n.card-text {\r\n    opacity: 0.5;\r\n    filter:  alpha(opacity=50);\r\n    -webkit-filter:  alpha(opacity=50);\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy91cGxvYWQvdXBsb2FkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLDJCQUEyQjtBQUMvQjs7QUFFQTtJQUNJLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZ0NBQWdDO0FBQ3BDOztBQUVBO0lBQ0ksMkNBQTJDO0lBQzNDLFlBQVk7SUFDWiwwQkFBMEI7SUFDMUIsa0NBQWtDO0FBQ3RDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDBCQUEwQjtJQUMxQixrQ0FBa0M7QUFDdEMiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL3VwbG9hZC91cGxvYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNkaXZNYWluRmlsZSB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyZXk7XHJcbn1cclxuXHJcbi5tdWVzdHJhIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG4ubm9NdWVzdHJhIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5jYXJkQ29tcGxldG86aG92ZXI+ZGl2IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsLjQpO1xyXG59XHJcblxyXG4uY2FyZENvbXBsZXRvOmhvdmVyICoge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItcHJpbWFyeS1zb2Z0KTtcclxuICAgIG9wYWNpdHk6IDAuOTtcclxuICAgIGZpbHRlcjogIGFscGhhKG9wYWNpdHk9OTApO1xyXG4gICAgLXdlYmtpdC1maWx0ZXI6ICBhbHBoYShvcGFjaXR5PTkwKTtcclxufVxyXG5cclxuLmNhcmQtdGV4dCB7XHJcbiAgICBvcGFjaXR5OiAwLjU7XHJcbiAgICBmaWx0ZXI6ICBhbHBoYShvcGFjaXR5PTUwKTtcclxuICAgIC13ZWJraXQtZmlsdGVyOiAgYWxwaGEob3BhY2l0eT01MCk7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -9615,10 +10972,15 @@ let UploadComponent = class UploadComponent {
         }
         this.upload = true;
     }
+    escapeRegExp(fileName) {
+        return fileName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
     changeName(nombre) {
         let replaceable = ['+', '-', '*', '`', '´', '[', ']', ' ', '{', '}', '(', ')'];
         for (let i = 0; i < replaceable.length; i++) {
-            nombre = nombre.replace(replaceable[i], '_');
+            let rep = new RegExp(this.escapeRegExp(replaceable[i]), 'g');
+            //nombre = nombre.replace(replaceable[i], '');
+            nombre = nombre.replace(rep, '');
         }
         return nombre;
     }
@@ -9644,9 +11006,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 UploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-upload',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./upload.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/upload/upload.component.html")).default,
+        template: __webpack_require__(/*! raw-loader!./upload.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/upload/upload.component.html"),
         providers: [src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"]],
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./upload.component.css */ "./src/app/modules/upload/upload.component.css")).default]
+        styles: [__webpack_require__(/*! ./upload.component.css */ "./src/app/modules/upload/upload.component.css")]
     })
 ], UploadComponent);
 
@@ -9976,3 +11338,4 @@ ToastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
+//# sourceMappingURL=adm-adm-module-es2015.js.map
