@@ -2,7 +2,7 @@ var Pedido = require('../models/pedido.model');
 
 exports.creaPedido = async (req, res, next) => {
     if (req.body.codigo == 0) {
-        const filter = { companyName: req.body.companyName };
+        const filter = { };
         let result = await Pedido.findOne(filter).sort({ _id: -1 });
         let miPedido = new Pedido();
         miPedido = req.body;
