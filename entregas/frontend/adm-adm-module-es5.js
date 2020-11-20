@@ -8443,7 +8443,7 @@ module.exports = "<footer class=\"footer\">\n    <div class=\"container-fluid\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-wrapper\">\r\n            <div class=\"navbar-toggle d-inline\">\r\n                <button type=\"button\" class=\"navbar-toggler\">\r\n                    <span class=\"navbar-toggler-bar bar1\"></span>\r\n                    <span class=\"navbar-toggler-bar bar2\"></span>\r\n                    <span class=\"navbar-toggler-bar bar3\"></span>\r\n                </button>\r\n            </div>\r\n            <a class=\"navbar-brand\" style=\"top: 0;\">\r\n                <img src=\"/assets/img/ventun.png\">\r\n            </a>\r\n        </div>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n        </button>\r\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\r\n            <ul class=\"navbar-nav ml-auto\">\r\n                <!--<li class=\"input-group\">\r\n                    <span style=\"display: inline;\">Equipo Actual: <h2 style=\"display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;\">{{equipoActual}}</h2></span>\r\n                </li>\r\n                <li class=\"search-bar input-group\">\r\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\r\n                            class=\"tim-icons icon-zoom-split\"></i>\r\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\r\n                    </button>\r\n                </li>\r\n                <li class=\"dropdown nav-item\">\r\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\r\n                        <i class=\"tim-icons icon-sound-wave\"></i>\r\n                        <p class=\"d-lg-none\">\r\n                            Notifications\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\r\n                                email</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\r\n                                tasks</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\r\n                                Michael is in town</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\r\n                                notification</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\r\n                        </li>\r\n                    </ul>\r\n                </li>-->\r\n                <li class=\"dropdown nav-item\">\r\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"photo\">\r\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\r\n                        </div>\r\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\r\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\r\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\r\n                            Cerrar Sessión\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\r\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\r\n                        <li class=\"dropdown-divider\"></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\r\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\r\n                                Sessión</a></li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"separator d-lg-none\"></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <app-toast></app-toast>\r\n</nav>\r\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <div class=\"input-group mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\r\n                    </div>\r\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event, true)\" [(ngModel)]=\"name\">\r\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\r\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <i class=\"tim-icons icon-simple-remove\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-wrapper\">\r\n            <div class=\"navbar-toggle d-inline\">\r\n                <button type=\"button\" class=\"navbar-toggler\">\r\n                    <span class=\"navbar-toggler-bar bar1\"></span>\r\n                    <span class=\"navbar-toggler-bar bar2\"></span>\r\n                    <span class=\"navbar-toggler-bar bar3\"></span>\r\n                </button>\r\n            </div>\r\n            <a class=\"navbar-brand\" style=\"top: 0;\">\r\n                <img src=\"/assets/img/ventun.png\">\r\n            </a>\r\n        </div>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n            <span class=\"navbar-toggler-bar navbar-kebab\"></span>\r\n        </button>\r\n        <div class=\"collapse navbar-collapse\" id=\"navigation\">\r\n            <ul class=\"navbar-nav ml-auto\">\r\n                <li class=\"input-group\">\r\n                    <h2 style=\"display: inline; padding: 0!important; margin: 10px 0 0 0!important; top: 20px!important;\">{{equipoActual}}</h2>\r\n                </li>\r\n                <!--<li class=\"search-bar input-group\">\r\n                    <button class=\"btn btn-link\" id=\"search-button\" data-toggle=\"modal\" data-target=\"#searchModal\"><i\r\n                            class=\"tim-icons icon-zoom-split\"></i>\r\n                        <span class=\"d-lg-none d-md-block\">Empresas</span>\r\n                    </button>\r\n                </li>\r\n                <li class=\"dropdown nav-item\">\r\n                    <a href=\"javascript:void(0)\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"notification d-none d-lg-block d-xl-block\"></div>\r\n                        <i class=\"tim-icons icon-sound-wave\"></i>\r\n                        <p class=\"d-lg-none\">\r\n                            Notifications\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"#\" class=\"nav-item dropdown-item\">Mike John responded to your\r\n                                email</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">You have 5 more\r\n                                tasks</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Your friend\r\n                                Michael is in town</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another\r\n                                notification</a></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\">Another one</a>\r\n                        </li>\r\n                    </ul>\r\n                </li>-->\r\n                <li class=\"dropdown nav-item\">\r\n                    <a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n                        <div class=\"photo\">\r\n                            <img src=\"{{urlGlobal}}{{perfil}}\">\r\n                        </div>\r\n                        <b class=\"caret d-none d-lg-block d-xl-block\" style=\"left: 50px!important;\"></b>\r\n                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{{userName}}</span>\r\n                        <p class=\"d-lg-none\" (click)=\"cerrarSesion();\" routerLink=\"/sign/login\" routerLinkActive=\"active\">\r\n                            Cerrar Sessión\r\n                        </p>\r\n                    </a>\r\n                    <ul class=\"dropdown-menu dropdown-navbar\">\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" class=\"nav-item dropdown-item\"\r\n                                routerLink=\"/profile\" routerLinkActive=\"active\">Perfil</a></li>\r\n                        <li class=\"dropdown-divider\"></li>\r\n                        <li class=\"nav-link\"><a href=\"javascript:void(0)\" (click)=\"cerrarSesion();\"\r\n                                class=\"nav-item dropdown-item\" routerLink=\"/sign/login\" routerLinkActive=\"active\">Cerrar\r\n                                Sessión</a></li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"separator d-lg-none\"></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <app-toast></app-toast>\r\n</nav>\r\n<div class=\"modal modal-search fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"searchModal\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <div class=\"input-group mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <label class=\"input-group-text\" style=\"background-color: var(--primary);width: 80px;\" for=\"listaEquipos\">Equipo</label>\r\n                    </div>\r\n                    <select class=\"custom-select\" id=\"listaEquipos\" name=\"listaEquipos\" #listaEquipos=\"ngModel\"  (ngModelChange)=\"updateEmp($event, true)\" [(ngModel)]=\"name\">\r\n                        <option [ngValue]=\"undefined\" selected>Elige un Equipo...</option>\r\n                        <option *ngFor=\"let equipo of lista\" [(ngValue)]=\"equipo.id\">{{equipo.valor}}</option>\r\n                    </select>\r\n                </div>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <i class=\"tim-icons icon-simple-remove\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -8553,7 +8553,7 @@ module.exports = "<div class=\"card-user card\">\n    <div class=\"card-header\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" style=\"\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <h5 class=\"text-secondary text-center\" style=\"padding: 0!important; margin: 0!important; font-size: .9em;\">{{item.empresa}}</h5>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\" style=\"padding-bottom: 5px;\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white; font-size: .8em;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"{{item.geoData}}\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restar}}</h4><br>\n            <div class=\"row\" style=\"clear: both; border-top: 1px solid white;\">\n                <h4 class=\"col-12 text-center\" style=\"margin-bottom: 0; font-weight: bold;\">{{item.total}}Bs.</h4>\n            </div>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\" *ngIf=\"mostrar\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}Bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<h3>Pedidos {{titulo}}</h3>\n<div class=\"row\">\n    <div class=\"card ficha\" *ngFor=\"let item of pedidos; let i=index\" data-toggle=\"modal\"\n        data-target=\"#ampliado\" (click)=\"ampliar(item);\">\n        <h2 class=\"text-secondary text-center\"\n            style=\"padding: 5px 10px!important;margin-bottom: 0; text-decoration: underline solid var(--primary);\">\n            {{item.codigo}}</h2>\n        <h5 class=\"text-secondary text-center\" style=\"padding: 0!important; margin: 0!important; font-size: .9em;\">{{item.empresa}}</h5>\n        <ng-container *ngIf=\"item.usuario.id == ''; then thenTemplate; else elseTemplate\"></ng-container>\n        <ng-template #thenTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{urlImage}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px; display: none;\">\n        </ng-template>\n        <ng-template #elseTemplate>\n            <img class=\"card-img-top\" src=\"{{urlGlobal}}{{item.usuario.fotografia}}\" alt=\"\"\n                style=\"height: 100px; width: 150px; display: block; margin: auto; border-radius: 30px;\">\n        </ng-template>\n\n        <div class=\"card-body\" style=\"padding-bottom: 5px;\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\" style=\"color: white; font-size: .8em;\">\n                    {{item.sucursal}}\n                </div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" style=\"color: white;\"\n                        href=\"{{item.geoData}}\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Origen\n                    </a></div>\n                <div class=\"col-6\" style=\"font-size: 1.3em;\">\n                    <a target=\"_blank\" href=\"{{item.geolocalizacion}}\" style=\"color: white;\">\n                        <i class=\"fas fa-map-marked-alt fa-lg\"></i> Destino\n                    </a>\n                </div>\n            </div>\n            <div class=\"row\">\n                <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.fechaHora | date:'medium'}}</h4>\n            </div>\n            <div class=\"row\" *ngIf=\"estadoActual==5 || estadoActual==3 || estadoActual==2 || estadoActual==1\">\n                <div class=\"col-6\">Pendiente</div>\n                <div class=\"col-6\">\n                    <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restarPendiente}}</h4>\n                </div>\n            </div>\n            <div class=\"row\" *ngIf=\"estadoActual==5 || estadoActual==3 || estadoActual==2\">\n                <div class=\"col-6\">Asignado</div>\n                <div class=\"col-6\">\n                    <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restarAsignado}}</h4>\n                </div>\n            </div>\n            <div class=\"row\" *ngIf=\"estadoActual==5 || estadoActual==3\">\n                <div class=\"col-6\">Recogido</div>\n                <div class=\"col-6\">\n                    <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.restarRecogido}}</h4>\n                </div>\n            </div>\n            <div class=\"row\" *ngIf=\"estadoActual==5\">\n                <h4 class=\"card-text\" style=\"margin-top: 10px;\">{{item.entrega.entregadoPedido | date:'medium'}}</h4>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-6\">Tiempo Total</div>\n                <div class=\"col-6\">\n                    <h4 class=\"card-text\" style=\"float: right; margin-bottom: 0;\">{{item.totalTiempo}}</h4>\n                </div>\n            </div>\n            <div class=\"row\" style=\"clear: both; border-top: 1px solid white;\">\n                <h4 class=\"col-12 text-center\" style=\"margin-bottom: 0; font-weight: bold;\">{{item.total}}Bs.</h4>\n            </div>\n        </div>\n        <div class=\"card-footer text-muted\" style=\"padding: 1px 10px!important;\" [ngStyle]=\"{'background-color': item.color}\" *ngIf=\"mostrar\">\n            <ng-container *ngIf=\"item.color == 'yellow'; else pietemplate\">\n                <div style=\"color: black!important;\">{{titulo}}</div>\n            </ng-container>\n            <ng-template #pietemplate>\n                <div style=\"color: white!important;\">{{titulo}}</div>\n            </ng-template>\n            \n        </div>\n    </div>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"ampliado\" tabindex=\"-1\" aria-labelledby=\"pedidoElegido\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\" style=\"background-color: gainsboro;\">\n            <div class=\"modal-header\" style=\"background-color: var(--gray-dark);\">\n                <h5 class=\"modal-title\" id=\"pedidoElegido\" style=\"color: white; font-size: 1.1em;\">Pedidos {{titulo}}\n                </h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" style=\"margin-top: -30px;\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-header\"\n                style=\"border-bottom: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important; padding-top: 5px; padding-bottom: 5px;\">\n                <h2 style=\"color: black; margin: 0 auto!important;\">{{elegido?.codigo}}</h2>\n            </div>\n            <div class=\"modal-body\" style=\"padding-bottom: 5px; padding-top: 5px;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Nombre: {{elegido?.nombreCliente}}\n                        {{elegido?.apellidoCliente}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">Dirección: {{elegido?.direccion}}</h4>\n                    <h4 class=\"col-12\" style=\"color: black; margin-bottom: 5px;\">\n                        Detalle\n                    </h4>\n                    <div class=\"col-12\" *ngFor=\"let prod of elegido?.productos; let i=index\">\n                        <div class=\"row\">\n                            <div class=\"col\"></div>\n                            <div class=\"col-9\" style=\"color: black;\">{{prod.nombre}}</div>\n                            <div class=\"col-2\" style=\"color: black;\">{{prod.cantidad}}</div>\n                        </div>\n                    </div>\n                    <h4 class=\"col-9\" style=\"color: black; margin-bottom: 0;\">Teléfono: {{elegido?.telefono}}</h4>\n                    <h3 class=\"col-2\" style=\"color: black; margin-bottom: 0; border-top: solid 1px black; padding-right: 20px;\">{{elegido?.total}}Bs</h3>\n                    <h4 class=\"col\"></h4>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\"\n                style=\"border-top: 1px solid var(--gray-dark); margin-left: 30px!important; margin-right: 30px!important;\">\n                <div class=\"row\">\n                    <h4 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Pedido Asignado a:</h4>\n                    <h5 class=\"col-12\" style=\"color: black; margin: 0 auto!important;\">Nombre: {{elegido?.usuario.nombre}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Vehículo: {{elegido?.usuario.tipoVehiculo}}</h5>\n                    <h5 class=\"col-6\" style=\"color: black; margin: 0 auto!important;\">Placa: {{elegido?.usuario.placaVehiculo}}</h5>\n                </div>\n            </div>\n\n            <div class=\"modal-footer\" style=\"background-color: var(--gray-dark); color: white; padding-top: 5px; padding-bottom: 5px;\">\n                <input *ngIf=\"btnAccion != ''\" type=\"button\" class=\" btn btn-primary\"\n                    style=\"margin: 0 auto; width: 80%;\" value=\"{{btnAccion}}\"\n                    (click)=\"btnPedido(elegido?._id)\">\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -9086,6 +9086,8 @@ var NavbarComponent = /** @class */ (function () {
         this.desdeElHijo = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.ListCompany = [];
         this.ListRol = [];
+        this.listSucursal = [];
+        this.todasSucursales = [];
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -9095,6 +9097,9 @@ var NavbarComponent = /** @class */ (function () {
         }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
+        this.connexion.get_data('location').subscribe(function (reslo) {
+            _this.todasSucursales = reslo.filter(function (LOC) { return LOC.owner == null; });
+        });
         setTimeout(function () {
             var anny = JSON.parse(localStorage.getItem('userCompany'));
             anny.forEach(function (element) {
@@ -9103,6 +9108,7 @@ var NavbarComponent = /** @class */ (function () {
                         _this.lista.push({ id: element.companyName, valor: comp.name });
                         if (localStorage.getItem('actual')) {
                             _this.updateEmp(localStorage.getItem('actual'), false);
+                            _this.updateSuc(JSON.parse(localStorage.getItem('userCompany'))[0]);
                         }
                         else {
                             _this.updateEmp(element.companyName, false);
@@ -9127,8 +9133,15 @@ var NavbarComponent = /** @class */ (function () {
         if (bol == true) {
             //this._router.navigate(['/invitacion/']);
             window.location.reload();
-            console.log('this.desdeElHijo.emit(id)');
         }
+    };
+    NavbarComponent.prototype.updateSuc = function (jsonJob) {
+        var _this = this;
+        this.todasSucursales.forEach(function (suc) {
+            if (jsonJob.sucursalName == suc._id) {
+                _this.equipoActual = _this.equipoActual + ' - ' + suc.name;
+            }
+        });
     };
     NavbarComponent.prototype.cerrarSesion = function () {
         localStorage.clear();
@@ -10317,7 +10330,7 @@ var FichaPedidoComponent = /** @class */ (function () {
         this.urlGlobal = src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalVars"].filesDomain;
         this.rolActual = '';
         this.btnAccion = '';
-        this.listSucursal = [];
+        //listSucursal: Location[] = [];
         this.todasSucursales = [];
         this.mostrar = true;
         this.persona = new src_app_models_person__WEBPACK_IMPORTED_MODULE_6__["person"]();
@@ -10326,23 +10339,19 @@ var FichaPedidoComponent = /** @class */ (function () {
         var _this = this;
         this.connexion.get_data('location').subscribe(function (reslo) {
             _this.todasSucursales = reslo.filter(function (LOC) { return LOC.owner == null; });
-            _this.listSucursal = reslo.filter(function (LOC) { return LOC.typecon_id == localStorage.getItem('actual'); });
+            //this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
+        });
+        this.connexion.get_data('typecontext').subscribe(function (reslo) {
+            _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo; });
+            _this.todasEmpresas = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company; });
+        }, function (error) {
+            console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
         this.rolActual = this.buscaRol();
         this.ruta.paramMap.subscribe(function (params) {
             _this.estadoActual = params.get('estado');
-            _this.cambiaTitulo(_this.estadoActual);
-            setTimeout(function () {
-                _this.cargaFichas(_this.estadoActual);
-            }, 1000);
             if ((_this.rolActual == 'rep') && (_this.estadoActual == '1')) {
-                _this.connexion.get_data('typecontext').subscribe(function (reslo) {
-                    _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo; });
-                    _this.todasEmpresas = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company; });
-                }, function (error) {
-                    console.log('Hubo un problema al cargar datos. ' + error);
-                });
                 /*this.connexion.get_dataId<person>('person', localStorage.getItem('code')).subscribe(
                   resp => {
                     console.log('resp', resp);
@@ -10350,6 +10359,10 @@ var FichaPedidoComponent = /** @class */ (function () {
                   }
                 );*/
             }
+            _this.cambiaTitulo(_this.estadoActual);
+            setTimeout(function () {
+                _this.cargaFichas(_this.estadoActual);
+            }, 1000);
         });
     };
     FichaPedidoComponent.prototype.buscaRol = function () {
@@ -10458,23 +10471,58 @@ var FichaPedidoComponent = /** @class */ (function () {
                     element['Sucursal'] = sucursal.name;
                   }
                 });*/
+                var miniArray = [];
                 element = _this.calculaTotal(element);
                 switch (estado) {
                     case '1':
-                        element = _this.calculaHora(element, element.fechaHora);
+                        miniArray = _this.calculaHora(element, element.fechaHora, '');
+                        element['restarPendiente'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.fechaHora, '');
+                        element['totalTiempo'] = miniArray['restar'];
                         break;
                     case '2':
-                        element = _this.calculaHora(element, element.entrega.asignadoPedido);
+                        miniArray = _this.calculaHora(element, element.fechaHora, element.entrega.asignadoPedido);
+                        element['restarPendiente'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.entrega.asignadoPedido, '');
+                        element['restarAsignado'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.fechaHora, '');
+                        element['totalTiempo'] = miniArray['restar'];
                         break;
                     case '3':
-                        element = _this.calculaHora(element, element.entrega.recogidoPedido);
+                        miniArray = _this.calculaHora(element, element.fechaHora, element.entrega.asignadoPedido);
+                        element['restarPendiente'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.entrega.asignadoPedido, element.entrega.recogidoPedido);
+                        element['restarAsignado'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.entrega.recogidoPedido, '');
+                        element['restarRecogido'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.fechaHora, '');
+                        element['totalTiempo'] = miniArray['restar'];
                         break;
                     case '0':
-                        element = _this.calculaHora(element, element.entrega.cancelaPedido);
+                        miniArray = _this.calculaHora(element, element.entrega.cancelaPedido, element.fechaHora);
+                        element['restarCancelado'] = miniArray['restar'];
                         break;
                     case '5':
-                        element = _this.calculaHora(element, element.entrega.entregadoPedido);
+                        miniArray = _this.calculaHora(element, element.fechaHora, element.entrega.asignadoPedido);
+                        element['restarPendiente'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.entrega.asignadoPedido, element.entrega.recogidoPedido);
+                        element['restarAsignado'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.entrega.recogidoPedido, element.entrega.entregadoPedido);
+                        element['restarRecogido'] = miniArray['restar'];
+                        miniArray = _this.calculaHora(element, element.fechaHora, element.entrega.entregadoPedido);
+                        element['totalTiempo'] = miniArray['restar'];
                         break;
+                }
+                for (var i = 0; i < _this.todasSucursales.length; i++) {
+                    if (_this.todasSucursales[i]._id == element.sucursalName) {
+                        element['sucursal'] = _this.todasSucursales[i].name;
+                        element['geoData'] = _this.todasSucursales[i].geoData;
+                    }
+                }
+                for (var i = 0; i < _this.todasEmpresas.length; i++) {
+                    if (_this.todasEmpresas[i]._id == element.companyName) {
+                        element['empresa'] = _this.todasEmpresas[i].name;
+                    }
                 }
             });
             console.log('this.pedidos', _this.pedidos);
@@ -10490,9 +10538,16 @@ var FichaPedidoComponent = /** @class */ (function () {
         array['total'] = total;
         return array;
     };
-    FichaPedidoComponent.prototype.calculaHora = function (array, fecha) {
-        var ahora = new Date().getTime();
-        var tiempoTemp = (ahora - new Date(fecha).getTime()) / (1000 * 60 * 60);
+    FichaPedidoComponent.prototype.calculaHora = function (array, fechaInicio, fechaFin) {
+        var ahora;
+        if (fechaFin == '') {
+            ahora = new Date().getTime();
+        }
+        else {
+            ahora = new Date(fechaFin).getTime();
+        }
+        console.log(fechaInicio, fechaFin);
+        var tiempoTemp = (ahora - new Date(fechaInicio).getTime()) / (1000 * 60 * 60);
         var tiempoFinal = '';
         if (Math.trunc(tiempoTemp) > 0) {
             tiempoFinal = Math.trunc(tiempoTemp) + ' hrs ' + Math.trunc((-Math.trunc(tiempoTemp) + tiempoTemp) * 60) + ' min';
@@ -10513,17 +10568,6 @@ var FichaPedidoComponent = /** @class */ (function () {
             }
         }
         array['restar'] = tiempoFinal;
-        for (var i = 0; i < this.todasSucursales.length; i++) {
-            if (this.todasSucursales[i]._id == array.sucursalName) {
-                array['sucursal'] = this.todasSucursales[i].name;
-                array['geoData'] = this.todasSucursales[i].geoData;
-            }
-        }
-        for (var i = 0; i < this.todasEmpresas.length; i++) {
-            if (this.todasEmpresas[i]._id == array.companyName) {
-                array['empresa'] = this.todasEmpresas[i].name;
-            }
-        }
         return array;
     };
     FichaPedidoComponent.prototype.ampliar = function (item) {
