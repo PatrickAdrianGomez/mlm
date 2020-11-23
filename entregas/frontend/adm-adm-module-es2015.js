@@ -7911,7 +7911,7 @@ var misc = {
 var permissions = [
     {
         RoleID: 'adm',
-        menuView: [],
+        menuView: ["Registro de Ventas"],
         subMenuView: []
     },
     {
@@ -7921,8 +7921,8 @@ var permissions = [
     },
     {
         RoleID: 'dist',
-        menuView: ["Tablero", "Registro de Usuarios", "Registro de Ventas", "Pendientes", "Asignados", "Productos", "Pedidos", "Recogidos", "Entregados"],
-        subMenuView: ["Lista de Productos", "Agregar Productos", "Lista de Pedidos"]
+        menuView: ["Registro de Usuarios", "Tablero", "Pendientes", 'Productos', "Asignados", "Pedidos", "Recogidos", "Entregados", "Reportes"],
+        subMenuView: ["Lista de Productos", "Agregar Productos"]
     },
     {
         RoleID: 'rep',

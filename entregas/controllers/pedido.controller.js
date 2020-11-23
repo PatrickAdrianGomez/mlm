@@ -7,7 +7,14 @@ exports.creaPedido = async (req, res, next) => {
         let miPedido = new Pedido();
         miPedido = req.body;
         if (result) {
-            miPedido.codigo = result.codigo + 1;
+            let fechaUltimoPedido = result.fechaHora.getDate()+':'+result.fechaHora.getMonth()+':'+result.fechaHora.getFullYear();
+            let fecha = new Date();
+            let fechaActual = fecha.getDate()+':'+fecha.getMonth()+':'+fecha.getFullYear();
+            if (fechaUltimoPedido == fechaActual) {
+                miPedido.codigo = result.codigo + 1;
+            } else {
+                miPedido.codigo = 1;
+            }
         } else {
             miPedido.codigo = 1;
         }
