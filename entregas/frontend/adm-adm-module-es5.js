@@ -9208,7 +9208,7 @@ var permissions = [
     },
     {
         RoleID: 'sup',
-        menuView: ["Tablero", "Registro de Ventas", "Pendientes", "Asignados", "Pedidos", "Recogidos", "Entregados"],
+        menuView: ["Tablero", "Reportes"],
         subMenuView: ["Lista de Productos", "Lista de Pedidos"]
     },
     {
