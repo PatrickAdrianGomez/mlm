@@ -501,6 +501,7 @@ const globalConfigurations = {
     pais: '5f20d21991a91e3e79106752',
     ciudad: '5f20d29391a91e3e79106756',
     company: '5f20d1de91a91e3e79106750',
+    delivery: '5fbd78dca5170a32a05cf589',
     rol: '5f20d1f091a91e3e79106751',
     vehiculo: '5f9643504f5a0d13e04f6327'
 };
@@ -865,7 +866,7 @@ let RegisterComponent = class RegisterComponent {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company);
+            this.ListCompany = reslo.filter(LOC => (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

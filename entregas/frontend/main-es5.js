@@ -561,6 +561,7 @@ var globalConfigurations = {
     pais: '5f20d21991a91e3e79106752',
     ciudad: '5f20d29391a91e3e79106756',
     company: '5f20d1de91a91e3e79106750',
+    delivery: '5fbd78dca5170a32a05cf589',
     rol: '5f20d1f091a91e3e79106751',
     vehiculo: '5f9643504f5a0d13e04f6327'
 };
@@ -930,7 +931,7 @@ var RegisterComponent = /** @class */ (function () {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
         this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this.ListCompany = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company; });
+            _this.ListCompany = reslo.filter(function (LOC) { return (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery); });
         }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
