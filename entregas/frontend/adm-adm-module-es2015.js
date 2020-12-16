@@ -9559,7 +9559,7 @@ let InvitationComponent = class InvitationComponent {
         this.usuarioValido = true;
         this.correct = false;
         this.ListCompany = [];
-        //ListDelivery: TypeContext[] = [];
+        //ListDelivery: Location[] = [];
         this.ListRol = [];
         this.ListVehiculo = [];
         this.ListLOC = [];
@@ -9590,19 +9590,23 @@ let InvitationComponent = class InvitationComponent {
         }
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
+            this.ListLOC = reslo;
             this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais);
             this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad);
+            this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery));
+            this.ListRol = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
+            this.ListVehiculo = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo);
             this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
-        this.connexion.get_dataWithParams('typecontext', '?estado=1').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery));
-            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
-            this.ListVehiculo = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo);
+        /*this.connexion.get_dataWithParams<TypeContext>('typecontext', '?estado=1').subscribe(reslo => {
+          this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
+          this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
+          this.ListVehiculo = reslo.filter(LOC => LOC.context_id == globalConfigurations.vehiculo);
         }, error => {
-            console.log('Hubo un problema al cargar datos. ' + error);
-        });
+          console.log('Hubo un problema al cargar datos. ' + error);
+        });*/
         this.invitation.contact = this.contact;
         this.invitation.vehiculo = this.vehiculo;
         this.invitation.profile = this.profile;
@@ -9802,7 +9806,7 @@ let InvitationComponent = class InvitationComponent {
         let esDelivery = false;
         this.ListCompany.forEach(cias => {
             if (cias._id == compania) {
-                if (cias.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery) {
+                if (cias.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery) {
                     esDelivery = true;
                 }
             }

@@ -487,10 +487,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImagesSize", function() { return globalImagesSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalRoutes", function() { return globalRoutes; });
 const globalVars = {
-    domain: 'http://34.67.218.15:8002',
-    filesDomain: 'http://34.67.218.15:8002',
-    //domain: 'http://127.0.0.1:8002',
-    //filesDomain: 'http://127.0.0.1:8002',
+    domain: 'http://34.67.218.15:16679',
+    filesDomain: 'http://34.67.218.15:16679',
+    //domain: 'http://127.0.0.1:16679',
+    //filesDomain: 'http://127.0.0.1:16679',
     //domain: '',
     //filesDomain: '',
     language: 'es',
@@ -498,18 +498,18 @@ const globalVars = {
     caducaEnDias: 7
 };
 const globalConfigurations = {
-    pais: '5f20d21991a91e3e79106752',
-    ciudad: '5f20d29391a91e3e79106756',
-    company: '5f20d1de91a91e3e79106750',
-    delivery: '5fbd78dca5170a32a05cf589',
-    rol: '5f20d1f091a91e3e79106751',
-    vehiculo: '5f9643504f5a0d13e04f6327'
+    pais: '5fd925beb6598a11942984d9',
+    ciudad: '5fd9284cb6598a11942984dd',
+    company: '5fd9b743b6598a11942984eb',
+    delivery: '5fd9b66cb6598a11942984ea',
+    rol: '5fd9b99cb6598a11942984ee',
+    vehiculo: '5fd9bcc4b6598a11942984f4'
 };
 const userPermissions = {
-    adm: '5f2b0dab9f5ad6106c166233',
-    dist: '5f2b0db79f5ad6106c166234',
-    rep: '5f2b0dc29f5ad6106c166235',
-    sup: '5f6a7892cd503e1d304b5c29'
+    adm: '5fd9b9f2b6598a11942984ef',
+    dist: '5fd9bad9b6598a11942984f0',
+    rep: '5fd9bae7b6598a11942984f1',
+    sup: '5fd9baf7b6598a11942984f2'
 };
 const globalImages = {};
 var jobs = [];
@@ -862,20 +862,22 @@ let RegisterComponent = class RegisterComponent {
             this.ListLOC = reslo;
             this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].pais);
             this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].ciudad);
+            this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery));
+            this.ListRol = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
-        this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery));
+        /*this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+          this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
         }, error => {
-            console.log('Hubo un problema al cargar datos. ' + error);
+          console.log('Hubo un problema al cargar datos. ' + error);
         });
-        this.connexion.get_data('typecontext').subscribe(reslo => {
-            console.log('typecontext', reslo);
-            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol);
+        this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+          console.log('typecontext', reslo)
+          this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
         }, error => {
-            console.log('Hubo un problema al cargar datos. ' + error);
-        });
+          console.log('Hubo un problema al cargar datos. ' + error);
+        });*/
         this.invitation.contact = this.contact;
         this.invitation.vehiculo = this.vehiculo;
         this.invitation.profile = this.profile;
