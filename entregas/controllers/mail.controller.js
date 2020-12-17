@@ -19,7 +19,7 @@ exports.decryURL = (req, res, next) => {
 exports.sendMyMail = (req, res) => {
     //Creamos el objeto de transporte
     var transporter = nodemailer.createTransport({
-        service: 'Gmail',
+        service: 'gmail',
         auth: {
             user: 'mlm.conexion@gmail.com',
             pass: 'Patito2112*'
