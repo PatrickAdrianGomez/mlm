@@ -9091,14 +9091,18 @@ var NavbarComponent = /** @class */ (function () {
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this.ListCompany = reslo.filter(function (LOC) { return (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].delivery); });
-            _this.ListRol = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol; });
+        /*this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+          this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
+          this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
+        }, error => {
+          console.log('Hubo un problema al cargar datos. ' + error);
+        });*/
+        this.connexion.get_data('location').subscribe(function (reslo) {
+            _this.ListCompany = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].delivery); });
+            _this.ListRol = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol; });
+            _this.todasSucursales = reslo.filter(function (LOC) { return LOC.owner == null; });
         }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
-        });
-        this.connexion.get_data('location').subscribe(function (reslo) {
-            _this.todasSucursales = reslo.filter(function (LOC) { return LOC.owner == null; });
         });
         setTimeout(function () {
             var anny = JSON.parse(localStorage.getItem('userCompany'));
@@ -10919,7 +10923,8 @@ var InvitationComponent = /** @class */ (function () {
             _this.ListCompany = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery); });
             _this.ListRol = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol; });
             _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo; });
-            _this.listSucursal = reslo.filter(function (LOC) { return LOC.typecon_id == localStorage.getItem('actual'); });
+            console.log("localStorage.getItem('actual')", localStorage.getItem('actual'));
+            _this.listSucursal = reslo.filter(function (LOC) { return LOC.owner == localStorage.getItem('actual'); });
         }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
         });

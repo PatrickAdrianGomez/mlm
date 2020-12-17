@@ -7802,14 +7802,18 @@ let NavbarComponent = class NavbarComponent {
         this.todasSucursales = [];
     }
     ngOnInit() {
-        this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListCompany = reslo.filter(LOC => (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].delivery));
-            this.ListRol = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol);
+        /*this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+          this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
+          this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
+        }, error => {
+          console.log('Hubo un problema al cargar datos. ' + error);
+        });*/
+        this.connexion.get_data('location').subscribe(reslo => {
+            this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].delivery));
+            this.ListRol = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["globalConfigurations"].rol);
+            this.todasSucursales = reslo.filter(LOC => LOC.owner == null);
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
-        });
-        this.connexion.get_data('location').subscribe(reslo => {
-            this.todasSucursales = reslo.filter(LOC => LOC.owner == null);
         });
         setTimeout(() => {
             let anny = JSON.parse(localStorage.getItem('userCompany'));
@@ -9596,7 +9600,8 @@ let InvitationComponent = class InvitationComponent {
             this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery));
             this.ListRol = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
             this.ListVehiculo = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo);
-            this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
+            console.log("localStorage.getItem('actual')", localStorage.getItem('actual'));
+            this.listSucursal = reslo.filter(LOC => LOC.owner == localStorage.getItem('actual'));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
