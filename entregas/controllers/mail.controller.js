@@ -20,6 +20,8 @@ exports.sendMyMail = (req, res) => {
     //Creamos el objeto de transporte
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
         auth: {
             user: 'mlm.conexion@gmail.com',
             pass: 'Patito2112*'
