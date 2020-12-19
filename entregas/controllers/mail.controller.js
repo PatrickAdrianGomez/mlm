@@ -66,10 +66,11 @@ exports.mailSender = (req, res) => {
 
     //Creamos el objeto de transporte
     let transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        type: 'SMTP',
         host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        //service: 'Gmail',
+        port: 587,
+        secure: false,
         auth: {
             user: 'mlm.conexion@gmail.com',
             pass: 'Patito2112*'
