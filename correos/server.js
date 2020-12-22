@@ -5,7 +5,7 @@ http.createServer(function (request, response) {
 
     var transporter = nodemailer.createTransport({
         host: "smtp.mailtrap.io",
-        port: 2525,
+        port: 25,
         auth: {
             user: "030b6b5f13ee9e",
             pass: "df445b0ea272dd"
@@ -21,10 +21,10 @@ http.createServer(function (request, response) {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
-            res.send(500, error.message);
+            response.send(500, error.message);
         } else {
             console.log('Email enviado: ' + info.response);
-            res.status(200).jsonp(req.body);
+            response.status(200).jsonp(req.body);
         }
     });
 
