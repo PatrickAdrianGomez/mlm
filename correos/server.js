@@ -1,14 +1,14 @@
 var http = require("http");
 var nodemailer = require('nodemailer');
 
-http.createServer(function (request, response) {
+http.createServer(function(request, response) {
 
     var transporter = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 25,
+        service: 'Gmail',
+        host: 'smtp.gmail.com',
         auth: {
-            user: "030b6b5f13ee9e",
-            pass: "df445b0ea272dd"
+            user: 'mlm.conexion@gmail.com',
+            pass: 'Patito2112*'
         }
     });
     var mailOptions = {
@@ -21,15 +21,15 @@ http.createServer(function (request, response) {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
-            response.send(500, error.message);
+            transporter.send(500, error.message);
         } else {
             console.log('Email enviado: ' + info.response);
-            response.status(200).jsonp(req.body);
+            transporter.status(200).jsonp(req.body);
         }
     });
 
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.write("Hola Mundo. Esta página está ejecutando Node.js versión: ");
-    response.write(process.version);
-    response.end();
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hola Mundo. Esta página está ejecutando Node.js versión: ");
+  response.write(process.version);
+  response.end();
 }).listen(16678);
