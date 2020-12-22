@@ -4,11 +4,18 @@ var nodemailer = require('nodemailer');
 http.createServer(function(request, response) {
 
     var transporter = nodemailer.createTransport({
-        host: '11.vps.confiared.com',
+        /*host: '11.vps.confiared.com',
         port: 25,
         auth: {
             user: 'info@ventun.com',
             pass: 'roberto321'
+        }*/
+        service: 'Gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        auth: {
+            user: 'mlm.conexion@gmail.com',
+            pass: 'Patito2112*'
         }
     });
     var mailOptions = {
