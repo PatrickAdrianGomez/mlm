@@ -4,15 +4,15 @@ var nodemailer = require('nodemailer');
 http.createServer(function(request, response) {
 
     var transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        host: 'smtp.gmail.com',
+        host: '11.vps.confiared.com/',
+        port: 25,
         auth: {
-            user: 'mlm.conexion@gmail.com',
-            pass: 'Patito2112*'
+            user: 'info@ventun.com',
+            pass: 'roberto321'
         }
     });
     var mailOptions = {
-        from: 'mlm.conexion@gmail.com',
+        from: 'info@ventun.com',
         to: 'patrick_adrian@hotmail.com',
         subject: 'Bienvenido a MLM',
         text: "Hello world?", // plain text body
