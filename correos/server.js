@@ -19,8 +19,9 @@ http.createServer(function(request, response) {
         html: "<b>Hello world?</b>", // html body
     };
     transporter.sendMail(mailOptions, function (error, info) {
+        console.log('info: ', info);
         if (error) {
-            console.log(error);
+            console.log('hubo un error: ', error);
             //response.send(500, error.message);
         } else {
             console.log('Email enviado: ' + info.response);
