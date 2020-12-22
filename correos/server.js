@@ -21,10 +21,10 @@ http.createServer(function(request, response) {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
-            transporter.send(500, error.message);
+            response.send(500, error.message);
         } else {
             console.log('Email enviado: ' + info.response);
-            transporter.status(200).jsonp(req.body);
+            response.status(200).jsonp(req.body);
         }
     });
 
