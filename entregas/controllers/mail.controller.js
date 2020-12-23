@@ -19,12 +19,16 @@ exports.decryURL = (req, res, next) => {
 exports.sendMyMail = (req, res) => {
     //Creamos el objeto de transporte
     var transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        host: 'smtp.gmail.com',
-        port: 587,
+        host: '127.0.0.1',
+        port: 25,
+        secure: false,
         auth: {
-            user: 'mlm.conexion@gmail.com',
-            pass: 'Patito2112*'
+            user: 'info@ventun.com',
+            pass: 'roberto321'
+        },
+        tls: {
+            // do not fail on invalid certs
+            rejectUnauthorized: false
         }
     });
 
@@ -37,7 +41,7 @@ exports.sendMyMail = (req, res) => {
     cuerpo.cabecera.saludo = 'Bienvenido';
 
     var mailOptions = {
-        from: 'mlm.conexion@gmail.com',
+        from: 'info@ventun.com',
         //to: req.body.email,
         //to: 'patrick_adrian@hotmail.com, patrick@hotmail.com',
         to: 'patrick_adrian@hotmail.com',
@@ -66,14 +70,16 @@ exports.mailSender = (req, res) => {
 
     //Creamos el objeto de transporte
     let transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        type: 'SMTP',
-        host: 'smtp.gmail.com',
-        port: 587,
+        host: '127.0.0.1',
+        port: 25,
         secure: false,
         auth: {
-            user: 'mlm.conexion@gmail.com',
-            pass: 'Patito2112*'
+            user: 'info@ventun.com',
+            pass: 'roberto321'
+        },
+        tls: {
+            // do not fail on invalid certs
+            rejectUnauthorized: false
         }
     });
 
@@ -125,7 +131,7 @@ exports.mailSender = (req, res) => {
 
     console.log('Correo donde se envía el correo: ', correo)
     let mailOptions = {
-        from: 'mlm.conexion@gmail.com',
+        from: 'info@ventun.com',
         //to: 'patrick_adrian@hotmail.com',
         to: correo,
         //to: 'patrick_adrian@hotmail.com, patrick@hotmail.com',
