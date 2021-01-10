@@ -19,10 +19,16 @@ exports.decryURL = (req, res, next) => {
 exports.sendMyMail = (req, res) => {
     //Creamos el objeto de transporte
     var transporter = nodemailer.createTransport({
-        service: 'Gmail',
+        host: '127.0.0.1',
+        port: 25,
+        secure: false,
         auth: {
-            user: 'mlm.conexion@gmail.com',
-            pass: 'Patito2112*'
+            user: 'info@ventun.com',
+            pass: 'roberto321'
+        },
+        tls: {
+            // do not fail on invalid certs
+            rejectUnauthorized: false
         }
     });
 
@@ -35,10 +41,10 @@ exports.sendMyMail = (req, res) => {
     cuerpo.cabecera.saludo = 'Bienvenido';
 
     var mailOptions = {
-        from: 'mlm.conexion@gmail.com',
-        to: req.body.email,
+        from: 'info@ventun.com',
+        //to: req.body.email,
         //to: 'patrick_adrian@hotmail.com, patrick@hotmail.com',
-        //to: 'patrick_adrian@hotmail.com',
+        to: 'patrick_adrian@hotmail.com',
         subject: 'Bienvenido a MLM',
         html: mails.tablaMensaje(2, cuerpo)
     };
@@ -64,10 +70,16 @@ exports.mailSender = (req, res) => {
 
     //Creamos el objeto de transporte
     let transporter = nodemailer.createTransport({
-        service: 'Gmail',
+        host: '127.0.0.1',
+        port: 25,
+        secure: false,
         auth: {
-            user: 'mlm.conexion@gmail.com',
-            pass: 'Patito2112*'
+            user: 'info@ventun.com',
+            pass: 'roberto321'
+        },
+        tls: {
+            // do not fail on invalid certs
+            rejectUnauthorized: false
         }
     });
 
@@ -119,7 +131,7 @@ exports.mailSender = (req, res) => {
 
     console.log('Correo donde se envía el correo: ', correo)
     let mailOptions = {
-        from: 'mlm.conexion@gmail.com',
+        from: 'info@ventun.com',
         //to: 'patrick_adrian@hotmail.com',
         to: correo,
         //to: 'patrick_adrian@hotmail.com, patrick@hotmail.com',
@@ -130,16 +142,16 @@ exports.mailSender = (req, res) => {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
-            //res.send(500, error.message);
+            res.send(500, error.message);
         } else {
             console.log('Email enviado: ' + info.response);
-            //res.status(200).jsonp(req.body);
+            res.status(200).json(req.body);
         }
     });
 }
 
 generaCodigoVerificacion = () => {
-    return Math.random().toString(36).substring(7);
+    return '1234'; //Math.random().toString(36).substring(7);
 }
 
 //************************ */
