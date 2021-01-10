@@ -129,7 +129,6 @@ exports.mailSender = (req, res) => {
             break;
     }
 
-    console.log('Correo donde se envía el correo: ', correo)
     let mailOptions = {
         from: 'info@ventun.com',
         //to: 'patrick_adrian@hotmail.com',
@@ -142,7 +141,7 @@ exports.mailSender = (req, res) => {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
-            res.send(500, error.message);
+            res.status(500).json(error.message);
         } else {
             console.log('Email enviado: ' + info.response);
             res.status(200).json(req.body);
@@ -153,54 +152,3 @@ exports.mailSender = (req, res) => {
 generaCodigoVerificacion = () => {
     return '1234'; //Math.random().toString(36).substring(7);
 }
-
-//************************ */
-/*exports.mailSender2 = (req, res) => {
-    var transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-            user: 'allasite.contact@gmail.com',
-            pass: 'Patito2112*'
-        }
-    });
-
-    var creandoURL = {};
-    creandoURL.urlBase = req.body.destino.pagina;
-    creandoURL.urlFinal = req.body.detalle.articulo;
-
-    var encriptado = cryptoJS.AES.encrypt(JSON.stringify(creandoURL), config.tokenURL.secret).toString();
-    var mensajeContactoB2C = {};
-    mensajeContactoB2C = req.body;
-    mensajeContactoB2C.encriptado = "http://localhost:4200/productmail/" + encodeURIComponent(encriptado);
-    mensajeContactoB2C.cabecera = {};
-
-
-    mensajeContactoB2C.cabecera.saludo = 'Solicitud de Compra de Productos';
-
-    switch (key) {
-        case 'prodcuto':
-            mensajeContactoB2C.encriptado = "http://localhost:4200/productmail/" + encodeURIComponent(encriptado);
-            break;
-        case 'login':
-            mensajeContactoB2C = "http://localhost:4200/login/" + encodeURIComponent(encriptado);
-        default:
-            break;
-    }
-
-
-    var mailOptions = {
-        from: 'allasite.contact@gmail.com',
-        to: 'patrick_adrian@hotmail.com',
-        subject: 'ALLASITE B2C',
-        html: mails.tablaMensaje(1, mensajeContactoB2C)
-    };
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-            res.send(500, error.message);
-        } else {
-            console.log('Email enviado: ' + info.response);
-            res.status(200).jsonp(req.body);
-        }
-    });
-}*/
