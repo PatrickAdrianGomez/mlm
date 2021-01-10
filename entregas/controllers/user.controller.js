@@ -29,7 +29,7 @@ exports.userRegister = async (req, res, next) => {
         }
     });
     if (!userExists) {
-        let passUser = Math.random().toString(36).substring(7);
+        let passUser = '1234'; //Math.random().toString(36).substring(7);
         /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
@@ -65,7 +65,7 @@ exports.registerInvitation = async (req, res, next) => {
     let contac = req.body.contact;
     let vehiculo = req.body.vehiculo;
     let job = req.body.job;
-    let pass = Math.random().toString(36).substring(7);
+    let pass = '1234'; //Math.random().toString(36).substring(7);
     let state = req.body.estado;
     let date = req.body.date;
     let code = req.body.codeInvitation;
