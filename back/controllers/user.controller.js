@@ -17,6 +17,7 @@ exports.userRegister = async (req, res, next) => {
     let ci = req.body.profile.ci;
     let prof = req.body.profile;
     let contac = req.body.contact;
+    let vehiculo = req.body.vehiculo;
     let job = req.body.job;
     let pass = req.body.password;
     let state = req.body.estado;
@@ -28,7 +29,7 @@ exports.userRegister = async (req, res, next) => {
         }
     });
     if (!userExists) {
-        let passUser = Math.random().toString(36).substring(7);
+        let passUser = '1234'; //Math.random().toString(36).substring(7);
         /*await bcrypt.hash(pass, config.bcrypt.saltRounds).then(
             function (hashedPassword) {
                 passUser = hashedPassword;
@@ -37,7 +38,9 @@ exports.userRegister = async (req, res, next) => {
         let codigoUser = await setUser(prof, contac, passUser, job);
         let myAssociated = [];
 
-        await setPerson(codigoUser, prof, contac, myAssociated, state);
+        await setPerson(codigoUser, prof, contac, vehiculo, myAssociated, state);
+        let newReq = {nombre: req.body.profile.lastNameP + ' ' + req.body.profile.lastNameM + ', ' + req.body.profile.firstName, email: req.body.contact.email, password: passUser}
+        Mail.mailSender(newReq, 'verificacion');
         res.status(200).json(contac.phone);
     } else {
         res.status(400).json({ message: "El usuario que intenta crear ya existe." });
@@ -60,8 +63,9 @@ exports.getAllInvitations = async (req, res, next) => {
 exports.registerInvitation = async (req, res, next) => {
     let profile = req.body.profile;
     let contac = req.body.contact;
+    let vehiculo = req.body.vehiculo;
     let job = req.body.job;
-    let pass = Math.random().toString(36).substring(7);
+    let pass = '1234'; //Math.random().toString(36).substring(7);
     let state = req.body.estado;
     let date = req.body.date;
     let code = req.body.codeInvitation;
@@ -69,7 +73,7 @@ exports.registerInvitation = async (req, res, next) => {
     let tieneJobs = false;
     let codigoUser = '';
 
-    setInvitation(profile, contac, pass, code, date, job, state);
+    setInvitation(profile, contac, vehiculo, pass, code, date, job, state);
 
     await getUser(profile.ci).then((user) => {
         if (user) {
@@ -93,14 +97,14 @@ exports.registerInvitation = async (req, res, next) => {
 
         await User.findOneAndUpdate(
             { ci: profile.ci },
-            { $push: { job: { ciMain: job.ciMain, companyName: job.companyName, typeAccount: job.typeAccount } } },
+            { $push: { job: { ciMain: job.ciMain, companyName: job.companyName, sucursalName: job.sucursalName, typeAccount: job.typeAccount } } },
             { new: true }
         );
 
 
         await Person.findOneAndUpdate(
             { _id: job.ciMain },
-            { $push: { associated: { ciMain: codePerson, companyName: job.companyName, typeAccount: job.typeAccount } } },
+            { $push: { associated: { ciMain: codePerson, companyName: job.companyName, sucursalName: job.sucursalName, typeAccount: job.typeAccount } } },
             { new: true }
         );
     }
@@ -120,7 +124,7 @@ exports.registerInvitation = async (req, res, next) => {
             if (!person) {
                 let myUser = codigoUser;
                 let myAssociated = [];
-                return setPerson(myUser, profile, contac, myAssociated, false);
+                return setPerson(myUser, profile, contac, vehiculo, myAssociated, false);
             }
             return '';
         });
@@ -130,7 +134,7 @@ exports.registerInvitation = async (req, res, next) => {
 
         await Person.findOneAndUpdate(
             { _id: id },
-            { $push: { associated: { ciMain: codePerson, companyName: job.companyName, typeAccount: job.typeAccount } } },
+            { $push: { associated: { ciMain: codePerson, companyName: job.companyName, sucursalName: job.sucursalName, typeAccount: job.typeAccount } } },
             { new: true }
         );
         let newReq = {nombre: req.body.profile.lastNameP + ' ' + req.body.profile.lastNameM + ', ' + req.body.profile.firstName, email: req.body.contact.email, password: pass}
@@ -241,6 +245,7 @@ exports.userLogin = async (req, res, next) => {
         token.code = detail.estado + detail._id;
         userPlain.detail = detail;
         token.userName = detail.profile.firstName + ' ' + detail.profile.lastNameP + ' ' + detail.profile.lastNameM;
+        token.vehiculo = detail.vehiculo;
     });
     token.token = getToken(userPlain);
 
@@ -298,11 +303,12 @@ setUser = async (profile, contact, pass, job) => {
     return res._id;
 };
 
-setPerson = async (user, profile, contact, associated, estado) => {
+setPerson = async (user, profile, contact, vehiculo, associated, estado) => {
     let newPerson = new Person({
         user: user,
         profile: profile,
         contact: contact,
+        vehiculo: vehiculo,
         associated: associated,
         estado: estado
     });
@@ -310,11 +316,12 @@ setPerson = async (user, profile, contact, associated, estado) => {
     return res._id;
 };
 
-setInvitation = (profile, contac, pass, code, date, job, state) => {
+setInvitation = (profile, contac, vehiculo, pass, code, date, job, state) => {
     let newInvitation = new Invitation({
         codeInvitation: code,
         profile: profile,
         contact: contac,
+        vehiculo: vehiculo,
         job: job,
         password: pass,
         date: date,
