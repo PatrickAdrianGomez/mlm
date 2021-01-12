@@ -9594,7 +9594,6 @@ let InvitationComponent = class InvitationComponent {
         }
         this.connexion.get_data('location').subscribe(reslo => {
             this.ListLOC = reslo;
-            this.ListLOC = reslo;
             this.ListLOCMain = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais);
             this.depasCI = this.ListLOC.filter(LOC => LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad);
             this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery));

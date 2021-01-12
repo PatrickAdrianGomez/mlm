@@ -52,7 +52,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 2em; vertical-align: center;\">\n    <div class=\"card-header text-center\">\n      <img src=\"assets/img/logos/v.png\" alt=\"Ventun\">\n      <h5>Cambio de Contraseña</h5>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <form class=\"col s12\" #formUser=\"ngForm\" (ngSubmit)=\"onSignIn()\">\n          <div class=\"form-group\">\n            <i class=\"fas fa-fingerprint\"></i>\n            <label for=\"ci\">&nbsp; Cédula de Identidad</label>\n            <input type=\"text\" class=\"form-control\" id=\"ci\" name=\"ci\" [(ngModel)]=\"user.ci\" #ci=\"ngModel\"\n              aria-describedby=\"ciHelp\" placeholder=\"Introduzca su CI\">\n            <small id=\"ciHelp\" class=\"form-text text-muted\">Su número de carnet incluida la extensión.</small>\n          </div>\n          <div class=\"form-group\">\n            <i class=\"fas fa-key\"></i>\n            <label for=\"password\">&nbsp; Contraseña</label>\n            <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"user.password\"\n              #password=\"ngModel\" placeholder=\"Introduzca su Contraseña\">\n            <div (click)=\"typeChange()\" class=\"ubicacion\">\n              <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n              <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password1\">&nbsp; Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password1\" name=\"password1\"\n                  [(ngModel)]=\"passwd1\" placeholder=\"Introduzca su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password2\">&nbsp; Repita Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password2\" name=\"password\"\n                  [(ngModel)]=\"passwd2\" placeholder=\"Repita su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div style=\"padding-bottom: 20px;\" class=\"text-center\">\n            <div class=\"row\">\n              <div class=\"col-12 col-md-2\"></div>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" type=\"submit\" name=\"action\">Cambio de Contraseña\n                <i class=\"fas fa-sign-in-alt\"></i>\n              </button>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" name=\"action\" (click)=\"vaTras()\">Cancelar\n              </button>\n              <div class=\"col-12 col-md-2\"></div>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!--\n    <div style=\"padding-bottom: 20px;\">\n      <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n        <i class=\"material-icons right\">send</i>\n      </button>\n    </div>\n    <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\"\n        rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n\n  </div>\n</div>-->"
+module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 2em; vertical-align: center;\">\n    <div class=\"card-header text-center\">\n      <img src=\"assets/img/logos/v.png\" alt=\"Ventun\">\n      <h5>Cambio de Contraseña</h5>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <form class=\"col s12\" #formUser=\"ngForm\" (ngSubmit)=\"onSignIn()\">\n          <div class=\"form-group\">\n            <i class=\"fas fa-fingerprint\"></i>\n            <label for=\"ci\">&nbsp; Cédula de Identidad</label>\n            <input type=\"text\" class=\"form-control\" id=\"ci\" name=\"ci\" [(ngModel)]=\"user.ci\" #ci=\"ngModel\"\n              aria-describedby=\"ciHelp\" placeholder=\"Introduzca su CI\">\n            <small id=\"ciHelp\" class=\"form-text text-muted\">Su número de carnet incluida la extensión.</small>\n          </div>\n          <div class=\"form-group\">\n            <i class=\"fas fa-key\"></i>\n            <label for=\"password\">&nbsp; Contraseña Enviada por Correo</label>\n            <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"user.password\"\n              #password=\"ngModel\" placeholder=\"Introduzca su Contraseña\">\n            <div (click)=\"typeChange()\" class=\"ubicacion\">\n              <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n              <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password1\">&nbsp; Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password1\" name=\"password1\"\n                  [(ngModel)]=\"passwd1\" placeholder=\"Introduzca su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password2\">&nbsp; Repita Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password2\" name=\"password\"\n                  [(ngModel)]=\"passwd2\" placeholder=\"Repita su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div style=\"padding-bottom: 20px;\" class=\"text-center\">\n            <div class=\"row\">\n              <div class=\"col-12 col-md-2\"></div>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" type=\"submit\" name=\"action\">Cambio de Contraseña\n                <i class=\"fas fa-sign-in-alt\"></i>\n              </button>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" name=\"action\" (click)=\"vaTras()\">Cancelar\n              </button>\n              <div class=\"col-12 col-md-2\"></div>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!--\n    <div style=\"padding-bottom: 20px;\">\n      <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n        <i class=\"material-icons right\">send</i>\n      </button>\n    </div>\n    <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\"\n        rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n\n  </div>\n</div>-->"
 
 /***/ }),
 
@@ -712,7 +712,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
 /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/globalVars */ "./src/app/services/globalVars.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+
 
 
 
@@ -736,10 +738,10 @@ let RecoverComponent = class RecoverComponent {
         if (this.passwd1 === this.passwd2) {
             try {
                 this.connexion.get_dataWithParamsNoAuth('recover', '?ci=' + this.user.ci + '&password=' + this.user.password + '&newpass=' + this.passwd2).subscribe((userJWT) => {
-                    console.log('userJWT', userJWT);
                     if (!Object(util__WEBPACK_IMPORTED_MODULE_5__["isNullOrUndefined"])(userJWT)) {
                         localStorage.clear();
-                        this._router.navigate(['/sign/login']);
+                        this.loginWhitOutRegister(this.user.ci, this.passwd2);
+                        //this._router.navigate(['/sign/login']);
                     }
                     else {
                         localStorage.clear();
@@ -779,11 +781,64 @@ let RecoverComponent = class RecoverComponent {
     vaTras() {
         this._location.back();
     }
+    loginWhitOutRegister(ci, pass) {
+        try {
+            this.connexion.get_dataWithParams('login', '?ci=' + ci + '&password=' + pass).subscribe((userJWT) => {
+                if (!Object(util__WEBPACK_IMPORTED_MODULE_5__["isNullOrUndefined"])(userJWT)) {
+                    localStorage.clear();
+                    for (var propiedad in userJWT) {
+                        if (userJWT.hasOwnProperty(propiedad)) {
+                            if ((userJWT['userCompany'].length > 0) && (propiedad == 'userCompany')) {
+                                localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                            }
+                            else {
+                                if ((userJWT['vehiculo']) && (propiedad == 'vehiculo')) {
+                                    localStorage.setItem(propiedad, JSON.stringify(userJWT[propiedad]));
+                                }
+                                else {
+                                    localStorage.setItem(propiedad, userJWT[propiedad].toString());
+                                }
+                            }
+                            src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_6__["globalConfigurations"][propiedad] = userJWT[propiedad];
+                        }
+                    }
+                    if (localStorage.getItem('userActive') == '0') {
+                        localStorage.removeItem('userActive');
+                        this._router.navigate(['/profile']);
+                    }
+                    else {
+                        localStorage.removeItem('userActive');
+                        this._router.navigate(['/']);
+                    }
+                }
+                else {
+                    localStorage.clear();
+                }
+            }, (error) => {
+                let errorMessage = error;
+                if (errorMessage.error.message === 'User does not exist') {
+                    alert('Usuario aún no registrado. \n Por favor intente nuevamente');
+                    this.user.email = null;
+                    this.user.password = null;
+                }
+                if (errorMessage.error.message === 'Password did not match') {
+                    alert('Contraseña incorrecta. \n Por favor intente nuevamente');
+                    this.user.email = null;
+                    this.user.password = null;
+                }
+            });
+        }
+        catch (error) {
+            alert('El nombre de usuario o la contraseña son incorrectos. \n Por favor intente nuevamente');
+            this.user.email = null;
+            this.user.password = null;
+        }
+    }
 };
 RecoverComponent.ctorParameters = () => [
     { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_3__["ConnexionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"] }
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_7__["Location"] }
 ];
 RecoverComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

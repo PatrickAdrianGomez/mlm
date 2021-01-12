@@ -10917,7 +10917,6 @@ var InvitationComponent = /** @class */ (function () {
         }
         this.connexion.get_data('location').subscribe(function (reslo) {
             _this.ListLOC = reslo;
-            _this.ListLOC = reslo;
             _this.ListLOCMain = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].pais; });
             _this.depasCI = _this.ListLOC.filter(function (LOC) { return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].ciudad; });
             _this.ListCompany = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery); });
