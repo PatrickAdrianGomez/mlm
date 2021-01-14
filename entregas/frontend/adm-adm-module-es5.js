@@ -10343,12 +10343,10 @@ var FichaPedidoComponent = /** @class */ (function () {
     FichaPedidoComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.connexion.get_data('location').subscribe(function (reslo) {
-            _this.todasSucursales = reslo.filter(function (LOC) { return LOC.owner == null; });
+            _this.todasSucursales = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery); });
             //this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
-        });
-        this.connexion.get_data('typecontext').subscribe(function (reslo) {
-            _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo; });
-            _this.todasEmpresas = reslo.filter(function (LOC) { return (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery); });
+            _this.ListVehiculo = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo; });
+            _this.todasEmpresas = _this.todasSucursales; //reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
         }, function (error) {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
@@ -10661,7 +10659,7 @@ var FichaPedidoComponent = /** @class */ (function () {
         var esDelivery = false;
         this.todasEmpresas.forEach(function (cias) {
             if (cias._id == compania) {
-                if (cias.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery) {
+                if (cias.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery) {
                     esDelivery = true;
                 }
             }

@@ -9028,12 +9028,10 @@ let FichaPedidoComponent = class FichaPedidoComponent {
     }
     ngOnInit() {
         this.connexion.get_data('location').subscribe(reslo => {
-            this.todasSucursales = reslo.filter(LOC => LOC.owner == null);
+            this.todasSucursales = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery));
             //this.listSucursal = reslo.filter(LOC => LOC.typecon_id == localStorage.getItem('actual'));
-        });
-        this.connexion.get_data('typecontext').subscribe(reslo => {
-            this.ListVehiculo = reslo.filter(LOC => LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo);
-            this.todasEmpresas = reslo.filter(LOC => (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].company) || (LOC.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery));
+            this.ListVehiculo = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].vehiculo);
+            this.todasEmpresas = this.todasSucursales; //reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
         });
@@ -9343,7 +9341,7 @@ let FichaPedidoComponent = class FichaPedidoComponent {
         let esDelivery = false;
         this.todasEmpresas.forEach(cias => {
             if (cias._id == compania) {
-                if (cias.context_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery) {
+                if (cias.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["globalConfigurations"].delivery) {
                     esDelivery = true;
                 }
             }
