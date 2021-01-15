@@ -7915,7 +7915,7 @@ var misc = {
 var permissions = [
     {
         RoleID: 'adm',
-        menuView: ["Registro de Ventas"],
+        menuView: [],
         subMenuView: []
     },
     {
@@ -9147,6 +9147,12 @@ let FichaPedidoComponent = class FichaPedidoComponent {
                     eleccion += '&usuario.id=' + localStorage.code;
                 }
             }
+            if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].sup == this.localCompany[0].typeAccount) {
+                eleccion = '&companyName=' + this.localCompany[0].companyName;
+                /*if (estado != 1) {
+                  eleccion += '&usuario.id=' + localStorage.code;
+                }*/
+            }
         }
         return '?estadoActual=' + estado + eleccion;
     }
@@ -10160,7 +10166,7 @@ let ProductListComponent = class ProductListComponent {
         let localCompany = JSON.parse(localStorage.getItem('userCompany'));
         if (localCompany) {
             this.isLoading = true;
-            this.cnx.get_dataWithParams('products', '?sucursalName=' + localCompany[0].sucursalName + '&estado=' + state).subscribe(myProds => {
+            this.cnx.get_dataWithParams('products', '?companyName=' + localCompany[0].companyName + '&estado=' + state).subscribe(myProds => {
                 console.log(myProds);
                 this.rows = myProds;
                 setTimeout(() => {
