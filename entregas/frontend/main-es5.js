@@ -503,6 +503,10 @@ var ConnexionService = /** @class */ (function () {
         console.log(this.url_base + subruta + "/" + xid + "/", xobject);
         return this.http.put(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) { return res; }));
     };
+    ConnexionService.prototype.postData = function (ruta, data) {
+        var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
+        return this.http.post(this.url_base + subruta, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) { return res; }));
+    };
     ConnexionService.prototype.delObject = function (ruta, id) {
         var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
         console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
@@ -601,7 +605,9 @@ var globalRoutes = {
     user: 'api/v1/quser',
     login: 'api/v1/login',
     register: 'api/v1/register',
-    recover: 'api/v1/recover'
+    recover: 'api/v1/recover',
+    whatsAppConnect: 'api/v1/connectW',
+    whatsAppSend: 'api/v1/sendW'
 };
 
 

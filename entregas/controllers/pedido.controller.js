@@ -1,15 +1,17 @@
 var Pedido = require('../models/pedido.model');
+var Persona = require('../models/person.model');
+var ww = require('../configurations/webApiWhatsApp');
 
 exports.creaPedido = async (req, res, next) => {
     if (req.body.codigo == 0) {
-        const filter = { };
+        const filter = {};
         let result = await Pedido.findOne(filter).sort({ _id: -1 });
         let miPedido = new Pedido();
         miPedido = req.body;
         if (result) {
-            let fechaUltimoPedido = result.fechaHora.getDate()+':'+result.fechaHora.getMonth()+':'+result.fechaHora.getFullYear();
+            let fechaUltimoPedido = result.fechaHora.getDate() + ':' + result.fechaHora.getMonth() + ':' + result.fechaHora.getFullYear();
             let fecha = new Date();
-            let fechaActual = fecha.getDate()+':'+fecha.getMonth()+':'+fecha.getFullYear();
+            let fechaActual = fecha.getDate() + ':' + fecha.getMonth() + ':' + fecha.getFullYear();
             if (fechaUltimoPedido == fechaActual) {
                 miPedido.codigo = result.codigo + 1;
             } else {
@@ -24,13 +26,19 @@ exports.creaPedido = async (req, res, next) => {
                 misProductos.push({ id: prod.id, nombre: prod.nombre, cantidad: prod.cantidad, costo: prod.costo });
             });
             setPedido(miPedido, misProductos);
+            await Persona.find({ 'vehiculo.placaVehiculo': { $exists: true } }, function (err, docs) {
+                for (let i = 0; i < docs.length; i++) {
+                    let body = {'phone': '591'+ docs[i].contact.phone, 'body': 'Nuevo Pedido en el sistema, ingrese al sistema para llevar el pedido a su destino.\n http://11.vps.confiared.com:16678/pedidos/1'};
+                    ww.sendWhtspp(body, res);
+                }
+            });
+
+            generateMensajes(miPedido);
             res.status(200).json({ 'pedido': nuevoPedido });
         } catch (error) {
             res.status(200).json({ 'pedido': null });
         }
     }
-
-
 }
 
 setPedido = (pedido, productos) => {

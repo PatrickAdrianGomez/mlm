@@ -444,6 +444,10 @@ let ConnexionService = class ConnexionService {
         console.log(this.url_base + subruta + "/" + xid + "/", xobject);
         return this.http.put(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
+    postData(ruta, data) {
+        let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
+        return this.http.post(this.url_base + subruta, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
+    }
     delObject(ruta, id) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
         console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
@@ -541,7 +545,9 @@ const globalRoutes = {
     user: 'api/v1/quser',
     login: 'api/v1/login',
     register: 'api/v1/register',
-    recover: 'api/v1/recover'
+    recover: 'api/v1/recover',
+    whatsAppConnect: 'api/v1/connectW',
+    whatsAppSend: 'api/v1/sendW'
 };
 
 

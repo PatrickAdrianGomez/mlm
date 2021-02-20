@@ -1,6 +1,7 @@
 const usersController = require('../controllers/user.controller');
 const fileController = require('../controllers/file.controller');
 const pedidoController = require('../controllers/pedido.controller');
+const whtspp = require('../configurations/webApiWhatsApp');
 //const mailController = require('../controllers/mail.controller');
 
 var express = require('express');
@@ -25,6 +26,9 @@ router.get('/personAssociated', usersController.getPersonAssociated);
 router.post('/pedido', pedidoController.creaPedido);
 
 router.post('/image', AuthenticateJWT, fileController.upload);
+
+router.post('/connectW', whtspp.conectWhtspp);
+router.post('/sendW', whtspp.sendWhtspp);
 
 //router.post('/mailSender', mailController.mailSender);
 //router.get('/mailReciver', mailController.decryURL);

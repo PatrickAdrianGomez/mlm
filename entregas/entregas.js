@@ -39,6 +39,10 @@ config.serverURL = path.join(config.serverURL, 'frontend');
 app.use(express.json({limit: '100mb', extended: true}));//remplaza a body-parser
 // Inicialización de las rutas
 app.use('/api', routesManager);
+
+var ww = require('./configurations/webApiWhatsApp');
+ww.conectWhtspp();
+
 //Redirect all the other resquests
 app.get('*', function (req, res) {
     if (allowedExt.filter(function (ext) { return req.url.indexOf(ext) > 0; }).length > 0) {
