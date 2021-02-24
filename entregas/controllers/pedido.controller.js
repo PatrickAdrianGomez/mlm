@@ -1,6 +1,6 @@
 var Pedido = require('../models/pedido.model');
 var Persona = require('../models/person.model');
-var ww = require('../configurations/webApiWhatsApp');
+var ww = require('../configurations/webApiWhatsApp2');
 
 exports.creaPedido = async (req, res, next) => {
     if (req.body.codigo == 0) {
