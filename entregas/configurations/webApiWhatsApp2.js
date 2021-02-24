@@ -8,6 +8,7 @@ const client = new Client();
 
 module.exports.conectWhtspp = async(req, res) => {
     //client.initialize();
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     client.on('qr', (qr) => {
         // Generate and scan this code with your phone
         console.log('QR RECEIVED', qr);
