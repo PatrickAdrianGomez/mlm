@@ -40,6 +40,8 @@ app.use(express.json({limit: '100mb', extended: true}));//remplaza a body-parser
 // Inicialización de las rutas
 app.use('/api', routesManager);
 
+const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+
 var ww = require('./configurations/webApiWhatsApp2');
 ww.conectWhtspp();
 
