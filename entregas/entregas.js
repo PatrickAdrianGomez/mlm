@@ -40,7 +40,7 @@ app.use(express.json({limit: '100mb', extended: true}));//remplaza a body-parser
 // Inicialización de las rutas
 app.use('/api', routesManager);
 
-var ww = require('./configurations/webApiWhatsApp2');
+var ww = require('./configurations/webApiWhatsApp');
 ww.conectWhtspp();
 
 //Redirect all the other resquests
