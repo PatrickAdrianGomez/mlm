@@ -2,6 +2,7 @@ const qrcode = require('qrcode-terminal');
 const { Client } = require('whatsapp-web.js');
 const EventEmitter = require('events');
 const emitter = new EventEmitter()
+const puppeteer = require('puppeteer');
 emitter.setMaxListeners(100);
 
 const client = new Client();
