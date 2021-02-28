@@ -40,7 +40,9 @@ app.use(express.json({limit: '100mb', extended: true}));//remplaza a body-parser
 // Inicialización de las rutas
 app.use('/api', routesManager);
 
-/** Estas lineas debo eliminar */
+/** Estas lineas debo eliminar
+ * 
+ */
 var ww = require('./configurations/webApiWhatsApp');
 ww.conectWhtspp();
 
