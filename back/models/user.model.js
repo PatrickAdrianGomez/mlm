@@ -35,6 +35,11 @@ var userSchema = new Schema({
             require: false,
             unique: false
         },
+        sucursalName: {
+            type: Schema.Types.String,
+            require: false,
+            unique: false
+        },
         typeAccount: {
             type: Schema.Types.String,
             require: false,

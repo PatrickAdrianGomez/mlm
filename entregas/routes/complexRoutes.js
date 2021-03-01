@@ -1,7 +1,7 @@
 const usersController = require('../controllers/user.controller');
 const fileController = require('../controllers/file.controller');
 const pedidoController = require('../controllers/pedido.controller');
-const whtspp = require('../configurations/webApiWhatsApp2');
+const whtspp = require('../configurations/webApiWhatsApp');
 //const mailController = require('../controllers/mail.controller');
 
 var express = require('express');

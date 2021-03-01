@@ -27,6 +27,11 @@ var jobSchema = new Schema({
         required: false,
         unique: false
     },
+    sucursalName: {
+        type: Schema.Types.String,
+        required: false,
+        unique: false
+    },
     typeAccount: {
         type: Schema.Types.String,
         required: false,
@@ -114,6 +119,24 @@ var contactScheme = new Schema({
     { _id: false }
 );
 
+var vehiculoScheme = new Schema({
+    tipoVehiculo: {
+        type: Schema.Types.String,
+        required: false,
+        unique: false
+    },
+    placaVehiculo: {
+        type: Schema.Types.String,
+        required: false,
+        unique: false
+    },
+    detallesVehiculo: {
+        type: Schema.Types.String,
+        required: false,
+        unique: false
+    }
+});
+
 var profileScheme = new Schema({
     ci: {
         type: Schema.Types.String,
@@ -164,6 +187,7 @@ var schemasList =
     'jobSchema': jobSchema,
     'profileScheme': profileScheme,
     'contactSchema': contactScheme,
-    'addressSchema': addressSchema
+    'addressSchema': addressSchema,
+    'vehiculoScheme': vehiculoScheme
 };
 module.exports = schemasList;

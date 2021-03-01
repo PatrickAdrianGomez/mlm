@@ -15,6 +15,8 @@ var Invitation = require('../models/invitation.model');
 var Job = require('../models/job.model');
 var TypeContext = require('../models/typeContext');
 var Context = require('../models/contexto');
+var Product = require('../models/products.model');
+var Pedidos = require('../models/pedido.model');
 
 User.methods(['get', 'put', 'post', 'delete']);
 User.updateOptions({ new: true });
@@ -47,4 +49,12 @@ TypeContext.register(router, '/qtypecontext');
 Context.methods(['get', 'put', 'post', 'delete']);
 Context.updateOptions({new: true});
 Context.register(router, '/qcontext');
+
+Product.methods(['get', 'put', 'post', 'delete']);
+Product.updateOptions({new: true});
+Product.register(router, '/qproducts');
+
+Pedidos.methods(['get', 'put', 'post', 'delete']);
+Pedidos.updateOptions({new: true});
+Pedidos.register(router, '/qpedido');
 module.exports = router;
