@@ -551,8 +551,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImagesSize", function() { return globalImagesSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalRoutes", function() { return globalRoutes; });
 var globalVars = {
-    domain: 'http://11.vps.confiared.com:16679',
-    filesDomain: 'http://11.vps.confiared.com:16679',
+    domain: 'http://165.227.203.226:16679',
+    filesDomain: 'http://165.227.203.226:16679',
     //domain: 'http://127.0.0.1:16679',
     //filesDomain: 'http://127.0.0.1:16679',
     //domain: '',

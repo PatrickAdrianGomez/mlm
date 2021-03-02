@@ -4,4 +4,5 @@ correos/node_modules/*
 back/node_modules/*
 entregas/node_modules/*
 entregas/npm-debug.log
+entregas/package.json
 npm-debug.log
