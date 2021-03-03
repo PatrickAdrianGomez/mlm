@@ -5,18 +5,6 @@ const client = new webWhatsApp();
 var authInfo = null;
 
 module.exports.conectWhtspp = async (req, res) => {
-
-    /*if (!fs.existsSync('auth_whtspp.json')) {
-        try {
-            fs.mkdirSync
-        } catch (error) {
-            console.log('authInfo excepcion', authInfo);
-        }
-    } else {
-        const file = fs.readFileSync("auth_whtspp.json"); // load a closed session back if it exists
-        authInfo = JSON.parse(file);
-        console.log('authInfo', authInfo);
-    }*/
     try {
         const file = fs.readFileSync("auth_whtspp.json"); // load a closed session back if it exists
         authInfo = JSON.parse(file);
@@ -30,7 +18,7 @@ module.exports.conectWhtspp = async (req, res) => {
             var authInfo = client.base64EncodedAuthInfo();
             fs.writeFileSync('auth_whtspp.json', JSON.stringify(authInfo, null, '\t'));
             console.log('Autenticaicón exitosa');
-            //res.status(200).json({mensaje: 'Autenticaicón exitosa'});
+            //res.status(200).json({mensaje: 'Autenticación exitosa'});
         }).catch((err) => console.log('Se encontró un error: ', err));
 
 };
