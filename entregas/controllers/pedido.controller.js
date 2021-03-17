@@ -28,7 +28,7 @@ exports.creaPedido = async (req, res, next) => {
             setPedido(miPedido, misProductos);
             await Persona.find({ 'vehiculo.placaVehiculo': { $exists: true } }, function (err, docs) {
                 for (let i = 0; i < docs.length; i++) {
-                    let body = {'phone': '591'+ docs[i].contact.phone, 'body': 'Nuevo Pedido en el sistema, ingrese al sistema para llevar el pedido a su destino.\n http://165.227.203.226:16679/pedidos/1'};
+                    let body = {'phone': '591'+ docs[i].contact.phone, 'body': 'Nuevo Pedido en el sistema, ingrese al sistema para llevar el pedido a su destino.\n http://ventunentregas.com/pedidos/1'};
                     ww.sendWhtspp(body, res);
                 }
             });
