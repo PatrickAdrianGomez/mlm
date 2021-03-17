@@ -120,7 +120,7 @@ bienvenida = (cuerpo) => {
                     border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td class="button" height="45">
-                            <a href="http://165.227.203.226:16679">Visítanos</a>
+                            <a href="http://ventunentregas.com">Visítanos</a>
                         </td>
                     </tr>
                 </table>
@@ -240,7 +240,7 @@ seguimientoProducto = (cuerpo) => {
                     border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td class="button" height="45">
-                            <a href="http://165.227.203.226:16679/purchases/52">Controla tu Pedido</a>
+                            <a href="http://ventunentregas.com/purchases/52">Controla tu Pedido</a>
                         </td>
                     </tr>
                 </table>
@@ -450,7 +450,7 @@ exports.tablaMensaje = (opcion, cuerpo) => {
                                 <table width="70" align="left" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td height="70" style="padding:0 20px 20px 0;">
-                                            <a href="http://165.227.203.226:16679">
+                                            <a href="http://ventunentregas.com">
                                                 <img class="fix"
                                                     src="http://ventun.com/assets/img/logo-ventun.png"
                                                     width="70" height="70" border="0" alt="" />
