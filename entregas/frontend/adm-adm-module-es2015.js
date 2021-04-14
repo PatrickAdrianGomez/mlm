@@ -7136,6 +7136,4120 @@ function elementsFromPoint(x, y) {
 
 /***/ }),
 
+/***/ "./node_modules/@tweenjs/tween.js/src/Tween.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@tweenjs/tween.js/src/Tween.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Tween.js - Licensed under the MIT license
+ * https://github.com/tweenjs/tween.js
+ * ----------------------------------------------
+ *
+ * See https://github.com/tweenjs/tween.js/graphs/contributors for the full list of contributors.
+ * Thank you all, you're awesome!
+ */
+
+
+var _Group = function () {
+	this._tweens = {};
+	this._tweensAddedDuringUpdate = {};
+};
+
+_Group.prototype = {
+	getAll: function () {
+
+		return Object.keys(this._tweens).map(function (tweenId) {
+			return this._tweens[tweenId];
+		}.bind(this));
+
+	},
+
+	removeAll: function () {
+
+		this._tweens = {};
+
+	},
+
+	add: function (tween) {
+
+		this._tweens[tween.getId()] = tween;
+		this._tweensAddedDuringUpdate[tween.getId()] = tween;
+
+	},
+
+	remove: function (tween) {
+
+		delete this._tweens[tween.getId()];
+		delete this._tweensAddedDuringUpdate[tween.getId()];
+
+	},
+
+	update: function (time, preserve) {
+
+		var tweenIds = Object.keys(this._tweens);
+
+		if (tweenIds.length === 0) {
+			return false;
+		}
+
+		time = time !== undefined ? time : TWEEN.now();
+
+		// Tweens are updated in "batches". If you add a new tween during an update, then the
+		// new tween will be updated in the next batch.
+		// If you remove a tween during an update, it may or may not be updated. However,
+		// if the removed tween was added during the current batch, then it will not be updated.
+		while (tweenIds.length > 0) {
+			this._tweensAddedDuringUpdate = {};
+
+			for (var i = 0; i < tweenIds.length; i++) {
+
+				var tween = this._tweens[tweenIds[i]];
+
+				if (tween && tween.update(time) === false) {
+					tween._isPlaying = false;
+
+					if (!preserve) {
+						delete this._tweens[tweenIds[i]];
+					}
+				}
+			}
+
+			tweenIds = Object.keys(this._tweensAddedDuringUpdate);
+		}
+
+		return true;
+
+	}
+};
+
+var TWEEN = new _Group();
+
+TWEEN.Group = _Group;
+TWEEN._nextId = 0;
+TWEEN.nextId = function () {
+	return TWEEN._nextId++;
+};
+
+
+// Include a performance.now polyfill.
+// In node.js, use process.hrtime.
+if (typeof (self) === 'undefined' && typeof (process) !== 'undefined' && process.hrtime) {
+	TWEEN.now = function () {
+		var time = process.hrtime();
+
+		// Convert [seconds, nanoseconds] to milliseconds.
+		return time[0] * 1000 + time[1] / 1000000;
+	};
+}
+// In a browser, use self.performance.now if it is available.
+else if (typeof (self) !== 'undefined' &&
+         self.performance !== undefined &&
+		 self.performance.now !== undefined) {
+	// This must be bound, because directly assigning this function
+	// leads to an invocation exception in Chrome.
+	TWEEN.now = self.performance.now.bind(self.performance);
+}
+// Use Date.now if it is available.
+else if (Date.now !== undefined) {
+	TWEEN.now = Date.now;
+}
+// Otherwise, use 'new Date().getTime()'.
+else {
+	TWEEN.now = function () {
+		return new Date().getTime();
+	};
+}
+
+
+TWEEN.Tween = function (object, group) {
+	this._object = object;
+	this._valuesStart = {};
+	this._valuesEnd = {};
+	this._valuesStartRepeat = {};
+	this._duration = 1000;
+	this._repeat = 0;
+	this._repeatDelayTime = undefined;
+	this._yoyo = false;
+	this._isPlaying = false;
+	this._reversed = false;
+	this._delayTime = 0;
+	this._startTime = null;
+	this._easingFunction = TWEEN.Easing.Linear.None;
+	this._interpolationFunction = TWEEN.Interpolation.Linear;
+	this._chainedTweens = [];
+	this._onStartCallback = null;
+	this._onStartCallbackFired = false;
+	this._onUpdateCallback = null;
+	this._onRepeatCallback = null;
+	this._onCompleteCallback = null;
+	this._onStopCallback = null;
+	this._group = group || TWEEN;
+	this._id = TWEEN.nextId();
+
+};
+
+TWEEN.Tween.prototype = {
+	getId: function () {
+		return this._id;
+	},
+
+	isPlaying: function () {
+		return this._isPlaying;
+	},
+
+	to: function (properties, duration) {
+
+		this._valuesEnd = properties;
+
+		if (duration !== undefined) {
+			this._duration = duration;
+		}
+
+		return this;
+
+	},
+
+	duration: function duration(d) {
+		this._duration = d;
+		return this;
+	},
+
+	start: function (time) {
+
+		this._group.add(this);
+
+		this._isPlaying = true;
+
+		this._onStartCallbackFired = false;
+
+		this._startTime = time !== undefined ? typeof time === 'string' ? TWEEN.now() + parseFloat(time) : time : TWEEN.now();
+		this._startTime += this._delayTime;
+
+		for (var property in this._valuesEnd) {
+
+			// Check if an Array was provided as property value
+			if (this._valuesEnd[property] instanceof Array) {
+
+				if (this._valuesEnd[property].length === 0) {
+					continue;
+				}
+
+				// Create a local copy of the Array with the start value at the front
+				this._valuesEnd[property] = [this._object[property]].concat(this._valuesEnd[property]);
+
+			}
+
+			// If `to()` specifies a property that doesn't exist in the source object,
+			// we should not set that property in the object
+			if (this._object[property] === undefined) {
+				continue;
+			}
+
+			// Save the starting value.
+			this._valuesStart[property] = this._object[property];
+
+			if ((this._valuesStart[property] instanceof Array) === false) {
+				this._valuesStart[property] *= 1.0; // Ensures we're using numbers, not strings
+			}
+
+			this._valuesStartRepeat[property] = this._valuesStart[property] || 0;
+
+		}
+
+		return this;
+
+	},
+
+	stop: function () {
+
+		if (!this._isPlaying) {
+			return this;
+		}
+
+		this._group.remove(this);
+		this._isPlaying = false;
+
+		if (this._onStopCallback !== null) {
+			this._onStopCallback(this._object);
+		}
+
+		this.stopChainedTweens();
+		return this;
+
+	},
+
+	end: function () {
+
+		this.update(Infinity);
+		return this;
+
+	},
+
+	stopChainedTweens: function () {
+
+		for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
+			this._chainedTweens[i].stop();
+		}
+
+	},
+
+	group: function (group) {
+		this._group = group;
+		return this;
+	},
+
+	delay: function (amount) {
+
+		this._delayTime = amount;
+		return this;
+
+	},
+
+	repeat: function (times) {
+
+		this._repeat = times;
+		return this;
+
+	},
+
+	repeatDelay: function (amount) {
+
+		this._repeatDelayTime = amount;
+		return this;
+
+	},
+
+	yoyo: function (yoyo) {
+
+		this._yoyo = yoyo;
+		return this;
+
+	},
+
+	easing: function (easingFunction) {
+
+		this._easingFunction = easingFunction;
+		return this;
+
+	},
+
+	interpolation: function (interpolationFunction) {
+
+		this._interpolationFunction = interpolationFunction;
+		return this;
+
+	},
+
+	chain: function () {
+
+		this._chainedTweens = arguments;
+		return this;
+
+	},
+
+	onStart: function (callback) {
+
+		this._onStartCallback = callback;
+		return this;
+
+	},
+
+	onUpdate: function (callback) {
+
+		this._onUpdateCallback = callback;
+		return this;
+
+	},
+
+	onRepeat: function onRepeat(callback) {
+
+		this._onRepeatCallback = callback;
+		return this;
+
+	},
+
+	onComplete: function (callback) {
+
+		this._onCompleteCallback = callback;
+		return this;
+
+	},
+
+	onStop: function (callback) {
+
+		this._onStopCallback = callback;
+		return this;
+
+	},
+
+	update: function (time) {
+
+		var property;
+		var elapsed;
+		var value;
+
+		if (time < this._startTime) {
+			return true;
+		}
+
+		if (this._onStartCallbackFired === false) {
+
+			if (this._onStartCallback !== null) {
+				this._onStartCallback(this._object);
+			}
+
+			this._onStartCallbackFired = true;
+		}
+
+		elapsed = (time - this._startTime) / this._duration;
+		elapsed = (this._duration === 0 || elapsed > 1) ? 1 : elapsed;
+
+		value = this._easingFunction(elapsed);
+
+		for (property in this._valuesEnd) {
+
+			// Don't update properties that do not exist in the source object
+			if (this._valuesStart[property] === undefined) {
+				continue;
+			}
+
+			var start = this._valuesStart[property] || 0;
+			var end = this._valuesEnd[property];
+
+			if (end instanceof Array) {
+
+				this._object[property] = this._interpolationFunction(end, value);
+
+			} else {
+
+				// Parses relative end values with start as base (e.g.: +10, -3)
+				if (typeof (end) === 'string') {
+
+					if (end.charAt(0) === '+' || end.charAt(0) === '-') {
+						end = start + parseFloat(end);
+					} else {
+						end = parseFloat(end);
+					}
+				}
+
+				// Protect against non numeric properties.
+				if (typeof (end) === 'number') {
+					this._object[property] = start + (end - start) * value;
+				}
+
+			}
+
+		}
+
+		if (this._onUpdateCallback !== null) {
+			this._onUpdateCallback(this._object, elapsed);
+		}
+
+		if (elapsed === 1) {
+
+			if (this._repeat > 0) {
+
+				if (isFinite(this._repeat)) {
+					this._repeat--;
+				}
+
+				// Reassign starting values, restart by making startTime = now
+				for (property in this._valuesStartRepeat) {
+
+					if (typeof (this._valuesEnd[property]) === 'string') {
+						this._valuesStartRepeat[property] = this._valuesStartRepeat[property] + parseFloat(this._valuesEnd[property]);
+					}
+
+					if (this._yoyo) {
+						var tmp = this._valuesStartRepeat[property];
+
+						this._valuesStartRepeat[property] = this._valuesEnd[property];
+						this._valuesEnd[property] = tmp;
+					}
+
+					this._valuesStart[property] = this._valuesStartRepeat[property];
+
+				}
+
+				if (this._yoyo) {
+					this._reversed = !this._reversed;
+				}
+
+				if (this._repeatDelayTime !== undefined) {
+					this._startTime = time + this._repeatDelayTime;
+				} else {
+					this._startTime = time + this._delayTime;
+				}
+
+				if (this._onRepeatCallback !== null) {
+					this._onRepeatCallback(this._object);
+				}
+
+				return true;
+
+			} else {
+
+				if (this._onCompleteCallback !== null) {
+
+					this._onCompleteCallback(this._object);
+				}
+
+				for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
+					// Make the chained tweens start exactly at the time they should,
+					// even if the `update()` method was called way past the duration of the tween
+					this._chainedTweens[i].start(this._startTime + this._duration);
+				}
+
+				return false;
+
+			}
+
+		}
+
+		return true;
+
+	}
+};
+
+
+TWEEN.Easing = {
+
+	Linear: {
+
+		None: function (k) {
+
+			return k;
+
+		}
+
+	},
+
+	Quadratic: {
+
+		In: function (k) {
+
+			return k * k;
+
+		},
+
+		Out: function (k) {
+
+			return k * (2 - k);
+
+		},
+
+		InOut: function (k) {
+
+			if ((k *= 2) < 1) {
+				return 0.5 * k * k;
+			}
+
+			return - 0.5 * (--k * (k - 2) - 1);
+
+		}
+
+	},
+
+	Cubic: {
+
+		In: function (k) {
+
+			return k * k * k;
+
+		},
+
+		Out: function (k) {
+
+			return --k * k * k + 1;
+
+		},
+
+		InOut: function (k) {
+
+			if ((k *= 2) < 1) {
+				return 0.5 * k * k * k;
+			}
+
+			return 0.5 * ((k -= 2) * k * k + 2);
+
+		}
+
+	},
+
+	Quartic: {
+
+		In: function (k) {
+
+			return k * k * k * k;
+
+		},
+
+		Out: function (k) {
+
+			return 1 - (--k * k * k * k);
+
+		},
+
+		InOut: function (k) {
+
+			if ((k *= 2) < 1) {
+				return 0.5 * k * k * k * k;
+			}
+
+			return - 0.5 * ((k -= 2) * k * k * k - 2);
+
+		}
+
+	},
+
+	Quintic: {
+
+		In: function (k) {
+
+			return k * k * k * k * k;
+
+		},
+
+		Out: function (k) {
+
+			return --k * k * k * k * k + 1;
+
+		},
+
+		InOut: function (k) {
+
+			if ((k *= 2) < 1) {
+				return 0.5 * k * k * k * k * k;
+			}
+
+			return 0.5 * ((k -= 2) * k * k * k * k + 2);
+
+		}
+
+	},
+
+	Sinusoidal: {
+
+		In: function (k) {
+
+			return 1 - Math.cos(k * Math.PI / 2);
+
+		},
+
+		Out: function (k) {
+
+			return Math.sin(k * Math.PI / 2);
+
+		},
+
+		InOut: function (k) {
+
+			return 0.5 * (1 - Math.cos(Math.PI * k));
+
+		}
+
+	},
+
+	Exponential: {
+
+		In: function (k) {
+
+			return k === 0 ? 0 : Math.pow(1024, k - 1);
+
+		},
+
+		Out: function (k) {
+
+			return k === 1 ? 1 : 1 - Math.pow(2, - 10 * k);
+
+		},
+
+		InOut: function (k) {
+
+			if (k === 0) {
+				return 0;
+			}
+
+			if (k === 1) {
+				return 1;
+			}
+
+			if ((k *= 2) < 1) {
+				return 0.5 * Math.pow(1024, k - 1);
+			}
+
+			return 0.5 * (- Math.pow(2, - 10 * (k - 1)) + 2);
+
+		}
+
+	},
+
+	Circular: {
+
+		In: function (k) {
+
+			return 1 - Math.sqrt(1 - k * k);
+
+		},
+
+		Out: function (k) {
+
+			return Math.sqrt(1 - (--k * k));
+
+		},
+
+		InOut: function (k) {
+
+			if ((k *= 2) < 1) {
+				return - 0.5 * (Math.sqrt(1 - k * k) - 1);
+			}
+
+			return 0.5 * (Math.sqrt(1 - (k -= 2) * k) + 1);
+
+		}
+
+	},
+
+	Elastic: {
+
+		In: function (k) {
+
+			if (k === 0) {
+				return 0;
+			}
+
+			if (k === 1) {
+				return 1;
+			}
+
+			return -Math.pow(2, 10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI);
+
+		},
+
+		Out: function (k) {
+
+			if (k === 0) {
+				return 0;
+			}
+
+			if (k === 1) {
+				return 1;
+			}
+
+			return Math.pow(2, -10 * k) * Math.sin((k - 0.1) * 5 * Math.PI) + 1;
+
+		},
+
+		InOut: function (k) {
+
+			if (k === 0) {
+				return 0;
+			}
+
+			if (k === 1) {
+				return 1;
+			}
+
+			k *= 2;
+
+			if (k < 1) {
+				return -0.5 * Math.pow(2, 10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI);
+			}
+
+			return 0.5 * Math.pow(2, -10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI) + 1;
+
+		}
+
+	},
+
+	Back: {
+
+		In: function (k) {
+
+			var s = 1.70158;
+
+			return k * k * ((s + 1) * k - s);
+
+		},
+
+		Out: function (k) {
+
+			var s = 1.70158;
+
+			return --k * k * ((s + 1) * k + s) + 1;
+
+		},
+
+		InOut: function (k) {
+
+			var s = 1.70158 * 1.525;
+
+			if ((k *= 2) < 1) {
+				return 0.5 * (k * k * ((s + 1) * k - s));
+			}
+
+			return 0.5 * ((k -= 2) * k * ((s + 1) * k + s) + 2);
+
+		}
+
+	},
+
+	Bounce: {
+
+		In: function (k) {
+
+			return 1 - TWEEN.Easing.Bounce.Out(1 - k);
+
+		},
+
+		Out: function (k) {
+
+			if (k < (1 / 2.75)) {
+				return 7.5625 * k * k;
+			} else if (k < (2 / 2.75)) {
+				return 7.5625 * (k -= (1.5 / 2.75)) * k + 0.75;
+			} else if (k < (2.5 / 2.75)) {
+				return 7.5625 * (k -= (2.25 / 2.75)) * k + 0.9375;
+			} else {
+				return 7.5625 * (k -= (2.625 / 2.75)) * k + 0.984375;
+			}
+
+		},
+
+		InOut: function (k) {
+
+			if (k < 0.5) {
+				return TWEEN.Easing.Bounce.In(k * 2) * 0.5;
+			}
+
+			return TWEEN.Easing.Bounce.Out(k * 2 - 1) * 0.5 + 0.5;
+
+		}
+
+	}
+
+};
+
+TWEEN.Interpolation = {
+
+	Linear: function (v, k) {
+
+		var m = v.length - 1;
+		var f = m * k;
+		var i = Math.floor(f);
+		var fn = TWEEN.Interpolation.Utils.Linear;
+
+		if (k < 0) {
+			return fn(v[0], v[1], f);
+		}
+
+		if (k > 1) {
+			return fn(v[m], v[m - 1], m - f);
+		}
+
+		return fn(v[i], v[i + 1 > m ? m : i + 1], f - i);
+
+	},
+
+	Bezier: function (v, k) {
+
+		var b = 0;
+		var n = v.length - 1;
+		var pw = Math.pow;
+		var bn = TWEEN.Interpolation.Utils.Bernstein;
+
+		for (var i = 0; i <= n; i++) {
+			b += pw(1 - k, n - i) * pw(k, i) * v[i] * bn(n, i);
+		}
+
+		return b;
+
+	},
+
+	CatmullRom: function (v, k) {
+
+		var m = v.length - 1;
+		var f = m * k;
+		var i = Math.floor(f);
+		var fn = TWEEN.Interpolation.Utils.CatmullRom;
+
+		if (v[0] === v[m]) {
+
+			if (k < 0) {
+				i = Math.floor(f = m * (1 + k));
+			}
+
+			return fn(v[(i - 1 + m) % m], v[i], v[(i + 1) % m], v[(i + 2) % m], f - i);
+
+		} else {
+
+			if (k < 0) {
+				return v[0] - (fn(v[0], v[0], v[1], v[1], -f) - v[0]);
+			}
+
+			if (k > 1) {
+				return v[m] - (fn(v[m], v[m], v[m - 1], v[m - 1], f - m) - v[m]);
+			}
+
+			return fn(v[i ? i - 1 : 0], v[i], v[m < i + 1 ? m : i + 1], v[m < i + 2 ? m : i + 2], f - i);
+
+		}
+
+	},
+
+	Utils: {
+
+		Linear: function (p0, p1, t) {
+
+			return (p1 - p0) * t + p0;
+
+		},
+
+		Bernstein: function (n, i) {
+
+			var fc = TWEEN.Interpolation.Utils.Factorial;
+
+			return fc(n) / fc(i) / fc(n - i);
+
+		},
+
+		Factorial: (function () {
+
+			var a = [1];
+
+			return function (n) {
+
+				var s = 1;
+
+				if (a[n]) {
+					return a[n];
+				}
+
+				for (var i = n; i > 1; i--) {
+					s *= i;
+				}
+
+				a[n] = s;
+				return s;
+
+			};
+
+		})(),
+
+		CatmullRom: function (p0, p1, p2, p3, t) {
+
+			var v0 = (p2 - p0) * 0.5;
+			var v1 = (p3 - p1) * 0.5;
+			var t2 = t * t;
+			var t3 = t * t2;
+
+			return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (- 3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1;
+
+		}
+
+	}
+
+};
+
+// UMD (Universal Module Definition)
+(function (root) {
+
+	if (true) {
+
+		// AMD
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return TWEEN;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+	} else {}
+
+})(this);
+
+
+/***/ }),
+
+/***/ "./node_modules/angular2-multiselect-dropdown/fesm2015/angular2-multiselect-dropdown.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/angular2-multiselect-dropdown/fesm2015/angular2-multiselect-dropdown.js ***!
+  \**********************************************************************************************/
+/*! exports provided: AngularMultiSelect, AngularMultiSelectModule, ClickOutsideDirective, Item, ListFilterPipe, TemplateRenderer, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg, ɵh, ɵi, ɵj, ɵk, ɵm */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularMultiSelect", function() { return AngularMultiSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularMultiSelectModule", function() { return AngularMultiSelectModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClickOutsideDirective", function() { return ClickOutsideDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return Item; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListFilterPipe", function() { return ListFilterPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateRenderer", function() { return TemplateRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return DROPDOWN_CONTROL_VALUE_ACCESSOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return DROPDOWN_CONTROL_VALIDATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return ScrollDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵd", function() { return styleDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵe", function() { return setPosition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵf", function() { return Badge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵg", function() { return Search; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵh", function() { return CIcon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵi", function() { return VIRTUAL_SCROLLER_DEFAULT_OPTIONS_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵj", function() { return VirtualScrollerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵk", function() { return VirtualScrollerModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵm", function() { return DataService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tweenjs/tween.js */ "./node_modules/@tweenjs/tween.js/src/Tween.js");
+/* harmony import */ var _tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class MyException {
+    /**
+     * @param {?} status
+     * @param {?} body
+     */
+    constructor(status, body) {
+        this.status = status;
+        this.body = body;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ClickOutsideDirective {
+    /**
+     * @param {?} _elementRef
+     */
+    constructor(_elementRef) {
+        this._elementRef = _elementRef;
+        this.clickOutside = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    /**
+     * @param {?} event
+     * @param {?} targetElement
+     * @return {?}
+     */
+    onClick(event, targetElement) {
+        if (!targetElement) {
+            return;
+        }
+        /** @type {?} */
+        const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+        if (!clickedInside) {
+            this.clickOutside.emit(event);
+        }
+    }
+}
+ClickOutsideDirective.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                selector: '[clickOutside]'
+            },] }
+];
+/** @nocollapse */
+ClickOutsideDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+];
+ClickOutsideDirective.propDecorators = {
+    clickOutside: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['document:click', ['$event', '$event.target'],] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['document:touchstart', ['$event', '$event.target'],] }]
+};
+if (false) {}
+class ScrollDirective {
+    /**
+     * @param {?} _elementRef
+     */
+    constructor(_elementRef) {
+        this._elementRef = _elementRef;
+        this.scroll = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    /**
+     * @param {?} event
+     * @param {?} targetElement
+     * @return {?}
+     */
+    onClick(event, targetElement) {
+        this.scroll.emit(event);
+    }
+}
+ScrollDirective.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                selector: '[scroll]'
+            },] }
+];
+/** @nocollapse */
+ScrollDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+];
+ScrollDirective.propDecorators = {
+    scroll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['scroll', ['$event'],] }]
+};
+if (false) {}
+class styleDirective {
+    /**
+     * @param {?} el
+     */
+    constructor(el) {
+        this.el = el;
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this.el.nativeElement.style.top = this.styleVal;
+    }
+    /**
+     * @return {?}
+     */
+    ngOnChanges() {
+        this.el.nativeElement.style.top = this.styleVal;
+    }
+}
+styleDirective.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                selector: '[styleProp]'
+            },] }
+];
+/** @nocollapse */
+styleDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+];
+styleDirective.propDecorators = {
+    styleVal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['styleProp',] }]
+};
+if (false) {}
+class setPosition {
+    /**
+     * @param {?} el
+     */
+    constructor(el) {
+        this.el = el;
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        if (this.height) {
+            this.el.nativeElement.style.bottom = parseInt(this.height + 15 + "") + 'px';
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngOnChanges() {
+        if (this.height) {
+            this.el.nativeElement.style.bottom = parseInt(this.height + 15 + "") + 'px';
+        }
+    }
+}
+setPosition.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                selector: '[setPosition]'
+            },] }
+];
+/** @nocollapse */
+setPosition.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+];
+setPosition.propDecorators = {
+    height: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['setPosition',] }]
+};
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class DataService {
+    constructor() {
+        this.filteredData = [];
+        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    }
+    /**
+     * @param {?} data
+     * @return {?}
+     */
+    setData(data) {
+        this.filteredData = data;
+        this.subject.next(data);
+    }
+    /**
+     * @return {?}
+     */
+    getData() {
+        return this.subject.asObservable();
+    }
+    /**
+     * @return {?}
+     */
+    getFilteredData() {
+        if (this.filteredData && this.filteredData.length > 0) {
+            return this.filteredData;
+        }
+        else {
+            return [];
+        }
+    }
+}
+DataService.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ListFilterPipe {
+    /**
+     * @param {?} ds
+     */
+    constructor(ds) {
+        this.ds = ds;
+        this.filteredList = [];
+    }
+    /**
+     * @param {?} items
+     * @param {?} filter
+     * @param {?} searchBy
+     * @return {?}
+     */
+    transform(items, filter, searchBy) {
+        if (!items || !filter) {
+            this.ds.setData(items);
+            return items;
+        }
+        this.filteredList = items.filter((/**
+         * @param {?} item
+         * @return {?}
+         */
+        (item) => this.applyFilter(item, filter, searchBy)));
+        this.ds.setData(this.filteredList);
+        return this.filteredList;
+    }
+    /**
+     * @param {?} item
+     * @param {?} filter
+     * @param {?} searchBy
+     * @return {?}
+     */
+    applyFilter(item, filter, searchBy) {
+        /** @type {?} */
+        let found = false;
+        if (searchBy.length > 0) {
+            if (item.grpTitle) {
+                found = true;
+            }
+            else {
+                for (var t = 0; t < searchBy.length; t++) {
+                    if (filter && item[searchBy[t]] && item[searchBy[t]] != "") {
+                        if (item[searchBy[t]].toString().toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
+                            found = true;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            if (item.grpTitle) {
+                found = true;
+            }
+            else {
+                for (var prop in item) {
+                    if (filter && item[prop]) {
+                        if (item[prop].toString().toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
+                            found = true;
+                        }
+                    }
+                }
+            }
+        }
+        return found;
+    }
+}
+ListFilterPipe.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"], args: [{
+                name: 'listFilter',
+                pure: true
+            },] }
+];
+/** @nocollapse */
+ListFilterPipe.ctorParameters = () => [
+    { type: DataService }
+];
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class Item {
+    constructor() {
+    }
+}
+Item.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'c-item',
+                template: ``
+            }] }
+];
+/** @nocollapse */
+Item.ctorParameters = () => [];
+Item.propDecorators = {
+    template: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"], { static: true },] }]
+};
+if (false) {}
+class Badge {
+    constructor() {
+    }
+}
+Badge.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'c-badge',
+                template: ``
+            }] }
+];
+/** @nocollapse */
+Badge.ctorParameters = () => [];
+Badge.propDecorators = {
+    template: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"], { static: true },] }]
+};
+if (false) {}
+class Search {
+    constructor() {
+    }
+}
+Search.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'c-search',
+                template: ``
+            }] }
+];
+/** @nocollapse */
+Search.ctorParameters = () => [];
+Search.propDecorators = {
+    template: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"], { static: true },] }]
+};
+if (false) {}
+class TemplateRenderer {
+    /**
+     * @param {?} viewContainer
+     */
+    constructor(viewContainer) {
+        this.viewContainer = viewContainer;
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this.view = this.viewContainer.createEmbeddedView(this.data.template, {
+            '\$implicit': this.data,
+            'item': this.item
+        });
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this.view.destroy();
+    }
+}
+TemplateRenderer.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'c-templateRenderer',
+                template: ``
+            }] }
+];
+/** @nocollapse */
+TemplateRenderer.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] }
+];
+TemplateRenderer.propDecorators = {
+    data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    item: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+};
+if (false) {}
+class CIcon {
+}
+CIcon.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'c-icon',
+                template: `<svg *ngIf="name == 'remove'" width="100%" height="100%" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
+                        <g>
+                            <path d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88
+                                c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242
+                                C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879
+                                s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"/>
+                        </g>
+                    </svg>
+            <svg *ngIf="name == 'angle-down'" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+<g>
+	<g id="_x31_0_34_">
+		<g>
+			<path d="M604.501,134.782c-9.999-10.05-26.222-10.05-36.221,0L306.014,422.558L43.721,134.782
+				c-9.999-10.05-26.223-10.05-36.222,0s-9.999,26.35,0,36.399l279.103,306.241c5.331,5.357,12.422,7.652,19.386,7.296
+				c6.988,0.356,14.055-1.939,19.386-7.296l279.128-306.268C614.5,161.106,614.5,144.832,604.501,134.782z"/>
+		</g>
+	</g>
+</g>
+</svg>
+<svg *ngIf="name == 'angle-up'" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+<g>
+	<g id="_x39__30_">
+		<g>
+			<path d="M604.501,440.509L325.398,134.956c-5.331-5.357-12.423-7.627-19.386-7.27c-6.989-0.357-14.056,1.913-19.387,7.27
+				L7.499,440.509c-9.999,10.024-9.999,26.298,0,36.323s26.223,10.024,36.222,0l262.293-287.164L568.28,476.832
+				c9.999,10.024,26.222,10.024,36.221,0C614.5,466.809,614.5,450.534,604.501,440.509z"/>
+		</g>
+	</g>
+</g>
+
+</svg>
+<svg *ngIf="name == 'search'" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 615.52 615.52" style="enable-background:new 0 0 615.52 615.52;"
+	 xml:space="preserve">
+<g>
+	<g>
+		<g id="Search__x28_and_thou_shall_find_x29_">
+			<g>
+				<path d="M602.531,549.736l-184.31-185.368c26.679-37.72,42.528-83.729,42.528-133.548C460.75,103.35,357.997,0,231.258,0
+					C104.518,0,1.765,103.35,1.765,230.82c0,127.47,102.753,230.82,229.493,230.82c49.53,0,95.271-15.944,132.78-42.777
+					l184.31,185.366c7.482,7.521,17.292,11.291,27.102,11.291c9.812,0,19.62-3.77,27.083-11.291
+					C617.496,589.188,617.496,564.777,602.531,549.736z M355.9,319.763l-15.042,21.273L319.7,356.174
+					c-26.083,18.658-56.667,28.526-88.442,28.526c-84.365,0-152.995-69.035-152.995-153.88c0-84.846,68.63-153.88,152.995-153.88
+					s152.996,69.034,152.996,153.88C384.271,262.769,374.462,293.526,355.9,319.763z"/>
+			</g>
+		</g>
+	</g>
+</g>
+
+</svg>
+<svg *ngIf="name == 'clear'" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 51.976 51.976" style="enable-background:new 0 0 51.976 51.976;" xml:space="preserve">
+<g>
+	<path d="M44.373,7.603c-10.137-10.137-26.632-10.138-36.77,0c-10.138,10.138-10.137,26.632,0,36.77s26.632,10.138,36.77,0
+		C54.51,34.235,54.51,17.74,44.373,7.603z M36.241,36.241c-0.781,0.781-2.047,0.781-2.828,0l-7.425-7.425l-7.778,7.778
+		c-0.781,0.781-2.047,0.781-2.828,0c-0.781-0.781-0.781-2.047,0-2.828l7.778-7.778l-7.425-7.425c-0.781-0.781-0.781-2.048,0-2.828
+		c0.781-0.781,2.047-0.781,2.828,0l7.425,7.425l7.071-7.071c0.781-0.781,2.047-0.781,2.828,0c0.781,0.781,0.781,2.047,0,2.828
+		l-7.071,7.071l7.425,7.425C37.022,34.194,37.022,35.46,36.241,36.241z"/>
+</g>
+</svg>`,
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
+            }] }
+];
+CIcon.propDecorators = {
+    name: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+};
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @return {?}
+ */
+function VIRTUAL_SCROLLER_DEFAULT_OPTIONS_FACTORY() {
+    return {
+        scrollThrottlingTime: 0,
+        scrollDebounceTime: 0,
+        scrollAnimationTime: 750,
+        checkResizeInterval: 1000,
+        resizeBypassRefreshThreshold: 5,
+        modifyOverflowStyleOfParentScroll: true,
+        stripedTable: false
+    };
+}
+class VirtualScrollerComponent {
+    /**
+     * @param {?} element
+     * @param {?} renderer
+     * @param {?} zone
+     * @param {?} changeDetectorRef
+     * @param {?} platformId
+     * @param {?} options
+     */
+    constructor(element, renderer, zone, changeDetectorRef, platformId, options) {
+        this.element = element;
+        this.renderer = renderer;
+        this.zone = zone;
+        this.changeDetectorRef = changeDetectorRef;
+        this.window = window;
+        this.executeRefreshOutsideAngularZone = false;
+        this._enableUnequalChildrenSizes = false;
+        this.useMarginInsteadOfTranslate = false;
+        this.ssrViewportWidth = 1920;
+        this.ssrViewportHeight = 1080;
+        this._bufferAmount = 0;
+        this._items = [];
+        this.compareItems = (/**
+         * @param {?} item1
+         * @param {?} item2
+         * @return {?}
+         */
+        (item1, item2) => item1 === item2);
+        this.vsUpdate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.vsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.vsStart = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.vsEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.calculatedScrollbarWidth = 0;
+        this.calculatedScrollbarHeight = 0;
+        this.padding = 0;
+        this.previousViewPort = (/** @type {?} */ ({}));
+        this.cachedPageSize = 0;
+        this.previousScrollNumberElements = 0;
+        this.isAngularUniversalSSR = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformServer"])(platformId);
+        this.scrollThrottlingTime = options.scrollThrottlingTime;
+        this.scrollDebounceTime = options.scrollDebounceTime;
+        this.scrollAnimationTime = options.scrollAnimationTime;
+        this.scrollbarWidth = options.scrollbarWidth;
+        this.scrollbarHeight = options.scrollbarHeight;
+        this.checkResizeInterval = options.checkResizeInterval;
+        this.resizeBypassRefreshThreshold = options.resizeBypassRefreshThreshold;
+        this.modifyOverflowStyleOfParentScroll = options.modifyOverflowStyleOfParentScroll;
+        this.stripedTable = options.stripedTable;
+        this.horizontal = false;
+        this.resetWrapGroupDimensions();
+    }
+    /**
+     * @return {?}
+     */
+    get viewPortInfo() {
+        /** @type {?} */
+        let pageInfo = this.previousViewPort || (/** @type {?} */ ({}));
+        return {
+            startIndex: pageInfo.startIndex || 0,
+            endIndex: pageInfo.endIndex || 0,
+            scrollStartPosition: pageInfo.scrollStartPosition || 0,
+            scrollEndPosition: pageInfo.scrollEndPosition || 0,
+            maxScrollPosition: pageInfo.maxScrollPosition || 0,
+            startIndexWithBuffer: pageInfo.startIndexWithBuffer || 0,
+            endIndexWithBuffer: pageInfo.endIndexWithBuffer || 0
+        };
+    }
+    /**
+     * @return {?}
+     */
+    get enableUnequalChildrenSizes() {
+        return this._enableUnequalChildrenSizes;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set enableUnequalChildrenSizes(value) {
+        if (this._enableUnequalChildrenSizes === value) {
+            return;
+        }
+        this._enableUnequalChildrenSizes = value;
+        this.minMeasuredChildWidth = undefined;
+        this.minMeasuredChildHeight = undefined;
+    }
+    /**
+     * @return {?}
+     */
+    get bufferAmount() {
+        if (typeof (this._bufferAmount) === 'number' && this._bufferAmount >= 0) {
+            return this._bufferAmount;
+        }
+        else {
+            return this.enableUnequalChildrenSizes ? 5 : 0;
+        }
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set bufferAmount(value) {
+        this._bufferAmount = value;
+    }
+    /**
+     * @return {?}
+     */
+    get scrollThrottlingTime() {
+        return this._scrollThrottlingTime;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set scrollThrottlingTime(value) {
+        this._scrollThrottlingTime = value;
+        this.updateOnScrollFunction();
+    }
+    /**
+     * @return {?}
+     */
+    get scrollDebounceTime() {
+        return this._scrollDebounceTime;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set scrollDebounceTime(value) {
+        this._scrollDebounceTime = value;
+        this.updateOnScrollFunction();
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    updateOnScrollFunction() {
+        if (this.scrollDebounceTime) {
+            this.onScroll = (/** @type {?} */ (this.debounce((/**
+             * @return {?}
+             */
+            () => {
+                this.refresh_internal(false);
+            }), this.scrollDebounceTime)));
+        }
+        else if (this.scrollThrottlingTime) {
+            this.onScroll = (/** @type {?} */ (this.throttleTrailing((/**
+             * @return {?}
+             */
+            () => {
+                this.refresh_internal(false);
+            }), this.scrollThrottlingTime)));
+        }
+        else {
+            this.onScroll = (/**
+             * @return {?}
+             */
+            () => {
+                this.refresh_internal(false);
+            });
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get checkResizeInterval() {
+        return this._checkResizeInterval;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set checkResizeInterval(value) {
+        if (this._checkResizeInterval === value) {
+            return;
+        }
+        this._checkResizeInterval = value;
+        this.addScrollEventHandlers();
+    }
+    /**
+     * @return {?}
+     */
+    get items() {
+        return this._items;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set items(value) {
+        if (value === this._items) {
+            return;
+        }
+        this._items = value || [];
+        this.refresh_internal(true);
+    }
+    /**
+     * @return {?}
+     */
+    get horizontal() {
+        return this._horizontal;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set horizontal(value) {
+        this._horizontal = value;
+        this.updateDirection();
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    revertParentOverscroll() {
+        /** @type {?} */
+        const scrollElement = this.getScrollElement();
+        if (scrollElement && this.oldParentScrollOverflow) {
+            scrollElement.style['overflow-y'] = this.oldParentScrollOverflow.y;
+            scrollElement.style['overflow-x'] = this.oldParentScrollOverflow.x;
+        }
+        this.oldParentScrollOverflow = undefined;
+    }
+    /**
+     * @return {?}
+     */
+    get parentScroll() {
+        return this._parentScroll;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set parentScroll(value) {
+        if (this._parentScroll === value) {
+            return;
+        }
+        this.revertParentOverscroll();
+        this._parentScroll = value;
+        this.addScrollEventHandlers();
+        /** @type {?} */
+        const scrollElement = this.getScrollElement();
+        if (this.modifyOverflowStyleOfParentScroll && scrollElement !== this.element.nativeElement) {
+            this.oldParentScrollOverflow = { x: scrollElement.style['overflow-x'], y: scrollElement.style['overflow-y'] };
+            scrollElement.style['overflow-y'] = this.horizontal ? 'visible' : 'auto';
+            scrollElement.style['overflow-x'] = this.horizontal ? 'auto' : 'visible';
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this.addScrollEventHandlers();
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this.removeScrollEventHandlers();
+        this.revertParentOverscroll();
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) {
+        /** @type {?} */
+        let indexLengthChanged = this.cachedItemsLength !== this.items.length;
+        this.cachedItemsLength = this.items.length;
+        /** @type {?} */
+        const firstRun = !changes.items || !changes.items.previousValue || changes.items.previousValue.length === 0;
+        this.refresh_internal(indexLengthChanged || firstRun);
+    }
+    /**
+     * @return {?}
+     */
+    ngDoCheck() {
+        if (this.cachedItemsLength !== this.items.length) {
+            this.cachedItemsLength = this.items.length;
+            this.refresh_internal(true);
+            return;
+        }
+        if (this.previousViewPort && this.viewPortItems && this.viewPortItems.length > 0) {
+            /** @type {?} */
+            let itemsArrayChanged = false;
+            for (let i = 0; i < this.viewPortItems.length; ++i) {
+                if (!this.compareItems(this.items[this.previousViewPort.startIndexWithBuffer + i], this.viewPortItems[i])) {
+                    itemsArrayChanged = true;
+                    break;
+                }
+            }
+            if (itemsArrayChanged) {
+                this.refresh_internal(true);
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    refresh() {
+        this.refresh_internal(true);
+    }
+    /**
+     * @return {?}
+     */
+    invalidateAllCachedMeasurements() {
+        this.wrapGroupDimensions = {
+            maxChildSizePerWrapGroup: [],
+            numberOfKnownWrapGroupChildSizes: 0,
+            sumOfKnownWrapGroupChildWidths: 0,
+            sumOfKnownWrapGroupChildHeights: 0
+        };
+        this.minMeasuredChildWidth = undefined;
+        this.minMeasuredChildHeight = undefined;
+        this.refresh_internal(false);
+    }
+    /**
+     * @param {?} item
+     * @return {?}
+     */
+    invalidateCachedMeasurementForItem(item) {
+        if (this.enableUnequalChildrenSizes) {
+            /** @type {?} */
+            let index = this.items && this.items.indexOf(item);
+            if (index >= 0) {
+                this.invalidateCachedMeasurementAtIndex(index);
+            }
+        }
+        else {
+            this.minMeasuredChildWidth = undefined;
+            this.minMeasuredChildHeight = undefined;
+        }
+        this.refresh_internal(false);
+    }
+    /**
+     * @param {?} index
+     * @return {?}
+     */
+    invalidateCachedMeasurementAtIndex(index) {
+        if (this.enableUnequalChildrenSizes) {
+            /** @type {?} */
+            let cachedMeasurement = this.wrapGroupDimensions.maxChildSizePerWrapGroup[index];
+            if (cachedMeasurement) {
+                this.wrapGroupDimensions.maxChildSizePerWrapGroup[index] = undefined;
+                --this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+                this.wrapGroupDimensions.sumOfKnownWrapGroupChildWidths -= cachedMeasurement.childWidth || 0;
+                this.wrapGroupDimensions.sumOfKnownWrapGroupChildHeights -= cachedMeasurement.childHeight || 0;
+            }
+        }
+        else {
+            this.minMeasuredChildWidth = undefined;
+            this.minMeasuredChildHeight = undefined;
+        }
+        this.refresh_internal(false);
+    }
+    /**
+     * @param {?} item
+     * @param {?=} alignToBeginning
+     * @param {?=} additionalOffset
+     * @param {?=} animationMilliseconds
+     * @param {?=} animationCompletedCallback
+     * @return {?}
+     */
+    scrollInto(item, alignToBeginning = true, additionalOffset = 0, animationMilliseconds = undefined, animationCompletedCallback = undefined) {
+        /** @type {?} */
+        let index = this.items.indexOf(item);
+        if (index === -1) {
+            return;
+        }
+        this.scrollToIndex(index, alignToBeginning, additionalOffset, animationMilliseconds, animationCompletedCallback);
+    }
+    /**
+     * @param {?} index
+     * @param {?=} alignToBeginning
+     * @param {?=} additionalOffset
+     * @param {?=} animationMilliseconds
+     * @param {?=} animationCompletedCallback
+     * @return {?}
+     */
+    scrollToIndex(index, alignToBeginning = true, additionalOffset = 0, animationMilliseconds = undefined, animationCompletedCallback = undefined) {
+        /** @type {?} */
+        let maxRetries = 5;
+        /** @type {?} */
+        let retryIfNeeded = (/**
+         * @return {?}
+         */
+        () => {
+            --maxRetries;
+            if (maxRetries <= 0) {
+                if (animationCompletedCallback) {
+                    animationCompletedCallback();
+                }
+                return;
+            }
+            /** @type {?} */
+            let dimensions = this.calculateDimensions();
+            /** @type {?} */
+            let desiredStartIndex = Math.min(Math.max(index, 0), dimensions.itemCount - 1);
+            if (this.previousViewPort.startIndex === desiredStartIndex) {
+                if (animationCompletedCallback) {
+                    animationCompletedCallback();
+                }
+                return;
+            }
+            this.scrollToIndex_internal(index, alignToBeginning, additionalOffset, 0, retryIfNeeded);
+        });
+        this.scrollToIndex_internal(index, alignToBeginning, additionalOffset, animationMilliseconds, retryIfNeeded);
+    }
+    /**
+     * @protected
+     * @param {?} index
+     * @param {?=} alignToBeginning
+     * @param {?=} additionalOffset
+     * @param {?=} animationMilliseconds
+     * @param {?=} animationCompletedCallback
+     * @return {?}
+     */
+    scrollToIndex_internal(index, alignToBeginning = true, additionalOffset = 0, animationMilliseconds = undefined, animationCompletedCallback = undefined) {
+        animationMilliseconds = animationMilliseconds === undefined ? this.scrollAnimationTime : animationMilliseconds;
+        /** @type {?} */
+        let dimensions = this.calculateDimensions();
+        /** @type {?} */
+        let scroll = this.calculatePadding(index, dimensions) + additionalOffset;
+        if (!alignToBeginning) {
+            scroll -= dimensions.wrapGroupsPerPage * dimensions[this._childScrollDim];
+        }
+        this.scrollToPosition(scroll, animationMilliseconds, animationCompletedCallback);
+    }
+    /**
+     * @param {?} scrollPosition
+     * @param {?=} animationMilliseconds
+     * @param {?=} animationCompletedCallback
+     * @return {?}
+     */
+    scrollToPosition(scrollPosition, animationMilliseconds = undefined, animationCompletedCallback = undefined) {
+        scrollPosition += this.getElementsOffset();
+        animationMilliseconds = animationMilliseconds === undefined ? this.scrollAnimationTime : animationMilliseconds;
+        /** @type {?} */
+        let scrollElement = this.getScrollElement();
+        /** @type {?} */
+        let animationRequest;
+        if (this.currentTween) {
+            this.currentTween.stop();
+            this.currentTween = undefined;
+        }
+        if (!animationMilliseconds) {
+            this.renderer.setProperty(scrollElement, this._scrollType, scrollPosition);
+            this.refresh_internal(false, animationCompletedCallback);
+            return;
+        }
+        /** @type {?} */
+        const tweenConfigObj = { scrollPosition: scrollElement[this._scrollType] };
+        /** @type {?} */
+        let newTween = new _tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_4__["Tween"](tweenConfigObj)
+            .to({ scrollPosition }, animationMilliseconds)
+            .easing(_tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_4__["Easing"].Quadratic.Out)
+            .onUpdate((/**
+         * @param {?} data
+         * @return {?}
+         */
+        (data) => {
+            if (isNaN(data.scrollPosition)) {
+                return;
+            }
+            this.renderer.setProperty(scrollElement, this._scrollType, data.scrollPosition);
+            this.refresh_internal(false);
+        }))
+            .onStop((/**
+         * @return {?}
+         */
+        () => {
+            cancelAnimationFrame(animationRequest);
+        }))
+            .start();
+        /** @type {?} */
+        const animate = (/**
+         * @param {?=} time
+         * @return {?}
+         */
+        (time) => {
+            if (!newTween["isPlaying"]()) {
+                return;
+            }
+            newTween.update(time);
+            if (tweenConfigObj.scrollPosition === scrollPosition) {
+                this.refresh_internal(false, animationCompletedCallback);
+                return;
+            }
+            this.zone.runOutsideAngular((/**
+             * @return {?}
+             */
+            () => {
+                animationRequest = requestAnimationFrame(animate);
+            }));
+        });
+        animate();
+        this.currentTween = newTween;
+    }
+    /**
+     * @protected
+     * @param {?} element
+     * @return {?}
+     */
+    getElementSize(element) {
+        /** @type {?} */
+        let result = element.getBoundingClientRect();
+        /** @type {?} */
+        let styles = getComputedStyle(element);
+        /** @type {?} */
+        let marginTop = parseInt(styles['margin-top'], 10) || 0;
+        /** @type {?} */
+        let marginBottom = parseInt(styles['margin-bottom'], 10) || 0;
+        /** @type {?} */
+        let marginLeft = parseInt(styles['margin-left'], 10) || 0;
+        /** @type {?} */
+        let marginRight = parseInt(styles['margin-right'], 10) || 0;
+        return {
+            top: result.top + marginTop,
+            bottom: result.bottom + marginBottom,
+            left: result.left + marginLeft,
+            right: result.right + marginRight,
+            width: result.width + marginLeft + marginRight,
+            height: result.height + marginTop + marginBottom
+        };
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    checkScrollElementResized() {
+        /** @type {?} */
+        let boundingRect = this.getElementSize(this.getScrollElement());
+        /** @type {?} */
+        let sizeChanged;
+        if (!this.previousScrollBoundingRect) {
+            sizeChanged = true;
+        }
+        else {
+            /** @type {?} */
+            let widthChange = Math.abs(boundingRect.width - this.previousScrollBoundingRect.width);
+            /** @type {?} */
+            let heightChange = Math.abs(boundingRect.height - this.previousScrollBoundingRect.height);
+            sizeChanged = widthChange > this.resizeBypassRefreshThreshold || heightChange > this.resizeBypassRefreshThreshold;
+        }
+        if (sizeChanged) {
+            this.previousScrollBoundingRect = boundingRect;
+            if (boundingRect.width > 0 && boundingRect.height > 0) {
+                this.refresh_internal(false);
+            }
+        }
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    updateDirection() {
+        if (this.horizontal) {
+            this._invisiblePaddingProperty = 'width';
+            this._offsetType = 'offsetLeft';
+            this._pageOffsetType = 'pageXOffset';
+            this._childScrollDim = 'childWidth';
+            this._marginDir = 'margin-left';
+            this._translateDir = 'translateX';
+            this._scrollType = 'scrollLeft';
+        }
+        else {
+            this._invisiblePaddingProperty = 'height';
+            this._offsetType = 'offsetTop';
+            this._pageOffsetType = 'pageYOffset';
+            this._childScrollDim = 'childHeight';
+            this._marginDir = 'margin-top';
+            this._translateDir = 'translateY';
+            this._scrollType = 'scrollTop';
+        }
+    }
+    /**
+     * @protected
+     * @param {?} func
+     * @param {?} wait
+     * @return {?}
+     */
+    debounce(func, wait) {
+        /** @type {?} */
+        const throttled = this.throttleTrailing(func, wait);
+        /** @type {?} */
+        const result = (/**
+         * @return {?}
+         */
+        function () {
+            throttled['cancel']();
+            throttled.apply(this, arguments);
+        });
+        result['cancel'] = (/**
+         * @return {?}
+         */
+        function () {
+            throttled['cancel']();
+        });
+        return result;
+    }
+    /**
+     * @protected
+     * @param {?} func
+     * @param {?} wait
+     * @return {?}
+     */
+    throttleTrailing(func, wait) {
+        /** @type {?} */
+        let timeout = undefined;
+        /** @type {?} */
+        let _arguments = arguments;
+        /** @type {?} */
+        const result = (/**
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            const _this = this;
+            _arguments = arguments;
+            if (timeout) {
+                return;
+            }
+            if (wait <= 0) {
+                func.apply(_this, _arguments);
+            }
+            else {
+                timeout = setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
+                    timeout = undefined;
+                    func.apply(_this, _arguments);
+                }), wait);
+            }
+        });
+        result['cancel'] = (/**
+         * @return {?}
+         */
+        function () {
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = undefined;
+            }
+        });
+        return result;
+    }
+    /**
+     * @protected
+     * @param {?} itemsArrayModified
+     * @param {?=} refreshCompletedCallback
+     * @param {?=} maxRunTimes
+     * @return {?}
+     */
+    refresh_internal(itemsArrayModified, refreshCompletedCallback = undefined, maxRunTimes = 2) {
+        //note: maxRunTimes is to force it to keep recalculating if the previous iteration caused a re-render (different sliced items in viewport or scrollPosition changed).
+        //The default of 2x max will probably be accurate enough without causing too large a performance bottleneck
+        //The code would typically quit out on the 2nd iteration anyways. The main time it'd think more than 2 runs would be necessary would be for vastly different sized child items or if this is the 1st time the items array was initialized.
+        //Without maxRunTimes, If the user is actively scrolling this code would become an infinite loop until they stopped scrolling. This would be okay, except each scroll event would start an additional infinte loop. We want to short-circuit it to prevent this.
+        if (itemsArrayModified && this.previousViewPort && this.previousViewPort.scrollStartPosition > 0) {
+            //if items were prepended, scroll forward to keep same items visible
+            /** @type {?} */
+            let oldViewPort = this.previousViewPort;
+            /** @type {?} */
+            let oldViewPortItems = this.viewPortItems;
+            /** @type {?} */
+            let oldRefreshCompletedCallback = refreshCompletedCallback;
+            refreshCompletedCallback = (/**
+             * @return {?}
+             */
+            () => {
+                /** @type {?} */
+                let scrollLengthDelta = this.previousViewPort.scrollLength - oldViewPort.scrollLength;
+                if (scrollLengthDelta > 0 && this.viewPortItems) {
+                    /** @type {?} */
+                    let oldStartItem = oldViewPortItems[0];
+                    /** @type {?} */
+                    let oldStartItemIndex = this.items.findIndex((/**
+                     * @param {?} x
+                     * @return {?}
+                     */
+                    x => this.compareItems(oldStartItem, x)));
+                    if (oldStartItemIndex > this.previousViewPort.startIndexWithBuffer) {
+                        /** @type {?} */
+                        let itemOrderChanged = false;
+                        for (let i = 1; i < this.viewPortItems.length; ++i) {
+                            if (!this.compareItems(this.items[oldStartItemIndex + i], oldViewPortItems[i])) {
+                                itemOrderChanged = true;
+                                break;
+                            }
+                        }
+                        if (!itemOrderChanged) {
+                            this.scrollToPosition(this.previousViewPort.scrollStartPosition + scrollLengthDelta, 0, oldRefreshCompletedCallback);
+                            return;
+                        }
+                    }
+                }
+                if (oldRefreshCompletedCallback) {
+                    oldRefreshCompletedCallback();
+                }
+            });
+        }
+        this.zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            requestAnimationFrame((/**
+             * @return {?}
+             */
+            () => {
+                if (itemsArrayModified) {
+                    this.resetWrapGroupDimensions();
+                }
+                /** @type {?} */
+                let viewport = this.calculateViewport();
+                /** @type {?} */
+                let startChanged = itemsArrayModified || viewport.startIndex !== this.previousViewPort.startIndex;
+                /** @type {?} */
+                let endChanged = itemsArrayModified || viewport.endIndex !== this.previousViewPort.endIndex;
+                /** @type {?} */
+                let scrollLengthChanged = viewport.scrollLength !== this.previousViewPort.scrollLength;
+                /** @type {?} */
+                let paddingChanged = viewport.padding !== this.previousViewPort.padding;
+                /** @type {?} */
+                let scrollPositionChanged = viewport.scrollStartPosition !== this.previousViewPort.scrollStartPosition || viewport.scrollEndPosition !== this.previousViewPort.scrollEndPosition || viewport.maxScrollPosition !== this.previousViewPort.maxScrollPosition;
+                this.previousViewPort = viewport;
+                if (scrollLengthChanged) {
+                    this.renderer.setStyle(this.invisiblePaddingElementRef.nativeElement, this._invisiblePaddingProperty, `${viewport.scrollLength}px`);
+                }
+                if (paddingChanged) {
+                    if (this.useMarginInsteadOfTranslate) {
+                        this.renderer.setStyle(this.contentElementRef.nativeElement, this._marginDir, `${viewport.padding}px`);
+                    }
+                    else {
+                        this.renderer.setStyle(this.contentElementRef.nativeElement, 'transform', `${this._translateDir}(${viewport.padding}px)`);
+                        this.renderer.setStyle(this.contentElementRef.nativeElement, 'webkitTransform', `${this._translateDir}(${viewport.padding}px)`);
+                    }
+                }
+                if (this.headerElementRef) {
+                    /** @type {?} */
+                    let scrollPosition = this.getScrollElement()[this._scrollType];
+                    /** @type {?} */
+                    let containerOffset = this.getElementsOffset();
+                    /** @type {?} */
+                    let offset = Math.max(scrollPosition - viewport.padding - containerOffset + this.headerElementRef.nativeElement.clientHeight, 0);
+                    this.renderer.setStyle(this.headerElementRef.nativeElement, 'transform', `${this._translateDir}(${offset}px)`);
+                    this.renderer.setStyle(this.headerElementRef.nativeElement, 'webkitTransform', `${this._translateDir}(${offset}px)`);
+                }
+                /** @type {?} */
+                const changeEventArg = (startChanged || endChanged) ? {
+                    startIndex: viewport.startIndex,
+                    endIndex: viewport.endIndex,
+                    scrollStartPosition: viewport.scrollStartPosition,
+                    scrollEndPosition: viewport.scrollEndPosition,
+                    startIndexWithBuffer: viewport.startIndexWithBuffer,
+                    endIndexWithBuffer: viewport.endIndexWithBuffer,
+                    maxScrollPosition: viewport.maxScrollPosition
+                } : undefined;
+                if (startChanged || endChanged || scrollPositionChanged) {
+                    /** @type {?} */
+                    const handleChanged = (/**
+                     * @return {?}
+                     */
+                    () => {
+                        // update the scroll list to trigger re-render of components in viewport
+                        this.viewPortItems = viewport.startIndexWithBuffer >= 0 && viewport.endIndexWithBuffer >= 0 ? this.items.slice(viewport.startIndexWithBuffer, viewport.endIndexWithBuffer + 1) : [];
+                        this.vsUpdate.emit(this.viewPortItems);
+                        if (startChanged) {
+                            this.vsStart.emit(changeEventArg);
+                        }
+                        if (endChanged) {
+                            this.vsEnd.emit(changeEventArg);
+                        }
+                        if (startChanged || endChanged) {
+                            this.changeDetectorRef.markForCheck();
+                            this.vsChange.emit(changeEventArg);
+                        }
+                        if (maxRunTimes > 0) {
+                            this.refresh_internal(false, refreshCompletedCallback, maxRunTimes - 1);
+                            return;
+                        }
+                        if (refreshCompletedCallback) {
+                            refreshCompletedCallback();
+                        }
+                    });
+                    if (this.executeRefreshOutsideAngularZone) {
+                        handleChanged();
+                    }
+                    else {
+                        this.zone.run(handleChanged);
+                    }
+                }
+                else {
+                    if (maxRunTimes > 0 && (scrollLengthChanged || paddingChanged)) {
+                        this.refresh_internal(false, refreshCompletedCallback, maxRunTimes - 1);
+                        return;
+                    }
+                    if (refreshCompletedCallback) {
+                        refreshCompletedCallback();
+                    }
+                }
+            }));
+        }));
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    getScrollElement() {
+        return this.parentScroll instanceof Window ? document.scrollingElement || document.documentElement || document.body : this.parentScroll || this.element.nativeElement;
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    addScrollEventHandlers() {
+        if (this.isAngularUniversalSSR) {
+            return;
+        }
+        /** @type {?} */
+        let scrollElement = this.getScrollElement();
+        this.removeScrollEventHandlers();
+        this.zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            if (this.parentScroll instanceof Window) {
+                this.disposeScrollHandler = this.renderer.listen('window', 'scroll', this.onScroll);
+                this.disposeResizeHandler = this.renderer.listen('window', 'resize', this.onScroll);
+            }
+            else {
+                this.disposeScrollHandler = this.renderer.listen(scrollElement, 'scroll', this.onScroll);
+                if (this._checkResizeInterval > 0) {
+                    this.checkScrollElementResizedTimer = (/** @type {?} */ (setInterval((/**
+                     * @return {?}
+                     */
+                    () => { this.checkScrollElementResized(); }), this._checkResizeInterval)));
+                }
+            }
+        }));
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    removeScrollEventHandlers() {
+        if (this.checkScrollElementResizedTimer) {
+            clearInterval(this.checkScrollElementResizedTimer);
+        }
+        if (this.disposeScrollHandler) {
+            this.disposeScrollHandler();
+            this.disposeScrollHandler = undefined;
+        }
+        if (this.disposeResizeHandler) {
+            this.disposeResizeHandler();
+            this.disposeResizeHandler = undefined;
+        }
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    getElementsOffset() {
+        if (this.isAngularUniversalSSR) {
+            return 0;
+        }
+        /** @type {?} */
+        let offset = 0;
+        if (this.containerElementRef && this.containerElementRef.nativeElement) {
+            offset += this.containerElementRef.nativeElement[this._offsetType];
+        }
+        if (this.parentScroll) {
+            /** @type {?} */
+            let scrollElement = this.getScrollElement();
+            /** @type {?} */
+            let elementClientRect = this.getElementSize(this.element.nativeElement);
+            /** @type {?} */
+            let scrollClientRect = this.getElementSize(scrollElement);
+            if (this.horizontal) {
+                offset += elementClientRect.left - scrollClientRect.left;
+            }
+            else {
+                offset += elementClientRect.top - scrollClientRect.top;
+            }
+            if (!(this.parentScroll instanceof Window)) {
+                offset += scrollElement[this._scrollType];
+            }
+        }
+        return offset;
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    countItemsPerWrapGroup() {
+        if (this.isAngularUniversalSSR) {
+            return Math.round(this.horizontal ? this.ssrViewportHeight / this.ssrChildHeight : this.ssrViewportWidth / this.ssrChildWidth);
+        }
+        /** @type {?} */
+        let propertyName = this.horizontal ? 'offsetLeft' : 'offsetTop';
+        /** @type {?} */
+        let children = ((this.containerElementRef && this.containerElementRef.nativeElement) || this.contentElementRef.nativeElement).children;
+        /** @type {?} */
+        let childrenLength = children ? children.length : 0;
+        if (childrenLength === 0) {
+            return 1;
+        }
+        /** @type {?} */
+        let firstOffset = children[0][propertyName];
+        /** @type {?} */
+        let result = 1;
+        while (result < childrenLength && firstOffset === children[result][propertyName]) {
+            ++result;
+        }
+        return result;
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    getScrollStartPosition() {
+        /** @type {?} */
+        let windowScrollValue = undefined;
+        if (this.parentScroll instanceof Window) {
+            windowScrollValue = window[this._pageOffsetType];
+        }
+        return windowScrollValue || this.getScrollElement()[this._scrollType] || 0;
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    resetWrapGroupDimensions() {
+        /** @type {?} */
+        const oldWrapGroupDimensions = this.wrapGroupDimensions;
+        this.invalidateAllCachedMeasurements();
+        if (!this.enableUnequalChildrenSizes || !oldWrapGroupDimensions || oldWrapGroupDimensions.numberOfKnownWrapGroupChildSizes === 0) {
+            return;
+        }
+        /** @type {?} */
+        const itemsPerWrapGroup = this.countItemsPerWrapGroup();
+        for (let wrapGroupIndex = 0; wrapGroupIndex < oldWrapGroupDimensions.maxChildSizePerWrapGroup.length; ++wrapGroupIndex) {
+            /** @type {?} */
+            const oldWrapGroupDimension = oldWrapGroupDimensions.maxChildSizePerWrapGroup[wrapGroupIndex];
+            if (!oldWrapGroupDimension || !oldWrapGroupDimension.items || !oldWrapGroupDimension.items.length) {
+                continue;
+            }
+            if (oldWrapGroupDimension.items.length !== itemsPerWrapGroup) {
+                return;
+            }
+            /** @type {?} */
+            let itemsChanged = false;
+            /** @type {?} */
+            let arrayStartIndex = itemsPerWrapGroup * wrapGroupIndex;
+            for (let i = 0; i < itemsPerWrapGroup; ++i) {
+                if (!this.compareItems(oldWrapGroupDimension.items[i], this.items[arrayStartIndex + i])) {
+                    itemsChanged = true;
+                    break;
+                }
+            }
+            if (!itemsChanged) {
+                ++this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+                this.wrapGroupDimensions.sumOfKnownWrapGroupChildWidths += oldWrapGroupDimension.childWidth || 0;
+                this.wrapGroupDimensions.sumOfKnownWrapGroupChildHeights += oldWrapGroupDimension.childHeight || 0;
+                this.wrapGroupDimensions.maxChildSizePerWrapGroup[wrapGroupIndex] = oldWrapGroupDimension;
+            }
+        }
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    calculateDimensions() {
+        /** @type {?} */
+        let scrollElement = this.getScrollElement();
+        /** @type {?} */
+        const maxCalculatedScrollBarSize = 25;
+        this.calculatedScrollbarHeight = Math.max(Math.min(scrollElement.offsetHeight - scrollElement.clientHeight, maxCalculatedScrollBarSize), this.calculatedScrollbarHeight);
+        this.calculatedScrollbarWidth = Math.max(Math.min(scrollElement.offsetWidth - scrollElement.clientWidth, maxCalculatedScrollBarSize), this.calculatedScrollbarWidth);
+        /** @type {?} */
+        let viewportWidth = scrollElement.offsetWidth - (this.scrollbarWidth || this.calculatedScrollbarWidth || (this.horizontal ? 0 : maxCalculatedScrollBarSize));
+        /** @type {?} */
+        let viewportHeight = scrollElement.offsetHeight - (this.scrollbarHeight || this.calculatedScrollbarHeight || (this.horizontal ? maxCalculatedScrollBarSize : 0));
+        /** @type {?} */
+        let content = (this.containerElementRef && this.containerElementRef.nativeElement) || this.contentElementRef.nativeElement;
+        /** @type {?} */
+        let itemsPerWrapGroup = this.countItemsPerWrapGroup();
+        /** @type {?} */
+        let wrapGroupsPerPage;
+        /** @type {?} */
+        let defaultChildWidth;
+        /** @type {?} */
+        let defaultChildHeight;
+        if (this.isAngularUniversalSSR) {
+            viewportWidth = this.ssrViewportWidth;
+            viewportHeight = this.ssrViewportHeight;
+            defaultChildWidth = this.ssrChildWidth;
+            defaultChildHeight = this.ssrChildHeight;
+            /** @type {?} */
+            let itemsPerRow = Math.max(Math.ceil(viewportWidth / defaultChildWidth), 1);
+            /** @type {?} */
+            let itemsPerCol = Math.max(Math.ceil(viewportHeight / defaultChildHeight), 1);
+            wrapGroupsPerPage = this.horizontal ? itemsPerRow : itemsPerCol;
+        }
+        else if (!this.enableUnequalChildrenSizes) {
+            if (content.children.length > 0) {
+                if (!this.childWidth || !this.childHeight) {
+                    if (!this.minMeasuredChildWidth && viewportWidth > 0) {
+                        this.minMeasuredChildWidth = viewportWidth;
+                    }
+                    if (!this.minMeasuredChildHeight && viewportHeight > 0) {
+                        this.minMeasuredChildHeight = viewportHeight;
+                    }
+                }
+                /** @type {?} */
+                let child = content.children[0];
+                /** @type {?} */
+                let clientRect = this.getElementSize(child);
+                this.minMeasuredChildWidth = Math.min(this.minMeasuredChildWidth, clientRect.width);
+                this.minMeasuredChildHeight = Math.min(this.minMeasuredChildHeight, clientRect.height);
+            }
+            defaultChildWidth = this.childWidth || this.minMeasuredChildWidth || viewportWidth;
+            defaultChildHeight = this.childHeight || this.minMeasuredChildHeight || viewportHeight;
+            /** @type {?} */
+            let itemsPerRow = Math.max(Math.ceil(viewportWidth / defaultChildWidth), 1);
+            /** @type {?} */
+            let itemsPerCol = Math.max(Math.ceil(viewportHeight / defaultChildHeight), 1);
+            wrapGroupsPerPage = this.horizontal ? itemsPerRow : itemsPerCol;
+        }
+        else {
+            /** @type {?} */
+            let scrollOffset = scrollElement[this._scrollType] - (this.previousViewPort ? this.previousViewPort.padding : 0);
+            /** @type {?} */
+            let arrayStartIndex = this.previousViewPort.startIndexWithBuffer || 0;
+            /** @type {?} */
+            let wrapGroupIndex = Math.ceil(arrayStartIndex / itemsPerWrapGroup);
+            /** @type {?} */
+            let maxWidthForWrapGroup = 0;
+            /** @type {?} */
+            let maxHeightForWrapGroup = 0;
+            /** @type {?} */
+            let sumOfVisibleMaxWidths = 0;
+            /** @type {?} */
+            let sumOfVisibleMaxHeights = 0;
+            wrapGroupsPerPage = 0;
+            for (let i = 0; i < content.children.length; ++i) {
+                ++arrayStartIndex;
+                /** @type {?} */
+                let child = content.children[i];
+                /** @type {?} */
+                let clientRect = this.getElementSize(child);
+                maxWidthForWrapGroup = Math.max(maxWidthForWrapGroup, clientRect.width);
+                maxHeightForWrapGroup = Math.max(maxHeightForWrapGroup, clientRect.height);
+                if (arrayStartIndex % itemsPerWrapGroup === 0) {
+                    /** @type {?} */
+                    let oldValue = this.wrapGroupDimensions.maxChildSizePerWrapGroup[wrapGroupIndex];
+                    if (oldValue) {
+                        --this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+                        this.wrapGroupDimensions.sumOfKnownWrapGroupChildWidths -= oldValue.childWidth || 0;
+                        this.wrapGroupDimensions.sumOfKnownWrapGroupChildHeights -= oldValue.childHeight || 0;
+                    }
+                    ++this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+                    /** @type {?} */
+                    const items = this.items.slice(arrayStartIndex - itemsPerWrapGroup, arrayStartIndex);
+                    this.wrapGroupDimensions.maxChildSizePerWrapGroup[wrapGroupIndex] = {
+                        childWidth: maxWidthForWrapGroup,
+                        childHeight: maxHeightForWrapGroup,
+                        items: items
+                    };
+                    this.wrapGroupDimensions.sumOfKnownWrapGroupChildWidths += maxWidthForWrapGroup;
+                    this.wrapGroupDimensions.sumOfKnownWrapGroupChildHeights += maxHeightForWrapGroup;
+                    if (this.horizontal) {
+                        /** @type {?} */
+                        let maxVisibleWidthForWrapGroup = Math.min(maxWidthForWrapGroup, Math.max(viewportWidth - sumOfVisibleMaxWidths, 0));
+                        if (scrollOffset > 0) {
+                            /** @type {?} */
+                            let scrollOffsetToRemove = Math.min(scrollOffset, maxVisibleWidthForWrapGroup);
+                            maxVisibleWidthForWrapGroup -= scrollOffsetToRemove;
+                            scrollOffset -= scrollOffsetToRemove;
+                        }
+                        sumOfVisibleMaxWidths += maxVisibleWidthForWrapGroup;
+                        if (maxVisibleWidthForWrapGroup > 0 && viewportWidth >= sumOfVisibleMaxWidths) {
+                            ++wrapGroupsPerPage;
+                        }
+                    }
+                    else {
+                        /** @type {?} */
+                        let maxVisibleHeightForWrapGroup = Math.min(maxHeightForWrapGroup, Math.max(viewportHeight - sumOfVisibleMaxHeights, 0));
+                        if (scrollOffset > 0) {
+                            /** @type {?} */
+                            let scrollOffsetToRemove = Math.min(scrollOffset, maxVisibleHeightForWrapGroup);
+                            maxVisibleHeightForWrapGroup -= scrollOffsetToRemove;
+                            scrollOffset -= scrollOffsetToRemove;
+                        }
+                        sumOfVisibleMaxHeights += maxVisibleHeightForWrapGroup;
+                        if (maxVisibleHeightForWrapGroup > 0 && viewportHeight >= sumOfVisibleMaxHeights) {
+                            ++wrapGroupsPerPage;
+                        }
+                    }
+                    ++wrapGroupIndex;
+                    maxWidthForWrapGroup = 0;
+                    maxHeightForWrapGroup = 0;
+                }
+            }
+            /** @type {?} */
+            let averageChildWidth = this.wrapGroupDimensions.sumOfKnownWrapGroupChildWidths / this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+            /** @type {?} */
+            let averageChildHeight = this.wrapGroupDimensions.sumOfKnownWrapGroupChildHeights / this.wrapGroupDimensions.numberOfKnownWrapGroupChildSizes;
+            defaultChildWidth = this.childWidth || averageChildWidth || viewportWidth;
+            defaultChildHeight = this.childHeight || averageChildHeight || viewportHeight;
+            if (this.horizontal) {
+                if (viewportWidth > sumOfVisibleMaxWidths) {
+                    wrapGroupsPerPage += Math.ceil((viewportWidth - sumOfVisibleMaxWidths) / defaultChildWidth);
+                }
+            }
+            else {
+                if (viewportHeight > sumOfVisibleMaxHeights) {
+                    wrapGroupsPerPage += Math.ceil((viewportHeight - sumOfVisibleMaxHeights) / defaultChildHeight);
+                }
+            }
+        }
+        /** @type {?} */
+        let itemCount = this.items.length;
+        /** @type {?} */
+        let itemsPerPage = itemsPerWrapGroup * wrapGroupsPerPage;
+        /** @type {?} */
+        let pageCount_fractional = itemCount / itemsPerPage;
+        /** @type {?} */
+        let numberOfWrapGroups = Math.ceil(itemCount / itemsPerWrapGroup);
+        /** @type {?} */
+        let scrollLength = 0;
+        /** @type {?} */
+        let defaultScrollLengthPerWrapGroup = this.horizontal ? defaultChildWidth : defaultChildHeight;
+        if (this.enableUnequalChildrenSizes) {
+            /** @type {?} */
+            let numUnknownChildSizes = 0;
+            for (let i = 0; i < numberOfWrapGroups; ++i) {
+                /** @type {?} */
+                let childSize = this.wrapGroupDimensions.maxChildSizePerWrapGroup[i] && this.wrapGroupDimensions.maxChildSizePerWrapGroup[i][this._childScrollDim];
+                if (childSize) {
+                    scrollLength += childSize;
+                }
+                else {
+                    ++numUnknownChildSizes;
+                }
+            }
+            scrollLength += Math.round(numUnknownChildSizes * defaultScrollLengthPerWrapGroup);
+        }
+        else {
+            scrollLength = numberOfWrapGroups * defaultScrollLengthPerWrapGroup;
+        }
+        if (this.headerElementRef) {
+            scrollLength += this.headerElementRef.nativeElement.clientHeight;
+        }
+        /** @type {?} */
+        let viewportLength = this.horizontal ? viewportWidth : viewportHeight;
+        /** @type {?} */
+        let maxScrollPosition = Math.max(scrollLength - viewportLength, 0);
+        return {
+            itemCount: itemCount,
+            itemsPerWrapGroup: itemsPerWrapGroup,
+            wrapGroupsPerPage: wrapGroupsPerPage,
+            itemsPerPage: itemsPerPage,
+            pageCount_fractional: pageCount_fractional,
+            childWidth: defaultChildWidth,
+            childHeight: defaultChildHeight,
+            scrollLength: scrollLength,
+            viewportLength: viewportLength,
+            maxScrollPosition: maxScrollPosition
+        };
+    }
+    /**
+     * @protected
+     * @param {?} arrayStartIndexWithBuffer
+     * @param {?} dimensions
+     * @return {?}
+     */
+    calculatePadding(arrayStartIndexWithBuffer, dimensions) {
+        if (dimensions.itemCount === 0) {
+            return 0;
+        }
+        /** @type {?} */
+        let defaultScrollLengthPerWrapGroup = dimensions[this._childScrollDim];
+        /** @type {?} */
+        let startingWrapGroupIndex = Math.floor(arrayStartIndexWithBuffer / dimensions.itemsPerWrapGroup) || 0;
+        if (!this.enableUnequalChildrenSizes) {
+            return defaultScrollLengthPerWrapGroup * startingWrapGroupIndex;
+        }
+        /** @type {?} */
+        let numUnknownChildSizes = 0;
+        /** @type {?} */
+        let result = 0;
+        for (let i = 0; i < startingWrapGroupIndex; ++i) {
+            /** @type {?} */
+            let childSize = this.wrapGroupDimensions.maxChildSizePerWrapGroup[i] && this.wrapGroupDimensions.maxChildSizePerWrapGroup[i][this._childScrollDim];
+            if (childSize) {
+                result += childSize;
+            }
+            else {
+                ++numUnknownChildSizes;
+            }
+        }
+        result += Math.round(numUnknownChildSizes * defaultScrollLengthPerWrapGroup);
+        return result;
+    }
+    /**
+     * @protected
+     * @param {?} scrollPosition
+     * @param {?} dimensions
+     * @return {?}
+     */
+    calculatePageInfo(scrollPosition, dimensions) {
+        /** @type {?} */
+        let scrollPercentage = 0;
+        if (this.enableUnequalChildrenSizes) {
+            /** @type {?} */
+            const numberOfWrapGroups = Math.ceil(dimensions.itemCount / dimensions.itemsPerWrapGroup);
+            /** @type {?} */
+            let totalScrolledLength = 0;
+            /** @type {?} */
+            let defaultScrollLengthPerWrapGroup = dimensions[this._childScrollDim];
+            for (let i = 0; i < numberOfWrapGroups; ++i) {
+                /** @type {?} */
+                let childSize = this.wrapGroupDimensions.maxChildSizePerWrapGroup[i] && this.wrapGroupDimensions.maxChildSizePerWrapGroup[i][this._childScrollDim];
+                if (childSize) {
+                    totalScrolledLength += childSize;
+                }
+                else {
+                    totalScrolledLength += defaultScrollLengthPerWrapGroup;
+                }
+                if (scrollPosition < totalScrolledLength) {
+                    scrollPercentage = i / numberOfWrapGroups;
+                    break;
+                }
+            }
+        }
+        else {
+            scrollPercentage = scrollPosition / dimensions.scrollLength;
+        }
+        /** @type {?} */
+        let startingArrayIndex_fractional = Math.min(Math.max(scrollPercentage * dimensions.pageCount_fractional, 0), dimensions.pageCount_fractional) * dimensions.itemsPerPage;
+        /** @type {?} */
+        let maxStart = dimensions.itemCount - dimensions.itemsPerPage - 1;
+        /** @type {?} */
+        let arrayStartIndex = Math.min(Math.floor(startingArrayIndex_fractional), maxStart);
+        arrayStartIndex -= arrayStartIndex % dimensions.itemsPerWrapGroup; // round down to start of wrapGroup
+        if (this.stripedTable) {
+            /** @type {?} */
+            let bufferBoundary = 2 * dimensions.itemsPerWrapGroup;
+            if (arrayStartIndex % bufferBoundary !== 0) {
+                arrayStartIndex = Math.max(arrayStartIndex - arrayStartIndex % bufferBoundary, 0);
+            }
+        }
+        /** @type {?} */
+        let arrayEndIndex = Math.ceil(startingArrayIndex_fractional) + dimensions.itemsPerPage - 1;
+        /** @type {?} */
+        let endIndexWithinWrapGroup = (arrayEndIndex + 1) % dimensions.itemsPerWrapGroup;
+        if (endIndexWithinWrapGroup > 0) {
+            arrayEndIndex += dimensions.itemsPerWrapGroup - endIndexWithinWrapGroup; // round up to end of wrapGroup
+        }
+        if (isNaN(arrayStartIndex)) {
+            arrayStartIndex = 0;
+        }
+        if (isNaN(arrayEndIndex)) {
+            arrayEndIndex = 0;
+        }
+        arrayStartIndex = Math.min(Math.max(arrayStartIndex, 0), dimensions.itemCount - 1);
+        arrayEndIndex = Math.min(Math.max(arrayEndIndex, 0), dimensions.itemCount - 1);
+        /** @type {?} */
+        let bufferSize = this.bufferAmount * dimensions.itemsPerWrapGroup;
+        /** @type {?} */
+        let startIndexWithBuffer = Math.min(Math.max(arrayStartIndex - bufferSize, 0), dimensions.itemCount - 1);
+        /** @type {?} */
+        let endIndexWithBuffer = Math.min(Math.max(arrayEndIndex + bufferSize, 0), dimensions.itemCount - 1);
+        return {
+            startIndex: arrayStartIndex,
+            endIndex: arrayEndIndex,
+            startIndexWithBuffer: startIndexWithBuffer,
+            endIndexWithBuffer: endIndexWithBuffer,
+            scrollStartPosition: scrollPosition,
+            scrollEndPosition: scrollPosition + dimensions.viewportLength,
+            maxScrollPosition: dimensions.maxScrollPosition
+        };
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    calculateViewport() {
+        /** @type {?} */
+        let dimensions = this.calculateDimensions();
+        /** @type {?} */
+        let offset = this.getElementsOffset();
+        /** @type {?} */
+        let scrollStartPosition = this.getScrollStartPosition();
+        if (scrollStartPosition > (dimensions.scrollLength + offset) && !(this.parentScroll instanceof Window)) {
+            scrollStartPosition = dimensions.scrollLength;
+        }
+        else {
+            scrollStartPosition -= offset;
+        }
+        scrollStartPosition = Math.max(0, scrollStartPosition);
+        /** @type {?} */
+        let pageInfo = this.calculatePageInfo(scrollStartPosition, dimensions);
+        /** @type {?} */
+        let newPadding = this.calculatePadding(pageInfo.startIndexWithBuffer, dimensions);
+        /** @type {?} */
+        let newScrollLength = dimensions.scrollLength;
+        return {
+            startIndex: pageInfo.startIndex,
+            endIndex: pageInfo.endIndex,
+            startIndexWithBuffer: pageInfo.startIndexWithBuffer,
+            endIndexWithBuffer: pageInfo.endIndexWithBuffer,
+            padding: Math.round(newPadding),
+            scrollLength: Math.round(newScrollLength),
+            scrollStartPosition: pageInfo.scrollStartPosition,
+            scrollEndPosition: pageInfo.scrollEndPosition,
+            maxScrollPosition: pageInfo.maxScrollPosition
+        };
+    }
+}
+VirtualScrollerComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'virtual-scroller,[virtualScroller]',
+                exportAs: 'virtualScroller',
+                template: `
+    <div class="total-padding" #invisiblePadding></div>
+    <div class="scrollable-content" #content>
+      <ng-content></ng-content>
+    </div>
+  `,
+                host: {
+                    '[class.horizontal]': "horizontal",
+                    '[class.vertical]': "!horizontal",
+                    '[class.selfScroll]': "!parentScroll"
+                },
+                styles: [`
+    :host {
+      position: relative;
+	  display: block;
+      -webkit-overflow-scrolling: touch;
+    }
+	
+	:host.horizontal.selfScroll {
+      overflow-y: visible;
+      overflow-x: auto;
+	}
+	:host.vertical.selfScroll {
+      overflow-y: auto;
+      overflow-x: visible;
+	}
+	
+    .scrollable-content {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100vw;
+      max-height: 100vh;
+      position: absolute;
+    }
+
+	.scrollable-content ::ng-deep > * {
+		box-sizing: border-box;
+	}
+	
+	:host.horizontal {
+		white-space: nowrap;
+	}
+	
+	:host.horizontal .scrollable-content {
+		display: flex;
+	}
+	
+	:host.horizontal .scrollable-content ::ng-deep > * {
+		flex-shrink: 0;
+		flex-grow: 0;
+		white-space: initial;
+	}
+	
+    .total-padding {
+      width: 1px;
+      opacity: 0;
+    }
+    
+    :host.horizontal .total-padding {
+      height: 100%;
+    }
+  `]
+            }] }
+];
+/** @nocollapse */
+VirtualScrollerComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] },
+    { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: ['virtual-scroller-default-options',] }] }
+];
+VirtualScrollerComponent.propDecorators = {
+    executeRefreshOutsideAngularZone: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    enableUnequalChildrenSizes: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    useMarginInsteadOfTranslate: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    modifyOverflowStyleOfParentScroll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    stripedTable: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    scrollbarWidth: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    scrollbarHeight: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    childWidth: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    childHeight: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    ssrChildWidth: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    ssrChildHeight: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    ssrViewportWidth: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    ssrViewportHeight: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    bufferAmount: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    scrollAnimationTime: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    resizeBypassRefreshThreshold: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    scrollThrottlingTime: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    scrollDebounceTime: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    checkResizeInterval: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    items: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    compareItems: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    horizontal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    parentScroll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    vsUpdate: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    vsChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    vsStart: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    vsEnd: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    contentElementRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['content', { read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], static: false },] }],
+    invisiblePaddingElementRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['invisiblePadding', { read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], static: false },] }],
+    headerElementRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: ['header', { read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], static: false },] }],
+    containerElementRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: ['container', { read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], static: false },] }]
+};
+if (false) {}
+class VirtualScrollerModule {
+}
+VirtualScrollerModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                exports: [VirtualScrollerComponent],
+                declarations: [VirtualScrollerComponent],
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
+                providers: [
+                    {
+                        provide: 'virtual-scroller-default-options',
+                        useFactory: VIRTUAL_SCROLLER_DEFAULT_OPTIONS_FACTORY
+                    }
+                ]
+            },] }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const DROPDOWN_CONTROL_VALUE_ACCESSOR = {
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
+    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])((/**
+     * @return {?}
+     */
+    () => AngularMultiSelect)),
+    multi: true
+};
+/** @type {?} */
+const DROPDOWN_CONTROL_VALIDATION = {
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALIDATORS"],
+    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])((/**
+     * @return {?}
+     */
+    () => AngularMultiSelect)),
+    multi: true,
+};
+/** @type {?} */
+const noop = (/**
+ * @return {?}
+ */
+() => {
+});
+const ɵ0 = noop;
+class AngularMultiSelect {
+    /**
+     * @param {?} _elementRef
+     * @param {?} cdr
+     * @param {?} ds
+     */
+    constructor(_elementRef, cdr, ds) {
+        this._elementRef = _elementRef;
+        this.cdr = cdr;
+        this.ds = ds;
+        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onDeSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onSelectAll = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onDeSelectAll = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onOpen = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onScrollToEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onFilterSelectAll = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onFilterDeSelectAll = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onAddFilterNewItem = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onGroupSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onGroupDeSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.virtualdata = [];
+        this.searchTerm$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.isActive = false;
+        this.isSelectAll = false;
+        this.isFilterSelectAll = false;
+        this.isInfiniteFilterSelectAll = false;
+        this.chunkIndex = [];
+        this.cachedItems = [];
+        this.groupCachedItems = [];
+        this.itemHeight = 41.6;
+        this.filterLength = 0;
+        this.infiniteFilterLength = 0;
+        this.dropdownListYOffset = 0;
+        this.dropDownWidth = 0;
+        this.dropDownTop = 0;
+        this.dropDownLeft = 0;
+        this.id = Math.random().toString(36).substring(2);
+        this.defaultSettings = {
+            singleSelection: false,
+            text: 'Select',
+            enableCheckAll: true,
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            filterSelectAllText: 'Select all filtered results',
+            filterUnSelectAllText: 'UnSelect all filtered results',
+            enableSearchFilter: false,
+            searchBy: [],
+            maxHeight: 300,
+            badgeShowLimit: 999999999999,
+            classes: '',
+            disabled: false,
+            searchPlaceholderText: 'Search',
+            showCheckbox: true,
+            noDataLabel: 'No Data Available',
+            searchAutofocus: true,
+            lazyLoading: false,
+            labelKey: 'itemName',
+            primaryKey: 'id',
+            position: 'bottom',
+            autoPosition: true,
+            enableFilterSelectAll: true,
+            selectGroup: false,
+            addNewItemOnFilter: false,
+            addNewButtonText: "Add",
+            escapeToClose: true,
+            clearAll: true,
+            tagToBody: true
+        };
+        this.randomSize = true;
+        this.filteredList = [];
+        this.virtualScroollInit = false;
+        this.isDisabledItemPresent = false;
+        this.onTouchedCallback = noop;
+        this.onChangeCallback = noop;
+        this.searchTerm$.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((/**
+         * @param {?} term
+         * @return {?}
+         */
+        term => term))).subscribe((/**
+         * @param {?} val
+         * @return {?}
+         */
+        val => {
+            this.filterInfiniteList(val);
+        }));
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onEscapeDown(event) {
+        if (this.settings.escapeToClose) {
+            this.closeDropdown();
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onScroll(event) {
+        if (this.isActive) {
+            this.closeDropdown();
+            /*             const elem = this.cuppaDropdown.nativeElement;
+                        if(this.settings.autoPosition){
+                            this.dropDownTop = elem.getBoundingClientRect().y + elem.clientHeight + 1;
+                        }
+                        this.dropDownLeft = elem.getBoundingClientRect().x; */
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this.settings = Object.assign(this.defaultSettings, this.settings);
+        this.cachedItems = this.cloneArray(this.data);
+        if (this.settings.position == 'top') {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
+                this.selectedListHeight = { val: 0 };
+                this.selectedListHeight.val = this.selectedListElem.nativeElement.clientHeight;
+            }));
+        }
+        this.subscription = this.ds.getData().subscribe((/**
+         * @param {?} data
+         * @return {?}
+         */
+        data => {
+            if (data) {
+                /** @type {?} */
+                let len = 0;
+                data.forEach((/**
+                 * @param {?} obj
+                 * @param {?} i
+                 * @return {?}
+                 */
+                (obj, i) => {
+                    if (obj.disabled) {
+                        this.isDisabledItemPresent = true;
+                    }
+                    if (!obj.hasOwnProperty('grpTitle')) {
+                        len++;
+                    }
+                }));
+                this.filterLength = len;
+                this.onFilterChange(data);
+            }
+        }));
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this.calculateDropdownDirection();
+        }));
+        this.virtualScroollInit = false;
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) {
+        if (changes.data && !changes.data.firstChange) {
+            if (this.settings.groupBy) {
+                this.groupedData = this.transformData(this.data, this.settings.groupBy);
+                if (this.data.length == 0) {
+                    this.selectedItems = [];
+                }
+                this.groupCachedItems = this.cloneArray(this.groupedData);
+            }
+            this.cachedItems = this.cloneArray(this.data);
+        }
+        if (changes.settings && !changes.settings.firstChange) {
+            this.settings = Object.assign(this.defaultSettings, this.settings);
+        }
+        if (changes.loading) {
+        }
+        if (this.settings.lazyLoading && this.virtualScroollInit && changes.data) {
+            this.virtualdata = changes.data.currentValue;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngDoCheck() {
+        if (this.selectedItems) {
+            if (this.selectedItems.length == 0 || this.data.length == 0 || this.selectedItems.length < this.data.length) {
+                this.isSelectAll = false;
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngAfterViewInit() {
+        if (this.settings.lazyLoading) {
+            // this._elementRef.nativeElement.getElementsByClassName("lazyContainer")[0].addEventListener('scroll', this.onScroll.bind(this));
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngAfterViewChecked() {
+        if (this.selectedListElem.nativeElement.clientHeight && this.settings.position == 'top' && this.selectedListHeight) {
+            this.selectedListHeight.val = this.selectedListElem.nativeElement.clientHeight;
+            this.cdr.detectChanges();
+        }
+        //this.calculateDropdownDirection();
+    }
+    /**
+     * @param {?} item
+     * @param {?} index
+     * @param {?} evt
+     * @return {?}
+     */
+    onItemClick(item, index, evt) {
+        if (item.disabled) {
+            return false;
+        }
+        if (this.settings.disabled) {
+            return false;
+        }
+        /** @type {?} */
+        let found = this.isSelected(item);
+        /** @type {?} */
+        let limit = this.selectedItems.length < this.settings.limitSelection ? true : false;
+        if (!found) {
+            if (this.settings.limitSelection) {
+                if (limit) {
+                    this.addSelected(item);
+                    this.onSelect.emit(item);
+                }
+            }
+            else {
+                this.addSelected(item);
+                this.onSelect.emit(item);
+            }
+        }
+        else {
+            this.removeSelected(item);
+            this.onDeSelect.emit(item);
+        }
+        if (this.isSelectAll || this.data.length > this.selectedItems.length) {
+            this.isSelectAll = false;
+        }
+        if (this.data.length == this.selectedItems.length) {
+            this.isSelectAll = true;
+        }
+        if (this.settings.groupBy) {
+            this.updateGroupInfo(item);
+        }
+    }
+    /**
+     * @param {?} c
+     * @return {?}
+     */
+    validate(c) {
+        return null;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    writeValue(value) {
+        if (value !== undefined && value !== null && value !== '') {
+            if (this.settings.singleSelection) {
+                if (this.settings.groupBy) {
+                    this.groupedData = this.transformData(this.data, this.settings.groupBy);
+                    this.groupCachedItems = this.cloneArray(this.groupedData);
+                    this.selectedItems = [value[0]];
+                }
+                else {
+                    try {
+                        if (value.length > 1) {
+                            this.selectedItems = [value[0]];
+                            throw new MyException(404, { "msg": "Single Selection Mode, Selected Items cannot have more than one item." });
+                        }
+                        else {
+                            this.selectedItems = value;
+                        }
+                    }
+                    catch (e) {
+                        console.error(e.body.msg);
+                    }
+                }
+            }
+            else {
+                if (this.settings.limitSelection) {
+                    this.selectedItems = value.slice(0, this.settings.limitSelection);
+                }
+                else {
+                    this.selectedItems = value;
+                }
+                if (this.selectedItems.length === this.data.length && this.data.length > 0) {
+                    this.isSelectAll = true;
+                }
+                if (this.settings.groupBy) {
+                    this.groupedData = this.transformData(this.data, this.settings.groupBy);
+                    this.groupCachedItems = this.cloneArray(this.groupedData);
+                }
+            }
+        }
+        else {
+            this.selectedItems = [];
+        }
+    }
+    //From ControlValueAccessor interface
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    registerOnChange(fn) {
+        this.onChangeCallback = fn;
+    }
+    //From ControlValueAccessor interface
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    registerOnTouched(fn) {
+        this.onTouchedCallback = fn;
+    }
+    /**
+     * @param {?} index
+     * @param {?} item
+     * @return {?}
+     */
+    trackByFn(index, item) {
+        return item[this.settings.primaryKey];
+    }
+    /**
+     * @param {?} clickedItem
+     * @return {?}
+     */
+    isSelected(clickedItem) {
+        if (clickedItem.disabled) {
+            return false;
+        }
+        /** @type {?} */
+        let found = false;
+        this.selectedItems && this.selectedItems.forEach((/**
+         * @param {?} item
+         * @return {?}
+         */
+        item => {
+            if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+                found = true;
+            }
+        }));
+        return found;
+    }
+    /**
+     * @param {?} item
+     * @return {?}
+     */
+    addSelected(item) {
+        if (item.disabled) {
+            return;
+        }
+        if (this.settings.singleSelection) {
+            this.selectedItems = [];
+            this.selectedItems.push(item);
+            this.closeDropdown();
+        }
+        else
+            this.selectedItems.push(item);
+        this.onChangeCallback(this.selectedItems);
+        this.onTouchedCallback(this.selectedItems);
+    }
+    /**
+     * @param {?} clickedItem
+     * @return {?}
+     */
+    removeSelected(clickedItem) {
+        this.selectedItems && this.selectedItems.forEach((/**
+         * @param {?} item
+         * @return {?}
+         */
+        item => {
+            if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+                this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
+            }
+        }));
+        this.onChangeCallback(this.selectedItems);
+        this.onTouchedCallback(this.selectedItems);
+    }
+    /**
+     * @param {?} evt
+     * @return {?}
+     */
+    toggleDropdown(evt) {
+        if (this.settings.disabled) {
+            return false;
+        }
+        this.isActive = !this.isActive;
+        if (this.isActive) {
+            this.openDropdown();
+            this.calculateDropdownDirection();
+        }
+        else {
+            this.closeDropdown();
+        }
+        if (this.settings.lazyLoading) {
+            this.virtualdata = this.data;
+            this.virtualScroollInit = true;
+        }
+        evt.preventDefault();
+    }
+    /**
+     * @return {?}
+     */
+    openDropdown() {
+        if (this.settings.disabled) {
+            return false;
+        }
+        this.isActive = true;
+        if (this.settings.searchAutofocus && this.searchInput && this.settings.enableSearchFilter && !this.searchTempl) {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
+                this.searchInput.nativeElement.focus();
+            }), 0);
+        }
+        this.onOpen.emit(true);
+    }
+    /**
+     * @return {?}
+     */
+    closeDropdown() {
+        if (this.searchInput && this.settings.lazyLoading) {
+            this.searchInput.nativeElement.value = "";
+        }
+        if (this.searchInput) {
+            this.searchInput.nativeElement.value = "";
+        }
+        this.filter = "";
+        this.isActive = false;
+        this.onClose.emit(false);
+    }
+    /**
+     * @return {?}
+     */
+    closeDropdownOnClickOut() {
+        if (this.isActive) {
+            if (this.searchInput && this.settings.lazyLoading) {
+                this.searchInput.nativeElement.value = "";
+            }
+            if (this.searchInput) {
+                this.searchInput.nativeElement.value = "";
+            }
+            this.filter = "";
+            this.isActive = false;
+            this.clearSearch();
+            this.onClose.emit(false);
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    toggleSelectAll(event) {
+        if (!this.isSelectAll) {
+            this.selectedItems = [];
+            if (this.settings.groupBy) {
+                this.groupedData.forEach((/**
+                 * @param {?} obj
+                 * @return {?}
+                 */
+                (obj) => {
+                    obj.selected = !obj.disabled;
+                }));
+                this.groupCachedItems.forEach((/**
+                 * @param {?} obj
+                 * @return {?}
+                 */
+                (obj) => {
+                    obj.selected = !obj.disabled;
+                }));
+            }
+            // this.selectedItems = this.data.slice();
+            this.selectedItems = this.data.filter((/**
+             * @param {?} individualData
+             * @return {?}
+             */
+            (individualData) => !individualData.disabled));
+            this.isSelectAll = true;
+            this.onChangeCallback(this.selectedItems);
+            this.onTouchedCallback(this.selectedItems);
+            this.onSelectAll.emit(this.selectedItems);
+        }
+        else {
+            if (this.settings.groupBy) {
+                this.groupedData.forEach((/**
+                 * @param {?} obj
+                 * @return {?}
+                 */
+                (obj) => {
+                    obj.selected = false;
+                }));
+                this.groupCachedItems.forEach((/**
+                 * @param {?} obj
+                 * @return {?}
+                 */
+                (obj) => {
+                    obj.selected = false;
+                }));
+            }
+            this.selectedItems = [];
+            this.isSelectAll = false;
+            this.onChangeCallback(this.selectedItems);
+            this.onTouchedCallback(this.selectedItems);
+            this.onDeSelectAll.emit(this.selectedItems);
+        }
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this.calculateDropdownDirection();
+        }));
+        event.stopPropagation();
+    }
+    /**
+     * @return {?}
+     */
+    filterGroupedList() {
+        if (this.filter == "" || this.filter == null) {
+            this.clearSearch();
+            return;
+        }
+        this.groupedData = this.cloneArray(this.groupCachedItems);
+        this.groupedData = this.groupedData.filter((/**
+         * @param {?} obj
+         * @return {?}
+         */
+        obj => {
+            /** @type {?} */
+            let arr = [];
+            if (obj[this.settings.labelKey].toLowerCase().indexOf(this.filter.toLowerCase()) > -1) {
+                arr = obj.list;
+            }
+            else {
+                arr = obj.list.filter((/**
+                 * @param {?} t
+                 * @return {?}
+                 */
+                t => {
+                    return t[this.settings.labelKey].toLowerCase().indexOf(this.filter.toLowerCase()) > -1;
+                }));
+            }
+            obj.list = arr;
+            if (obj[this.settings.labelKey].toLowerCase().indexOf(this.filter.toLowerCase()) > -1) {
+                return arr;
+            }
+            else {
+                return arr.some((/**
+                 * @param {?} cat
+                 * @return {?}
+                 */
+                cat => {
+                    return cat[this.settings.labelKey].toLowerCase().indexOf(this.filter.toLowerCase()) > -1;
+                }));
+            }
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    toggleFilterSelectAll() {
+        if (!this.isFilterSelectAll) {
+            /** @type {?} */
+            let added = [];
+            if (this.settings.groupBy) {
+                this.groupedData.forEach((/**
+                 * @param {?} item
+                 * @return {?}
+                 */
+                (item) => {
+                    item.sele;
+                    if (item.list) {
+                        item.list.forEach((/**
+                         * @param {?} el
+                         * @return {?}
+                         */
+                        (el) => {
+                            if (!this.isSelected(el)) {
+                                this.addSelected(el);
+                                added.push(el);
+                            }
+                        }));
+                    }
+                    this.updateGroupInfo(item);
+                }));
+                this.ds.getFilteredData().forEach((/**
+                 * @param {?} el
+                 * @return {?}
+                 */
+                (el) => {
+                    if (!this.isSelected(el) && !el.hasOwnProperty('grpTitle')) {
+                        this.addSelected(el);
+                        added.push(el);
+                    }
+                }));
+            }
+            else {
+                this.ds.getFilteredData().forEach((/**
+                 * @param {?} item
+                 * @return {?}
+                 */
+                (item) => {
+                    if (!this.isSelected(item)) {
+                        this.addSelected(item);
+                        added.push(item);
+                    }
+                }));
+            }
+            this.isFilterSelectAll = true;
+            this.onFilterSelectAll.emit(added);
+        }
+        else {
+            /** @type {?} */
+            let removed = [];
+            if (this.settings.groupBy) {
+                this.groupedData.forEach((/**
+                 * @param {?} item
+                 * @return {?}
+                 */
+                (item) => {
+                    if (item.list) {
+                        item.list.forEach((/**
+                         * @param {?} el
+                         * @return {?}
+                         */
+                        (el) => {
+                            if (this.isSelected(el)) {
+                                this.removeSelected(el);
+                                removed.push(el);
+                            }
+                        }));
+                    }
+                    this.updateGroupInfo(item);
+                }));
+                this.ds.getFilteredData().forEach((/**
+                 * @param {?} el
+                 * @return {?}
+                 */
+                (el) => {
+                    if (this.isSelected(el)) {
+                        this.removeSelected(el);
+                        removed.push(el);
+                    }
+                }));
+            }
+            else {
+                this.ds.getFilteredData().forEach((/**
+                 * @param {?} item
+                 * @return {?}
+                 */
+                (item) => {
+                    if (this.isSelected(item)) {
+                        this.removeSelected(item);
+                        removed.push(item);
+                    }
+                }));
+            }
+            this.isFilterSelectAll = false;
+            this.onFilterDeSelectAll.emit(removed);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    toggleInfiniteFilterSelectAll() {
+        if (!this.isInfiniteFilterSelectAll) {
+            this.virtualdata.forEach((/**
+             * @param {?} item
+             * @return {?}
+             */
+            (item) => {
+                if (!this.isSelected(item)) {
+                    this.addSelected(item);
+                }
+            }));
+            this.isInfiniteFilterSelectAll = true;
+        }
+        else {
+            this.virtualdata.forEach((/**
+             * @param {?} item
+             * @return {?}
+             */
+            (item) => {
+                if (this.isSelected(item)) {
+                    this.removeSelected(item);
+                }
+            }));
+            this.isInfiniteFilterSelectAll = false;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    clearSearch() {
+        if (this.settings.groupBy) {
+            this.groupedData = [];
+            this.groupedData = this.cloneArray(this.groupCachedItems);
+        }
+        this.filter = "";
+        this.isFilterSelectAll = false;
+    }
+    /**
+     * @param {?} data
+     * @return {?}
+     */
+    onFilterChange(data) {
+        if (this.filter && this.filter == "" || data.length == 0) {
+            this.isFilterSelectAll = false;
+        }
+        /** @type {?} */
+        let cnt = 0;
+        data.forEach((/**
+         * @param {?} item
+         * @return {?}
+         */
+        (item) => {
+            if (!item.hasOwnProperty('grpTitle') && this.isSelected(item)) {
+                cnt++;
+            }
+        }));
+        if (cnt > 0 && this.filterLength == cnt) {
+            this.isFilterSelectAll = true;
+        }
+        else if (cnt > 0 && this.filterLength != cnt) {
+            this.isFilterSelectAll = false;
+        }
+        this.cdr.detectChanges();
+    }
+    /**
+     * @param {?} arr
+     * @return {?}
+     */
+    cloneArray(arr) {
+        /** @type {?} */
+        let i;
+        /** @type {?} */
+        let copy;
+        if (Array.isArray(arr)) {
+            return JSON.parse(JSON.stringify(arr));
+        }
+        else if (typeof arr === 'object') {
+            throw 'Cannot clone array containing an object!';
+        }
+        else {
+            return arr;
+        }
+    }
+    /**
+     * @param {?} item
+     * @return {?}
+     */
+    updateGroupInfo(item) {
+        if (item.disabled) {
+            return false;
+        }
+        /** @type {?} */
+        let key = this.settings.groupBy;
+        this.groupedData.forEach((/**
+         * @param {?} obj
+         * @return {?}
+         */
+        (obj) => {
+            /** @type {?} */
+            let cnt = 0;
+            if (obj.grpTitle && (item[key] == obj[key])) {
+                if (obj.list) {
+                    obj.list.forEach((/**
+                     * @param {?} el
+                     * @return {?}
+                     */
+                    (el) => {
+                        if (this.isSelected(el)) {
+                            cnt++;
+                        }
+                    }));
+                }
+            }
+            if (obj.list && (cnt === obj.list.length) && (item[key] == obj[key])) {
+                obj.selected = true;
+            }
+            else if (obj.list && (cnt != obj.list.length) && (item[key] == obj[key])) {
+                obj.selected = false;
+            }
+        }));
+        this.groupCachedItems.forEach((/**
+         * @param {?} obj
+         * @return {?}
+         */
+        (obj) => {
+            /** @type {?} */
+            let cnt = 0;
+            if (obj.grpTitle && (item[key] == obj[key])) {
+                if (obj.list) {
+                    obj.list.forEach((/**
+                     * @param {?} el
+                     * @return {?}
+                     */
+                    (el) => {
+                        if (this.isSelected(el)) {
+                            cnt++;
+                        }
+                    }));
+                }
+            }
+            if (obj.list && (cnt === obj.list.length) && (item[key] == obj[key])) {
+                obj.selected = true;
+            }
+            else if (obj.list && (cnt != obj.list.length) && (item[key] == obj[key])) {
+                obj.selected = false;
+            }
+        }));
+    }
+    /**
+     * @param {?} arr
+     * @param {?} field
+     * @return {?}
+     */
+    transformData(arr, field) {
+        /** @type {?} */
+        const groupedObj = arr.reduce((/**
+         * @param {?} prev
+         * @param {?} cur
+         * @return {?}
+         */
+        (prev, cur) => {
+            if (!prev[cur[field]]) {
+                prev[cur[field]] = [cur];
+            }
+            else {
+                prev[cur[field]].push(cur);
+            }
+            return prev;
+        }), {});
+        /** @type {?} */
+        const tempArr = [];
+        Object.keys(groupedObj).map((/**
+         * @param {?} x
+         * @return {?}
+         */
+        (x) => {
+            /** @type {?} */
+            let obj = {};
+            /** @type {?} */
+            let disabledChildrens = [];
+            obj["grpTitle"] = true;
+            obj[this.settings.labelKey] = x;
+            obj[this.settings.groupBy] = x;
+            obj['selected'] = false;
+            obj['list'] = [];
+            /** @type {?} */
+            let cnt = 0;
+            groupedObj[x].forEach((/**
+             * @param {?} item
+             * @return {?}
+             */
+            (item) => {
+                item['list'] = [];
+                if (item.disabled) {
+                    this.isDisabledItemPresent = true;
+                    disabledChildrens.push(item);
+                }
+                obj.list.push(item);
+                if (this.isSelected(item)) {
+                    cnt++;
+                }
+            }));
+            if (cnt == obj.list.length) {
+                obj.selected = true;
+            }
+            else {
+                obj.selected = false;
+            }
+            // Check if current group item's all childrens are disabled or not
+            obj['disabled'] = disabledChildrens.length === groupedObj[x].length;
+            tempArr.push(obj);
+            // obj.list.forEach((item: any) => {
+            //     tempArr.push(item);
+            // });
+        }));
+        return tempArr;
+    }
+    /**
+     * @param {?} evt
+     * @return {?}
+     */
+    filterInfiniteList(evt) {
+        /** @type {?} */
+        let filteredElems = [];
+        if (this.settings.groupBy) {
+            this.groupedData = this.groupCachedItems.slice();
+        }
+        else {
+            this.data = this.cachedItems.slice();
+            this.virtualdata = this.cachedItems.slice();
+        }
+        if ((evt != null || evt != '') && !this.settings.groupBy) {
+            if (this.settings.searchBy.length > 0) {
+                for (let t = 0; t < this.settings.searchBy.length; t++) {
+                    this.virtualdata.filter((/**
+                     * @param {?} el
+                     * @return {?}
+                     */
+                    (el) => {
+                        if (el[this.settings.searchBy[t].toString()].toString().toLowerCase().indexOf(evt.toString().toLowerCase()) >= 0) {
+                            filteredElems.push(el);
+                        }
+                    }));
+                }
+            }
+            else {
+                this.virtualdata.filter((/**
+                 * @param {?} el
+                 * @return {?}
+                 */
+                function (el) {
+                    for (let prop in el) {
+                        if (el[prop].toString().toLowerCase().indexOf(evt.toString().toLowerCase()) >= 0) {
+                            filteredElems.push(el);
+                            break;
+                        }
+                    }
+                }));
+            }
+            this.virtualdata = [];
+            this.virtualdata = filteredElems;
+            this.infiniteFilterLength = this.virtualdata.length;
+        }
+        if (evt.toString() != '' && this.settings.groupBy) {
+            this.groupedData.filter((/**
+             * @param {?} el
+             * @return {?}
+             */
+            function (el) {
+                if (el.hasOwnProperty('grpTitle')) {
+                    filteredElems.push(el);
+                }
+                else {
+                    for (let prop in el) {
+                        if (el[prop].toString().toLowerCase().indexOf(evt.toString().toLowerCase()) >= 0) {
+                            filteredElems.push(el);
+                            break;
+                        }
+                    }
+                }
+            }));
+            this.groupedData = [];
+            this.groupedData = filteredElems;
+            this.infiniteFilterLength = this.groupedData.length;
+        }
+        else if (evt.toString() == '' && this.cachedItems.length > 0) {
+            this.virtualdata = [];
+            this.virtualdata = this.cachedItems;
+            this.infiniteFilterLength = 0;
+        }
+        this.virtualScroller.refresh();
+    }
+    /**
+     * @return {?}
+     */
+    resetInfiniteSearch() {
+        this.filter = "";
+        this.isInfiniteFilterSelectAll = false;
+        this.virtualdata = [];
+        this.virtualdata = this.cachedItems;
+        this.groupedData = this.groupCachedItems;
+        this.infiniteFilterLength = 0;
+    }
+    /**
+     * @param {?} e
+     * @return {?}
+     */
+    onScrollEnd(e) {
+        if (e.endIndex === this.data.length - 1 || e.startIndex === 0) {
+        }
+        this.onScrollToEnd.emit(e);
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
+    /**
+     * @param {?} item
+     * @return {?}
+     */
+    selectGroup(item) {
+        if (item.disabled) {
+            return false;
+        }
+        if (item.selected) {
+            item.selected = false;
+            item.list.forEach((/**
+             * @param {?} obj
+             * @return {?}
+             */
+            (obj) => {
+                this.removeSelected(obj);
+            }));
+            this.onGroupDeSelect.emit(item);
+            this.updateGroupInfo(item);
+        }
+        else {
+            item.selected = true;
+            item.list.forEach((/**
+             * @param {?} obj
+             * @return {?}
+             */
+            (obj) => {
+                if (!this.isSelected(obj)) {
+                    this.addSelected(obj);
+                }
+            }));
+            this.onGroupSelect.emit(item);
+            this.updateGroupInfo(item);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    addFilterNewItem() {
+        this.onAddFilterNewItem.emit(this.filter);
+        this.filterPipe = new ListFilterPipe(this.ds);
+        this.filterPipe.transform(this.data, this.filter, this.settings.searchBy);
+    }
+    /**
+     * @return {?}
+     */
+    calculateDropdownDirection() {
+        /** @type {?} */
+        let shouldOpenTowardsTop = this.settings.position == 'top';
+        /** @type {?} */
+        const elem = this.cuppaDropdown.nativeElement;
+        /** @type {?} */
+        const dropdownWidth = elem.clientWidth;
+        this.dropDownWidth = dropdownWidth;
+        this.dropDownLeft = elem.getBoundingClientRect().x;
+        if (this.settings.position == 'top' && !this.settings.autoPosition) {
+            this.openTowardsTop(true);
+        }
+        else if (this.settings.position == 'bottom' && !this.settings.autoPosition) {
+            this.openTowardsTop(false);
+        }
+        if (this.settings.autoPosition) {
+            /** @type {?} */
+            const dropdownHeight = this.dropdownListElem.nativeElement.clientHeight;
+            /** @type {?} */
+            const viewportHeight = document.documentElement.clientHeight;
+            /** @type {?} */
+            const selectedListBounds = this.selectedListElem.nativeElement.getBoundingClientRect();
+            /** @type {?} */
+            const spaceOnTop = selectedListBounds.top;
+            /** @type {?} */
+            const spaceOnBottom = viewportHeight - selectedListBounds.top;
+            if (spaceOnBottom < spaceOnTop && dropdownHeight < spaceOnTop) {
+                this.openTowardsTop(true);
+            }
+            else {
+                this.openTowardsTop(false);
+            }
+            // Keep preference if there is not enough space on either the top or bottom
+            /* 			if (spaceOnTop || spaceOnBottom) {
+                            if (shouldOpenTowardsTop) {
+                                shouldOpenTowardsTop = spaceOnTop;
+                            } else {
+                                shouldOpenTowardsTop = !spaceOnBottom;
+                            }
+                        } */
+        }
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    openTowardsTop(value) {
+        /** @type {?} */
+        const elem = this.cuppaDropdown.nativeElement;
+        if (value && this.selectedListElem.nativeElement.clientHeight) {
+            this.dropdownListYOffset = 15 - this.selectedListElem.nativeElement.clientHeight;
+            this.dropDownTop = elem.getBoundingClientRect().y - this.dropdownListElem.nativeElement.clientHeight - 15;
+            this.settings.position = 'top';
+        }
+        else {
+            this.dropDownTop = elem.getBoundingClientRect().y + elem.clientHeight + 1;
+            this.dropdownListYOffset = 0;
+            this.settings.position = 'bottom';
+        }
+    }
+    /**
+     * @param {?=} e
+     * @return {?}
+     */
+    clearSelection(e) {
+        if (this.settings.groupBy) {
+            this.groupCachedItems.forEach((/**
+             * @param {?} obj
+             * @return {?}
+             */
+            (obj) => {
+                obj.selected = false;
+            }));
+        }
+        this.clearSearch();
+        this.selectedItems = [];
+        this.isSelectAll = false;
+        this.onChangeCallback(this.selectedItems);
+        this.onTouchedCallback(this.selectedItems);
+        this.onDeSelectAll.emit(this.selectedItems);
+    }
+}
+AngularMultiSelect.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'angular2-multiselect',
+                template: "<div class=\"cuppa-dropdown\" (clickOutside)=\"closeDropdownOnClickOut()\" #cuppaDropdown>\n    <div class=\"selected-list\" #selectedList>\n        <div class=\"c-btn\" (click)=\"toggleDropdown($event)\" [ngClass]=\"{'disabled': settings.disabled}\" [attr.tabindex]=\"0\">\n\n            <span *ngIf=\"selectedItems?.length == 0\">{{settings.text}}</span>\n            <span *ngIf=\"settings.singleSelection && !badgeTempl\">\n                <span *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    {{item[settings.labelKey]}}\n                </span>\n            </span>\n            <span class=\"c-list\" *ngIf=\"selectedItems?.length > 0 && settings.singleSelection && badgeTempl \">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </span>\n            <div class=\"c-list\" *ngIf=\"selectedItems?.length > 0 && !settings.singleSelection\">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\" [hidden]=\"k > settings.badgeShowLimit-1\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </div>\n            <span class=\"countplaceholder\" *ngIf=\"selectedItems?.length > settings.badgeShowLimit\">+{{selectedItems?.length - settings.badgeShowLimit }}</span>\n            <span class=\"c-remove clear-all\" *ngIf=\"settings.clearAll && selectedItems?.length > 0 && !settings.disabled\" (click)=\"clearSelection($event);$event.stopPropagation()\">\n                <c-icon [name]=\"'remove'\"></c-icon>\n            </span>\n            <span *ngIf=\"!isActive\" class=\"c-angle-down\">\n                <c-icon [name]=\"'angle-down'\"></c-icon>\n            </span>\n            <span *ngIf=\"isActive\" class=\"c-angle-up\">\n                <c-icon [name]=\"'angle-up'\"></c-icon>\n\n            </span>\n        </div>\n    </div>\n    <div #dropdownList class=\"dropdown-list tagToBody animated fadeIn\" \n    [style.width.px]=\"dropDownWidth\" \n    [style.top.px]=\"dropDownTop\" \n    [style.left.px]=\"dropDownLeft\" \n        [hidden]=\"!isActive\">\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\" class=\"arrow-2\"></div>\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\"></div>\n        <div class=\"list-area\" [ngClass]=\"{'single-select-mode': settings.singleSelection }\">\n            <div class=\"pure-checkbox select-all\" *ngIf=\"settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent\"\n                >\n                <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                [id]=\"id\" (change)=\"toggleSelectAll($event)\"/>\n                <label [for]=\"id\">\n                    <span [hidden]=\"isSelectAll\">{{settings.selectAllText}}</span>\n                    <span [hidden]=\"!isSelectAll\">{{settings.unSelectAllText}}</span>\n                </label>\n            </div>\n            <img class=\"loading-icon\" *ngIf=\"loading\" src=\"assets/img/loading.gif\" />\n            <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter\">\n                <span class=\"c-search\" id=\"searchIcon\">\n                    <c-icon [name]=\"'search'\"></c-icon>\n                </span>\n                <span *ngIf=\"!settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"clearSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n                <span *ngIf=\"settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"resetInfiniteSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n\n                <input class=\"c-input\" *ngIf=\"settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"filterGroupedList()\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"!settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"searchTerm$.next($event.target.value)\" aria-labelledby=\"searchIcon\">\n                <!--            <input class=\"c-input\" *ngIf=\"!settings.lazyLoading && !searchTempl && settings.groupBy\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                [(ngModel)]=\"filter\" (keyup)=\"filterGroupList($event)\">-->\n                <c-templateRenderer *ngIf=\"searchTempl\" [data]=\"searchTempl\" [item]=\"item\"></c-templateRenderer>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"!settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"!settings.groupBy && filter?.length > 0 && filterLength > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\" aria-labelledby=\"optionName\"\n                    aria-label=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n                <div class=\"pure-checkbox select-all\" *ngIf=\"settings.groupBy && filter?.length > 0 && groupedData?.length > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll && filter?.length > 0\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent && !settings.singleSelection\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"filter?.length > 0 && infiniteFilterLength > 0\" (click)=\"toggleInfiniteFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isInfiniteFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isInfiniteFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isInfiniteFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\">\n                <label class=\"nodata-label\" *ngIf=\"!settings.groupBy && filterLength == 0\" [hidden]=\"filter == undefined || filter?.length == 0\">{{settings.noDataLabel}}</label>\n                <label class=\"nodata-label\" *ngIf=\"settings.groupBy && groupedData?.length == 0\" [hidden]=\"filter == undefined || filter?.length == 0\">{{settings.noDataLabel}}</label>\n\n                <div class=\"btn-container\" *ngIf=\"settings.addNewItemOnFilter && filterLength == 0\" [hidden]=\"filter == undefined || filter?.length == 0\">\n                    <button class=\"c-btn btn-iceblue\" (click)=\"addFilterNewItem()\">{{settings.addNewButtonText}}</button>\n                </div>\n            </div>\n\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data | listFilter:filter : settings.searchBy; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        aria-labelledby=\"option\"/>\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <li *ngFor=\"let item of scroll.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- custom template -->\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data | listFilter:filter : settings.searchBy; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading and custom template -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll2 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" class=\"lazyContainer\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <li *ngFor=\"let item of scroll2.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading, group By and custom template -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll3 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <span *ngFor=\"let item of scroll3.viewPortItems; let i = index;\">\n                        <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                        <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- group By and custom template -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label></label>\n                                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"val\"></c-templateRenderer>\n                                    </li>\n                                </span>\n                            </ul>\n\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- lazy loading, group By -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <virtual-scroller [items]=\"groupedData\" (vsUpdate)=\"viewPortItems = $event\" (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <ul virtualScroller #scroll4 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                        (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                        <span *ngFor=\"let item of scroll4.viewPortItems; let i = index;\">\n                            <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\"\n                                    [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                            <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                        </span>\n                    </ul>\n                </virtual-scroller>\n            </div>\n            <!-- group By -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData ; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'selected-item': isSelected(val) == true,'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label>{{val[settings.labelKey]}}</label>\n                                    </li>\n                                </span>\n                            </ul>\n                        </li>\n                    </span>\n                    <!-- <span *ngFor=\"let item of groupedData ; let i = index;\">\n                    <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                <li *ngIf=\"item.grpTitle && !settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                 <li  (click)=\"selectGroup(item)\" *ngIf=\"item.grpTitle && settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                </span> -->\n                </ul>\n            </div>\n            <h5 class=\"list-message\" *ngIf=\"data?.length == 0\">{{settings.noDataLabel}}</h5>\n        </div>\n    </div>\n</div>",
+                host: { '[class]': 'defaultSettings.classes' },
+                providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION],
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+                styles: ["virtual-scroll{display:block;width:100%}.cuppa-dropdown{position:relative}.c-btn{display:inline-block;border-width:1px;line-height:1.25;border-radius:3px;font-size:.85rem;padding:5px 10px;cursor:pointer;-webkit-box-align:center;align-items:center;min-height:38px}.c-btn.disabled{background:#ccc}.selected-list .c-list{float:left;padding:0;margin:0;width:calc(100% - 20px)}.selected-list .c-list .c-token{list-style:none;padding:4px 22px 4px 8px;border-radius:2px;margin-right:4px;margin-top:2px;float:left;position:relative}.selected-list .c-list .c-token .c-label{display:block;float:left}.selected-list .c-list .c-token .c-remove{position:absolute;right:8px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);width:8px}.selected-list .c-list .c-token .c-remove svg{fill:#fff}.selected-list .fa-angle-down,.selected-list .fa-angle-up{font-size:15pt;position:absolute;right:10px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.selected-list .c-angle-down,.selected-list .c-angle-up{width:12px;height:12px;position:absolute;right:10px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);pointer-events:none}.selected-list .c-angle-down svg,.selected-list .c-angle-up svg{fill:#333}.selected-list .countplaceholder{position:absolute;right:45px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.selected-list .c-btn{width:100%;padding:5px 10px;cursor:pointer;display:-webkit-box;display:flex;position:relative}.selected-list .c-btn .c-icon{position:absolute;right:5px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.dropdown-list.tagToBody{position:fixed}.dropdown-list{position:absolute;padding-top:14px;width:100%;z-index:99999}.dropdown-list ul{padding:0;list-style:none;overflow:auto;margin:0}.dropdown-list ul li{padding:10px;cursor:pointer;text-align:left}.dropdown-list ul li:first-child{padding-top:10px}.dropdown-list ul li:last-child{padding-bottom:10px}.dropdown-list ::-webkit-scrollbar{width:8px}.dropdown-list ::-webkit-scrollbar-thumb{background:#ccc;border-radius:5px}.dropdown-list ::-webkit-scrollbar-track{background:#f2f2f2}.arrow-down,.arrow-up{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:15px solid #fff;margin-left:15px;position:absolute;top:0}.arrow-down{bottom:-14px;top:unset;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.arrow-2{border-bottom:15px solid #ccc;top:-1px}.arrow-down.arrow-2{top:unset;bottom:-16px}.list-area{border:1px solid #ccc;border-radius:3px;background:#fff;margin:0}.select-all{padding:10px;border-bottom:1px solid #ccc;text-align:left}.list-filter{border-bottom:1px solid #ccc;position:relative;padding-left:35px;height:35px}.list-filter input{border:0;width:100%;height:100%;padding:0}.list-filter input:focus{outline:0}.list-filter .c-search{position:absolute;top:9px;left:10px;width:15px;height:15px}.list-filter .c-search svg{fill:#888}.list-filter .c-clear{position:absolute;top:10px;right:10px;width:15px;height:15px}.list-filter .c-clear svg{fill:#888}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{background-color:#f2f2f2}.pure-checkbox input[type=checkbox]:active+label:before{-webkit-transition-duration:0s;transition-duration:0s}.pure-checkbox input[type=checkbox]:disabled+label{color:#ccc}.pure-checkbox input[type=checkbox]+label{position:relative;padding-left:2em;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;margin:0;font-weight:300}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:'';position:absolute;top:50%;left:0;width:15px;height:15px;margin-top:-9px;text-align:center;-webkit-transition:.4s;transition:.4s;border-radius:3px}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:'';position:absolute;-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:50%;transform-origin:50%;-webkit-transition:-webkit-transform .2s ease-out;transition:transform .2s ease-out,-webkit-transform .2s ease-out;background-color:transparent;top:50%;left:3px;width:9px;height:4px;margin-top:-5px;border-style:solid;border-width:0 0 2px 2px;-webkit-border-image:none;-o-border-image:none;border-image:none;-webkit-transform:rotate(-45deg) scale(0);transform:rotate(-45deg) scale(0)}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#ccc}.pure-checkbox input[type=checkbox]:disabled:focus+label:before .pure-checkbox input[type=checkbox]:disabled:hover+label:before{background-color:inherit}.pure-checkbox input[type=checkbox]:disabled:checked+label:before{background-color:#ccc}.pure-checkbox input[type=radio]:checked+label:before{background-color:#fff}.pure-checkbox input[type=radio]:checked+label:after{-webkit-transform:scale(1);transform:scale(1)}.pure-checkbox input[type=radio]+label:before{border-radius:50%}.pure-checkbox input[type=checkbox]:checked+label:after{content:'';-webkit-transition:-webkit-transform .2s ease-out;transition:transform .2s ease-out,-webkit-transform .2s ease-out;-webkit-transform:rotate(-45deg) scale(1);transform:rotate(-45deg) scale(1)}.list-message{text-align:center;margin:0;padding:15px 0;font-size:initial}.list-grp{padding:0 15px!important}.list-grp h4{text-transform:capitalize;margin:15px 0 0;font-size:14px;font-weight:700}.list-grp>li{padding-left:15px!important}.grp-item{padding-left:30px!important}.grp-title{padding-bottom:0!important}.grp-title label{margin-bottom:0!important;font-weight:800;text-transform:capitalize}.grp-title:hover{background:0 0!important}.loading-icon{width:20px;position:absolute;right:10px;top:23px;z-index:1}.nodata-label{width:100%;text-align:center;padding:10px 0 0}.btn-container{text-align:center;padding:0 5px 10px}.clear-all{width:8px;position:absolute;top:50%;right:30px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}"]
+            }] }
+];
+/** @nocollapse */
+AngularMultiSelect.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] },
+    { type: DataService }
+];
+AngularMultiSelect.propDecorators = {
+    data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    settings: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    loading: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    onSelect: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onSelect',] }],
+    onDeSelect: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onDeSelect',] }],
+    onSelectAll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onSelectAll',] }],
+    onDeSelectAll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onDeSelectAll',] }],
+    onOpen: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onOpen',] }],
+    onClose: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onClose',] }],
+    onScrollToEnd: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onScrollToEnd',] }],
+    onFilterSelectAll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onFilterSelectAll',] }],
+    onFilterDeSelectAll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onFilterDeSelectAll',] }],
+    onAddFilterNewItem: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onAddFilterNewItem',] }],
+    onGroupSelect: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onGroupSelect',] }],
+    onGroupDeSelect: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"], args: ['onGroupDeSelect',] }],
+    itemTempl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [Item, { static: false },] }],
+    badgeTempl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [Badge, { static: false },] }],
+    searchTempl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"], args: [Search, { static: false },] }],
+    searchInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['searchInput', { static: false },] }],
+    selectedListElem: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['selectedList', { static: false },] }],
+    dropdownListElem: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['dropdownList', { static: false },] }],
+    cuppaDropdown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['cuppaDropdown', { static: false },] }],
+    onEscapeDown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['document:keyup.escape', ['$event'],] }],
+    onScroll: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['window:scroll', ['$event'],] }],
+    virtualScroller: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: [VirtualScrollerComponent, { static: false },] }]
+};
+if (false) {}
+class AngularMultiSelectModule {
+}
+AngularMultiSelectModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], VirtualScrollerModule],
+                declarations: [AngularMultiSelect, ClickOutsideDirective, ScrollDirective, styleDirective, ListFilterPipe, Item, TemplateRenderer, Badge, Search, setPosition, CIcon],
+                exports: [AngularMultiSelect, ClickOutsideDirective, ScrollDirective, styleDirective, ListFilterPipe, Item, TemplateRenderer, Badge, Search, setPosition, CIcon],
+                providers: [DataService]
+            },] }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+//# sourceMappingURL=angular2-multiselect-dropdown.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/adm/adm.component.html":
 /*!******************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/adm/adm.component.html ***!
@@ -7198,7 +11312,7 @@ module.exports = "<div *ngIf=\"shouldShowErrors()\" class=\"roedor\">\n    <p cl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <!--<div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>-->\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\"\n                    required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\" *ngIf=\"this.costoVisible == true\">\n                <label for=\"telefono\">Costo de Producto</label>\n                <input type=\"number\" name=\"costoP\" id=\"costoP\" class=\"form-control\" placeholder=\"Costo del Producto\"\n                    minlength=\"6\" [(ngModel)]=\"this.costoP\" required (keyup)=\"cambiaCosto()\" (change)=\"cambiaCosto()\">\n            </div>\n            <div class=\"form-group col-12\" *ngIf=\"this.costoVisible == true\">\n                <label for=\"telefono\">Detalles de la Compra</label>\n                <input type=\"text\" name=\"compraP\" id=\"compraP\" class=\"form-control\" placeholder=\"Detalles de la Compra\"\n                    minlength=\"6\" [(ngModel)]=\"this.compraP\" required>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button id=\"btnAgendar\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<h3>Agenda el Pedido</h3>\n<div class=\"container\">\n    <!--<div class=\"row\">\n        <div class=\"form-group\">\n            <label for=\"codigo\">Código Pedido</label><br>\n            <label class=\"text-primary\" style=\"font-size: 3em;\">201023000023</label>\n        </div>\n    </div>-->\n    <form (ngSubmit)=\"enviar()\" name=\"contextForm\" #contextForm=\"ngForm\">\n        <div class=\"row\">\n            <legend class=\"col-form-legend col-12\">Datos del Clientes</legend>\n            <div class=\"form-group col-6\">\n                <label for=\"telefono\">Teléfono del Cliente</label>\n                <input type=\"tel\" name=\"telefono\" id=\"telefono\" class=\"form-control\" placeholder=\"Teléfono del Cliente\"\n                    minlength=\"6\" aria-describedby=\"helpTelefono\" #telefono=\"ngModel\" [(ngModel)]=\"pedido.telefono\" \n                    (focus)=\"goSearch(mySearch)\" (keyup)=\"onSearch($event)\" required>\n                <app-show-errors [control]=\"telefono\" class=\"show-err\"></app-show-errors>\n                <angular2-multiselect [data]=\"listClonConsumer\" [(ngModel)]=\"selectedConsumer\"\n                    [settings]=\"settingsConsumer\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                    (onDeSelect)=\"OnItemDeSelect($event)\" (onDeSelectAll)=\"onDeSelectAll($event)\"\n                    id=\"listConsumer\" name=\"listConsumer\">\n                    <c-search>\n                        <ng-template>\n                            <input id=\"mySearch\" name=\"mySearch\" #mySearch type=\"number\"\n                                placeholder=\"Busqueda de Clientes\"\n                                style=\"width: 100%; height: 100%;\" />\n                        </ng-template>\n                    </c-search>\n                    <c-item>\n                        <ng-template let-item=\"item\">\n                            <label style=\"color: #292929;width: 5em; cursor:pointer;\">{{item.phone}}</label>\n                            <label style=\"color: #292929;width: 30%; cursor:pointer;\">{{item.name}} {{item.lastName}}</label>\n                            <label style=\"color: #292929;width: 40%; cursor:pointer;\">{{item.address}}</label>\n                        </ng-template>\n                    </c-item>\n                </angular2-multiselect>\n            </div>\n            <div class=\"form-group col-6\">\n                \n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"nombreCliente\">Nombre del Cliente</label>\n                <input type=\"text\" name=\"nombreCliente\" id=\"nombreCliente\" class=\"form-control\"\n                    placeholder=\"Nombres del Cliente\" aria-describedby=\"helpNombres\" #nombreCliente=\"ngModel\"\n                    (focus)=\"goSearchOut(mySearch)\" [(ngModel)]=\"pedido.nombreCliente\" required>\n                <app-show-errors [control]=\"nombreCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"apellidoCliente\">Apellidos del Cliente</label>\n                <input type=\"text\" name=\"apellidoCliente\" id=\"apellidoCliente\" class=\"form-control\"\n                    placeholder=\"Apellidos del Cliente\" aria-describedby=\"helpApellidos\" #apellidoCliente=\"ngModel\"\n                    (focus)=\"goSearchOut(mySearch)\" [(ngModel)]=\"pedido.apellidoCliente\" required>\n                <app-show-errors [control]=\"apellidoCliente\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\">\n                <label for=\"direccion\">Dirección del Cliente</label>\n                <input type=\"text\" name=\"direccion\" id=\"direccion\" class=\"form-control\"\n                    placeholder=\"Dirección del Cliente\" aria-describedby=\"helpDireccion\" #direccion=\"ngModel\"\n                    (focus)=\"goSearchOut(mySearch)\" [(ngModel)]=\"pedido.direccion\" required>\n                <app-show-errors [control]=\"direccion\" class=\"show-err\"></app-show-errors>\n            </div>\n            <div class=\"form-group col-6\" *ngIf=\"this.costoVisible == true\">\n                <label for=\"telefono\">Costo de Producto</label>\n                <input type=\"number\" name=\"costoP\" id=\"costoP\" class=\"form-control\" placeholder=\"Costo del Producto\"\n                    minlength=\"6\" (focus)=\"goSearchOut(mySearch)\" [(ngModel)]=\"this.costoP\" required (keyup)=\"cambiaCosto()\" (change)=\"cambiaCosto()\">\n            </div>\n            <div class=\"form-group col-12\" *ngIf=\"this.costoVisible == true\">\n                <label for=\"telefono\">Detalles de la Compra</label>\n                <input type=\"text\" name=\"compraP\" id=\"compraP\" class=\"form-control\" placeholder=\"Detalles de la Compra\"\n                    minlength=\"6\" (focus)=\"goSearchOut(mySearch)\" [(ngModel)]=\"this.compraP\" required>\n            </div>\n            <div class=\"form-group col-12\">\n                <label for=\"telefono\">Ubicación según el Mapa</label>\n                <input type=\"text\" name=\"geolocalizacion\" id=\"geolocalizacion\" class=\"form-control\"\n                    placeholder=\"Ubicación según el Mapa\" aria-describedby=\"helpGeolocalizacion\"\n                    #geolocalizacion=\"ngModel\" [(ngModel)]=\"pedido.geolocalizacion\" required>\n                <app-show-errors (focus)=\"goSearchOut(mySearch)\" [control]=\"geolocalizacion\" class=\"show-err\"></app-show-errors>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button id=\"btnAgendar\" type=\"submit\" class=\"btn btn-primary\" [disabled]=\"contextForm.invalid\">Agendar</button>\n        </div>\n    </form>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-12 col-md-8\"></div>\n        <div class=\"col-12 col-md-4\" style=\"border: 1px solid #e14eca; padding: 10px;\">\n            <div class=\"form-group row\" *ngFor=\"let item of pedido.productos; let i=index\">\n                <label class=\"text-muted col-8\">{{item.nombre}}</label>\n                <label class=\"text-muted col-4\">{{item.cantidad}}<span\n                        style=\"color: red;\">x</span>{{item.costo}}</label>\n            </div>\n            <div class=\"row\">\n                <label class=\"text-muted col-6\"></label>\n                <label class=\"col-6\" style=\"color: white; font-size: 1.3em;\">Total: {{totalCompra}}bs</label>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -7611,31 +11725,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @swimlane/ngx-datatable */ "./node_modules/@swimlane/ngx-datatable/fesm2015/swimlane-ngx-datatable.js");
-/* harmony import */ var _adm_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./adm-routing.module */ "./src/app/adm/adm-routing.module.ts");
-/* harmony import */ var _adm_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./adm.component */ "./src/app/adm/adm.component.ts");
-/* harmony import */ var _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./layouts/navbar/navbar.component */ "./src/app/adm/layouts/navbar/navbar.component.ts");
-/* harmony import */ var _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layouts/sidebar/sidebar.component */ "./src/app/adm/layouts/sidebar/sidebar.component.ts");
-/* harmony import */ var _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layouts/footer/footer.component */ "./src/app/adm/layouts/footer/footer.component.ts");
-/* harmony import */ var _modules_modules_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../modules/modules.module */ "./src/app/modules/modules.module.ts");
-/* harmony import */ var _views_main_main_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/main/main.component */ "./src/app/adm/views/main/main.component.ts");
-/* harmony import */ var _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/profile/profile.component */ "./src/app/adm/views/profile/profile.component.ts");
-/* harmony import */ var _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/staff-list/staff-list.component */ "./src/app/adm/views/staff-list/staff-list.component.ts");
-/* harmony import */ var _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/invitation/invitation.component */ "./src/app/adm/views/invitation/invitation.component.ts");
-/* harmony import */ var _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./tools/show-errors/show-errors.component */ "./src/app/adm/tools/show-errors/show-errors.component.ts");
-/* harmony import */ var _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/descendencia-ficha/descendencia-ficha.component */ "./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.ts");
-/* harmony import */ var _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/descendencia-profile/descendencia-profile.component */ "./src/app/adm/views/descendencia-profile/descendencia-profile.component.ts");
-/* harmony import */ var _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/descendencia-list/descendencia-list.component */ "./src/app/adm/views/descendencia-list/descendencia-list.component.ts");
-/* harmony import */ var _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/invitation-list/invitation-list.component */ "./src/app/adm/views/invitation-list/invitation-list.component.ts");
-/* harmony import */ var _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../pipes/expedido.pipe */ "./src/app/pipes/expedido.pipe.ts");
-/* harmony import */ var _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../pipes/nombre.pipe */ "./src/app/pipes/nombre.pipe.ts");
-/* harmony import */ var _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./views/configuration/configuration.component */ "./src/app/adm/views/configuration/configuration.component.ts");
-/* harmony import */ var _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./views/product-list/product-list.component */ "./src/app/adm/views/product-list/product-list.component.ts");
-/* harmony import */ var _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./views/products-load/products-load.component */ "./src/app/adm/views/products-load/products-load.component.ts");
-/* harmony import */ var _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./views/compra-producto/compra-producto.component */ "./src/app/adm/views/compra-producto/compra-producto.component.ts");
-/* harmony import */ var _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./views/agenda-pedido/agenda-pedido.component */ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts");
-/* harmony import */ var _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./views/lista-agendados/lista-agendados.component */ "./src/app/adm/views/lista-agendados/lista-agendados.component.ts");
-/* harmony import */ var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./views/ficha-pedido/ficha-pedido.component */ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
-/* harmony import */ var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./views/capture/capture.component */ "./src/app/adm/views/capture/capture.component.ts");
+/* harmony import */ var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular2-multiselect-dropdown */ "./node_modules/angular2-multiselect-dropdown/fesm2015/angular2-multiselect-dropdown.js");
+/* harmony import */ var _adm_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./adm-routing.module */ "./src/app/adm/adm-routing.module.ts");
+/* harmony import */ var _adm_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./adm.component */ "./src/app/adm/adm.component.ts");
+/* harmony import */ var _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layouts/navbar/navbar.component */ "./src/app/adm/layouts/navbar/navbar.component.ts");
+/* harmony import */ var _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./layouts/sidebar/sidebar.component */ "./src/app/adm/layouts/sidebar/sidebar.component.ts");
+/* harmony import */ var _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layouts/footer/footer.component */ "./src/app/adm/layouts/footer/footer.component.ts");
+/* harmony import */ var _modules_modules_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../modules/modules.module */ "./src/app/modules/modules.module.ts");
+/* harmony import */ var _views_main_main_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/main/main.component */ "./src/app/adm/views/main/main.component.ts");
+/* harmony import */ var _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/profile/profile.component */ "./src/app/adm/views/profile/profile.component.ts");
+/* harmony import */ var _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/staff-list/staff-list.component */ "./src/app/adm/views/staff-list/staff-list.component.ts");
+/* harmony import */ var _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/invitation/invitation.component */ "./src/app/adm/views/invitation/invitation.component.ts");
+/* harmony import */ var _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./tools/show-errors/show-errors.component */ "./src/app/adm/tools/show-errors/show-errors.component.ts");
+/* harmony import */ var _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/descendencia-ficha/descendencia-ficha.component */ "./src/app/adm/views/descendencia-ficha/descendencia-ficha.component.ts");
+/* harmony import */ var _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/descendencia-profile/descendencia-profile.component */ "./src/app/adm/views/descendencia-profile/descendencia-profile.component.ts");
+/* harmony import */ var _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/descendencia-list/descendencia-list.component */ "./src/app/adm/views/descendencia-list/descendencia-list.component.ts");
+/* harmony import */ var _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./views/invitation-list/invitation-list.component */ "./src/app/adm/views/invitation-list/invitation-list.component.ts");
+/* harmony import */ var _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../pipes/expedido.pipe */ "./src/app/pipes/expedido.pipe.ts");
+/* harmony import */ var _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../pipes/nombre.pipe */ "./src/app/pipes/nombre.pipe.ts");
+/* harmony import */ var _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./views/configuration/configuration.component */ "./src/app/adm/views/configuration/configuration.component.ts");
+/* harmony import */ var _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./views/product-list/product-list.component */ "./src/app/adm/views/product-list/product-list.component.ts");
+/* harmony import */ var _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./views/products-load/products-load.component */ "./src/app/adm/views/products-load/products-load.component.ts");
+/* harmony import */ var _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./views/compra-producto/compra-producto.component */ "./src/app/adm/views/compra-producto/compra-producto.component.ts");
+/* harmony import */ var _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./views/agenda-pedido/agenda-pedido.component */ "./src/app/adm/views/agenda-pedido/agenda-pedido.component.ts");
+/* harmony import */ var _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./views/lista-agendados/lista-agendados.component */ "./src/app/adm/views/lista-agendados/lista-agendados.component.ts");
+/* harmony import */ var _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./views/ficha-pedido/ficha-pedido.component */ "./src/app/adm/views/ficha-pedido/ficha-pedido.component.ts");
+/* harmony import */ var _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./views/capture/capture.component */ "./src/app/adm/views/capture/capture.component.ts");
+
 
 
 
@@ -7671,36 +11787,37 @@ let AdmModule = class AdmModule {
 AdmModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _adm_component__WEBPACK_IMPORTED_MODULE_6__["AdmComponent"],
-            _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
-            _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_8__["SidebarComponent"],
-            _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_9__["FooterComponent"],
-            _views_main_main_component__WEBPACK_IMPORTED_MODULE_11__["MainComponent"],
-            _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"],
-            _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_13__["StaffListComponent"],
-            _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_14__["InvitationComponent"],
-            _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_15__["ShowErrorsComponent"],
-            _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_16__["DescendenciaFichaComponent"],
-            _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_17__["DescendenciaProfileComponent"],
-            _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_19__["InvitationListComponent"],
-            _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_18__["DescendenciaListComponent"],
-            _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_20__["ExpedidoPipe"],
-            _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_21__["NombrePipe"],
-            _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_22__["ConfigurationComponent"],
-            _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_23__["ProductListComponent"],
-            _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_24__["ProductsLoadComponent"],
-            _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_25__["CompraProductoComponent"],
-            _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_26__["AgendaPedidoComponent"],
-            _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_27__["ListaAgendadosComponent"],
-            _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_28__["FichaPedidoComponent"],
-            _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_29__["CaptureComponent"]
+            _adm_component__WEBPACK_IMPORTED_MODULE_7__["AdmComponent"],
+            _layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
+            _layouts_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_9__["SidebarComponent"],
+            _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_10__["FooterComponent"],
+            _views_main_main_component__WEBPACK_IMPORTED_MODULE_12__["MainComponent"],
+            _views_profile_profile_component__WEBPACK_IMPORTED_MODULE_13__["ProfileComponent"],
+            _views_staff_list_staff_list_component__WEBPACK_IMPORTED_MODULE_14__["StaffListComponent"],
+            _views_invitation_invitation_component__WEBPACK_IMPORTED_MODULE_15__["InvitationComponent"],
+            _tools_show_errors_show_errors_component__WEBPACK_IMPORTED_MODULE_16__["ShowErrorsComponent"],
+            _views_descendencia_ficha_descendencia_ficha_component__WEBPACK_IMPORTED_MODULE_17__["DescendenciaFichaComponent"],
+            _views_descendencia_profile_descendencia_profile_component__WEBPACK_IMPORTED_MODULE_18__["DescendenciaProfileComponent"],
+            _views_invitation_list_invitation_list_component__WEBPACK_IMPORTED_MODULE_20__["InvitationListComponent"],
+            _views_descendencia_list_descendencia_list_component__WEBPACK_IMPORTED_MODULE_19__["DescendenciaListComponent"],
+            _pipes_expedido_pipe__WEBPACK_IMPORTED_MODULE_21__["ExpedidoPipe"],
+            _pipes_nombre_pipe__WEBPACK_IMPORTED_MODULE_22__["NombrePipe"],
+            _views_configuration_configuration_component__WEBPACK_IMPORTED_MODULE_23__["ConfigurationComponent"],
+            _views_product_list_product_list_component__WEBPACK_IMPORTED_MODULE_24__["ProductListComponent"],
+            _views_products_load_products_load_component__WEBPACK_IMPORTED_MODULE_25__["ProductsLoadComponent"],
+            _views_compra_producto_compra_producto_component__WEBPACK_IMPORTED_MODULE_26__["CompraProductoComponent"],
+            _views_agenda_pedido_agenda_pedido_component__WEBPACK_IMPORTED_MODULE_27__["AgendaPedidoComponent"],
+            _views_lista_agendados_lista_agendados_component__WEBPACK_IMPORTED_MODULE_28__["ListaAgendadosComponent"],
+            _views_ficha_pedido_ficha_pedido_component__WEBPACK_IMPORTED_MODULE_29__["FichaPedidoComponent"],
+            _views_capture_capture_component__WEBPACK_IMPORTED_MODULE_30__["CaptureComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_4__["NgxDatatableModule"],
-            _adm_routing_module__WEBPACK_IMPORTED_MODULE_5__["AdmRoutingModule"],
-            _modules_modules_module__WEBPACK_IMPORTED_MODULE_10__["ModulesModule"]
+            angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_5__["AngularMultiSelectModule"],
+            _adm_routing_module__WEBPACK_IMPORTED_MODULE_6__["AdmRoutingModule"],
+            _modules_modules_module__WEBPACK_IMPORTED_MODULE_11__["ModulesModule"]
         ]
     })
 ], AdmModule);
@@ -8280,7 +12397,7 @@ ShowErrorsComponent = ShowErrorsComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbS92aWV3cy9hZ2VuZGEtcGVkaWRvL2FnZW5kYS1wZWRpZG8uY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".cuppa-dropdown {\r\n    border: 1px #6c757d solid!important;\r\n    border-radius: 6px!important;\r\n    -webkit-border-radius: 6px!important;\r\n    -moz-border-radius: 6px!important;\r\n    -ms-border-radius: 6px!important;\r\n    -o-border-radius: 6px!important;\r\n}\r\n\r\n.muestraSeleccion {\r\n    display: block!important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtL3ZpZXdzL2FnZW5kYS1wZWRpZG8vYWdlbmRhLXBlZGlkby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksbUNBQW1DO0lBQ25DLDRCQUE0QjtJQUM1QixvQ0FBb0M7SUFDcEMsaUNBQWlDO0lBQ2pDLGdDQUFnQztJQUNoQywrQkFBK0I7QUFDbkM7O0FBRUE7SUFDSSx3QkFBd0I7QUFDNUIiLCJmaWxlIjoic3JjL2FwcC9hZG0vdmlld3MvYWdlbmRhLXBlZGlkby9hZ2VuZGEtcGVkaWRvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VwcGEtZHJvcGRvd24ge1xyXG4gICAgYm9yZGVyOiAxcHggIzZjNzU3ZCBzb2xpZCFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA2cHghaW1wb3J0YW50O1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA2cHghaW1wb3J0YW50O1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiA2cHghaW1wb3J0YW50O1xyXG4gICAgLW1zLWJvcmRlci1yYWRpdXM6IDZweCFpbXBvcnRhbnQ7XHJcbiAgICAtby1ib3JkZXItcmFkaXVzOiA2cHghaW1wb3J0YW50O1xyXG59XHJcblxyXG4ubXVlc3RyYVNlbGVjY2lvbiB7XHJcbiAgICBkaXNwbGF5OiBibG9jayFpbXBvcnRhbnQ7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -8312,6 +12429,9 @@ let AgendaPedidoComponent = class AgendaPedidoComponent {
         this.costoP = 0;
         this.compraP = '';
         this.costoVisible = false;
+        this.settingsConsumer = {};
+        this.selectedConsumer = [];
+        this.styleActual = '';
     }
     ngOnInit() {
         this.localCompany = JSON.parse(localStorage.getItem('userCompany'));
@@ -8323,6 +12443,14 @@ let AgendaPedidoComponent = class AgendaPedidoComponent {
                 this.costoVisible = true;
             }
             this.calculaTotal();
+            this.listClonConsumer = new Array();
+            this.settingsConsumer = {
+                addNewItemOnFilter: true,
+                singleSelection: true,
+                text: "Seleccione uno",
+                enableSearchFilter: true,
+                classes: ""
+            };
         }
         else {
             this.router.navigate(['/sign/login']);
@@ -8353,6 +12481,73 @@ let AgendaPedidoComponent = class AgendaPedidoComponent {
             this.router.navigate(['/compraProductos']);
         }, error => { console.log('Error al guardar los datos.'); });
     }
+    onSearch(event) {
+        this.pedido.telefono = event.target.value;
+        if (event.target.value.length >= 5) {
+            //dropdown-list tagToBody animated fadeIn
+            //list-filter $('.dropdown-list.tagToBody').addClass('muestraSeleccion');
+            let styleFinal = this.styleActual + 'display: block!important';
+            $('.list-filter').attr('style', 'display: none;');
+            $('.dropdown-list.tagToBody').attr('style', styleFinal);
+            $('#listConsumer').attr('style', 'display: block!important;');
+            this.connexion.get_dataWithParams('buscaConsumer', '?phone=' + event.target.value).subscribe(regis => {
+                this.onDeSelectAll(regis);
+                regis.forEach(client => {
+                    client.address.forEach(direccion => {
+                        this.listClonConsumer.push({ ci: '0', phone: client['phone'], name: client['name'], lastName: client['lastName'], address: direccion['especificLocation'], geo: direccion['geoData'] });
+                    });
+                    //this.selectedConsumer = this.listClonConsumer;
+                });
+            });
+        }
+        else {
+            if (event.target.value.length < 5) {
+                $('.dropdown-list.tagToBody').attr('style', this.styleActual);
+            }
+        }
+    }
+    onItemSelect(item) {
+        this.pedido.telefono = item.phone;
+        this.pedido.nombreCliente = item.name;
+        this.pedido.apellidoCliente = item.lastName;
+        this.pedido.direccion = item.address;
+        this.pedido.geolocalizacion = item.geo;
+        this.goSearchOut();
+        /*this.appt.clientId = item.id;
+        this.idClient = item.id;
+        this.nameClient = item.itemName;
+        this.client.forEach(myclient => {
+          if (myclient.clientID == this.idClient) {
+            this.nameTip = myclient.lastName + ', ' + myclient.firstName;
+            //this.memberTip = myclient.memberId;
+            //this.planTip = myclient.healthPlan;
+            //this.dobTip = myclient.dobFormat;
+          }
+        });*/
+    }
+    OnItemDeSelect(item) {
+        /*this.appt.clientId = item.id;
+        this.idClient = item.id;*/
+    }
+    onDeSelectAll(event) {
+        this.listClonConsumer = [];
+        this.selectedConsumer = [];
+    }
+    onSelectAll(event) {
+    }
+    /*goSearch(mySearch: ElementRef) {
+      mySearch.nativeElement.focus();
+      console.log(mySearch);
+    }*/ //(focus)="goSearchOut(mySearch)"
+    goSearchOut() {
+        $('.dropdown-list.tagToBody').attr('style', this.styleActual);
+        //$('#listConsumer').attr('style', 'display: none!important;');
+        //listConsumer
+    }
+    goSearch(mySearch) {
+        //mySearch.nativeElement.focus();
+        this.styleActual = $('.dropdown-list.tagToBody').attr('style');
+    }
     /*generaCodigoVerificacion = () => {
       return Math.random().toString(36).substring(7);
     }*/
@@ -8377,6 +12572,9 @@ AgendaPedidoComponent.ctorParameters = () => [
     { type: src_app_services_connexion_service__WEBPACK_IMPORTED_MODULE_4__["ConnexionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('mySearch', { static: false })
+], AgendaPedidoComponent.prototype, "mySearch", void 0);
 AgendaPedidoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-agenda-pedido',
@@ -9357,6 +13555,10 @@ let FichaPedidoComponent = class FichaPedidoComponent {
             this.cargaFichas(this.estadoActual);
         }, error => {
             console.log('Error: ' + error);
+        });
+        console.log('entró a cambio');
+        this.connexion.addObject('mailChangeStatus', element).subscribe(resp => {
+            console.log(resp);
         });
     }
     calculaEstado() {
@@ -11236,111 +15438,6 @@ NombrePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         name: 'nombre'
     })
 ], NombrePipe);
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/authentication-storage.service.ts":
-/*!************************************************************!*\
-  !*** ./src/app/services/authentication-storage.service.ts ***!
-  \************************************************************/
-/*! exports provided: AuthenticationStorageService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationStorageService", function() { return AuthenticationStorageService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let AuthenticationStorageService = class AuthenticationStorageService {
-    constructor() { }
-    isAuthenticated() {
-        //return this.getToken() == '1';
-        if (!this.getToken()) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    storeToken(token) {
-        localStorage.setItem("token", token);
-    }
-    getToken() {
-        return localStorage.getItem("userType");
-    }
-    removeToken() {
-        return localStorage.removeItem("token");
-    }
-};
-AuthenticationStorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], AuthenticationStorageService);
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/authentication.service.ts":
-/*!****************************************************!*\
-  !*** ./src/app/services/authentication.service.ts ***!
-  \****************************************************/
-/*! exports provided: AuthenticationService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _authentication_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentication-storage.service */ "./src/app/services/authentication-storage.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-
-
-
-
-
-let AuthenticationService = class AuthenticationService {
-    constructor(authenticate, router, http) {
-        this.authenticate = authenticate;
-        this.router = router;
-        this.http = http;
-    }
-    canActivate() {
-        if (!localStorage.getItem('userCi')) {
-            this.redirectLogin();
-        }
-        else {
-            return true;
-        }
-        /*if (!this.authenticate.isAuthenticated()) {
-          localStorage.clear();
-          console.log('You are not authorised to view this page');
-          this.redirectLogin();
-          return false;
-        }
-        return true;*/
-    }
-    redirectLogin() {
-        this.router.navigate(['/sign/login']);
-    }
-};
-AuthenticationService.ctorParameters = () => [
-    { type: _authentication_storage_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationStorageService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
-];
-AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], AuthenticationService);
 
 
 

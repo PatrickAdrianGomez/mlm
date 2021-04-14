@@ -1,4 +1,5 @@
 var Pedido = require('../models/pedido.model');
+var Consumer = require('../models/consumer.model');
 var Persona = require('../models/person.model');
 var ww = require('../configurations/webApiWhatsApp');
 
@@ -8,6 +9,7 @@ exports.creaPedido = async (req, res, next) => {
         let result = await Pedido.findOne(filter).sort({ _id: -1 });
         let miPedido = new Pedido();
         miPedido = req.body;
+        let consumers = await Consumer.findOne({ phone: miPedido.telefono });
         if (result) {
             let fechaUltimoPedido = result.fechaHora.getDate() + ':' + result.fechaHora.getMonth() + ':' + result.fechaHora.getFullYear();
             let fecha = new Date();
@@ -25,7 +27,15 @@ exports.creaPedido = async (req, res, next) => {
             miPedido.productos.forEach(prod => {
                 misProductos.push({ id: prod.id, nombre: prod.nombre, cantidad: prod.cantidad, costo: prod.costo });
             });
+            //var resp = updateConsumer(miPedido);
+
             setPedido(miPedido, misProductos);
+            if (consumers == null) {
+                setConsumer(miPedido);
+            } else {
+                updateConsumer(miPedido);
+            }
+
             await Persona.find({ 'vehiculo.placaVehiculo': { $exists: true } }, function (err, docs) {
                 for (let i = 0; i < docs.length; i++) {
                     let body = {'phone': '591'+ docs[i].contact.phone, 'body': '*Universal delivery* \n Hay un nuevo pedido registrado, ingrese al sistema para su atención.\n http://ventunentregas.com/pedidos/1'};
@@ -33,12 +43,41 @@ exports.creaPedido = async (req, res, next) => {
                 }
             });
 
-            generateMensajes(miPedido);
+            //generateMensajes(miPedido);
             res.status(200).json({ 'pedido': nuevoPedido });
         } catch (error) {
             res.status(200).json({ 'pedido': null });
         }
     }
+}
+
+exports.changeStatus = (req, res) => {
+    let estado;
+    switch (req.body.estadoActual) {
+        case 1:
+            estado = '*agendado* y a la espera del personal de delivery.';
+            break;
+        case 2:
+            estado = '*asignado* a un conductor.';
+            break;
+        case 3:
+            estado = 'ya en camino, en breve podrá disfrutar de su pedido.';
+            break;
+        case 4:
+            estado = 'cuatro';
+            break;
+        case 5:
+            estado = '*entregado*. \n Agradecemos su confianza.';
+            break;
+        case 0:
+            estado = '*cancelado*. \n Lamentamos los inconvenientes.';
+            break;
+        default:
+            break;
+    }
+    let body = { 'phone': '591' + req.body.telefono, 'body': '*Estimado ' + req.body.nombreCliente + '.* \n Su pedido se encuentra ' + estado + '.' };
+    ww.sendWhtspp(body, res);
+    res.status(200).json({ 'mensaje': 'enviado' });
 }
 
 setPedido = (pedido, productos) => {
@@ -74,4 +113,27 @@ setPedido = (pedido, productos) => {
         }
     });
     newPedido.save();
+};
+
+setConsumer = (pedidoCompleto) => {
+    let newConsumer = new Consumer({
+        ci: pedidoCompleto.ci,
+        phone: pedidoCompleto.telefono,
+        name: pedidoCompleto.nombreCliente,
+        lastName: pedidoCompleto.apellidoCliente,
+        address: [{
+            geoData: pedidoCompleto.geolocalizacion,
+            especificLocation: pedidoCompleto.direccion,
+        }],
+        estado: 1
+    });
+    newConsumer.save();
+};
+
+updateConsumer = async (pedidoCompleto) => {
+    return resp = await Consumer.findOneAndUpdate(
+        { phone: pedidoCompleto.telefono },
+        { $push: { address: { geoData: pedidoCompleto.geolocalizacion, especificLocation: pedidoCompleto.direccion } } },
+        { new: true }
+    );
 };

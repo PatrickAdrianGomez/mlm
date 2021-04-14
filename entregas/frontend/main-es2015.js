@@ -83,6 +83,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sign/login/login.component */ "./src/app/sign/login/login.component.ts");
 /* harmony import */ var _sign_register_register_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sign/register/register.component */ "./src/app/sign/register/register.component.ts");
 /* harmony import */ var _sign_recover_recover_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sign/recover/recover.component */ "./src/app/sign/recover/recover.component.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
+
 
 
 
@@ -99,6 +101,7 @@ const routes = [
     },
     {
         path: '',
+        canActivate: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]],
         loadChildren: () => __webpack_require__.e(/*! import() | adm-adm-module */ "adm-adm-module").then(__webpack_require__.bind(null, /*! ./adm/adm.module */ "./src/app/adm/adm.module.ts")).then(m => m.AdmModule)
     }
 ];
@@ -351,6 +354,111 @@ class user {
 
 /***/ }),
 
+/***/ "./src/app/services/authentication-storage.service.ts":
+/*!************************************************************!*\
+  !*** ./src/app/services/authentication-storage.service.ts ***!
+  \************************************************************/
+/*! exports provided: AuthenticationStorageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationStorageService", function() { return AuthenticationStorageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AuthenticationStorageService = class AuthenticationStorageService {
+    constructor() { }
+    isAuthenticated() {
+        //return this.getToken() == '1';
+        if (!this.getToken()) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    storeToken(token) {
+        localStorage.setItem("token", token);
+    }
+    getToken() {
+        return localStorage.getItem("userType");
+    }
+    removeToken() {
+        return localStorage.removeItem("token");
+    }
+};
+AuthenticationStorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthenticationStorageService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/authentication.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/services/authentication.service.ts ***!
+  \****************************************************/
+/*! exports provided: AuthenticationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _authentication_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentication-storage.service */ "./src/app/services/authentication-storage.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+
+let AuthenticationService = class AuthenticationService {
+    constructor(authenticate, router, http) {
+        this.authenticate = authenticate;
+        this.router = router;
+        this.http = http;
+    }
+    canActivate() {
+        if (!localStorage.getItem('userCi')) {
+            this.redirectLogin();
+        }
+        else {
+            return true;
+        }
+        /*if (!this.authenticate.isAuthenticated()) {
+          localStorage.clear();
+          console.log('You are not authorised to view this page');
+          this.redirectLogin();
+          return false;
+        }
+        return true;*/
+    }
+    redirectLogin() {
+        this.router.navigate(['/sign/login']);
+    }
+};
+AuthenticationService.ctorParameters = () => [
+    { type: _authentication_storage_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationStorageService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+];
+AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthenticationService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/connexion.service.ts":
 /*!***********************************************!*\
   !*** ./src/app/services/connexion.service.ts ***!
@@ -539,9 +647,12 @@ const globalRoutes = {
     products: 'api/v1/qproducts',
     pedido: 'api/v1/qpedido',
     creaPedido: 'api/v1/pedido',
+    consumer: 'api/v1/qconsumer',
+    buscaConsumer: 'api/v1/getConsumers',
     mailSender: 'api/v1/mailSender',
     userVerification: 'api/v1/userVerification',
     mailProduct: 'api/v1/mailProduct',
+    mailChangeStatus: 'api/v1/changeStatus',
     user: 'api/v1/quser',
     login: 'api/v1/login',
     register: 'api/v1/register',

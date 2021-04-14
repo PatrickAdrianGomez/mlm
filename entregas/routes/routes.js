@@ -17,6 +17,7 @@ var TypeContext = require('../models/typeContext');
 var Context = require('../models/contexto');
 var Product = require('../models/products.model');
 var Pedidos = require('../models/pedido.model');
+const Consumer = require('../models/consumer.model');
 
 User.methods(['get', 'put', 'post', 'delete']);
 User.updateOptions({ new: true });
@@ -57,4 +58,9 @@ Product.register(router, '/qproducts');
 Pedidos.methods(['get', 'put', 'post', 'delete']);
 Pedidos.updateOptions({new: true});
 Pedidos.register(router, '/qpedido');
+
+Consumer.methods(['get', 'put', 'post', 'delete']);
+Consumer.updateOptions({new: true});
+Consumer.register(router, '/qconsumer');
+
 module.exports = router;

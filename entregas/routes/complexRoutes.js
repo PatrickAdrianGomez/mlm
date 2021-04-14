@@ -2,6 +2,7 @@ const usersController = require('../controllers/user.controller');
 const fileController = require('../controllers/file.controller');
 const pedidoController = require('../controllers/pedido.controller');
 const whtspp = require('../configurations/webApiWhatsApp');
+const consumerController = require('../controllers/consumer.controller');
 //const mailController = require('../controllers/mail.controller');
 
 var express = require('express');
@@ -17,6 +18,7 @@ const AuthenticateJWT = passport.authenticate('jwt', { session: false });
 router.get('/login', usersController.userLogin);
 router.post('/register', usersController.userRegister);
 router.get('/recover', usersController.passwordRecover);
+router.get('/getConsumers', consumerController.buscaConsumer);
 
 router.post('/invitation', usersController.registerInvitation);
 router.get('/invitation', usersController.getAllInvitations);
@@ -30,6 +32,7 @@ router.post('/image', AuthenticateJWT, fileController.upload);
 router.post('/connectW', whtspp.conectWhtspp);
 router.post('/sendW', whtspp.sendWhtspp);
 
+router.post('/changeStatus', pedidoController.changeStatus);
 //router.post('/mailSender', mailController.mailSender);
 //router.get('/mailReciver', mailController.decryURL);
 

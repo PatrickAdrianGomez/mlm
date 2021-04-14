@@ -21,35 +21,29 @@ seleccionCuerpo = (opcion = 0, cuerpo) => {
 }
 
 cabecera = (cuerpo) => {
-    return `<!--[if (gte mso 9)|(IE)]>
-    <table width="425" align="left" cellpadding="0" cellspacing="0" border="0">
-        <tr>
+    return `<table width="100%" style="border-spacing: 0;">
+        <tr style="background-color: #391261;">
             <td>
-            <![endif]-->
-    <table class="col425" align="left" border="0" cellpadding="0" cellspacing="0"
-    style="width:100%;max-width:425px;">
-    <tr>
-    <td height="70">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td class="subhead" style="padding:0 0 0 3px;color:#fdb928;">
-                MLM
+                <!--<a href="http://www.allasite.com">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVbw-cygTiLkBqV7Jov7xEh_KKm8eCs4fDwQ&usqp=CAU"
+                        alt="Logo" width="150"></a>-->
+            </td>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="subhead" style="padding-left: 5px; color: #fdb928;">
+                            MLM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="h1" style="padding-top: 5px; color: #fdb928;">
+                            ` + cuerpo.cabecera.saludo + `
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
-        <tr>
-            <td class="h1" style="padding:5px 0 0 0;color:#fdb928;">
-                ` + cuerpo.cabecera.saludo + `
-            </td>
-        </tr>
-    </table>
-    </td>
-    </tr>
-    </table>
-    <!--[if (gte mso 9)|(IE)]>
-            </td>
-        </tr>
-    </table>
-    <![endif]-->`;
+    </table>`;
 }
 
 verificacion = (cuerpo) => {
