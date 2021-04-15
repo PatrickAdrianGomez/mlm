@@ -33,7 +33,9 @@ exports.creaPedido = async (req, res, next) => {
             if (consumers == null) {
                 setConsumer(miPedido);
             } else {
-                updateConsumer(miPedido);
+                if (!verificaDatos(consumers, req.body)) {
+                    updateConsumer(miPedido);
+                }
             }
 
             await Persona.find({ 'vehiculo.placaVehiculo': { $exists: true } }, function (err, docs) {
@@ -76,7 +78,7 @@ exports.changeStatus = (req, res) => {
             break;
     }
     let body = { 'phone': '591' + req.body.telefono, 'body': '*Estimado ' + req.body.nombreCliente + '.* \n Su pedido se encuentra ' + estado + '.' };
-    ww.sendWhtspp(body, res);
+    //ww.sendWhtspp(body, res);
     res.status(200).json({ 'mensaje': 'enviado' });
 }
 
@@ -137,3 +139,13 @@ updateConsumer = async (pedidoCompleto) => {
         { new: true }
     );
 };
+
+verificaDatos = (datosBD, datosFrontEnd) => {
+    resp = false;
+    datosBD.address.forEach(element => {
+        if ((element.geoData == datosFrontEnd.geolocalizacion) && (element.especificLocation == datosFrontEnd.direccion)) {
+            resp = true;
+        }
+    });
+    return resp;
+}
