@@ -11290,7 +11290,7 @@ module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg\" data=\"blue\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sidebar\" style=\"height: 85vh;\">\n  <div class=\"logo\">\n    <a class=\"simple-text\">\n      <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n        <img src=\"/assets/img/ventun.png\" />\n      </div>\n    </a>\n  </div>\n\n  <div class=\"sidebar-wrapper\">\n    <ul class=\"nav\">\n      <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n        <!--If is a single link-->\n        <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link' && menuitem.visible\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}</p>\n        </a>\n        <!--If it have a submenu-->\n        <a data-toggle=\"collapse\" href=\"#{{ menuitem.collapse }}\" *ngIf=\"menuitem.type === 'sub' && menuitem.visible\"\n          (click)=\"myFunc($event, menuitem); (menuitem.isCollapsed = !menuitem.isCollapsed)\"\n          [attr.aria-expanded]=\"!menuitem.isCollapsed\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n        </a>\n\n        <!--Display the submenu items-->\n        <div id=\"{{ menuitem.collapse }}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n          <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\">\n              <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </li>\n      <li style=\"visibility: hidden; height: 80px;\"></li>\n    </ul>\n  </div>\n</div>"
+module.exports = "<div class=\"sidebar\" style=\"height: 85vh; overflow: hidden;\">\n  <div class=\"logo\">\n    <a class=\"simple-text\">\n      <div class=\"logo-img\" (click)=\"minimizeSidebar()\">\n        <ng-container *ngIf=\"isCollapsedMenu;else templateName\">\n          <img src=\"/assets/img/ventun.png\" />\n        </ng-container>\n        <ng-template #templateName>\n          <img src=\"/assets/img/ventun.png\" />\n        </ng-template>\n      </div>\n    </a>\n  </div>\n\n  <div class=\"sidebar-wrapper\">\n    <ul class=\"nav\">\n      <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\">\n        <!--If is a single link-->\n        <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link' && menuitem.visible\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}</p>\n        </a>\n        <!--If it have a submenu-->\n        <a data-toggle=\"collapse\" href=\"#{{ menuitem.collapse }}\" *ngIf=\"menuitem.type === 'sub' && menuitem.visible\"\n          (click)=\"myFunc($event, menuitem); (menuitem.isCollapsed = !menuitem.isCollapsed)\"\n          [attr.aria-expanded]=\"!menuitem.isCollapsed\">\n          <i class=\"tim-icons {{ menuitem.icontype }}\"></i>\n          <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\n        </a>\n\n        <!--Display the submenu items-->\n        <div id=\"{{ menuitem.collapse }}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n          <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\">\n              <a [routerLink]=\"[menuitem.path, childitem.path]\">\n                <span class=\"sidebar-mini-icon\">{{ childitem.ab }}</span>\n                <span class=\"sidebar-normal\">{{ childitem.title }}</span>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </li>\n      <li style=\"visibility: hidden; height: 80px;\"></li>\n    </ul>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -12031,8 +12031,19 @@ var misc = {
 };
 var permissions = [
     {
+        // AQUEL ADMINISTRADOR QUE NO TIENE ASIGNADO UNA SUCURSAL O SUCURSAL = 0
+        RoleID: 'ger',
+        menuView: ["Registro de Ventas"],
+        subMenuView: []
+    },
+    {
         RoleID: 'adm',
         menuView: [],
+        subMenuView: []
+    },
+    {
+        RoleID: 'cen',
+        menuView: ["Registro de Ventas", "Registro de Usuarios", "Productos", "Pedidos"],
         subMenuView: []
     },
     {
@@ -12049,12 +12060,7 @@ var permissions = [
         RoleID: 'rep',
         menuView: ["Registro de Usuarios", "Registro de Ventas", 'Productos', 'Pedidos'],
         subMenuView: ["Lista de Productos", "Agregar Productos", "Lista de Pedidos"]
-    } /*,
-    {
-      RoleID: '20003',
-      menuView: ["Calendar", "Supervisors View", "STAFF","SERVICE", "REPORTS","IMPORT"],
-      subMenuView: ["client", "new-client"]
-    }*/
+    }
 ];
 //Menu Items
 const ROUTES = [
@@ -12074,25 +12080,13 @@ const ROUTES = [
         path: "/compraProductos",
         title: "Registro de Ventas",
         type: "link",
-        icontype: "icon-badge"
-    },
-    {
-        path: "/pedidos/1",
-        title: "Pendientes",
-        type: "link",
-        icontype: "icon-badge"
-    },
-    {
-        path: "/pedidos/2",
-        title: "Asignados",
-        type: "link",
-        icontype: "icon-badge"
+        icontype: "icon-cart"
     },
     {
         path: "",
         title: "Productos",
         type: "sub",
-        icontype: "icon-single-02",
+        icontype: "icon-app",
         collapse: "",
         isCollapsed: true,
         children: [
@@ -12101,16 +12095,16 @@ const ROUTES = [
         ]
     },
     {
-        path: "",
-        title: "Pedidos",
-        type: "sub",
-        icontype: "icon-single-02",
-        collapse: "",
-        isCollapsed: true,
-        children: [
-            { path: "pedidosAgendados", title: "Lista de Pedidos", type: "link", ab: "LP" } /*,
-            { path: "cargaProducto", title: "Agregar Productos", type: "link", ab: "AP" }*/
-        ]
+        path: "/pedidos/1",
+        title: "Pendientes",
+        type: "link",
+        icontype: "icon-paper"
+    },
+    {
+        path: "/pedidos/2",
+        title: "Asignados",
+        type: "link",
+        icontype: "icon-user-run"
     },
     /*{
       path: "#",
@@ -12128,26 +12122,36 @@ const ROUTES = [
         path: "/pedidos/3",
         title: "Recogidos",
         type: "link",
-        icontype: "icon-badge"
+        icontype: "icon-delivery-fast"
     },
     {
         path: "/pedidos/5",
         title: "Entregados",
         type: "link",
-        icontype: "icon-badge"
+        icontype: "icon-tap-02"
+    },
+    {
+        path: "",
+        title: "Pedidos",
+        type: "sub",
+        icontype: "icon-tap-02",
+        collapse: "",
+        isCollapsed: true,
+        children: [
+            { path: "pedidosAgendados", title: "Lista de Pedidos", type: "link", ab: "LP" } /*,
+            { path: "cargaProducto", title: "Agregar Productos", type: "link", ab: "AP" }*/
+        ]
     },
     {
         path: "#",
         title: "Reportes",
         type: "sub",
-        icontype: "icon-badge",
+        icontype: "icon-sound-wave",
         collapse: "reporte",
         isCollapsed: true,
         children: [
             { path: "reporte1", title: "Reporte 1", type: "link", ab: "R1" },
-            { path: "reporte2", title: "Reporte 2", type: "link", ab: "R2" },
-            { path: "reporte3", title: "Reporte 3", type: "link", ab: "R3" },
-            { path: "reporte4", title: "Reporte 4", type: "link", ab: "R4" }
+            { path: "reporte2", title: "Reporte 2", type: "link", ab: "R2" }
         ]
     } /*,
     {
@@ -12159,7 +12163,7 @@ const ROUTES = [
 ];
 let SidebarComponent = class SidebarComponent {
     constructor() {
-        this.isCollapsed = true;
+        this.isCollapsedMenu = true;
     }
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -12170,7 +12174,12 @@ let SidebarComponent = class SidebarComponent {
         let rol = '';
         switch (local[0].typeAccount) {
             case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].adm:
-                rol = 'adm';
+                if (local[0].sucursalName == 0) {
+                    rol = 'ger';
+                }
+                else {
+                    rol = 'adm';
+                }
                 break;
             case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_2__["userPermissions"].dist:
                 rol = 'dist';
@@ -12230,6 +12239,7 @@ let SidebarComponent = class SidebarComponent {
         this.sleep(10);
         if (menuitem.isCollapsing === undefined) {
             menuitem.isCollapsing = true;
+            this.isCollapsedMenu = true;
             // menuitem.isCollapsed = !menuitem.isCollapsed;
             var element = event.target;
             while (element.getAttribute("data-toggle") != "collapse" &&
@@ -12271,19 +12281,24 @@ let SidebarComponent = class SidebarComponent {
     }
     minimizeSidebar() {
         const body = document.getElementsByTagName('body')[0];
+        console.log('body ', body);
         if (body.classList.contains('sidebar-mini')) {
             misc.sidebar_mini_active = true;
+            this.isCollapsedMenu = true;
         }
         else {
             misc.sidebar_mini_active = false;
+            this.isCollapsedMenu = false;
         }
         if (misc.sidebar_mini_active === true) {
             body.classList.remove('sidebar-mini');
             misc.sidebar_mini_active = false;
+            this.isCollapsedMenu = false;
         }
         else {
             body.classList.add('sidebar-mini');
             misc.sidebar_mini_active = true;
+            this.isCollapsedMenu = true;
         }
         // we simulate the window Resize so the charts will get updated in realtime.
         const simulateWindowResize = setInterval(function () {
@@ -13284,7 +13299,7 @@ let FichaPedidoComponent = class FichaPedidoComponent {
         this.rolActual = this.buscaRol();
         this.ruta.paramMap.subscribe((params) => {
             this.estadoActual = params.get('estado');
-            if ((this.rolActual == 'rep') && (this.estadoActual == '1')) {
+            if (((this.rolActual == 'rep') || (this.rolActual == 'cen')) && (this.estadoActual == '1')) {
                 /*this.connexion.get_dataId<person>('person', localStorage.getItem('code')).subscribe(
                   resp => {
                     console.log('resp', resp);
@@ -13313,6 +13328,9 @@ let FichaPedidoComponent = class FichaPedidoComponent {
                 break;
             case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].sup:
                 rol = 'sup';
+                break;
+            case src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_5__["userPermissions"].cen:
+                rol = 'cen';
                 break;
             default:
                 rol = '';
@@ -13862,7 +13880,6 @@ let InvitationComponent = class InvitationComponent {
             this.ListCompany = reslo.filter(LOC => (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].delivery));
             this.ListRol = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].rol);
             this.ListVehiculo = reslo.filter(LOC => LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_10__["globalConfigurations"].vehiculo);
-            console.log("localStorage.getItem('actual')", localStorage.getItem('actual'));
             this.listSucursal = reslo.filter(LOC => LOC.owner == localStorage.getItem('actual'));
         }, error => {
             console.log('Hubo un problema al cargar datos. ' + error);
@@ -14079,10 +14096,10 @@ let InvitationComponent = class InvitationComponent {
             }
         });
         if (esDelivery) {
-            this.eliminaDeLista(['dist', 'sup']);
+            this.eliminaDeLista(['dist', 'sup', 'adm']);
         }
         else {
-            this.eliminaDeLista(['rep']);
+            this.eliminaDeLista(['rep', 'cen']);
         }
     }
     eliminaDeLista(arrRol) {

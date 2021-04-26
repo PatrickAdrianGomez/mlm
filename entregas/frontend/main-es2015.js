@@ -619,7 +619,11 @@ const globalConfigurations = {
 };
 const userPermissions = {
     adm: '5fd9b9f2b6598a11942984ef',
+    // CENTRALISTA ES EL ADMINISTRADOR DE LOS DELIVERYS
+    cen: '608711e2ae92e862a782d784',
+    //SOLO REGISTRA VENTAS
     dist: '5fd9bad9b6598a11942984f0',
+    //VE TODOS LOS PEDIDOS DE TODAS LAS EMPRESAS Y DESPUES DE ELEGIRLAS, SOLO VE LAS PROPIAS
     rep: '5fd9bae7b6598a11942984f1',
     sup: '5fd9baf7b6598a11942984f2'
 };
