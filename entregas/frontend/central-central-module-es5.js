@@ -158,13 +158,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CentralComponent", function() { return CentralComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _services_globalVars__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/globalVars */ "./src/app/services/globalVars.ts");
+
+
+
 
 
 var CentralComponent = /** @class */ (function () {
-    function CentralComponent() {
+    function CentralComponent(_router) {
+        this._router = _router;
     }
     CentralComponent.prototype.ngOnInit = function () {
+        if (!this.verificaUsuarioValido()) {
+            this._router.navigate(['/sign/login']);
+        }
     };
+    CentralComponent.prototype.verificaUsuarioValido = function () {
+        var hayCodigo = false;
+        try {
+            var codigo = localStorage.getItem('code').substr(1);
+            if (Object(util__WEBPACK_IMPORTED_MODULE_3__["isNull"])(codigo)) {
+                hayCodigo = false;
+            }
+            else {
+                var empresa = localStorage.getItem('userCompany');
+                empresa = JSON.parse(empresa);
+                if (_services_globalVars__WEBPACK_IMPORTED_MODULE_4__["empresaPermissions"].prin == empresa[0]['companyName']) {
+                    if (empresa[0]['sucursalName'] == 0) {
+                        hayCodigo = true;
+                    }
+                }
+            }
+        }
+        catch (error) {
+            hayCodigo = false;
+        }
+        return hayCodigo;
+    };
+    CentralComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
     CentralComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-central',

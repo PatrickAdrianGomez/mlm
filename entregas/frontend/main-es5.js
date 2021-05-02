@@ -52,7 +52,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 2em; vertical-align: center;\">\n    <div class=\"card-header text-center\">\n      <img src=\"assets/img/logos/v.png\" alt=\"Ventun\">\n      <h5>Cambio de Contraseña</h5>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <form class=\"col s12\" #formUser=\"ngForm\" (ngSubmit)=\"onSignIn()\">\n          <div class=\"form-group\">\n            <i class=\"fas fa-fingerprint\"></i>\n            <label for=\"ci\">&nbsp; Cédula de Identidad</label>\n            <input type=\"text\" class=\"form-control\" id=\"ci\" name=\"ci\" [(ngModel)]=\"user.ci\" #ci=\"ngModel\"\n              aria-describedby=\"ciHelp\" placeholder=\"Introduzca su CI\">\n            <small id=\"ciHelp\" class=\"form-text text-muted\">Su número de carnet incluida la extensión.</small>\n          </div>\n          <div class=\"form-group\">\n            <i class=\"fas fa-key\"></i>\n            <label for=\"password\">&nbsp; Contraseña Enviada por Correo</label>\n            <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"user.password\"\n              #password=\"ngModel\" placeholder=\"Introduzca su Contraseña\">\n            <div (click)=\"typeChange()\" class=\"ubicacion\">\n              <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n              <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password1\">&nbsp; Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password1\" name=\"password1\"\n                  [(ngModel)]=\"passwd1\" placeholder=\"Introduzca su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password2\">&nbsp; Repita Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password2\" name=\"password\"\n                  [(ngModel)]=\"passwd2\" placeholder=\"Repita su Nueva Contraseña\">\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div style=\"padding-bottom: 20px;\" class=\"text-center\">\n            <div class=\"row\">\n              <div class=\"col-12 col-md-2\"></div>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" type=\"submit\" name=\"action\">Cambio de Contraseña\n                <i class=\"fas fa-sign-in-alt\"></i>\n              </button>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" name=\"action\" (click)=\"vaTras()\">Cancelar\n              </button>\n              <div class=\"col-12 col-md-2\"></div>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!--\n    <div style=\"padding-bottom: 20px;\">\n      <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n        <i class=\"material-icons right\">send</i>\n      </button>\n    </div>\n    <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\"\n        rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n\n  </div>\n</div>-->"
+module.exports = "<div class=\"container\">\n  <div class=\"card\" style=\"top: 2em; vertical-align: center;\">\n    <div class=\"card-header text-center\">\n      <img src=\"assets/img/logos/v.png\" alt=\"Ventun\">\n      <h5>Cambio de Contraseña</h5>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <form class=\"col s12\" name=\"formRecover\" #formRecover=\"ngForm\" (ngSubmit)=\"onSignIn()\">\n          <div class=\"form-group\">\n            <i class=\"fas fa-fingerprint\"></i>\n            <label for=\"ci\">&nbsp; Cédula de Identidad</label>\n            <input type=\"text\" class=\"form-control\" id=\"ci\" name=\"ci\" [(ngModel)]=\"user.ci\" #ci=\"ngModel\"\n              aria-describedby=\"ciHelp\" placeholder=\"Introduzca su CI\" required>\n            <small id=\"ciHelp\" class=\"form-text text-muted\">Su número de carnet incluida la extensión.</small>\n          </div>\n          <div class=\"form-group\">\n            <i class=\"fas fa-key\"></i>\n            <label for=\"password\">&nbsp; Contraseña Enviada por Correo</label>\n            <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"user.password\"\n              #password=\"ngModel\" placeholder=\"Introduzca su Contraseña\">\n            <div (click)=\"typeChange()\" class=\"ubicacion\">\n              <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n              <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password1\">&nbsp; Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password1\" name=\"password1\" [(ngModel)]=\"passwd1\"\n                  placeholder=\"Introduzca su Nueva Contraseña\" required>\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-6\">\n              <div class=\"form-group\">\n                <i class=\"fas fa-key\"></i>\n                <label for=\"password2\">&nbsp; Repita Nueva Contraseña</label>\n                <input type=\"{{typeInput}}\" class=\"form-control\" id=\"password2\" name=\"password\" [(ngModel)]=\"passwd2\"\n                  placeholder=\"Repita su Nueva Contraseña\" required>\n                <div (click)=\"typeChange()\" class=\"ubicacion\">\n                  <i class=\"far fa-eye\" *ngIf=\"typeInput=='password'\" style=\"float: right;\"></i>\n                  <i class=\"far fa-eye-slash\" *ngIf=\"typeInput=='text'\" style=\"float: right;\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-row\" *ngIf=\"hayCodigo == false\">\n            <div class=\"form-group col-12\">\n              <div class=\"form-check\">\n                <label class=\"form-check-label\">\n                  <input id=\"estado\" name=\"estado\" type=\"checkbox\" class=\"form-control form-check-input\" ngModel required>\n                  <span class=\"form-check-sign\">\n                    Estoy de acuerdo con <a href=\"http://ventun.com/index.php/terms\" target=\"_blank\">Términos de\n                      Servicio</a>\n                    y <a href=\"http://ventun.com/index.php/privacy\" target=\"_blank\">Política de Privacidad</a>\n                  </span>\n                </label>\n              </div>\n            </div>\n          </div>\n\n          <div style=\"padding-bottom: 20px;\" class=\"text-center\">\n            <div class=\"form-row\">\n              <div class=\"col-12 col-md-2\"></div>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" [disabled]=\"formRecover.invalid\"\n                type=\"submit\" name=\"action\">Cambio de Contraseña\n                <i class=\"fas fa-sign-in-alt\"></i>\n              </button>\n              <button class=\"btn waves-effect waves-light red darken-4 col-12 col-md-4\" name=\"action\"\n                (click)=\"vaTras()\">Cancelar\n              </button>\n              <div class=\"col-12 col-md-2\"></div>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!--\n    <div style=\"padding-bottom: 20px;\">\n      <button class=\"btn waves-effect waves-light red darken-4\" type=\"submit\" name=\"action\">Recuperar\n        <i class=\"material-icons right\">send</i>\n      </button>\n    </div>\n    <span style=\"margin-left:20px;\"><a [routerLink]=\"['/sign/login']\" [routerLinkActive]=\"['linkActivo']\"\n        rel=\"noopener noreferrer\">Volver a Iniciar Sesión</a></span>\n\n  </div>\n</div>-->"
 
 /***/ }),
 
@@ -649,7 +649,7 @@ var ConnexionService = /** @class */ (function () {
 /*!****************************************!*\
   !*** ./src/app/services/globalVars.ts ***!
   \****************************************/
-/*! exports provided: globalVars, globalConfigurations, userPermissions, globalImages, jobs, globalImagesSize, globalRoutes */
+/*! exports provided: globalVars, globalConfigurations, userPermissions, empresaPermissions, globalImages, jobs, globalImagesSize, globalRoutes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -657,6 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalVars", function() { return globalVars; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalConfigurations", function() { return globalConfigurations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userPermissions", function() { return userPermissions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "empresaPermissions", function() { return empresaPermissions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImages", function() { return globalImages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jobs", function() { return jobs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalImagesSize", function() { return globalImagesSize; });
@@ -689,6 +690,9 @@ var userPermissions = {
     //VE TODOS LOS PEDIDOS DE TODAS LAS EMPRESAS Y DESPUES DE ELEGIRLAS, SOLO VE LAS PROPIAS
     rep: '5fd9bae7b6598a11942984f1',
     sup: '5fd9baf7b6598a11942984f2'
+};
+var empresaPermissions = {
+    prin: '5fd9b7c0b6598a11942984ec'
 };
 var globalImages = {};
 var jobs = [];
@@ -919,6 +923,18 @@ var RecoverComponent = /** @class */ (function () {
         this.user = new src_app_models_user__WEBPACK_IMPORTED_MODULE_2__["user"]();
     }
     RecoverComponent.prototype.ngOnInit = function () {
+        try {
+            var codigo = localStorage.getItem('code').substr(1);
+            if (Object(util__WEBPACK_IMPORTED_MODULE_5__["isNull"])(codigo)) {
+                this.hayCodigo = false;
+            }
+            else {
+                this.hayCodigo = true;
+            }
+        }
+        catch (error) {
+            this.hayCodigo = false;
+        }
     };
     RecoverComponent.prototype.onSignIn = function () {
         var _this = this;
@@ -928,7 +944,7 @@ var RecoverComponent = /** @class */ (function () {
                     if (!Object(util__WEBPACK_IMPORTED_MODULE_5__["isNullOrUndefined"])(userJWT)) {
                         localStorage.clear();
                         _this.loginWhitOutRegister(_this.user.ci, _this.passwd2);
-                        //this._router.navigate(['/sign/login']);
+                        _this._router.navigate(['/profile']);
                     }
                     else {
                         localStorage.clear();
@@ -1103,34 +1119,61 @@ var RegisterComponent = /** @class */ (function () {
     }
     RegisterComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.connexion.get_data('location').subscribe(function (reslo) {
-            _this.ListLOC = reslo;
-            _this.ListLOCMain = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].pais; });
-            _this.depasCI = _this.ListLOC.filter(function (LOC) { return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].ciudad; });
-            _this.ListCompany = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery); });
-            _this.ListRol = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol; });
-        }, function (error) {
-            console.log('Hubo un problema al cargar datos. ' + error);
-        });
-        /*this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-          this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
-        }, error => {
-          console.log('Hubo un problema al cargar datos. ' + error);
-        });
-        this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
-          console.log('typecontext', reslo)
-          this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
-        }, error => {
-          console.log('Hubo un problema al cargar datos. ' + error);
-        });*/
-        this.invitation.contact = this.contact;
-        this.invitation.vehiculo = this.vehiculo;
-        this.invitation.profile = this.profile;
-        this.contact.address = this.address;
-        this.contact.address.city = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
-        this.contact.address.state = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
-        this.contact.address.zone = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
-        //this.invitation.contact = this.contact;
+        if (this.verificaUsuarioValido()) {
+            this.connexion.get_data('location').subscribe(function (reslo) {
+                _this.ListLOC = reslo;
+                _this.ListLOCMain = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].pais; });
+                _this.depasCI = _this.ListLOC.filter(function (LOC) { return LOC.owner == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].ciudad; });
+                _this.ListCompany = reslo.filter(function (LOC) { return (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].company) || (LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].delivery); });
+                _this.ListRol = reslo.filter(function (LOC) { return LOC.typecon_id == src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["globalConfigurations"].rol; });
+            }, function (error) {
+                console.log('Hubo un problema al cargar datos. ' + error);
+            });
+            /*this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+              this.ListCompany = reslo.filter(LOC => (LOC.context_id == globalConfigurations.company) || (LOC.context_id == globalConfigurations.delivery));
+            }, error => {
+              console.log('Hubo un problema al cargar datos. ' + error);
+            });
+            this.connexion.get_data<TypeContext>('typecontext').subscribe(reslo => {
+              console.log('typecontext', reslo)
+              this.ListRol = reslo.filter(LOC => LOC.context_id == globalConfigurations.rol);
+            }, error => {
+              console.log('Hubo un problema al cargar datos. ' + error);
+            });*/
+            this.invitation.contact = this.contact;
+            this.invitation.vehiculo = this.vehiculo;
+            this.invitation.profile = this.profile;
+            this.contact.address = this.address;
+            this.contact.address.city = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+            this.contact.address.state = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+            this.contact.address.zone = new _models_schema__WEBPACK_IMPORTED_MODULE_5__["field"]();
+            //this.invitation.contact = this.contact;
+        }
+        else {
+            this._router.navigate(['/sign/login']);
+        }
+    };
+    RegisterComponent.prototype.verificaUsuarioValido = function () {
+        var hayCodigo = false;
+        try {
+            var codigo = localStorage.getItem('code').substr(1);
+            if (Object(util__WEBPACK_IMPORTED_MODULE_4__["isNull"])(codigo)) {
+                hayCodigo = false;
+            }
+            else {
+                var empresa = localStorage.getItem('userCompany');
+                empresa = JSON.parse(empresa);
+                if (src_app_services_globalVars__WEBPACK_IMPORTED_MODULE_7__["empresaPermissions"].prin == empresa[0]['companyName']) {
+                    if (empresa[0]['sucursalName'] == 0) {
+                        hayCodigo = true;
+                    }
+                }
+            }
+        }
+        catch (error) {
+            hayCodigo = false;
+        }
+        return hayCodigo;
     };
     RegisterComponent.prototype.onRegister = function () {
         var _this = this;
