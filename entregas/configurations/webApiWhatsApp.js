@@ -17,8 +17,8 @@ module.exports.conectWhtspp = async (req, res) => {
         .then(([user, chats, contacts, unread]) => {
             var authInfo = client.base64EncodedAuthInfo();
             fs.writeFileSync('auth_whtspp.json', JSON.stringify(authInfo, null, '\t'));
-            //console.log('Autenticaicón exitosa');
-            res.status(200).json({mensaje: 'Autenticación exitosa'});
+            console.log('Autenticaicón exitosa');
+            //res.status(200).json({mensaje: 'Autenticación exitosa'});
         }).catch((err) => console.log('Se encontró un error: ', err));
 
 };
@@ -30,7 +30,8 @@ module.exports.sendWhtspp = async (req, res) => {
     }
     client.sendTextMessage(`${req.phone}@s.whatsapp.net`, req.body, options)
         .then(
+            console.log('Notificación Enviada'),
             res.status(200).json({'WhatsApp': 'Notificación Enviada.'})
-            //console.log('Notificación Enviada')
+            
         );
 }
