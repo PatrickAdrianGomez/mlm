@@ -53,7 +53,7 @@ exports.creaPedido = async (req, res, next) => {
     }
 }
 
-exports.changeStatus = (req, res) => {
+exports.changeStatus = (req, res, next) => {
     let estado;
     switch (req.body.estadoActual) {
         case 1:
@@ -79,7 +79,7 @@ exports.changeStatus = (req, res) => {
     }
     let body = { 'phone': '591' + req.body.telefono, 'body': '*Estimado ' + req.body.nombreCliente + '.* \n Su pedido se encuentra ' + estado + '.' };
     ww.sendWhtspp(body, res);
-    res.status(200).json(body);
+    res.status(200).json({ 'mensaje': 'enviado a ' + req.body.telefono });
 }
 
 setPedido = (pedido, productos) => {
