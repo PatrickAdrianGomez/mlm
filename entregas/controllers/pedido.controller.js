@@ -77,9 +77,9 @@ exports.changeStatus = (req, res, next) => {
         default:
             break;
     }
-    let body = { 'phone': '591' + req.body.telefono, 'body': '*Estimado ' + req.body.nombreCliente + '.* \n Su pedido se encuentra ' + estado + '.' };
+    let body = { 'phone': '591' + req.body.telefono, 'body': '*Estimado ' + req.body.nombreCliente + '.* \n Su pedido se encuentra ' + estado };
     ww.sendWhtspp(body, res);
-    res.status(200).json({ 'mensaje': 'enviado a ' + req.body.telefono });
+    res.status(200).json({ 'mensaje': 'enviado a ' + body.phone });
 }
 
 setPedido = (pedido, productos) => {
