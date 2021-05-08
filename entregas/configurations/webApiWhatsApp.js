@@ -30,8 +30,8 @@ module.exports.sendWhtspp = async (req, res) => {
     }
     client.sendTextMessage(`${req.phone}@s.whatsapp.net`, req.body, options)
         .then(
-            console.log('Notificación Enviada'),
-            res.status(200).json({'WhatsApp': 'Notificación Enviada.'})
+            console.log('Notificación Enviada')
+            //res.status(200).json({'WhatsApp': 'Notificación Enviada.'})
             
         );
 }
