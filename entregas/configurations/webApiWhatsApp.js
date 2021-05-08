@@ -8,10 +8,9 @@ module.exports.conectWhtspp = async (req, res) => {
     try {
         const file = fs.readFileSync("auth_whtspp.json"); // load a closed session back if it exists
         authInfo = JSON.parse(file);
-    } catch { 
-        console.log('authInfo excepcion', authInfo);
+    } catch (error) {
+        console.log('authInfo excepcion', error);
     }
-
     //const authJSON = JSON.parse( fs.readFileSync("auth_whtspp.json") );
     client.connect(authInfo, 20*1000)
         .then(([user, chats, contacts, unread]) => {
