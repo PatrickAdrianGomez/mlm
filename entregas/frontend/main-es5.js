@@ -692,6 +692,7 @@ var userPermissions = {
     sup: '5fd9baf7b6598a11942984f2'
 };
 var empresaPermissions = {
+    // Empresa principal administradora de todo el sistema
     prin: '5fd9b7c0b6598a11942984ec'
 };
 var globalImages = {};

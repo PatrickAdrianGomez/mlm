@@ -12513,6 +12513,9 @@ let AgendaPedidoComponent = class AgendaPedidoComponent {
                     });
                     //this.selectedConsumer = this.listClonConsumer;
                 });
+                if (regis.length == 0) {
+                    $('.dropdown-list.tagToBody').attr('style', this.styleActual);
+                }
             });
         }
         else {

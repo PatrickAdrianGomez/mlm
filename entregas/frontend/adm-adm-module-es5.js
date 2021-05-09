@@ -14099,6 +14099,9 @@ var AgendaPedidoComponent = /** @class */ (function () {
                     });
                     //this.selectedConsumer = this.listClonConsumer;
                 });
+                if (regis.length == 0) {
+                    $('.dropdown-list.tagToBody').attr('style', _this.styleActual);
+                }
             });
         }
         else {
