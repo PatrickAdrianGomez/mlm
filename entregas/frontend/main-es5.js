@@ -553,7 +553,6 @@ var ConnexionService = /** @class */ (function () {
         var head;
         if (localStorage.getItem("token") == '') {
             auth = 'without';
-            console.log('Usuario sin permisos');
         }
         switch (auth) {
             case 'with':
@@ -581,17 +580,14 @@ var ConnexionService = /** @class */ (function () {
     };
     ConnexionService.prototype.get_data = function (ruta) {
         var subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subRuta);
         return this.http.get(this.url_base + subRuta, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) { return response; }));
     };
     ConnexionService.prototype.get_dataWithParams = function (ruta, params) {
         var subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subRuta + params);
         return this.http.get(this.url_base + subRuta + params, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) { return response; }));
     };
     ConnexionService.prototype.get_dataWithParamsOne = function (ruta, params) {
         var subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subRuta + params, this.generarAutorizacion('with'));
         return this.http.get(this.url_base + subRuta + params, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) { return response; }));
     };
     ConnexionService.prototype.get_dataWithParamsNoAuth = function (ruta, params) {
@@ -605,13 +601,11 @@ var ConnexionService = /** @class */ (function () {
     };
     ConnexionService.prototype.addObject = function (ruta, xobject) {
         var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subruta + "/");
         return this.http.post(this.url_base + subruta + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) { return res; }));
     };
     ConnexionService.prototype.editObject = function (ruta, xobject) {
         var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
         var xid = xobject['_id'];
-        console.log(this.url_base + subruta + "/" + xid + "/", xobject);
         return this.http.put(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) { return res; }));
     };
     ConnexionService.prototype.postData = function (ruta, data) {
@@ -620,12 +614,10 @@ var ConnexionService = /** @class */ (function () {
     };
     ConnexionService.prototype.delObject = function (ruta, id) {
         var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
         return this.http.delete(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) { return res; }));
     };
     ConnexionService.prototype.verifyUser = function (ruta) {
         var subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subruta);
         return this.http.post(this.url_base + subruta, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
             //console.log('resresresresresresresresresresresresresresres', res);
         }));

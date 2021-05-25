@@ -491,7 +491,6 @@ let ConnexionService = class ConnexionService {
         let head;
         if (localStorage.getItem("token") == '') {
             auth = 'without';
-            console.log('Usuario sin permisos');
         }
         switch (auth) {
             case 'with':
@@ -519,17 +518,14 @@ let ConnexionService = class ConnexionService {
     }
     get_data(ruta) {
         let subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subRuta);
         return this.http.get(this.url_base + subRuta, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => response));
     }
     get_dataWithParams(ruta, params) {
         let subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subRuta + params);
         return this.http.get(this.url_base + subRuta + params, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => response));
     }
     get_dataWithParamsOne(ruta, params) {
         let subRuta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subRuta + params, this.generarAutorizacion('with'));
         return this.http.get(this.url_base + subRuta + params, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => response));
     }
     get_dataWithParamsNoAuth(ruta, params) {
@@ -543,13 +539,11 @@ let ConnexionService = class ConnexionService {
     }
     addObject(ruta, xobject) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subruta + "/");
         return this.http.post(this.url_base + subruta + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     editObject(ruta, xobject) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
         let xid = xobject['_id'];
-        console.log(this.url_base + subruta + "/" + xid + "/", xobject);
         return this.http.put(this.url_base + subruta + "/" + xid + "/", xobject, { headers: this.generarAutorizacion('without') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     postData(ruta, data) {
@@ -558,12 +552,10 @@ let ConnexionService = class ConnexionService {
     }
     delObject(ruta, id) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        console.log(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') });
         return this.http.delete(this.url_base + subruta + "/" + id, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => res));
     }
     verifyUser(ruta) {
         let subruta = _globalVars__WEBPACK_IMPORTED_MODULE_3__["globalRoutes"][ruta];
-        //console.log(this.url_base + subruta);
         return this.http.post(this.url_base + subruta, { headers: this.generarAutorizacion('with') }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => {
             //console.log('resresresresresresresresresresresresresresres', res);
         }));
